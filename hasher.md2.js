@@ -86,7 +86,7 @@
         this.update(this.state.checksum);
 
         // Return hash
-        return this.state.hash.slice(0, 16);
+        return new CryptoApi.HashArray(this.state.hash.slice(0, 16));
     };
 
     CryptoApi.hashers.md2 = Md2;

@@ -9,15 +9,12 @@
     <div id="result"></div>
 </body>
 <script src="../crypto-api.js"></script>
+<script src="../enc.hex.js"></script>
 <script src="../hasher.md2.js"></script>
 <script>
     (function() {
-        var str='', hash = CryptoApi.hasher('md2', {}).update('test message').finalize();
-        for (var i = 0; i < hash.length; i++) {
-            var hex = hash[i].toString(16);
-            str += (hex.length < 2 ? '0' : '') + hex;
-        }
-        document.getElementById('result').innerHTML = str;
+        var hash = CryptoApi.hasher('md2', {}).update('test message').finalize().stringify('hex');
+        document.getElementById('result').innerHTML = hash;
     })();
 </script>
 </html>

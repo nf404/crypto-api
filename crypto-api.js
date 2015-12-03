@@ -54,7 +54,7 @@
     HasherInterface.prototype.finalize = function finalize() {};
     /**
      * Return current state
-     * @returns {Object}
+     * @returns {HashArray}
      */
     HasherInterface.prototype.getState = function getState() {
         return this.state;
@@ -111,9 +111,46 @@
         }
     };
 
+    /**
+     * Encode HashArray
+     *
+     * @param {number[]} hash
+     */
+    var EncodeInterface = function EncodeInterface(hash) {
+        this.hash = hash;
+    };
+    /**
+     * Stringify hash
+     *
+     * @returns {string}
+     */
+    EncodeInterface.prototype.stringify = function stringify() {
+        return this.hash.join(',');
+    };
+
+    /**
+     * Array of hash bytes
+     * @param {number[]} hash
+     */
+    var HashArray = function HashArray(hash) {
+        Array.prototype.push.apply(this, hash);
+    };
+    HashArray.prototype = Object.create(Array.prototype);
+    HashArray.prototype.constructor = HashArray;
+
+    HashArray.prototype.stringify = function stringify(method) {
+        if (root.CryptoApi.encodes[method] === undefined || (!root.CryptoApi.encodes[method] instanceof EncodeInterface)) {
+            throw Error('No encode method: ' + method);
+        }
+        var encode = new root.CryptoApi.encodes[method](this);
+        return encode.stringify();
+    };
+
     var CryptoApi = function CryptoApi () {};
     CryptoApi.prototype.HasherInterface = HasherInterface;
+    CryptoApi.prototype.EncodeInterface = EncodeInterface;
     CryptoApi.prototype.hashers = {};
+    CryptoApi.prototype.encodes = {};
     /**
      * Get new hasher object
      * @param {string} algo
@@ -130,5 +167,7 @@
     };
 
     root.CryptoApi = new CryptoApi();
+    root.CryptoApi.HashArray = HashArray;
+
     return root.CryptoApi;
 })(this);
