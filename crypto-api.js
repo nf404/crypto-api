@@ -69,6 +69,7 @@
     /**
      * Update message
      * @param {string|number[]} message
+     * @return {HasherInterface}
      */
     HasherInterface.prototype.update = function update(message) {
         if (typeof message == 'string') {
@@ -82,6 +83,7 @@
             this.message = this.message.concat(message);
         }
         this.process();
+        return this;
     };
     /**
      * Process ready blocks

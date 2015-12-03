@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hasher method basic usage</title>
+</head>
+<body>
+    Result of MD2('test message'):
+    <div id="result"></div>
+</body>
+<script src="../crypto-api.js"></script>
+<script src="../hasher.md2.js"></script>
+<script>
+    (function() {
+        var str='', hash = CryptoApi.hasher('md2', {}).update('test message').finalize();
+        for (var i = 0; i < hash.length; i++) {
+            var hex = hash[i].toString(16);
+            str += (hex.length < 2 ? '0' : '') + hex;
+        }
+        document.getElementById('result').innerHTML = str;
+    })();
+</script>
+</html>
