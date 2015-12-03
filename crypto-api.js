@@ -1,54 +1,71 @@
 (function (root) {
     'use strict';
-    
-    var HashAlgorithmInterface = function HashAlgorithm(options) {};
+
+    var HasherInterface = function HashAlgorithm(options) {};
     /**
      *  Size of unit in bytes (4 = 32 bits)
      * @type {number}
      */
-    HashAlgorithmInterface.prototype.unitSize = 4;
+    HasherInterface.prototype.unitSize = 4;
     /**
      * Bytes order in unit
      * 0 - normal
      * @type {number}
      */
-    HashAlgorithmInterface.prototype.unitOrder = 0;
+    HasherInterface.prototype.unitOrder = 0;
     /**
      * Size of block in units
      * @type {number}
      */
-    HashAlgorithmInterface.prototype.blockSize = 16;
+    HasherInterface.prototype.blockSize = 16;
     /**
      * All algorithm variables that changed during process
      * @type {Object}
      */
-    HashAlgorithmInterface.prototype.state = {};
+    HasherInterface.prototype.state = {};
     /**
      * Process ready block
      * @param {number[]} block
      */
-    HashAlgorithmInterface.prototype.processBlock = function processBlock(block) {};
+    HasherInterface.prototype.processBlock = function processBlock(block) {};
     /**
      * Process last block and return hash
      * @param {number[]} block
      * @return {number[]} hash
      */
-    HashAlgorithmInterface.prototype.finalize = function finalize(block) {};
+    HasherInterface.prototype.finalize = function finalize(block) {};
     /**
      * Return current state
      * @returns {Object}
      */
-    HashAlgorithmInterface.prototype.getState = function getState() {
+    HasherInterface.prototype.getState = function getState() {
         return this.state;
     };
     /**
      * Set state
      * @param {Object} state
      */
-    HashAlgorithmInterface.prototype.setState = function setState(state) {
+    HasherInterface.prototype.setState = function setState(state) {
         this.state = state;
     };
 
-    var Api = {};
+    var Api = function Api () {};
+    Api.prototype.HasherInterface = HasherInterface;
+    Api.prototype.hashers = {};
+    /**
+     * Get new hasher object
+     * @param {string} algo
+     * @param {Object} options
+     * @returns {HasherInterface}
+     */
+    Api.prototype.hasher = function hasher(algo, options) {
+        /** @type HasherInterface */
+        var hasher = this.hashers[algo];
+        if (hasher === undefined || (!hasher instanceof HasherInterface)) {
+            throw Error('No hash algorithm ' + algo);
+        }
+        return new hasher(options);
+    };
 
+    return new Api();
 })(this);
