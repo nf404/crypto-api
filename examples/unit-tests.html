@@ -10,6 +10,7 @@
 <div id="qunit-fixture"></div>
 </body>
 <script src="../crypto-api.js"></script>
+<script src="../enc.hex.js"></script>
 <script src="../hasher.md2.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qunit/1.18.0/qunit.min.js"></script>
 <script>
@@ -18,25 +19,25 @@
         // http://tools.ietf.org/html/rfc1319
         module("MD2");
         test("md2('')", function () {
-            strictEqual(CryptoApi.hasher('md2', {}).update('').stringify('hex'), '8350e5a3e24c153df2275c9f80692773', "Passed!");
+            strictEqual(CryptoApi.hasher('md2', {}).update('').finalize().stringify('hex'), '8350e5a3e24c153df2275c9f80692773', "Passed!");
         });
         test("md2('a')", function () {
-            strictEqual(CryptoApi.hasher('md2', {}).update('a').stringify('hex'), '32ec01ec4a6dac72c0ab96fb34c0b5d1', "Passed!");
+            strictEqual(CryptoApi.hasher('md2', {}).update('a').finalize().stringify('hex'), '32ec01ec4a6dac72c0ab96fb34c0b5d1', "Passed!");
         });
         test("md2('abc')", function () {
-            strictEqual(CryptoApi.hasher('md2', {}).update('abc').stringify('hex'), 'da853b0d3f88d99b30283a69e6ded6bb', "Passed!");
+            strictEqual(CryptoApi.hasher('md2', {}).update('abc').finalize().stringify('hex'), 'da853b0d3f88d99b30283a69e6ded6bb', "Passed!");
         });
         test("md2('message digest')", function () {
-            strictEqual(CryptoApi.hasher('md2', {}).update('message digest').stringify('hex'), 'ab4f496bfb2a530b219ff33031fe06b0', "Passed!");
+            strictEqual(CryptoApi.hasher('md2', {}).update('message digest').finalize().stringify('hex'), 'ab4f496bfb2a530b219ff33031fe06b0', "Passed!");
         });
         test("md2('abcdefghijklmnopqrstuvwxyz')", function () {
-            strictEqual(CryptoApi.hasher('md2', {}).update('abcdefghijklmnopqrstuvwxyz').stringify('hex'), '4e8ddff3650292ab5a4108c3aa47940b', "Passed!");
+            strictEqual(CryptoApi.hasher('md2', {}).update('abcdefghijklmnopqrstuvwxyz').finalize().stringify('hex'), '4e8ddff3650292ab5a4108c3aa47940b', "Passed!");
         });
         test("md2('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789')", function () {
-            strictEqual(CryptoApi.hasher('md2', {}).update('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789').stringify('hex'), 'da33def2a42df13975352846c30338cd', "Passed!");
+            strictEqual(CryptoApi.hasher('md2', {}).update('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789').finalize().stringify('hex'), 'da33def2a42df13975352846c30338cd', "Passed!");
         });
         test("md2('12345678901234567890123456789012345678901234567890123456789012345678901234567890')", function () {
-            strictEqual(CryptoApi.hasher('md2', {}).update('12345678901234567890123456789012345678901234567890123456789012345678901234567890').stringify('hex'), 'd5976f79d83d3a0dc9806c3c66f3efd8', "Passed!");
+            strictEqual(CryptoApi.hasher('md2', {}).update('12345678901234567890123456789012345678901234567890123456789012345678901234567890').finalize().stringify('hex'), 'd5976f79d83d3a0dc9806c3c66f3efd8', "Passed!");
         });
     })();
 </script>
