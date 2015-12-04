@@ -150,7 +150,6 @@
      * @returns {HasherInterface}
      */
     Hashers.prototype.get = function get(name, options) {
-        /** @type HasherInterface */
         var hasher = this.hashers[name];
         if (hasher === undefined || (!hasher instanceof HasherInterface)) {
             throw Error('No hash algorithm: ' + name);
@@ -180,7 +179,6 @@
      * @returns {EncodeInterface}
      */
     Encodes.prototype.get = function get(name, hash) {
-        /** @type EncodeInterface */
         var encode = this.encodes[name];
         if (encode === undefined || (!encode instanceof EncodeInterface)) {
             throw Error('No encode type: ' + name);
