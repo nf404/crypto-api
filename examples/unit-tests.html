@@ -13,6 +13,7 @@
 <script src="../enc.hex.js"></script>
 <script src="../hasher.md2.js"></script>
 <script src="../hasher.md4.js"></script>
+<script src="../hasher.md5.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qunit/1.18.0/qunit.min.js"></script>
 <script>
     (function () {
@@ -64,6 +65,31 @@
         });
         test("md4('12345678901234567890123456789012345678901234567890123456789012345678901234567890')", function () {
             strictEqual(CryptoApi.hash('md4','12345678901234567890123456789012345678901234567890123456789012345678901234567890',{}).stringify('hex'), 'e33b4ddc9c38f2199c3e7b164fcc0536', "Passed!");
+        });
+
+        // The MD5 test suite
+        // https://tools.ietf.org/html/rfc1321
+        module( "MD5" );
+        test("md5('')", function () {
+            strictEqual(CryptoApi.hash('md5','',{}).stringify('hex'), 'd41d8cd98f00b204e9800998ecf8427e', "Passed!");
+        });
+        test("md5('a')", function () {
+            strictEqual(CryptoApi.hash('md5','a',{}).stringify('hex'), '0cc175b9c0f1b6a831c399e269772661', "Passed!");
+        });
+        test("md5('abc')", function () {
+            strictEqual(CryptoApi.hash('md5','abc',{}).stringify('hex'), '900150983cd24fb0d6963f7d28e17f72', "Passed!");
+        });
+        test("md5('message digest')", function () {
+            strictEqual(CryptoApi.hash('md5','message digest',{}).stringify('hex'), 'f96b697d7cb7938d525a2f31aaf161d0', "Passed!");
+        });
+        test("md5('abcdefghijklmnopqrstuvwxyz')", function () {
+            strictEqual(CryptoApi.hash('md5','abcdefghijklmnopqrstuvwxyz',{}).stringify('hex'), 'c3fcd3d76192e4007dfb496cca67e13b', "Passed!");
+        });
+        test("md5('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789')", function () {
+            strictEqual(CryptoApi.hash('md5','ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',{}).stringify('hex'), 'd174ab98d277d9f5a5611c2c9f419d9f', "Passed!");
+        });
+        test("md5('12345678901234567890123456789012345678901234567890123456789012345678901234567890')", function () {
+            strictEqual(CryptoApi.hash('md5','12345678901234567890123456789012345678901234567890123456789012345678901234567890',{}).stringify('hex'), '57edf4a22be3c955ac49da2e2107b67a', "Passed!");
         });
     })(CryptoApi);
 </script>
