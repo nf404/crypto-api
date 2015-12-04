@@ -9,4 +9,5 @@
 ### Hashing algorithms
 * MD2
 
-`var hash = CryptoApi.hasher('md2', {}).update('test message').finalize().stringify('hex');`
+`var hash = CryptoApi.hash('md2', 'test message', {}).stringify('hex');`
+

@@ -49,12 +49,12 @@
     HasherInterface.prototype.processBlock = function processBlock(block) {};
     /**
      * Process last block and return hash
-     * @return {number[]} hash
+     * @return {HashArray} hash
      */
     HasherInterface.prototype.finalize = function finalize() {};
     /**
      * Return current state
-     * @returns {HashArray}
+     * @returns {Object}
      */
     HasherInterface.prototype.getState = function getState() {
         return this.state;
@@ -218,6 +218,16 @@
     CryptoApi.prototype.EncodeInterface = EncodeInterface;
     CryptoApi.prototype.Hashers = Hashers;
     CryptoApi.prototype.Encodes = Encodes;
+    /**
+     * Hash message with algo
+     * @param {string} algo
+     * @param {string} message
+     * @param {Object} options
+     * @return {HashArray} hash
+     */
+    CryptoApi.prototype.hash = function hash(algo, message, options) {
+        return this.hasher(algo, options).update(message).finalize();
+    };
     /**
      * Get new Hasher object
      * @param {string} algo

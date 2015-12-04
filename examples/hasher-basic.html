@@ -13,8 +13,11 @@
 <script src="../hasher.md2.js"></script>
 <script>
     (function() {
-        var hash = CryptoApi.hasher('md2', {}).update('test message').finalize().stringify('hex');
-        document.getElementById('result').innerHTML = hash;
+        try {
+            document.getElementById('result').innerHTML = CryptoApi.hash('md2', 'test message', {}).stringify('hex');
+        } catch (e) {
+            document.getElementById('result').innerHTML = 'Error: ' + e.message;
+        }
     })();
 </script>
 </html>
