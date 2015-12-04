@@ -19,6 +19,6 @@
         return str;
     };
 
-    CryptoApi.encodes.hex = Hex;
+    CryptoApi.Encodes.add('hex', Hex);
     return Hex;
 })(CryptoApi);

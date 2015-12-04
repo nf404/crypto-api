@@ -128,46 +128,114 @@
         return this.hash.join(',');
     };
 
+    var Hashers = function Hashes() {
+        this.hashers = {};
+    };
+    Hashers.prototype.hashers = {};
+    /**
+     *
+     * @param {string} name
+     * @param {HasherInterface} hasher
+     */
+    Hashers.prototype.add = function add(name, hasher) {
+        if (hasher === undefined || (!hasher instanceof HasherInterface)) {
+            throw Error('Error adding hasher: ' + name);
+        }
+        this.hashers[name] = hasher;
+    };
+    /**
+     *
+     * @param {string} name
+     * @param {Object} options
+     * @returns {HasherInterface}
+     */
+    Hashers.prototype.get = function get(name, options) {
+        /** @type HasherInterface */
+        var hasher = this.hashers[name];
+        if (hasher === undefined || (!hasher instanceof HasherInterface)) {
+            throw Error('No hash algorithm: ' + name);
+        }
+        return new hasher(options);
+    };
+
+    var Encodes = function Encodes() {
+        this.encodes = {};
+    };
+    Encodes.prototype.encodes = {};
+    /**
+     *
+     * @param {string} name
+     * @param {EncodeInterface} encode
+     */
+    Encodes.prototype.add = function add(name, encode) {
+        if (encode === undefined || (!encode instanceof EncodeInterface)) {
+            throw Error('Error adding encode: ' + name);
+        }
+        this.encodes[name] = encode;
+    };
+    /**
+     *
+     * @param {string} name
+     * @param {HashArray} hash
+     * @returns {EncodeInterface}
+     */
+    Encodes.prototype.get = function get(name, hash) {
+        /** @type EncodeInterface */
+        var encode = this.encodes[name];
+        if (encode === undefined || (!encode instanceof EncodeInterface)) {
+            throw Error('No encode type: ' + name);
+        }
+        return new encode(hash);
+    };
+
     /**
      * Array of hash bytes
      * @param {number[]} hash
+     * @param {Encodes} Encodes
      */
-    var HashArray = function HashArray(hash) {
+    var HashArray = function HashArray(hash, Encodes) {
         Array.prototype.push.apply(this, hash);
+        this.Encodes = Encodes;
     };
     HashArray.prototype = Object.create(Array.prototype);
+    HashArray.prototype.Encodes = Encodes;
     HashArray.prototype.constructor = HashArray;
 
+    /**
+     * Get hash as string
+     * @param {string} method
+     * @returns {string|*}
+     */
     HashArray.prototype.stringify = function stringify(method) {
-        if (root.CryptoApi.encodes[method] === undefined || (!root.CryptoApi.encodes[method] instanceof EncodeInterface)) {
-            throw Error('No encode method: ' + method);
-        }
-        var encode = new root.CryptoApi.encodes[method](this);
-        return encode.stringify();
+        return this.Encodes.get(method, this).stringify();
     };
 
-    var CryptoApi = function CryptoApi () {};
+    var CryptoApi = function CryptoApi () {
+        this.Hashers = new Hashers();
+        this.Encodes = new Encodes();
+    };
     CryptoApi.prototype.HasherInterface = HasherInterface;
     CryptoApi.prototype.EncodeInterface = EncodeInterface;
-    CryptoApi.prototype.hashers = {};
-    CryptoApi.prototype.encodes = {};
+    CryptoApi.prototype.Hashers = Hashers;
+    CryptoApi.prototype.Encodes = Encodes;
     /**
-     * Get new hasher object
+     * Get new Hasher object
      * @param {string} algo
      * @param {Object} options
      * @returns {HasherInterface}
      */
     CryptoApi.prototype.hasher = function hasher(algo, options) {
-        /** @type HasherInterface */
-        var hasher = this.hashers[algo];
-        if (hasher === undefined || (!hasher instanceof HasherInterface)) {
-            throw Error('No hash algorithm ' + algo);
-        }
-        return new hasher(options);
+        return this.Hashers.get(algo, options);
     };
-
+    /**
+     * Get new HashArray
+     * @param {number[]} hash
+     * @returns {HashArray}
+     */
+    CryptoApi.prototype.hashArray = function hashArray(hash) {
+        return new HashArray(hash, this.Encodes);
+    };
     root.CryptoApi = new CryptoApi();
-    root.CryptoApi.HashArray = HashArray;
 
     return root.CryptoApi;
 })(this);

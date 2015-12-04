@@ -11,7 +11,7 @@
         this.state.hash = new Array(48);
         this.state.checksum = new Array(16);
     };
-    var Hasher = function() {};
+    var Hasher = function () {};
     Hasher.prototype = CryptoApi.HasherInterface.prototype;
 
     Md2.prototype = new Hasher();
@@ -86,9 +86,9 @@
         this.update(this.state.checksum);
 
         // Return hash
-        return new CryptoApi.HashArray(this.state.hash.slice(0, 16));
+        return CryptoApi.hashArray(this.state.hash.slice(0, 16));
     };
 
-    CryptoApi.hashers.md2 = Md2;
+    CryptoApi.Hashers.add('md2', Md2);
     return Md2;
 })(CryptoApi);
