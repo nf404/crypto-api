@@ -186,6 +186,16 @@
         return new encode(hash);
     };
 
+    var Tools = function Tools() {};
+    /**
+     * Rotate x to n bits left
+     * @param {number} x
+     * @param {number} n
+     * @returns {number}
+     */
+    Tools.prototype.rotateLeft = function rotateLeft(x, n) {
+        return (x << n) | (x >>> (32 - n));
+    };
     /**
      * Array of hash bytes
      * @param {number[]} hash
@@ -211,11 +221,13 @@
     var CryptoApi = function CryptoApi () {
         this.Hashers = new Hashers();
         this.Encodes = new Encodes();
+        this.Tools = new Tools();
     };
     CryptoApi.prototype.HasherInterface = HasherInterface;
     CryptoApi.prototype.EncodeInterface = EncodeInterface;
     CryptoApi.prototype.Hashers = Hashers;
     CryptoApi.prototype.Encodes = Encodes;
+    CryptoApi.prototype.Tools = Tools;
     /**
      * Hash message with algo
      * @param {string} algo
