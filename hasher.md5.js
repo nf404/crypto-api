@@ -150,6 +150,7 @@
         for (i = 0; i < 4; i++) {
             padding.push((lengthBits >> (8 * i)) & 0xff);
         }
+        // @todo fix length to 64 bit
         for (i = 0; i < 4; i++) {
             padding.push(0);
         }

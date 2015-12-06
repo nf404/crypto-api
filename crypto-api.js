@@ -128,7 +128,7 @@
         return this.hash.join(',');
     };
 
-    var Hashers = function Hashes() {
+    var Hashers = function Hashers() {
         this.hashers = {};
     };
     Hashers.prototype.hashers = {};
