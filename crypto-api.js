@@ -6,11 +6,17 @@
     function (root) {
     'use strict';
 
-    var HasherInterface = function HasherInterface(options) {
+    var HasherInterface = function HasherInterface(name, options) {
+        this.name = name;
         this.message = [];
         this.length = 0;
         this.state.options = options;
     };
+    /**
+     * Hasher name
+     * @type {string}
+     */
+    HasherInterface.prototype.name = '';
     /**
      * Message
      * @type {number[]}
@@ -154,7 +160,7 @@
         if (hasher === undefined || (!hasher instanceof HasherInterface)) {
             throw Error('No hash algorithm: ' + name);
         }
-        return new hasher(options);
+        return new hasher(name, options);
     };
 
     var Encodes = function Encodes() {
