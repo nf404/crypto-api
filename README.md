@@ -12,6 +12,7 @@
 * [MD4](https://tools.ietf.org/html/rfc1320)
 * [MD5](https://tools.ietf.org/html/rfc1321)
 * SHA0
+* [SHA1](https://tools.ietf.org/html/rfc3174)
 
 ### Encodings
 * HEX
@@ -19,5 +20,5 @@
 ## Using
 
 ```javascript
-var hash = CryptoApi.hash('md4', 'test message', {}).stringify('hex');`
+var hash = CryptoApi.hash('md5', 'test message', {}).stringify('hex');`
 ```

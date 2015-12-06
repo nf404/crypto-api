@@ -15,6 +15,7 @@
 <script src="../hasher.md4.js"></script>
 <script src="../hasher.md5.js"></script>
 <script src="../hasher.sha0.js"></script>
+<script src="../hasher.sha1.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qunit/1.18.0/qunit.min.js"></script>
 <script>
     (function () {
@@ -115,6 +116,32 @@
         test("sha0('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789')", function () {
             strictEqual(CryptoApi.hash('sha0','ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',{}).stringify('hex'), '79e966f7a3a990df33e40e3d7f8f18d2caebadfa', "Passed!");
         });
+
+        // The SHA1 test suite
+        // http://tools.ietf.org/html/rfc3174
+        // http://csrc.nist.gov/publications/fips/fips180-2/fips180-2.pdf
+        // https://www.cosic.esat.kuleuven.be/nessie/testvectors/hash/sha/Sha-1-160.test-vectors
+        module( "SHA1" );
+        test("sha1('')", function () {
+            strictEqual(CryptoApi.hash('sha1','', {}).stringify('hex'), 'da39a3ee5e6b4b0d3255bfef95601890afd80709', "Passed!");
+        });
+        test("sha1('abc')", function () {
+            strictEqual(CryptoApi.hash('sha1','abc', {}).stringify('hex'), 'a9993e364706816aba3e25717850c26c9cd0d89d', "Passed!");
+        });
+        test("sha1('abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq')", function () {
+            strictEqual(CryptoApi.hash('sha1','abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq', {}).stringify('hex'), '84983e441c3bd26ebaae4aa1f95129e5e54670f1', "Passed!");
+        });
+        test("sha1('a..') [1000000 times]", function () {
+            var hash = CryptoApi.hasher('sha1',{});
+            for(var i = 0; i < 1000; i++) {
+                hash.update(new Array(1001).join('a'));
+            }
+            strictEqual(hash.finalize().stringify('hex'), '34aa973cd4c4daa4f61eeb2bdbad27316534016f', "Passed!");
+        });
+        test("sha1('0123456701234567012345670123456701234567012345670123456701234567..') [10 times]", function () {
+            strictEqual(CryptoApi.hash('sha1',new Array(11).join('0123456701234567012345670123456701234567012345670123456701234567'), {}).stringify('hex'), 'dea356a2cddd90c7a7ecedc5ebb563934f460452', "Passed!");
+        });
+
     })(CryptoApi);
 </script>
 </html>
