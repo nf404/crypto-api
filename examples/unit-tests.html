@@ -16,6 +16,7 @@
 <script src="../hasher.md5.js"></script>
 <script src="../hasher.sha0.js"></script>
 <script src="../hasher.sha1.js"></script>
+<script src="../hasher.sha256.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qunit/1.18.0/qunit.min.js"></script>
 <script>
     (function () {
@@ -142,6 +143,52 @@
             strictEqual(CryptoApi.hash('sha1',new Array(11).join('0123456701234567012345670123456701234567012345670123456701234567'), {}).stringify('hex'), 'dea356a2cddd90c7a7ecedc5ebb563934f460452', "Passed!");
         });
 
+        // The SHA224 test suite
+        // http://tools.ietf.org/html/rfc4634
+        module( "SHA224" );
+        test("sha224('')", function () {
+            strictEqual(CryptoApi.hash('sha224','',{}).stringify('hex'), 'd14a028c2a3a2bc9476102bb288234c415a2b01f828ea62ac5b3e42f', "Passed!");
+        });
+        test("sha224('abc')", function () {
+            strictEqual(CryptoApi.hash('sha224','abc',{}).stringify('hex'), '23097d223405d8228642a477bda255b32aadbce4bda0b3f7e36c9da7', "Passed!");
+        });
+        test("sha224('abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq')", function () {
+            strictEqual(CryptoApi.hash('sha224','abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq',{}).stringify('hex'), '75388b16512776cc5dba5da1fd890150b0c6455cb4f58b1952522525', "Passed!");
+        });
+        test("sha224('a..') [1000000 times]", function () {
+            var hash = CryptoApi.hasher('sha224',{});
+            for(var i = 0; i < 1000; i++) {
+                hash.update(new Array(1001).join('a'));
+            }
+            strictEqual(hash.finalize().stringify('hex'), '20794655980c91d8bbb4c1ea97618a4bf03f42581948b2ee4ee7ad67', "Passed!");
+        });
+        test("sha224('0123456701234567012345670123456701234567012345670123456701234567..') [10 times]", function () {
+            strictEqual(CryptoApi.hash('sha224',new Array(11).join('0123456701234567012345670123456701234567012345670123456701234567'),{}).stringify('hex'), '567f69f168cd7844e65259ce658fe7aadfa25216e68eca0eb7ab8262', "Passed!");
+        });
+
+        // The SHA256 test suite
+        // http://tools.ietf.org/html/rfc4634
+        module( "SHA256" );
+        test("sha256('')", function () {
+            strictEqual(CryptoApi.hash('sha256','',{}).stringify('hex'), 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', "Passed!");
+        });
+        test("sha256('abc')", function () {
+            strictEqual(CryptoApi.hash('sha256','abc',{}).stringify('hex'), 'ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad', "Passed!");
+        });
+        test("sha256('abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq')", function () {
+            strictEqual(CryptoApi.hash('sha256','abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq',{}).stringify('hex'), '248d6a61d20638b8e5c026930c3e6039a33ce45964ff2167f6ecedd419db06c1', "Passed!");
+        });
+        test("sha256('a..') [1000000 times]", function () {
+            var hash = CryptoApi.hasher('sha256',{});
+            for(var i = 0; i < 1000; i++) {
+                hash.update(new Array(1001).join('a'));
+            }
+
+            strictEqual(hash.finalize().stringify('hex'), 'cdc76e5c9914fb9281a1c7e284d73e67f1809a48a497200e046d39ccc7112cd0', "Passed!");
+        });
+        test("sha256('0123456701234567012345670123456701234567012345670123456701234567..') [10 times]", function () {
+            strictEqual(CryptoApi.hash('sha256',new Array(11).join('0123456701234567012345670123456701234567012345670123456701234567'),{}).stringify('hex'), '594847328451bdfa85056225462cc1d867d877fb388df0ce35f25ab5562bfbb5', "Passed!");
+        });
     })(CryptoApi);
 </script>
 </html>

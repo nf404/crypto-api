@@ -203,6 +203,15 @@
         return (x << n) | (x >>> (32 - n));
     };
     /**
+     * Rotate x to n bits right
+     * @param {number} x
+     * @param {number} n
+     * @returns {number}
+     */
+    Tools.prototype.rotateRight = function rotateLeft(x, n) {
+        return (x >>> n) | (x << (32 - n));
+    };
+    /**
      * Array of hash bytes
      * @param {number[]} hash
      * @param {Encodes} Encodes
