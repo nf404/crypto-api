@@ -20,7 +20,7 @@
 ### Encodings
 * HEX
 
-## Using
+## Using in browser
 
 ```javascript
 var hash = CryptoApi.hash('md2', 'test message', {}).stringify('hex');
@@ -36,4 +36,13 @@ var hash = CryptoApi.hash('sha1', 'test message', {}).stringify('hex');
 var hash = CryptoApi.hash('sha224', 'test message', {}).stringify('hex');
 
 var hash = CryptoApi.hash('sha256', 'test message', {}).stringify('hex');
+```
+
+## Using with node.js
+
+```javascript
+var CryptoApi = require('crypto-api');
+var hex = require('crypto-api/enc.hex');
+var md2 = require('crypto-api/hasher.md2');
+CryptoApi.hash('md2', '', {}).stringify('hex')
 ```

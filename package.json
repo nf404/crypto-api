@@ -1,0 +1,41 @@
+{
+  "name": "crypto-api",
+  "description": "Hashing and encrypting library with no depedencies",
+  "version": "0.1.0",
+  "homepage": "https://github.com/nf404/crypto-api/",
+  "author": {
+    "name": "Aleksandr Mogilnikov",
+    "email": "nf404.name@gmail.com",
+    "url": "https://nf404.name/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nf404/crypto-api.git"
+  },
+  "bugs": {
+    "url": "http://github.com/nf404/crypto-api/issues"
+  },
+  "main": "crypto-api.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "keywords": [
+    "hash",
+    "hashes",
+    "md2",
+    "md4",
+    "md5",
+    "sha0",
+    "sha1",
+    "sha224",
+    "sha256"
+  ]
+}

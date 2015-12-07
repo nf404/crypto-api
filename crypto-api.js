@@ -271,6 +271,9 @@
         return new HashArray(hash, this.Encodes);
     };
     root.CryptoApi = new CryptoApi();
-
-    return root.CryptoApi;
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = root.CryptoApi;
+    } else {
+        return root.CryptoApi;
+    }
 })(this);
