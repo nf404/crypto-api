@@ -9,5 +9,4 @@ node_js:
   - "0.6"
   - "iojs"
 after_success:
-- ./node_modules/.bin/jscoverage lib lib-cov
-- ./node_modules/.bin/mocha -R mocha-lcov-reporter | ./node_modules/coveralls/bin/coveralls.js
+  npm run coveralls

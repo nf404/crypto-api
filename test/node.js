@@ -1,9 +1,9 @@
 "use strict";
 
 var assert = require('assert');
-var CryptoApi = require('../');
-var hex = require('../enc.hex');
-var md2 = require('../hasher.md2');
+var CryptoApi = require('../lib/crypto-api');
+var hex = require('../lib/enc.hex');
+var md2 = require('../lib/hasher.md2');
 
 describe('Test vector MD2', function () {
     it('should have valid hash for md2("")', function () {

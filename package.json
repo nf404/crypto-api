@@ -15,17 +15,19 @@
   "bugs": {
     "url": "http://github.com/nf404/crypto-api/issues"
   },
-  "main": "crypto-api.js",
+  "main": "lib/crypto-api.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "coveralls": "./node_modules/.bin/jscoverage lib lib-cov && ./node_modules/.bin/mocha -R mocha-lcov-reporter | ./node_modules/coveralls/bin/coveralls.js"
   },
   "dependencies": {
   },
   "devDependencies": {
     "mocha": "*",
+    "jscoverage": "*",
     "coveralls": "*",
     "mocha-lcov-reporter": "*"
   },
