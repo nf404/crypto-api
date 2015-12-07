@@ -1,5 +1,7 @@
 # Crypto API for JavaScript
 
+[![Build Status](https://travis-ci.org/nf404/crypto-api.svg?branch=master)](https://travis-ci.org/nf404/crypto-api)
+
 ## Demo
 [Basic hasher usage](https://rawgit.com/nf404/crypto-api/master/examples/hasher-basic.html)
 
@@ -28,6 +30,8 @@ var hash = CryptoApi.hash('md4', 'test message', {}).stringify('hex');
 var hash = CryptoApi.hash('md5', 'test message', {}).stringify('hex');
 
 var hash = CryptoApi.hash('sha0', 'test message', {}).stringify('hex');
+
+var hash = CryptoApi.hash('sha1', 'test message', {}).stringify('hex');
 
 var hash = CryptoApi.hash('sha224', 'test message', {}).stringify('hex');
 
