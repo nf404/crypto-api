@@ -5,9 +5,9 @@
 [![NPM version](https://img.shields.io/npm/v/crypto-api.svg)](https://www.npmjs.com/package/crypto-api)
 
 ## Demo
-[Basic hasher usage](https://rawgit.com/nf404/crypto-api/master/examples/hasher-basic.html)
+[Basic hasher usage](https://rawgit.com/nf404/crypto-api/master/example/hasher-basic.html)
 
-[Unit tests](https://rawgit.com/nf404/crypto-api/master/examples/unit-tests.html)
+[Unit tests](https://rawgit.com/nf404/crypto-api/master/example/unit-tests.html)
 
 ## Features
 

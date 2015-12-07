@@ -1,7 +1,7 @@
 {
   "name": "crypto-api",
   "description": "Hashing and encrypting library with no depedencies",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "homepage": "https://github.com/nf404/crypto-api/",
   "author": {
     "name": "Aleksandr Mogilnikov",
@@ -15,9 +15,11 @@
   "bugs": {
     "url": "http://github.com/nf404/crypto-api/issues"
   },
-  "main": "lib/crypto-api.js",
+  "main": "crypto-api.js",
   "directories": {
-    "test": "test"
+    "test": "test",
+    "lib": "lib",
+    "example": "example"
   },
   "scripts": {
     "test": "mocha",
