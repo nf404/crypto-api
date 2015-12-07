@@ -21,3 +21,41 @@ Object.keys(TestVectors).forEach(function(hash) {
         });
     });
 });
+describe('Test Error handling', function () {
+    it("CryptoApi.hash('no-hasher')", function () {
+        var error = '';
+        try {
+            CryptoApi.hash('no-hasher', '', {});
+        } catch(e) {
+            error = e;
+        }
+        assert.equal(error instanceof Error, true);
+    });
+    it("CryptoApi.hash('md2').stringify('no-encode')", function () {
+        var error = '';
+        try {
+            CryptoApi.hash('md2', '', {}).stringify('no-encode');
+        } catch(e) {
+            error = e;
+        }
+        assert.equal(error instanceof Error, true);
+    });
+    it("CryptoApi.Hashers.add('undefined', undefined", function () {
+        var error = '';
+        try {
+            CryptoApi.Hashers.add('undefined', undefined);
+        } catch(e) {
+            error = e;
+        }
+        assert.equal(error instanceof Error, true);
+    });
+    it("CryptoApi.Encodes.add('undefined', undefined)", function () {
+        var error = '';
+        try {
+            CryptoApi.Encodes.add('undefined', undefined);
+        } catch(e) {
+            error = e;
+        }
+        assert.equal(error instanceof Error, true);
+    });
+});
