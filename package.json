@@ -15,7 +15,7 @@
   "bugs": {
     "url": "http://github.com/nf404/crypto-api/issues"
   },
-  "main": "crypto-api.js",
+  "main": "lib/crypto-api.js",
   "directories": {
     "test": "test",
     "lib": "lib",
