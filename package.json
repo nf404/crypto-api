@@ -1,7 +1,7 @@
 {
   "name": "crypto-api",
   "description": "Hashing and encrypting library with no depedencies",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "homepage": "https://github.com/nf404/crypto-api/",
   "author": {
     "name": "Aleksandr Mogilnikov",
@@ -24,7 +24,7 @@
   },
   "scripts": {
     "test": "mocha",
-    "coveralls": "./node_modules/.bin/mocha -r jscoverage -R mocha-lcov-reporter test | ./node_modules/coveralls/bin/coveralls.js"
+    "coveralls": "./node_modules/.bin/mocha -r jscoverage -R mocha-lcov-reporter test | ./node_modules/coveralls/bin/coveralls.js && ./node_modules/.bin/mocha -r jscoverage -R mocha-lcov-reporter test | ./node_modules/.bin/codacy-coverage"
   },
   "dependencies": {
   },
@@ -32,6 +32,7 @@
     "mocha": "*",
     "jscoverage": "*",
     "coveralls": "*",
+    "codacy-coverage": "*",
     "mocha-lcov-reporter": "*"
   },
   "keywords": [
