@@ -1,6 +1,8 @@
 # Crypto API for JavaScript
 
 [![Build Status](https://travis-ci.org/nf404/crypto-api.svg?branch=master)](https://travis-ci.org/nf404/crypto-api)
+[![Coverage Status](https://coveralls.io/repos/nf404/crypto-api/badge.svg?branch=master&service=github)](https://coveralls.io/github/nf404/crypto-api?branch=master)
+[![NPM version](https://img.shields.io/npm/v/crypto-api.svg)](https://www.npmjs.com/package/crypto-api)
 
 ## Demo
 [Basic hasher usage](https://rawgit.com/nf404/crypto-api/master/examples/hasher-basic.html)
