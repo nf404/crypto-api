@@ -25,7 +25,9 @@
   "dependencies": {
   },
   "devDependencies": {
-    "mocha": "*"
+    "mocha": "*",
+    "coveralls": "*",
+    "mocha-lcov-reporter": "*"
   },
   "keywords": [
     "hash",
