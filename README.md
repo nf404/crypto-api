@@ -2,7 +2,9 @@
 
 [![Build Status](https://travis-ci.org/nf404/crypto-api.svg?branch=master)](https://travis-ci.org/nf404/crypto-api)
 [![Coverage Status](https://coveralls.io/repos/nf404/crypto-api/badge.svg?branch=master&service=github)](https://coveralls.io/github/nf404/crypto-api?branch=master)
+[![Codacy Badge](https://api.codacy.com/project/badge/grade/aaf2b599d7194aeaa9bbb74ec8c6212c)](https://www.codacy.com/app/nf404-name/crypto-api)
 [![NPM version](https://img.shields.io/npm/v/crypto-api.svg)](https://www.npmjs.com/package/crypto-api)
+[![License Type](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
 
 ## Demo
 [Basic hasher usage](https://rawgit.com/nf404/crypto-api/master/example/hasher-basic.html)

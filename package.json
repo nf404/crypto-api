@@ -1,13 +1,14 @@
 {
   "name": "crypto-api",
   "description": "Hashing and encrypting library with no depedencies",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "homepage": "https://github.com/nf404/crypto-api/",
   "author": {
     "name": "Aleksandr Mogilnikov",
     "email": "nf404.name@gmail.com",
     "url": "https://nf404.name/"
   },
+  "license": "The MIT License (MIT)",
   "repository": {
     "type": "git",
     "url": "https://github.com/nf404/crypto-api.git"
