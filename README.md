@@ -46,7 +46,7 @@ var hash = CryptoApi.hash('sha256', 'test message', {}).stringify('hex');
 
 ```javascript
 var CryptoApi = require('crypto-api');
-require('crypto-api/enc.hex');
-require('crypto-api/hasher.md2');
-CryptoApi.hash('md2', '', {}).stringify('hex')
+require('crypto-api/lib/enc.hex');
+require('crypto-api/lib/hasher.md2');
+CryptoApi.hash('md2', '', {}).stringify('hex');
 ```
