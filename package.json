@@ -25,12 +25,13 @@
   "scripts": {
     "test": "mocha",
     "coveralls": "./node_modules/.bin/mocha -r jscoverage -R mocha-lcov-reporter test | ./node_modules/coveralls/bin/coveralls.js",
-    "codacy": "./node_modules/.bin/mocha -r jscoverage -R mocha-lcov-reporter test | ./node_modules/codacy-coverage/bin/codacy-coverage.js",
+    "codacy": "./node_modules/.bin/mocha --check-leaks -r jscoverage -R spec test | ./node_modules/codacy-coverage/bin/codacy-coverage.js",
     "codeclimate": "./node_modules/.bin/mocha -r jscoverage -R mocha-lcov-reporter test | ./node_modules/codeclimate-test-reporter/bin/codeclimate.js"
   },
   "dependencies": {
   },
   "devDependencies": {
+    "inchjs": "*",
     "mocha": "*",
     "jscoverage": "*",
     "coveralls": "*",
