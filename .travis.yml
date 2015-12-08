@@ -7,4 +7,6 @@ node_js:
   - "0.10"
   - "iojs"
 after_success:
-  npm run coveralls
+  - npm run coveralls
+  - npm run codacy
+  - npm run codeclimate
