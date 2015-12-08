@@ -1,4 +1,4 @@
-(function (root) {
+(function () {
     'use strict';
     var TestVectors = {
         'md2': {
@@ -169,4 +169,4 @@
     } else {
         return TestVectors;
     }
-})(this);
+})();
