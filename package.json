@@ -24,9 +24,9 @@
   },
   "scripts": {
     "test": "mocha",
-    "coveralls": "./node_modules/.bin/mocha --check-leaks -r jscoverage -R mocha-lcov-reporter test | ./node_modules/coveralls/bin/coveralls.js",
-    "codacy": "./node_modules/.bin/mocha --check-leaks -r jscoverage -R mocha-lcov-reporter test | ./node_modules/codacy-coverage/bin/codacy-coverage.js",
-    "codeclimate": "./node_modules/.bin/mocha --check-leaks -r jscoverage -R mocha-lcov-reporter test | ./node_modules/codeclimate-test-reporter/bin/codeclimate.js"
+    "coveralls": "./node_modules/.bin/mocha --check-leaks -r jscoverage -R mocha-lcov-reporter | ./node_modules/coveralls/bin/coveralls.js",
+    "codacy": "./node_modules/.bin/mocha --check-leaks -r jscoverage -R mocha-lcov-reporter | ./node_modules/.bin/codacy-coverage -d",
+    "codeclimate": "./node_modules/.bin/mocha --check-leaks -r jscoverage -R mocha-lcov-reporter | ./node_modules/codeclimate-test-reporter/bin/codeclimate.js"
   },
   "dependencies": {
   },
