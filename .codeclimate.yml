@@ -1,9 +1,5 @@
-languages:
-  JavaScript: true
 engines:
   eslint:
-    enabled: true
-  nodesecurity:
     enabled: true
   fixme:
     enabled: true
