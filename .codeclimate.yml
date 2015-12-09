@@ -1,0 +1,14 @@
+languages:
+  JavaScript: true
+engines:
+  eslint:
+    enabled: true
+  nodesecurity:
+    enabled: true
+  fixme:
+    enabled: true
+ratings:
+  paths:
+    - lib/**
+exclude_paths:
+  - test/**/*
