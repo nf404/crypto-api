@@ -1,6 +1,9 @@
 "use strict";
 
 var assert = require('assert');
+/**
+ * @type {CryptoApi}
+ */
 var CryptoApi = require('../lib/crypto-api');
 require('../lib/enc.hex');
 require('../lib/hasher.md2');
