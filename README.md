@@ -24,6 +24,9 @@
 * [SHA1](https://tools.ietf.org/html/rfc3174)
 * [SHA256 (SHA224)](https://tools.ietf.org/html/rfc4634)
 
+### MAC
+* [HMAC](https://tools.ietf.org/html/rfc2104)
+
 ### Encodings
 * HEX
 
@@ -43,6 +46,9 @@ var hash = CryptoApi.hash('sha1', 'test message', {}).stringify('hex');
 var hash = CryptoApi.hash('sha224', 'test message', {}).stringify('hex');
 
 var hash = CryptoApi.hash('sha256', 'test message', {}).stringify('hex');
+
+var hash_hmac = CryptoApi.mac('hmac', 'sha256', '', {}).update('test message')
+    .finalize().stringify('hex')
 ```
 
 ## Using with node.js
@@ -50,6 +56,6 @@ var hash = CryptoApi.hash('sha256', 'test message', {}).stringify('hex');
 ```javascript
 var CryptoApi = require('crypto-api');
 require('crypto-api/lib/enc.hex');
-require('crypto-api/lib/hasher.md2');
-CryptoApi.hash('md2', '', {}).stringify('hex');
+require('crypto-api/lib/hasher.sha256');
+CryptoApi.hash('sha256', '', {}).stringify('hex');
 ```
