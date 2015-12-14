@@ -42,6 +42,20 @@ Object.keys(TestVectorsHmac).forEach(function (hash) {
         });
     });
 });
+// Hash setState() getState() tests
+describe('Tests for hash setState() getState()', function () {
+    Object.keys(TestVectors).forEach(function (hash) {
+        it('hash ' + hash, function () {
+            var hash1 = CryptoApi.hash(hash, '1', {}).stringify('hex');
+            var hash2 = CryptoApi.hash(hash, '12', {}).stringify('hex');
+            var hash3 = CryptoApi.hasher(hash, {}).update('1');
+            var state = hash3.getState();
+            assert.equal(hash3.finalize().stringify('hex'), hash1);
+            assert.equal(hash3.setState(state).update('2').finalize().stringify('hex'), hash2);
+        });
+    });
+});
+// Error handling tests
 describe('Test Error handling', function () {
     it("CryptoApi.hash('no-hasher')", function () {
         var error = '';

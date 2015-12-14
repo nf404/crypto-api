@@ -48,7 +48,7 @@ var hash = CryptoApi.hash('sha224', 'test message', {}).stringify('hex');
 var hash = CryptoApi.hash('sha256', 'test message', {}).stringify('hex');
 
 var hash_hmac = CryptoApi.mac('hmac', 'sha256', '', {}).update('test message')
-    .finalize().stringify('hex')
+    .finalize().stringify('hex');
 ```
 
 ## Using with node.js
@@ -58,4 +58,17 @@ var CryptoApi = require('crypto-api');
 require('crypto-api/lib/enc.hex');
 require('crypto-api/lib/hasher.sha256');
 CryptoApi.hash('sha256', '', {}).stringify('hex');
+```
+
+## Saving state example
+
+```javascript
+var CryptoApi = require('crypto-api');
+require('crypto-api/lib/enc.hex');
+require('crypto-api/lib/hasher.sha256');
+
+var hasher = CryptoApi.hasher('sha256', {}).update('1');
+var state = hasher.getState();
+console.log(hasher.finalize().stringify('hex')); // print sha256('1')
+console.log(hasher.setState(state).update('2').finalize().stringify('hex')); // print sha256('12')
 ```
