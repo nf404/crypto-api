@@ -25,9 +25,10 @@
   "scripts": {
     "test": "mocha",
     "docs": "./node_modules/.bin/jsdoc2md lib/*.js",
-    "coveralls": "./node_modules/.bin/mocha --check-leaks -r jscoverage -R mocha-lcov-reporter | ./node_modules/coveralls/bin/coveralls.js",
-    "codacy": "./node_modules/.bin/mocha --check-leaks -r jscoverage -R mocha-lcov-reporter | ./node_modules/.bin/codacy-coverage -d",
-    "codeclimate": "./node_modules/.bin/mocha --check-leaks -r jscoverage -R mocha-lcov-reporter | ./node_modules/codeclimate-test-reporter/bin/codeclimate.js"
+    "testcover": "mocha --check-leaks -r jscoverage -R mocha-lcov-reporter > coverage/coverage.lcov",
+    "coveralls": "cat coverage/coverage.lcov | ./node_modules/coveralls/bin/coveralls.js",
+    "codacy": "cat coverage/coverage.lcov | ./node_modules/.bin/codacy-coverage -d",
+    "codeclimate": "cat coverage/coverage.lcov | ./node_modules/codeclimate-test-reporter/bin/codeclimate.js"
   },
   "dependencies": {
   },
@@ -36,6 +37,7 @@
     "jsdoc-to-markdown": "*",
     "inchjs": "*",
     "mocha": "*",
+    "chai": "*",
     "jscoverage": "*",
     "coveralls": "*",
     "codacy-coverage": "*",

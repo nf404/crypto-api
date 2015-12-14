@@ -1,6 +1,5 @@
 "use strict";
-
-var assert = require('assert');
+var assert = require('chai').assert;
 /**
  * @type {CryptoApi}
  */
