@@ -61,6 +61,15 @@ describe('Test Error handling', function () {
         }
         assert.equal(error instanceof Error, true);
     });
+    it("CryptoApi.mac('no-mac')", function () {
+        var error = '';
+        try {
+            CryptoApi.mac('no-mac', '', 'md2', {});
+        } catch(e) {
+            error = e;
+        }
+        assert.equal(error instanceof Error, true);
+    });
     it("CryptoApi.Hashers.add('undefined', undefined)", function () {
         var error = '';
         try {
@@ -74,6 +83,15 @@ describe('Test Error handling', function () {
         var error = '';
         try {
             CryptoApi.Encodes.add('undefined', undefined);
+        } catch(e) {
+            error = e;
+        }
+        assert.equal(error instanceof Error, true);
+    });
+    it("CryptoApi.Macs.add('undefined', undefined)", function () {
+        var error = '';
+        try {
+            CryptoApi.Macs.add('undefined', undefined);
         } catch(e) {
             error = e;
         }
