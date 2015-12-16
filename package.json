@@ -34,17 +34,17 @@
   "dependencies": {
   },
   "devDependencies": {
-    "jsdoc": "*",
-    "jsdoc-to-markdown": "*",
-    "inchjs": "*",
-    "mocha": "*",
-    "chai": "*",
-    "jscoverage": "*",
-    "istanbul": "*",
-    "coveralls": "*",
-    "codacy-coverage": "*",
-    "mocha-lcov-reporter": "*",
-    "codeclimate-test-reporter": "*"
+    "jsdoc": ">=3.4.0",
+    "jsdoc-to-markdown": ">=1.3.1",
+    "inchjs": ">=0.4.0",
+    "mocha": ">=2.3.4",
+    "chai": ">=3.4.1",
+    "jscoverage": ">=0.6.0",
+    "istanbul": ">=0.4.1",
+    "coveralls": ">=2.11.6",
+    "codacy-coverage": ">=1.1.3",
+    "mocha-lcov-reporter": ">=1.0.0",
+    "codeclimate-test-reporter": ">=0.1.1"
   },
   "keywords": [
     "hash",
