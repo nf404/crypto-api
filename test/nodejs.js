@@ -13,8 +13,8 @@ require('../lib/hasher.sha1');
 require('../lib/hasher.sha256');
 require('../lib/mac.hmac');
 
-var TestVectors = require('../test-vectors');
-var TestVectorsHmac = require('../test-vectors-hmac');
+var TestVectors = require('./test-vectors/hash');
+var TestVectorsHmac = require('./test-vectors/hmac');
 
 // Hash tests
 Object.keys(TestVectors).forEach(function(hash) {
@@ -26,6 +26,7 @@ Object.keys(TestVectors).forEach(function(hash) {
         });
     });
 });
+
 // HMAC tests
 Object.keys(TestVectorsHmac).forEach(function (hash) {
     describe('Tests for hmac-' + hash, function () {
@@ -41,6 +42,7 @@ Object.keys(TestVectorsHmac).forEach(function (hash) {
         });
     });
 });
+
 // Hash setState() getState() tests
 describe('Tests for hash setState() getState()', function () {
     Object.keys(TestVectors).forEach(function (hash) {
@@ -54,6 +56,7 @@ describe('Tests for hash setState() getState()', function () {
         });
     });
 });
+
 // Error handling tests
 describe('Test Error handling', function () {
     it("CryptoApi.hash('no-hasher')", function () {
@@ -65,10 +68,10 @@ describe('Test Error handling', function () {
         }
         assert.equal(error instanceof Error, true);
     });
-    it("CryptoApi.hash('md2').stringify('no-encode')", function () {
+    it("CryptoApi.hash('sha256').stringify('no-encode')", function () {
         var error = '';
         try {
-            CryptoApi.hash('md2', '', {}).stringify('no-encode');
+            CryptoApi.hash('sha256', '', {}).stringify('no-encode');
         } catch(e) {
             error = e;
         }
@@ -77,7 +80,7 @@ describe('Test Error handling', function () {
     it("CryptoApi.mac('no-mac')", function () {
         var error = '';
         try {
-            CryptoApi.mac('no-mac', '', 'md2', {});
+            CryptoApi.mac('no-mac', '', 'sha256', {});
         } catch(e) {
             error = e;
         }
