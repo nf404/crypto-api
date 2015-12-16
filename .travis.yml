@@ -3,8 +3,6 @@ node_js:
   - "4.2"
 after_success:
   - mkdir -p coverage
-  - npm run jscoverage
-  - npm run istanbul
   - npm run coveralls
   - npm run codacy
   - npm run codeclimate
