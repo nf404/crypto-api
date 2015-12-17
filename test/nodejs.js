@@ -1,10 +1,10 @@
-"use strict";
-var assert = require('chai').assert;
 /**
- * @type {CryptoApi}
+ * @param {CryptoApi} CryptoApi
  */
-var CryptoApi = require('../lib/crypto-api');
+(function (chai, CryptoApi){
+"use strict";
 
+var assert = chai.assert;
 var TestVectors = require('./test-vectors/hash');
 var TestVectorsHmac = require('./test-vectors/hmac');
 
@@ -106,3 +106,7 @@ describe('Test Error handling', function () {
         assert.equal(error instanceof Error, true);
     });
 });
+})(
+    this.chai || require('chai'),
+    this.CryptoApi || require('../lib/crypto-api')
+);
