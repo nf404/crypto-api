@@ -4,14 +4,6 @@ var assert = require('chai').assert;
  * @type {CryptoApi}
  */
 var CryptoApi = require('../lib/crypto-api');
-require('../lib/enc.hex');
-require('../lib/hasher.md2');
-require('../lib/hasher.md4');
-require('../lib/hasher.md5');
-require('../lib/hasher.sha0');
-require('../lib/hasher.sha1');
-require('../lib/hasher.sha256');
-require('../lib/mac.hmac');
 
 var TestVectors = require('./test-vectors/hash');
 var TestVectorsHmac = require('./test-vectors/hmac');
