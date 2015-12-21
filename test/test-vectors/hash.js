@@ -237,6 +237,7 @@
     if (typeof module !== 'undefined' && module.exports) {
         module.exports = TestVectors;
     } else {
+        window.TestVectors = TestVectors;
         return TestVectors;
     }
 })();

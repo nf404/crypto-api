@@ -3,12 +3,10 @@
  * @param chai
  * @param {CryptoApi} CryptoApi
  */
-    function (chai, CryptoApi) {
+    function (chai, CryptoApi, TestVectors, TestVectorsHmac) {
     "use strict";
 
     var assert = chai.assert;
-    var TestVectors = require('./test-vectors/hash');
-    var TestVectorsHmac = require('./test-vectors/hmac');
 
     // Hash tests
     Object.keys(TestVectors).forEach(function (hash) {
@@ -110,5 +108,7 @@
     });
 })(
     this.chai || require('chai'),
-    this.CryptoApi || require('../lib/crypto-api')
+    this.CryptoApi || require('../lib/crypto-api'),
+    this.TestVectors || require('./test-vectors/hash'),
+    this.TestVectorsHmac || require('./test-vectors/hmac')
 );

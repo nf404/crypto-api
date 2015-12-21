@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mocha</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.3.4/mocha.min.css" />
+</head>
+<body>
+<div id="mocha"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.3.4/mocha.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.4.1/chai.min.js"></script>
+<script>
+    mocha.setup('bdd');
+</script>
+<script src="../lib/crypto-api.js"></script>
+<script src="../lib/enc.hex.js"></script>
+<script src="../lib/hasher.md2.js"></script>
+<script src="../lib/hasher.md4.js"></script>
+<script src="../lib/hasher.md5.js"></script>
+<script src="../lib/hasher.sha0.js"></script>
+<script src="../lib/hasher.sha1.js"></script>
+<script src="../lib/hasher.sha256.js"></script>
+<script src="../lib/mac.hmac.js"></script>
+<script src="test-vectors/hash.js"></script>
+<script src="test-vectors/hmac.js"></script>
+<script src="nodejs.js"></script>
+<script>
+    mocha.checkLeaks();
+    mocha.run();
+</script>
+</body>
+</html>
