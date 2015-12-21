@@ -40,6 +40,7 @@
     "mocha": ">=2.3.4",
     "chai": ">=3.4.1",
     "istanbul": ">=0.4.1",
+    "istanbul-combine": "*",
     "karma": "*",
     "karma-coverage": "*",
     "karma-mocha": "*",
