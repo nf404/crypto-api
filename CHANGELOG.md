@@ -1,3 +1,10 @@
+* 0.6.0
+  - Reorganize & refactor tests
+  - Add karma & phantomjs for browser testing
+  - Change coverage from jscoverage to istanbul
+  - Fix require checking
+  - Add autoload hash, mac & enc submodules in nodejs
+  - 100% test coverage
 * 0.5.1
   - Add support getState() setState() for hashers
   - Add unit test for getState() setState()

@@ -1,7 +1,7 @@
 {
   "name": "crypto-api",
   "description": "Hashing and encrypting library with no depedencies",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "homepage": "https://github.com/nf404/crypto-api/",
   "author": {
     "name": "Aleksandr Mogilnikov",
@@ -24,8 +24,7 @@
   },
   "scripts": {
     "docs": "jsdoc2md lib/*.js",
-    "test": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly --dir coverage/cli -- --check-leaks -R spec",
-    "karma": "karma start karma.conf.js",
+    "test": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly --dir coverage/cli -- --check-leaks -R spec && karma start karma.conf.js",
     "combine": "istanbul-combine -r lcovonly coverage/*/*.json",
     "coveralls": "coveralls < coverage/lcov.info",
     "codacy": "codacy-coverage < coverage/lcov.info",
