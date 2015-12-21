@@ -1,4 +1,4 @@
-/*global this, describe, it, require */
+/*global describe, it, require */
 (/**
  * @param chai
  * @param {CryptoApi} CryptoApi
