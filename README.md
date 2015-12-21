@@ -10,9 +10,9 @@
 [![License Type](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
 
 ## Demo
-[Basic hasher usage](https://rawgit.com/nf404/crypto-api/master/example/hasher-basic.html)
-
-[Unit tests](https://rawgit.com/nf404/crypto-api/master/example/unit-tests.html)
+* [Basic hasher usage](https://rawgit.com/nf404/crypto-api/master/example/hasher-basic.html)
+* [File hashing on client side](https://rawgit.com/nf404/crypto-api/master/example/hasher-file.html)
+* [QUnit tests](https://rawgit.com/nf404/crypto-api/master/example/unit-tests.html)
 
 ## Features
 

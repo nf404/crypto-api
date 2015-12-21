@@ -1,7 +1,7 @@
 {
   "name": "crypto-api",
   "description": "Hashing and encrypting library with no depedencies",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "homepage": "https://github.com/nf404/crypto-api/",
   "author": {
     "name": "Aleksandr Mogilnikov",
@@ -59,6 +59,7 @@
     "sha0",
     "sha1",
     "sha224",
-    "sha256"
+    "sha256",
+    "hmac"
   ]
 }

@@ -1,3 +1,5 @@
+* 0.6.1
+  - Add file hashing example
 * 0.6.0
   - Reorganize & refactor tests
   - Add karma & phantomjs for browser testing
