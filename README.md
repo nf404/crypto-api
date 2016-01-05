@@ -13,6 +13,7 @@
 * [Basic hasher usage](https://rawgit.com/nf404/crypto-api/master/example/hasher-basic.html)
 * [File hashing on client side](https://rawgit.com/nf404/crypto-api/master/example/hasher-file.html)
 * [QUnit tests](https://rawgit.com/nf404/crypto-api/master/example/unit-tests.html)
+* [Benchmark](https://rawgit.com/nf404/crypto-api/master/example/benchmark.html)
 
 ## Features
 

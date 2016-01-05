@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Benchamark</title>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/kupriyanenko/astrobench/master/src/style.css">
+</head>
+<body>
+<div id="astrobench"></div>
+<script src="https://cdn.rawgit.com/kupriyanenko/astrobench/master/dist/astrobench.min.js"></script>
+<script src="../lib/crypto-api.js"></script>
+<script src="../lib/enc.hex.js"></script>
+<script src="../lib/hasher.md2.js"></script>
+<script src="../lib/hasher.md4.js"></script>
+<script src="../lib/hasher.md5.js"></script>
+<script src="../lib/hasher.sha0.js"></script>
+<script src="../lib/hasher.sha1.js"></script>
+<script src="../lib/hasher.sha256.js"></script>
+<script>
+    suite('Hash from simple string with HEX result', function(suite) {
+        bench('md2', function() {
+            !! CryptoApi.hash('md2', 'xxx', {}).stringify('hex');
+        });
+        bench('md4', function() {
+            !! CryptoApi.hash('md4', 'xxx', {}).stringify('hex');
+        });
+        bench('md5', function() {
+            !! CryptoApi.hash('md5', 'xxx', {}).stringify('hex');
+        });
+        bench('sha0', function() {
+            !! CryptoApi.hash('sha0', 'xxx', {}).stringify('hex');
+        });
+        bench('sha1', function() {
+            !! CryptoApi.hash('sha1', 'xxx', {}).stringify('hex');
+        });
+        bench('sha224', function() {
+            !! CryptoApi.hash('sha224', 'xxx', {}).stringify('hex');
+        });
+        bench('sha256', function() {
+            !! CryptoApi.hash('sha256', 'xxx', {});
+        });
+    });
+    suite('Update', function(suite) {
+        setup(function() {
+            suite.md2 = CryptoApi.hasher('md2', {});
+            suite.md4 = CryptoApi.hasher('md4', {});
+            suite.md5 = CryptoApi.hasher('md5', {});
+            suite.sha0 = CryptoApi.hasher('sha0', {});
+            suite.sha1 = CryptoApi.hasher('sha1', {});
+            suite.sha224 = CryptoApi.hasher('sha224', {});
+            suite.sha256 = CryptoApi.hasher('sha256', {});
+        });
+
+        bench('md2', function() {
+            !! suite.md2.update('xxx');
+        });
+        bench('md4', function() {
+            !! suite.md4.update('xxx');
+        });
+        bench('md5', function() {
+            !! suite.md5.update('xxx');
+        });
+        bench('sha0', function() {
+            !! suite.sha0.update('xxx');
+        });
+        bench('sha1', function() {
+            !! suite.sha1.update('xxx');
+        });
+        bench('sha224', function() {
+            !! suite.sha224.update('xxx');
+        });
+        bench('sha256', function() {
+            !! suite.sha256.update('xxx');
+        });
+    });
+</script>
+</body>
+</html>
