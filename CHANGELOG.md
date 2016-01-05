@@ -1,3 +1,6 @@
+* 0.6.2
+  - Perfomance optimization
+  - Add benchmark
 * 0.6.1
   - Add file hashing example
 * 0.6.0
