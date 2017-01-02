@@ -29,11 +29,14 @@ function (chai, CryptoApi, TestVectors, TestVectorsHmac) {
     describe('Tests for hmac-' + hash, function () {
       Object.keys(TestVectorsHmac[hash]).forEach(function (msg) {
         it(msg, function () {
+          var mac = CryptoApi.mac('hmac', TestVectorsHmac[hash][msg].key, hash, {});
+          if ('string' === typeof TestVectorsHmac[hash][msg].message) {
+            mac.update(TestVectorsHmac[hash][msg].message);
+          } else {
+            mac.updateFromArray(TestVectorsHmac[hash][msg].message);
+          }
           assert.equal(
-            CryptoApi.mac('hmac', TestVectorsHmac[hash][msg].key, hash, {})
-              .update(TestVectorsHmac[hash][msg].message)
-              .finalize()
-              .stringify('hex'),
+            mac.finalize().stringify('hex'),
             TestVectorsHmac[hash][msg].hash
           )
         })
@@ -47,13 +50,12 @@ function (chai, CryptoApi, TestVectors, TestVectorsHmac) {
       it('hash ' + hash, function () {
         var hash1 = CryptoApi.hash(hash, '1', {}).stringify('hex');
         var hash2 = CryptoApi.hash(hash, '12', {}).stringify('hex');
-        var hash3 = CryptoApi.hasher(hash, {}).update('1');
+        var hash3 = CryptoApi.hasher(hash, {});
+        hash3.update('1');
         var state = hash3.getState();
         assert.equal(hash3.finalize().stringify('hex'), hash1);
-        assert.equal(hash3.setState(state)
-          .update('2')
-          .finalize()
-          .stringify('hex'), hash2)
+        hash3.setState(state).update('2');
+        assert.equal(hash3.finalize().stringify('hex'), hash2)
       })
     })
   });
