@@ -13,6 +13,7 @@
 <script src="../lib/hasher.md5.js"></script>
 <script src="../lib/hasher.sha1.js"></script>
 <script src="../lib/hasher.sha256.js"></script>
+<script src="../lib/hasher.sha512.js"></script>
 <script src="https://cdn.rawgit.com/brix/crypto-js/master/crypto-js.js"></script>
 <script src="https://cdn.rawgit.com/h2non/jshashes/master/hashes.js"></script>
 <script src="https://cdn.rawgit.com/Caligatio/jsSHA/master/src/sha.js"></script>
@@ -109,6 +110,40 @@
         bench('jsSHA', function() {
             !! (suite.jsSHA.update(suite.hash));
         });
+    });
+    suite('SHA512 with HEX result', function(suite) {
+      bench('CryptoApi', function() {
+        !! CryptoApi.hash('sha512', 'xxx', {}).stringify('hex');
+      });
+      bench('CryptoJS', function() {
+        !! CryptoJS.enc.Hex.stringify(CryptoJS.SHA512('xxx'));
+      });
+      bench('jsHashes', function() {
+        !! (new Hashes.SHA512).hex('xxx');
+      });
+      bench('jsSHA', function() {
+        var hash = new jsSHA('SHA-512', 'TEXT');
+        hash.update('xxx');
+        hash.getHash('HEX');
+      });
+    });
+
+    suite('SHA512 update', function(suite) {
+      setup(function() {
+        suite.hash = CryptoApi.hash('sha512', '', {}).stringify('hex');
+        suite.cryptoApi = CryptoApi.hasher('sha512', {});
+        suite.cryptoJS = CryptoJS.algo.SHA512.create();
+        suite.jsSHA = new jsSHA('SHA-512', 'TEXT');
+      });
+      bench('CryptoApi', function() {
+        !! (suite.cryptoApi.update(suite.hash));
+      });
+      bench('CryptoJS', function() {
+        !! (suite.cryptoJS.update(suite.hash));
+      });
+      bench('jsSHA', function() {
+        !! (suite.jsSHA.update(suite.hash));
+      });
     });
 </script>
 </body>

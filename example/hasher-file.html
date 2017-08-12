@@ -11,7 +11,7 @@
 <div class="container">
     <h2>Hashing file SHA256</h2>
 
-    <form role="form">
+    <form>
         <div class="form-group">
             <label for="file">File:</label>
             <input type="file" class="form-control" id="file">
@@ -41,7 +41,7 @@
             var i = 0;
             var progress = document.getElementById('hash-progress');
             fReader.onloadend = function (evt) {
-                if (evt.target.readyState == FileReader.DONE) {
+                if (evt.target.readyState === FileReader.DONE) {
                     hasher.update(evt.target.result);
                     var state = hasher.getState();
                     document.getElementById('hash').innerHTML = hasher.finalize().stringify('hex');

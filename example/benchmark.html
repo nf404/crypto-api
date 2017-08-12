@@ -16,6 +16,7 @@
 <script src="../lib/hasher.sha0.js"></script>
 <script src="../lib/hasher.sha1.js"></script>
 <script src="../lib/hasher.sha256.js"></script>
+<script src="../lib/hasher.sha512.js"></script>
 <script>
     suite('Hash from simple string with HEX result', function(suite) {
         bench('md2', function() {
@@ -39,6 +40,9 @@
         bench('sha256', function() {
             !! CryptoApi.hash('sha256', 'xxx', {});
         });
+        bench('sha512', function() {
+            !! CryptoApi.hash('sha512', 'xxx', {});
+        });
     });
     suite('Update', function(suite) {
         setup(function() {
@@ -49,6 +53,7 @@
             suite.sha1 = CryptoApi.hasher('sha1', {});
             suite.sha224 = CryptoApi.hasher('sha224', {});
             suite.sha256 = CryptoApi.hasher('sha256', {});
+            suite.sha512 = CryptoApi.hasher('sha512', {});
         });
 
         bench('md2', function() {
@@ -71,6 +76,9 @@
         });
         bench('sha256', function() {
             !! suite.sha256.update('xxx');
+        });
+        bench('sha512', function() {
+            !! suite.sha512.update('xxx');
         });
     });
 </script>

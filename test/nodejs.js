@@ -5,7 +5,7 @@
  * @param TestVectors
  * @param TestVectorsHmac
  */
-function (chai, CryptoApi, TestVectors, TestVectorsHmac) {
+  function (chai, CryptoApi, TestVectors, TestVectorsHmac) {
   'use strict';
 
   var assert = chai.assert;
@@ -17,7 +17,7 @@ function (chai, CryptoApi, TestVectors, TestVectorsHmac) {
         it(msg, function () {
           assert.equal(
             CryptoApi.hash(hash, TestVectors[hash][msg].message, {})
-            .stringify('hex'),
+              .stringify('hex'),
             TestVectors[hash][msg].hash)
         })
       })

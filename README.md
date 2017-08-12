@@ -6,7 +6,7 @@
 [![Code Climate](https://codeclimate.com/github/nf404/crypto-api/badges/gpa.svg)](https://codeclimate.com/github/nf404/crypto-api)
 [![bitHound Overalll Score](https://www.bithound.io/github/nf404/crypto-api/badges/score.svg)](https://www.bithound.io/github/nf404/crypto-api)
 [![NPM version](https://img.shields.io/npm/v/crypto-api.svg)](https://www.npmjs.com/package/crypto-api)
-[![Inline docs](http://inch-ci.org/github/nf404/crypto-api.svg?branch=master&style=shields)](http://inch-ci.org/github/nf404/crypto-api)
+[![Inline docs](https://inch-ci.org/github/nf404/crypto-api.svg?branch=master&style=shields)](https://inch-ci.org/github/nf404/crypto-api)
 [![License Type](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
 
 ## Demo
@@ -24,6 +24,7 @@
 * SHA0
 * [SHA1](https://tools.ietf.org/html/rfc3174)
 * [SHA256 (SHA224)](https://tools.ietf.org/html/rfc4634)
+* [SHA512 (SHA384)](https://tools.ietf.org/html/rfc4634)
 
 ### MAC
 * [HMAC](https://tools.ietf.org/html/rfc2104)
@@ -48,6 +49,10 @@ var hash = CryptoApi.hash('sha224', 'test message', {}).stringify('hex');
 
 var hash = CryptoApi.hash('sha256', 'test message', {}).stringify('hex');
 
+var hash = CryptoApi.hash('sha384', 'test message', {}).stringify('hex');
+
+var hash = CryptoApi.hash('sha512', 'test message', {}).stringify('hex');
+
 var hash_hmac = CryptoApi.mac('hmac', 'sha256', '', {}).update('test message')
     .finalize().stringify('hex');
 ```
@@ -66,6 +71,6 @@ var CryptoApi = require('crypto-api');
 var hasher = CryptoApi.hasher('sha256', {}).update('1');
 var state = hasher.getState();
 console.log(hasher.finalize().stringify('hex')); // print sha256('1')
-hasher.setState(state).update('2')
+hasher.setState(state).update('2');
 console.log(hasher.finalize().stringify('hex')); // print sha256('12')
 ```
