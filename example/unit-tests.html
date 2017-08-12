@@ -204,15 +204,61 @@
         strictEqual(CryptoApi.hash('sha512','abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq',{}).stringify('hex'), '204a8fc6dda82f0a0ced7beb8e08a41657c16ef468b228a8279be331a703c33596fd15c13b1b07f9aa1d3bea57789ca031ad85c7a71dd70354ec631238ca3445', "Passed!");
       });
       test("sha512('a..') [1000000 times]", function () {
-            var hash = CryptoApi.hasher('sha512',{});
-            for(var i = 0; i < 1000; i++) {
-                hash.update(new Array(1001).join('a'));
-            }
+        var hash = CryptoApi.hasher('sha512',{});
+        for(var i = 0; i < 1000; i++) {
+          hash.update(new Array(1001).join('a'));
+        }
 
-            strictEqual(hash.finalize().stringify('hex'), 'e718483d0ce769644e2e42c7bc15b4638e1f98b13b2044285632a803afa973ebde0ff244877ea60a4cb0432ce577c31beb009c5c2c49aa2e4eadb217ad8cc09b', "Passed!");
+        strictEqual(hash.finalize().stringify('hex'), 'e718483d0ce769644e2e42c7bc15b4638e1f98b13b2044285632a803afa973ebde0ff244877ea60a4cb0432ce577c31beb009c5c2c49aa2e4eadb217ad8cc09b', "Passed!");
       });
       test("sha512('0123456701234567012345670123456701234567012345670123456701234567..') [10 times]", function () {
         strictEqual(CryptoApi.hash('sha512',new Array(11).join('0123456701234567012345670123456701234567012345670123456701234567'),{}).stringify('hex'), '89d05ba632c699c31231ded4ffc127d5a894dad412c0e024db872d1abd2ba8141a0f85072a9be1e2aa04cf33c765cb510813a39cd5a84c4acaa64d3f3fb7bae9', "Passed!");
+      });
+      // The SHA512/224 test suite
+      // http://csrc.nist.gov/groups/ST/toolkit/documents/Examples/SHA512_224.pdf
+      module( "SHA512/224" );
+      test("sha512/224('')", function () {
+        strictEqual(CryptoApi.hash('sha512/224','',{}).stringify('hex'), '6ed0dd02806fa89e25de060c19d3ac86cabb87d6a0ddd05c333b84f4', "Passed!");
+      });
+      test("sha512/224('abc')", function () {
+        strictEqual(CryptoApi.hash('sha512/224','abc',{}).stringify('hex'), '4634270f707b6a54daae7530460842e20e37ed265ceee9a43e8924aa', "Passed!");
+      });
+      test("sha512/224('abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq')", function () {
+        strictEqual(CryptoApi.hash('sha512/224','abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq',{}).stringify('hex'), 'e5302d6d54bb242275d1e7622d68df6eb02dedd13f564c13dbda2174', "Passed!");
+      });
+      test("sha512/224('a..') [1000000 times]", function () {
+        var hash = CryptoApi.hasher('sha512/224',{});
+        for(var i = 0; i < 1000; i++) {
+          hash.update(new Array(1001).join('a'));
+        }
+
+        strictEqual(hash.finalize().stringify('hex'), '37ab331d76f0d36de422bd0edeb22a28accd487b7a8453ae965dd287', "Passed!");
+      });
+      test("sha512/224('0123456701234567012345670123456701234567012345670123456701234567..') [10 times]", function () {
+        strictEqual(CryptoApi.hash('sha512/224',new Array(11).join('0123456701234567012345670123456701234567012345670123456701234567'),{}).stringify('hex'), '406338c163ad81f50d6b4c9bb45240c5d706b498863404bab6b84938', "Passed!");
+      });
+      // The SHA512/256 test suite
+      // http://csrc.nist.gov/groups/ST/toolkit/documents/Examples/SHA512_256.pdf
+      module( "SHA512/256" );
+      test("sha512/256('')", function () {
+        strictEqual(CryptoApi.hash('sha512/256','',{}).stringify('hex'), 'c672b8d1ef56ed28ab87c3622c5114069bdd3ad7b8f9737498d0c01ecef0967a', "Passed!");
+      });
+      test("sha512/256('abc')", function () {
+        strictEqual(CryptoApi.hash('sha512/256','abc',{}).stringify('hex'), '53048e2681941ef99b2e29b76b4c7dabe4c2d0c634fc6d46e0e2f13107e7af23', "Passed!");
+      });
+      test("sha512/256('abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq')", function () {
+        strictEqual(CryptoApi.hash('sha512/256','abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq',{}).stringify('hex'), 'bde8e1f9f19bb9fd3406c90ec6bc47bd36d8ada9f11880dbc8a22a7078b6a461', "Passed!");
+      });
+      test("sha512/256('a..') [1000000 times]", function () {
+        var hash = CryptoApi.hasher('sha512/256',{});
+        for(var i = 0; i < 1000; i++) {
+          hash.update(new Array(1001).join('a'));
+        }
+
+        strictEqual(hash.finalize().stringify('hex'), '9a59a052930187a97038cae692f30708aa6491923ef5194394dc68d56c74fb21', "Passed!");
+      });
+      test("sha512/256('0123456701234567012345670123456701234567012345670123456701234567..') [10 times]", function () {
+        strictEqual(CryptoApi.hash('sha512/256',new Array(11).join('0123456701234567012345670123456701234567012345670123456701234567'),{}).stringify('hex'), 'cf78e4ba935b4d9eb91052aeddf8e2d606c590f708573693ea94be826a666ee4', "Passed!");
       });
     })(CryptoApi);
 </script>

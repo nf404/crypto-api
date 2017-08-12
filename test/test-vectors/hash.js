@@ -282,6 +282,54 @@
         message: new Array(81).join('01234567'),
         hash: '89d05ba632c699c31231ded4ffc127d5a894dad412c0e024db872d1abd2ba8141a0f85072a9be1e2aa04cf33c765cb510813a39cd5a84c4acaa64d3f3fb7bae9'
       }
+    },
+    // The SHA512/224 test suite
+    // http://csrc.nist.gov/groups/ST/toolkit/documents/Examples/SHA512_224.pdf
+    'sha512/224': {
+      "sha512/224('')": {
+        message: '',
+        hash: '6ed0dd02806fa89e25de060c19d3ac86cabb87d6a0ddd05c333b84f4'
+      },
+      "sha512/224('abc')": {
+        message: 'abc',
+        hash: '4634270f707b6a54daae7530460842e20e37ed265ceee9a43e8924aa'
+      },
+      "sha512/224('abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq')": {
+        message: 'abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq',
+        hash: 'e5302d6d54bb242275d1e7622d68df6eb02dedd13f564c13dbda2174'
+      },
+      "sha512/224('abcdefghbcdefghicdefghijdefghijkefghijklfghijklmghijklmnhijklmnoijklmnopjklmnopqklmnopqrlmnopqrsmnopqrstnopqrstu')": {
+        message: 'abcdefghbcdefghicdefghijdefghijkefghijklfghijklmghijklmnhijklmnoijklmnopjklmnopqklmnopqrlmnopqrsmnopqrstnopqrstu',
+        hash: '23fec5bb94d60b23308192640b0c453335d664734fe40e7268674af9'
+      },
+      "sha512/224('01234567' x 80)": {
+        message: new Array(81).join('01234567'),
+        hash: '406338c163ad81f50d6b4c9bb45240c5d706b498863404bab6b84938'
+      }
+    },
+    // The SHA512/256 test suite
+    // http://csrc.nist.gov/groups/ST/toolkit/documents/Examples/SHA512_256.pdf
+    'sha512/256': {
+      "sha512/256('')": {
+        message: '',
+        hash: 'c672b8d1ef56ed28ab87c3622c5114069bdd3ad7b8f9737498d0c01ecef0967a'
+      },
+      "sha512/256('abc')": {
+        message: 'abc',
+        hash: '53048e2681941ef99b2e29b76b4c7dabe4c2d0c634fc6d46e0e2f13107e7af23'
+      },
+      "sha512/256('abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq')": {
+        message: 'abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq',
+        hash: 'bde8e1f9f19bb9fd3406c90ec6bc47bd36d8ada9f11880dbc8a22a7078b6a461'
+      },
+      "sha512/256('abcdefghbcdefghicdefghijdefghijkefghijklfghijklmghijklmnhijklmnoijklmnopjklmnopqklmnopqrlmnopqrsmnopqrstnopqrstu')": {
+        message: 'abcdefghbcdefghicdefghijdefghijkefghijklfghijklmghijklmnhijklmnoijklmnopjklmnopqklmnopqrlmnopqrsmnopqrstnopqrstu',
+        hash: '3928e184fb8690f840da3988121d31be65cb9d3ef83ee6146feac861e19b563a'
+      },
+      "sha512/256('01234567' x 80)": {
+        message: new Array(81).join('01234567'),
+        hash: 'cf78e4ba935b4d9eb91052aeddf8e2d606c590f708573693ea94be826a666ee4'
+      }
     }
   };
   if (typeof module !== 'undefined' && module.exports) {
