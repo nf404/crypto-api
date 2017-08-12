@@ -1,3 +1,5 @@
+* 0.7.0
+  - Add SHA384, SHA512
 * 0.6.2
   - Perfomance optimization
   - Add benchmark
