@@ -73,7 +73,8 @@ CryptoApi.hash('sha256', '', {}).stringify('hex');
 
 ```javascript
 var CryptoApi = require('crypto-api');
-var hasher = CryptoApi.hasher('sha256', {}).update('1');
+var hasher = CryptoApi.hasher('sha256', {})
+hasher.update('1');
 var state = hasher.getState();
 console.log(hasher.finalize().stringify('hex')); // print sha256('1')
 hasher.setState(state).update('2');
