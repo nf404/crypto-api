@@ -1,3 +1,5 @@
+* 0.7.2
+  - fix documentation
 * 0.7.1
   - Add SHA512/224, SHA512/256
 * 0.7.0
