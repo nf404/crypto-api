@@ -14,6 +14,7 @@
 <script src="../lib/hasher.md2.js"></script>
 <script src="../lib/hasher.md4.js"></script>
 <script src="../lib/hasher.md5.js"></script>
+<script src="../lib/hasher.ripemd160.js"></script>
 <script src="../lib/hasher.sha0.js"></script>
 <script src="../lib/hasher.sha1.js"></script>
 <script src="../lib/hasher.sha256.js"></script>
@@ -95,6 +96,166 @@
         test("md5('12345678901234567890123456789012345678901234567890123456789012345678901234567890')", function () {
             strictEqual(CryptoApi.hash('md5','12345678901234567890123456789012345678901234567890123456789012345678901234567890',{}).stringify('hex'), '57edf4a22be3c955ac49da2e2107b67a', "Passed!");
         });
+
+      // The RIPEMD128 test suite
+      // http://homes.esat.kuleuven.be/~bosselae/ripemd160.html
+      module("RIPEMD128");
+      test("ripemd128('')", function () {
+        strictEqual(CryptoApi.hash('ripemd128', '', {}).stringify('hex'), 'cdf26213a150dc3ecb610f18f6b38b46', "Passed!");
+      });
+      test("ripemd128('a')", function () {
+        strictEqual(CryptoApi.hash('ripemd128', 'a', {}).stringify('hex'), '86be7afa339d0fc7cfc785e72f578d33', "Passed!");
+      });
+      test("ripemd128('abc')", function () {
+        strictEqual(CryptoApi.hash('ripemd128', 'abc', {}).stringify('hex'), 'c14a12199c66e4ba84636b0f69144c77', "Passed!");
+      });
+      test("ripemd128('message digest')", function () {
+        strictEqual(CryptoApi.hash('ripemd128', 'message digest', {})
+          .stringify('hex'), '9e327b3d6e523062afc1132d7df9d1b8', "Passed!");
+      });
+      test("ripemd128('abcdefghijklmnopqrstuvwxyz')", function () {
+        strictEqual(CryptoApi.hash('ripemd128', 'abcdefghijklmnopqrstuvwxyz', {})
+          .stringify('hex'), 'fd2aa607f71dc8f510714922b371834e', "Passed!");
+      });
+      test("ripemd128('abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq')", function () {
+        strictEqual(CryptoApi.hash('ripemd128', 'abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq', {})
+          .stringify('hex'), 'a1aa0689d0fafa2ddc22e88b49133a06', "Passed!");
+      });
+      test("ripemd128('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789')", function () {
+        strictEqual(CryptoApi.hash('ripemd128', 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789', {})
+          .stringify('hex'), 'd1e959eb179c911faea4624c60c5c702', "Passed!");
+      });
+      test("ripemd128('12345678901234567890123456789012345678901234567890123456789012345678901234567890')", function () {
+        strictEqual(CryptoApi.hash('ripemd128', '12345678901234567890123456789012345678901234567890123456789012345678901234567890', {})
+          .stringify('hex'), '3f45ef194732c2dbb2c4a2c769795fa3', "Passed!");
+      });
+      test("ripemd128('a..') [1000000 times]", function () {
+        var hash = CryptoApi.hasher('ripemd128',{});
+        for(var i = 0; i < 1000; i++) {
+          hash.update(new Array(1001).join('a'));
+        }
+        strictEqual(hash.finalize().stringify('hex'), '4a7f5723f954eba1216c9d8f6320431f', "Passed!");
+      });
+
+      // The RIPEMD160 test suite
+      // http://homes.esat.kuleuven.be/~bosselae/ripemd160.html
+      module("RIPEMD160");
+      test("ripemd160('')", function () {
+        strictEqual(CryptoApi.hash('ripemd160', '', {}).stringify('hex'), '9c1185a5c5e9fc54612808977ee8f548b2258d31', "Passed!");
+      });
+      test("ripemd160('a')", function () {
+        strictEqual(CryptoApi.hash('ripemd160', 'a', {}).stringify('hex'), '0bdc9d2d256b3ee9daae347be6f4dc835a467ffe', "Passed!");
+      });
+      test("ripemd160('abc')", function () {
+        strictEqual(CryptoApi.hash('ripemd160', 'abc', {}).stringify('hex'), '8eb208f7e05d987a9b044a8e98c6b087f15a0bfc', "Passed!");
+      });
+      test("ripemd160('message digest')", function () {
+        strictEqual(CryptoApi.hash('ripemd160', 'message digest', {})
+          .stringify('hex'), '5d0689ef49d2fae572b881b123a85ffa21595f36', "Passed!");
+      });
+      test("ripemd160('abcdefghijklmnopqrstuvwxyz')", function () {
+        strictEqual(CryptoApi.hash('ripemd160', 'abcdefghijklmnopqrstuvwxyz', {})
+          .stringify('hex'), 'f71c27109c692c1b56bbdceb5b9d2865b3708dbc', "Passed!");
+      });
+      test("ripemd160('abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq')", function () {
+        strictEqual(CryptoApi.hash('ripemd160', 'abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq', {})
+          .stringify('hex'), '12a053384a9c0c88e405a06c27dcf49ada62eb2b', "Passed!");
+      });
+      test("ripemd160('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789')", function () {
+        strictEqual(CryptoApi.hash('ripemd160', 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789', {})
+          .stringify('hex'), 'b0e20b6e3116640286ed3a87a5713079b21f5189', "Passed!");
+      });
+      test("ripemd160('12345678901234567890123456789012345678901234567890123456789012345678901234567890')", function () {
+        strictEqual(CryptoApi.hash('ripemd160', '12345678901234567890123456789012345678901234567890123456789012345678901234567890', {})
+          .stringify('hex'), '9b752e45573d4b39f4dbd3323cab82bf63326bfb', "Passed!");
+      });
+      test("ripemd160('a..') [1000000 times]", function () {
+        var hash = CryptoApi.hasher('ripemd160',{});
+        for(var i = 0; i < 1000; i++) {
+          hash.update(new Array(1001).join('a'));
+        }
+        strictEqual(hash.finalize().stringify('hex'), '52783243c1697bdbe16d37f97f68f08325dc1528', "Passed!");
+      });
+
+      // The RIPEMD256 test suite
+      // http://homes.esat.kuleuven.be/~bosselae/ripemd160.html
+      module("RIPEMD256");
+      test("ripemd256('')", function () {
+        strictEqual(CryptoApi.hash('ripemd256', '', {}).stringify('hex'), '02ba4c4e5f8ecd1877fc52d64d30e37a2d9774fb1e5d026380ae0168e3c5522d', "Passed!");
+      });
+      test("ripemd256('a')", function () {
+        strictEqual(CryptoApi.hash('ripemd256', 'a', {}).stringify('hex'), 'f9333e45d857f5d90a91bab70a1eba0cfb1be4b0783c9acfcd883a9134692925', "Passed!");
+      });
+      test("ripemd256('abc')", function () {
+        strictEqual(CryptoApi.hash('ripemd256', 'abc', {}).stringify('hex'), 'afbd6e228b9d8cbbcef5ca2d03e6dba10ac0bc7dcbe4680e1e42d2e975459b65', "Passed!");
+      });
+      test("ripemd256('message digest')", function () {
+        strictEqual(CryptoApi.hash('ripemd256', 'message digest', {})
+          .stringify('hex'), '87e971759a1ce47a514d5c914c392c9018c7c46bc14465554afcdf54a5070c0e', "Passed!");
+      });
+      test("ripemd256('abcdefghijklmnopqrstuvwxyz')", function () {
+        strictEqual(CryptoApi.hash('ripemd256', 'abcdefghijklmnopqrstuvwxyz', {})
+          .stringify('hex'), '649d3034751ea216776bf9a18acc81bc7896118a5197968782dd1fd97d8d5133', "Passed!");
+      });
+      test("ripemd256('abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq')", function () {
+        strictEqual(CryptoApi.hash('ripemd256', 'abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq', {})
+          .stringify('hex'), '3843045583aac6c8c8d9128573e7a9809afb2a0f34ccc36ea9e72f16f6368e3f', "Passed!");
+      });
+      test("ripemd256('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789')", function () {
+        strictEqual(CryptoApi.hash('ripemd256', 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789', {})
+          .stringify('hex'), '5740a408ac16b720b84424ae931cbb1fe363d1d0bf4017f1a89f7ea6de77a0b8', "Passed!");
+      });
+      test("ripemd256('12345678901234567890123456789012345678901234567890123456789012345678901234567890')", function () {
+        strictEqual(CryptoApi.hash('ripemd256', '12345678901234567890123456789012345678901234567890123456789012345678901234567890', {})
+          .stringify('hex'), '06fdcc7a409548aaf91368c06a6275b553e3f099bf0ea4edfd6778df89a890dd', "Passed!");
+      });
+      test("ripemd256('a..') [1000000 times]", function () {
+        var hash = CryptoApi.hasher('ripemd256',{});
+        for(var i = 0; i < 1000; i++) {
+          hash.update(new Array(1001).join('a'));
+        }
+        strictEqual(hash.finalize().stringify('hex'), 'ac953744e10e31514c150d4d8d7b677342e33399788296e43ae4850ce4f97978', "Passed!");
+      });
+
+      // The RIPEMD320 test suite
+      // http://homes.esat.kuleuven.be/~bosselae/ripemd160.html
+      module("RIPEMD320");
+      test("ripemd320('')", function () {
+        strictEqual(CryptoApi.hash('ripemd320', '', {}).stringify('hex'), '22d65d5661536cdc75c1fdf5c6de7b41b9f27325ebc61e8557177d705a0ec880151c3a32a00899b8', "Passed!");
+      });
+      test("ripemd320('a')", function () {
+        strictEqual(CryptoApi.hash('ripemd320', 'a', {}).stringify('hex'), 'ce78850638f92658a5a585097579926dda667a5716562cfcf6fbe77f63542f99b04705d6970dff5d', "Passed!");
+      });
+      test("ripemd320('abc')", function () {
+        strictEqual(CryptoApi.hash('ripemd320', 'abc', {}).stringify('hex'), 'de4c01b3054f8930a79d09ae738e92301e5a17085beffdc1b8d116713e74f82fa942d64cdbc4682d', "Passed!");
+      });
+      test("ripemd320('message digest')", function () {
+        strictEqual(CryptoApi.hash('ripemd320', 'message digest', {})
+          .stringify('hex'), '3a8e28502ed45d422f68844f9dd316e7b98533fa3f2a91d29f84d425c88d6b4eff727df66a7c0197', "Passed!");
+      });
+      test("ripemd320('abcdefghijklmnopqrstuvwxyz')", function () {
+        strictEqual(CryptoApi.hash('ripemd320', 'abcdefghijklmnopqrstuvwxyz', {})
+          .stringify('hex'), 'cabdb1810b92470a2093aa6bce05952c28348cf43ff60841975166bb40ed234004b8824463e6b009', "Passed!");
+      });
+      test("ripemd320('abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq')", function () {
+        strictEqual(CryptoApi.hash('ripemd320', 'abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq', {})
+          .stringify('hex'), 'd034a7950cf722021ba4b84df769a5de2060e259df4c9bb4a4268c0e935bbc7470a969c9d072a1ac', "Passed!");
+      });
+      test("ripemd320('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789')", function () {
+        strictEqual(CryptoApi.hash('ripemd320', 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789', {})
+          .stringify('hex'), 'ed544940c86d67f250d232c30b7b3e5770e0c60c8cb9a4cafe3b11388af9920e1b99230b843c86a4', "Passed!");
+      });
+      test("ripemd320('12345678901234567890123456789012345678901234567890123456789012345678901234567890')", function () {
+        strictEqual(CryptoApi.hash('ripemd320', '12345678901234567890123456789012345678901234567890123456789012345678901234567890', {})
+          .stringify('hex'), '557888af5f6d8ed62ab66945c6d2a0a47ecd5341e915eb8fea1d0524955f825dc717e4a008ab2d42', "Passed!");
+      });
+      test("ripemd320('a..') [1000000 times]", function () {
+        var hash = CryptoApi.hasher('ripemd320',{});
+        for(var i = 0; i < 1000; i++) {
+          hash.update(new Array(1001).join('a'));
+        }
+        strictEqual(hash.finalize().stringify('hex'), 'bdee37f4371e20646b8b0d862dda16292ae36f40965e8c8509e63d1dbddecc503e2b63eb9245bb66', "Passed!");
+      });
 
         // The SHA0 test suite
         // https://www.cosic.esat.kuleuven.be/nessie/testvectors/hash/sha/Sha-0-160.test-vectors

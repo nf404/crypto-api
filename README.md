@@ -21,6 +21,7 @@
 * [MD2](https://tools.ietf.org/html/rfc1319)
 * [MD4](https://tools.ietf.org/html/rfc1320)
 * [MD5](https://tools.ietf.org/html/rfc1321)
+* [RIPEMD-160 (RIPEMD-128, RIPEMD-256, RIPEMD-320)](http://homes.esat.kuleuven.be/~bosselae/ripemd160.html)
 * [SHA0](http://pages.saclay.inria.fr/pierre.karpman/fips180.pdf)
 * [SHA1](https://tools.ietf.org/html/rfc3174)
 * [SHA256 (SHA224)](https://tools.ietf.org/html/rfc4634)
@@ -41,6 +42,14 @@ var hash = CryptoApi.hash('md2', 'test message', {}).stringify('hex');
 var hash = CryptoApi.hash('md4', 'test message', {}).stringify('hex');
 
 var hash = CryptoApi.hash('md5', 'test message', {}).stringify('hex');
+
+var hash = CryptoApi.hash('ripemd128', 'test message', {}).stringify('hex');
+
+var hash = CryptoApi.hash('ripemd160', 'test message', {}).stringify('hex');
+
+var hash = CryptoApi.hash('ripemd256', 'test message', {}).stringify('hex');
+
+var hash = CryptoApi.hash('ripemd320', 'test message', {}).stringify('hex');
 
 var hash = CryptoApi.hash('sha0', 'test message', {}).stringify('hex');
 

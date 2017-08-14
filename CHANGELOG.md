@@ -1,5 +1,7 @@
+* 0.7.3
+  - Add RIPEMD128, RIPEMD160, RIPEMD256, RIPEMD320
 * 0.7.2
-  - fix documentation
+  - Fix documentation
 * 0.7.1
   - Add SHA512/224, SHA512/256
 * 0.7.0

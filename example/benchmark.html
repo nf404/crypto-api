@@ -17,6 +17,7 @@
 <script src="../lib/hasher.sha1.js"></script>
 <script src="../lib/hasher.sha256.js"></script>
 <script src="../lib/hasher.sha512.js"></script>
+<script src="../lib/hasher.ripemd160.js"></script>
 <script>
     suite('Hash from simple string with HEX result', function(suite) {
         bench('md2', function() {
@@ -27,6 +28,18 @@
         });
         bench('md5', function() {
             !! CryptoApi.hash('md5', 'xxx', {}).stringify('hex');
+        });
+        bench('ripemd128', function() {
+            !! CryptoApi.hash('ripemd128', 'xxx', {});
+        });
+        bench('ripemd160', function() {
+            !! CryptoApi.hash('ripemd160', 'xxx', {});
+        });
+        bench('ripemd256', function() {
+            !! CryptoApi.hash('ripemd256', 'xxx', {});
+        });
+        bench('ripemd320', function() {
+            !! CryptoApi.hash('ripemd320', 'xxx', {});
         });
         bench('sha0', function() {
             !! CryptoApi.hash('sha0', 'xxx', {}).stringify('hex');
@@ -49,6 +62,10 @@
             suite.md2 = CryptoApi.hasher('md2', {});
             suite.md4 = CryptoApi.hasher('md4', {});
             suite.md5 = CryptoApi.hasher('md5', {});
+            suite.ripemd128 = CryptoApi.hasher('ripemd128', {});
+            suite.ripemd160 = CryptoApi.hasher('ripemd160', {});
+            suite.ripemd256 = CryptoApi.hasher('ripemd256', {});
+            suite.ripemd320 = CryptoApi.hasher('ripemd320', {});
             suite.sha0 = CryptoApi.hasher('sha0', {});
             suite.sha1 = CryptoApi.hasher('sha1', {});
             suite.sha224 = CryptoApi.hasher('sha224', {});
@@ -64,6 +81,18 @@
         });
         bench('md5', function() {
             !! suite.md5.update('xxx');
+        });
+        bench('ripemd128', function() {
+            !! suite.ripemd128.update('xxx');
+        });
+        bench('ripemd160', function() {
+            !! suite.ripemd160.update('xxx');
+        });
+        bench('ripemd256', function() {
+            !! suite.ripemd256.update('xxx');
+        });
+        bench('ripemd320', function() {
+            !! suite.ripemd320.update('xxx');
         });
         bench('sha0', function() {
             !! suite.sha0.update('xxx');
