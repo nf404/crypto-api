@@ -17,6 +17,7 @@
 <script src="https://cdn.rawgit.com/brix/crypto-js/master/crypto-js.js"></script>
 <script src="https://cdn.rawgit.com/h2non/jshashes/master/hashes.js"></script>
 <script src="https://cdn.rawgit.com/Caligatio/jsSHA/master/src/sha.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/asmCrypto/0.0.11/asmcrypto.js"></script>
 <script>
     suite('MD5 with HEX result', function(suite) {
         setup(function() {
@@ -60,6 +61,9 @@
             hash.update('xxx');
             hash.getHash('HEX');
         });
+        bench('asmCrypto', function() {
+            !! (asmCrypto.SHA1.hex('xxx'));
+        });
     });
     suite('SHA1 update', function(suite) {
         setup(function() {
@@ -86,12 +90,15 @@
             !! CryptoJS.enc.Hex.stringify(CryptoJS.SHA256('xxx'));
         });
         bench('jsHashes', function() {
-            !! (new Hashes.SHA256).hex('xxx');
+            !! ((new Hashes.SHA256).hex('xxx'));
         });
         bench('jsSHA', function() {
             var hash = new jsSHA('SHA-256', 'TEXT');
             hash.update('xxx');
             hash.getHash('HEX');
+        });
+        bench('asmCrypto', function() {
+            !! (asmCrypto.SHA256.hex('xxx'));
         });
     });
     suite('SHA256 update', function(suite) {
