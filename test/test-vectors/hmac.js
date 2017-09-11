@@ -48,6 +48,51 @@
         hash: '6f630fad67cda0ee1fb1f562db3aa53e'
       }
     },
+    // The HMAC-HAS160 test suite
+    // https://files.randombit.net/misc/has160.pdf
+    'has160': {
+      "hmac-has160('Hi There', 0x0b x 20)": {
+        message: 'Hi There',
+        key: Array.apply(0, new Array(20)).map(Number.prototype.valueOf, 0x0b),
+        hash: 'f5b44115a53f716b6f488de1098ee7c251418623'
+      },
+      "hmac-has160('what do ya want for nothing?', 'Jefe')": {
+        message: 'what do ya want for nothing?',
+        key: 'Jefe',
+        hash: 'a74547c1ef0aa147c7428ab7e71664549be2a412'
+      },
+      'hmac-has160(0xdd x 50, 0xaa x 20)': {
+        message: Array.apply(0, new Array(50))
+          .map(Number.prototype.valueOf, 0xdd),
+        key: Array.apply(0, new Array(20)).map(Number.prototype.valueOf, 0xaa),
+        hash: 'e4c91bc71782fa44a56be1a34aae167e8ffc9734'
+      },
+      'hmac-has160(0xcd x 50, 0x0102030405060708090a0b0c0d0e0f10111213141516171819)': {
+        message: Array.apply(0, new Array(50))
+          .map(Number.prototype.valueOf, 0xcd),
+        key: [
+          0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08,
+          0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f, 0x10,
+          0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19
+        ],
+        hash: '14d1055da875222053bf1180bbef8892eba3ac30'
+      },
+      "hmac-has160('Test With Truncation', 0x0c x 20)": {
+        message: 'Test With Truncation',
+        key: Array.apply(0, new Array(20)).map(Number.prototype.valueOf, 0x0c),
+        hash: '124131a293f1fdf3d6b11e2b7f7a1f5b12e42d58'
+      },
+      "hmac-has160('Test Using Larger Than Block-Size Key - Hash Key First', 0xaa x 80)": {
+        message: 'Test Using Larger Than Block-Size Key - Hash Key First',
+        key: Array.apply(0, new Array(80)).map(Number.prototype.valueOf, 0xaa),
+        hash: '63750d67af40e3fde33526545d300972a1527053'
+      },
+      "hmac-has160('Test Using Larger Than Block-Size Key and Larger Than One Block-Size Data', 0xaa x 80)": {
+        message: 'Test Using Larger Than Block-Size Key and Larger Than One Block-Size Data',
+        key: Array.apply(0, new Array(80)).map(Number.prototype.valueOf, 0xaa),
+        hash: '1bdb821e399e208352c64f0655f6601e2a8a087c'
+      }
+    },
     // The HMAC-SHA1 test suite
     // https://tools.ietf.org/html/rfc2202
     'sha1': {

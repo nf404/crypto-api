@@ -18,6 +18,7 @@
 <script src="../lib/hasher.sha256.js"></script>
 <script src="../lib/hasher.sha512.js"></script>
 <script src="../lib/hasher.ripemd160.js"></script>
+<script src="../lib/hasher.has160.js"></script>
 <script>
     suite('Hash from simple string with HEX result', function(suite) {
         bench('md2', function() {
@@ -30,16 +31,19 @@
             !! CryptoApi.hash('md5', 'xxx', {}).stringify('hex');
         });
         bench('ripemd128', function() {
-            !! CryptoApi.hash('ripemd128', 'xxx', {});
+            !! CryptoApi.hash('ripemd128', 'xxx', {}).stringify('hex');
         });
         bench('ripemd160', function() {
-            !! CryptoApi.hash('ripemd160', 'xxx', {});
+            !! CryptoApi.hash('ripemd160', 'xxx', {}).stringify('hex');
         });
         bench('ripemd256', function() {
-            !! CryptoApi.hash('ripemd256', 'xxx', {});
+            !! CryptoApi.hash('ripemd256', 'xxx', {}).stringify('hex');
         });
         bench('ripemd320', function() {
-            !! CryptoApi.hash('ripemd320', 'xxx', {});
+            !! CryptoApi.hash('ripemd320', 'xxx', {}).stringify('hex');
+        });
+        bench('has160', function() {
+            !! CryptoApi.hash('has160', 'xxx', {}).stringify('hex');
         });
         bench('sha0', function() {
             !! CryptoApi.hash('sha0', 'xxx', {}).stringify('hex');
@@ -51,10 +55,10 @@
             !! CryptoApi.hash('sha224', 'xxx', {}).stringify('hex');
         });
         bench('sha256', function() {
-            !! CryptoApi.hash('sha256', 'xxx', {});
+            !! CryptoApi.hash('sha256', 'xxx', {}).stringify('hex');
         });
         bench('sha512', function() {
-            !! CryptoApi.hash('sha512', 'xxx', {});
+            !! CryptoApi.hash('sha512', 'xxx', {}).stringify('hex');
         });
     });
     suite('Update', function(suite) {
@@ -66,6 +70,7 @@
             suite.ripemd160 = CryptoApi.hasher('ripemd160', {});
             suite.ripemd256 = CryptoApi.hasher('ripemd256', {});
             suite.ripemd320 = CryptoApi.hasher('ripemd320', {});
+            suite.has160 = CryptoApi.hasher('has160', {});
             suite.sha0 = CryptoApi.hasher('sha0', {});
             suite.sha1 = CryptoApi.hasher('sha1', {});
             suite.sha224 = CryptoApi.hasher('sha224', {});
@@ -93,6 +98,9 @@
         });
         bench('ripemd320', function() {
             !! suite.ripemd320.update('xxx');
+        });
+        bench('has160', function() {
+            !! suite.has160.update('xxx');
         });
         bench('sha0', function() {
             !! suite.sha0.update('xxx');

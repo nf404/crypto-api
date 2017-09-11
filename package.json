@@ -60,6 +60,8 @@
     "ripemd160",
     "ripemd256",
     "ripemd320",
+    "has160",
+    "has-160",
     "sha0",
     "sha1",
     "sha224",
