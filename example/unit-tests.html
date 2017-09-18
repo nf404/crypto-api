@@ -20,6 +20,7 @@
 <script src="../lib/hasher.sha256.js"></script>
 <script src="../lib/hasher.sha512.js"></script>
 <script src="../lib/hasher.has160.js"></script>
+<script src="../lib/hasher.whirlpool.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qunit/1.18.0/qunit.min.js"></script>
 <script>
     (function () {
@@ -367,7 +368,6 @@
             for(var i = 0; i < 1000; i++) {
                 hash.update(new Array(1001).join('a'));
             }
-
             strictEqual(hash.finalize().stringify('hex'), 'cdc76e5c9914fb9281a1c7e284d73e67f1809a48a497200e046d39ccc7112cd0', "Passed!");
         });
         test("sha256('0123456701234567012345670123456701234567012345670123456701234567..') [10 times]", function () {
@@ -391,7 +391,6 @@
         for(var i = 0; i < 1000; i++) {
           hash.update(new Array(1001).join('a'));
         }
-
         strictEqual(hash.finalize().stringify('hex'), 'e718483d0ce769644e2e42c7bc15b4638e1f98b13b2044285632a803afa973ebde0ff244877ea60a4cb0432ce577c31beb009c5c2c49aa2e4eadb217ad8cc09b', "Passed!");
       });
       test("sha512('0123456701234567012345670123456701234567012345670123456701234567..') [10 times]", function () {
@@ -414,7 +413,6 @@
         for(var i = 0; i < 1000; i++) {
           hash.update(new Array(1001).join('a'));
         }
-
         strictEqual(hash.finalize().stringify('hex'), '37ab331d76f0d36de422bd0edeb22a28accd487b7a8453ae965dd287', "Passed!");
       });
       test("sha512/224('0123456701234567012345670123456701234567012345670123456701234567..') [10 times]", function () {
@@ -437,11 +435,105 @@
         for(var i = 0; i < 1000; i++) {
           hash.update(new Array(1001).join('a'));
         }
-
         strictEqual(hash.finalize().stringify('hex'), '9a59a052930187a97038cae692f30708aa6491923ef5194394dc68d56c74fb21', "Passed!");
       });
       test("sha512/256('0123456701234567012345670123456701234567012345670123456701234567..') [10 times]", function () {
         strictEqual(CryptoApi.hash('sha512/256',new Array(11).join('0123456701234567012345670123456701234567012345670123456701234567'),{}).stringify('hex'), 'cf78e4ba935b4d9eb91052aeddf8e2d606c590f708573693ea94be826a666ee4', "Passed!");
+      });
+      // The WHIRLPOOL-0 test suite
+      // https://www.cosic.esat.kuleuven.be/nessie/testvectors/hash/whirlpool/Whirlpool-Orig-512.verified.test-vectors
+      module( "WHIRLPOOL-0" );
+      test("whirlpool-0('')", function () {
+        strictEqual(CryptoApi.hash('whirlpool-0','',{}).stringify('hex'), 'b3e1ab6eaf640a34f784593f2074416accd3b8e62c620175fca0997b1ba2347339aa0d79e754c308209ea36811dfa40c1c32f1a2b9004725d987d3635165d3c8', "Passed!");
+      });
+      test("whirlpool-0('a')", function () {
+        strictEqual(CryptoApi.hash('whirlpool-0','a',{}).stringify('hex'), 'f4b620445ae62431dbd6dbcec64d2a3031cd2f48df5e755f30b3d069929ed4b4eda0ae65441bc86746021fb7f2167f84d67566efaba003f0abb67a42a2ce5b13', "Passed!");
+      });
+      test("whirlpool-0('abc')", function () {
+        strictEqual(CryptoApi.hash('whirlpool-0','abc',{}).stringify('hex'), '54ee18b0bbd4dd38a211699f2829793156e5842df502a2a25995c6c541f28cc050ff57d4af772dee7cedcc4c34c3b8ec06446c6657f2f36c2c06464399879b86', "Passed!");
+      });
+      test("whirlpool-0('message digest')", function () {
+        strictEqual(CryptoApi.hash('whirlpool-0','message digest',{}).stringify('hex'), '29e158ba336ce7f930115178a6c86019f0f413adb283d8f0798af06ca0a06d6d6f295a333b1c24bda2f429ac918a3748aef90f7a2c8bfb084d5f979cf4e7b2b5', "Passed!");
+      });
+      test("whirlpool-0('abcdefghijklmnopqrstuvwxyz')", function () {
+        strictEqual(CryptoApi.hash('whirlpool-0','abcdefghijklmnopqrstuvwxyz',{}).stringify('hex'), '5ac9757e1407432daf348a972b8ad4a65c1123cf1f9b779c1ae7ee2d540f30b3cefa8f98dca5fbb42084c5c2f161a7b40eb6b4a1fc7f9aaab92a4bb6002edc5e', "Passed!");
+      });
+      test("whirlpool-0('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789')", function () {
+        strictEqual(CryptoApi.hash('whirlpool-0','ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',{}).stringify('hex'), 'cae4175f09753de84974cfa968621092fe41ee9de913919c2b452e6cb424056721d640e563f628f29dd3bd0030837ae4ac14aa17308505a92e5f7a92f112be75', "Passed!");
+      });
+      test("whirlpool-0('12345678901234567890123456789012345678901234567890123456789012345678901234567890')", function () {
+        strictEqual(CryptoApi.hash('whirlpool-0','12345678901234567890123456789012345678901234567890123456789012345678901234567890',{}).stringify('hex'), 'e5965b4565b041a0d459610e5e48e944c4830cd16feba02d9d263e7da8de6a6b88966709bf28a5328d928312e7a172da4cff72fe6de02277dae4b1dba49689a2', "Passed!");
+      });
+      test("whirlpool-0('a..') [1000000 times]", function () {
+        var hash = CryptoApi.hasher('whirlpool-0',{});
+        for(var i = 0; i < 1000; i++) {
+          hash.update(new Array(1001).join('a'));
+        }
+        strictEqual(hash.finalize().stringify('hex'), 'bb6cba9730d6c029c0c15fb7a2aa3597cf9442dad96a676c5ee9a1d55f1d64d5e0d1ed0e71250ed960a1bd2e065642cfff1c976e061bab70d6c54d284eaaefb9', "Passed!");
+        // Looks like error in test vector https://github.com/cantora/avr-crypto-lib/blob/master/testvectors/Whirlpool-Orig-512.fixed.test-vectors
+        // 5bc84ba27b464b4b761b5e48f314cfdb9f2c27b8c9bd664d26c99cf1f556d89c4270fc60d62340487fe8738ef2dc416897ceb419f6b48335880e79d5a0046be2 is wrong
+      });
+      // The WHIRLPOOL-T test suite
+      // https://www.cosic.esat.kuleuven.be/nessie/testvectors/hash/whirlpool/Whirlpool-Tweak-512.verified.test-vectors
+      module( "WHIRLPOOL-T" );
+      test("whirlpool-t('')", function () {
+        strictEqual(CryptoApi.hash('whirlpool-t','',{}).stringify('hex'), '470f0409abaa446e49667d4ebe12a14387cedbd10dd17b8243cad550a089dc0feea7aa40f6c2aaab71c6ebd076e43c7cfca0ad32567897dcb5969861049a0f5a', "Passed!");
+      });
+      test("whirlpool-t('a')", function () {
+        strictEqual(CryptoApi.hash('whirlpool-t','a',{}).stringify('hex'), 'b290e0e7931025ed37043ad568f0036b40e6bff8f7455868780f47ef7b5d693e62448029a9351cd85ac29cb0725e4cfeb996a92f2b8da8768483ac58ec0e492c', "Passed!");
+      });
+      test("whirlpool-t('abc')", function () {
+        strictEqual(CryptoApi.hash('whirlpool-t','abc',{}).stringify('hex'), '8afc0527dcc0a19623860ef2369d0e25de8ebe2abaa40f598afaf6b07c002ed73e4fc0fc220fd4f54f74b5d6b07aa57764c3dbdcc2cdd919d89fa8155a34b841', "Passed!");
+      });
+      test("whirlpool-t('message digest')", function () {
+        strictEqual(CryptoApi.hash('whirlpool-t','message digest',{}).stringify('hex'), '817eadf8efca5afbc11f71d0814e03a8d569c90f748c8603597a7a0de3c8d55f528199010218249517b58b14bee523515608754b53a3cca35c0865ba5e361431', "Passed!");
+      });
+      test("whirlpool-t('abcdefghijklmnopqrstuvwxyz')", function () {
+        strictEqual(CryptoApi.hash('whirlpool-t','abcdefghijklmnopqrstuvwxyz',{}).stringify('hex'), '4afc2b07bddc8417635fcb43e695e16f45e116c226dd84339eb95c2ccb39e7acbe1af8f7b1f3bd380077e71929498bc968200371f9299015434d1df109a0aa1d', "Passed!");
+      });
+      test("whirlpool-t('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789')", function () {
+        strictEqual(CryptoApi.hash('whirlpool-t','ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',{}).stringify('hex'), '0f960ec9ab7d0c7e355a423d1ef4911a39797c836a71414276afeb8fa475dba0c348547143162f3212edf1fb8d8c652a11a579a399c2dbd837fe8608f5096131', "Passed!");
+      });
+      test("whirlpool-t('12345678901234567890123456789012345678901234567890123456789012345678901234567890')", function () {
+        strictEqual(CryptoApi.hash('whirlpool-t','12345678901234567890123456789012345678901234567890123456789012345678901234567890',{}).stringify('hex'), '6ae43784c69d01c273bba40f8411495167909e0c1acc241473d44e27bc8641e646535d38fce20604941988c387c201cff199c8fa2afbedd036d66202892a7eee', "Passed!");
+      });
+      test("whirlpool-t('a..') [1000000 times]", function () {
+        var hash = CryptoApi.hasher('whirlpool-t',{});
+        for(var i = 0; i < 1000; i++) {
+          hash.update(new Array(1001).join('a'));
+        }
+        strictEqual(hash.finalize().stringify('hex'), '0ee18ba7ca7ee091dace6285661eedf819a8fa17620f72aeffe5aa62c462138b626aa09072a10fcbcfe7f7ff22db2f4d6d1f0771856c4a7924f9b0e4044d9112', "Passed!");
+      });
+      // The WHIRLPOOL test suite
+      // http://www.larc.usp.br/~pbarreto/WhirlpoolPage.html
+      module( "WHIRLPOOL" );
+      test("whirlpool('')", function () {
+        strictEqual(CryptoApi.hash('whirlpool','',{}).stringify('hex'), '19fa61d75522a4669b44e39c1d2e1726c530232130d407f89afee0964997f7a73e83be698b288febcf88e3e03c4f0757ea8964e59b63d93708b138cc42a66eb3', "Passed!");
+      });
+      test("whirlpool('a')", function () {
+        strictEqual(CryptoApi.hash('whirlpool','a',{}).stringify('hex'), '8aca2602792aec6f11a67206531fb7d7f0dff59413145e6973c45001d0087b42d11bc645413aeff63a42391a39145a591a92200d560195e53b478584fdae231a', "Passed!");
+      });
+      test("whirlpool('abc')", function () {
+        strictEqual(CryptoApi.hash('whirlpool','abc',{}).stringify('hex'), '4e2448a4c6f486bb16b6562c73b4020bf3043e3a731bce721ae1b303d97e6d4c7181eebdb6c57e277d0e34957114cbd6c797fc9d95d8b582d225292076d4eef5', "Passed!");
+      });
+      test("whirlpool('message digest')", function () {
+        strictEqual(CryptoApi.hash('whirlpool','message digest',{}).stringify('hex'), '378c84a4126e2dc6e56dcc7458377aac838d00032230f53ce1f5700c0ffb4d3b8421557659ef55c106b4b52ac5a4aaa692ed920052838f3362e86dbd37a8903e', "Passed!");
+      });
+      test("whirlpool('abcdefghijklmnopqrstuvwxyz')", function () {
+        strictEqual(CryptoApi.hash('whirlpool','abcdefghijklmnopqrstuvwxyz',{}).stringify('hex'), 'f1d754662636ffe92c82ebb9212a484a8d38631ead4238f5442ee13b8054e41b08bf2a9251c30b6a0b8aae86177ab4a6f68f673e7207865d5d9819a3dba4eb3b', "Passed!");
+      });
+      test("whirlpool('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789')", function () {
+        strictEqual(CryptoApi.hash('whirlpool','ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',{}).stringify('hex'), 'dc37e008cf9ee69bf11f00ed9aba26901dd7c28cdec066cc6af42e40f82f3a1e08eba26629129d8fb7cb57211b9281a65517cc879d7b962142c65f5a7af01467', "Passed!");
+      });
+      test("whirlpool('12345678901234567890123456789012345678901234567890123456789012345678901234567890')", function () {
+        strictEqual(CryptoApi.hash('whirlpool','12345678901234567890123456789012345678901234567890123456789012345678901234567890',{}).stringify('hex'), '466ef18babb0154d25b9d38a6414f5c08784372bccb204d6549c4afadb6014294d5bd8df2a6c44e538cd047b2681a51a2c60481e88c5a20b2c2a80cf3a9a083b', "Passed!");
+      });
+      test("whirlpool('a..') [1000000 times]", function () {
+        var hash = CryptoApi.hasher('whirlpool',{});
+        for(var i = 0; i < 1000; i++) {
+          hash.update(new Array(1001).join('a'));
+        }
+        strictEqual(hash.finalize().stringify('hex'), '0c99005beb57eff50a7cf005560ddf5d29057fd86b20bfd62deca0f1ccea4af51fc15490eddc47af32bb2b66c34ff9ad8c6008ad677f77126953b226e4ed8b01', "Passed!");
       });
     })(CryptoApi);
 </script>

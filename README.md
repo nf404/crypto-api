@@ -28,6 +28,7 @@
 * [SHA512 (SHA384)](https://tools.ietf.org/html/rfc4634)
 * [SHA512/256 (SHA512/224)](http://csrc.nist.gov/publications/fips/fips180-4/fips-180-4.pdf)
 * [HAS-160](https://www.randombit.net/has160.html)
+* [WHIRLPOOL (WHIRLPOOL-0, WHIRLPOOL-T)](http://www.larc.usp.br/~pbarreto/WhirlpoolPage.html)
 
 ### MAC
 * [HMAC](https://tools.ietf.org/html/rfc2104)
@@ -69,6 +70,12 @@ var hash = CryptoApi.hash('sha512/224', 'test message', {}).stringify('hex');
 var hash = CryptoApi.hash('sha512/256', 'test message', {}).stringify('hex');
 
 var hash = CryptoApi.hash('has160', 'test message', {}).stringify('hex');
+
+var hash = CryptoApi.hash('whirlpool', 'test message', {}).stringify('hex');
+
+var hash = CryptoApi.hash('whirlpool-0', 'test message', {}).stringify('hex');
+
+var hash = CryptoApi.hash('whirlpool-t', 'test message', {}).stringify('hex');
 
 var hash_hmac = CryptoApi.mac('hmac', 'sha256', '', {}).update('test message')
     .finalize().stringify('hex');

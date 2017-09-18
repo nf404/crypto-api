@@ -1,7 +1,7 @@
 {
   "name": "crypto-api",
   "description": "Hashing and encrypting library with no depedencies",
-  "version": "0.7.3",
+  "version": "0.7.4",
   "homepage": "https://github.com/nf404/crypto-api/",
   "author": {
     "name": "Aleksandr Mogilnikov",
@@ -70,6 +70,9 @@
     "sha512",
     "sha512/224",
     "sha512/256",
+    "whirlpool",
+    "whirlpool-0",
+    "whirlpool-t",
     "hmac"
   ]
 }

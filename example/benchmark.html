@@ -19,6 +19,7 @@
 <script src="../lib/hasher.sha512.js"></script>
 <script src="../lib/hasher.ripemd160.js"></script>
 <script src="../lib/hasher.has160.js"></script>
+<script src="../lib/hasher.whirlpool.js"></script>
 <script>
     suite('Hash from simple string with HEX result', function(suite) {
         bench('md2', function() {
@@ -60,6 +61,16 @@
         bench('sha512', function() {
             !! CryptoApi.hash('sha512', 'xxx', {}).stringify('hex');
         });
+        bench('whirlpool-0', function() {
+            !! CryptoApi.hash('whirlpool-0', 'xxx', {}).stringify('hex');
+        });
+        bench('whirlpool-t', function() {
+            !! CryptoApi.hash('whirlpool-t', 'xxx', {}).stringify('hex');
+        });
+        bench('whirlpool', function() {
+            !! CryptoApi.hash('whirlpool', 'xxx', {}).stringify('hex');
+        });
+
     });
     suite('Update', function(suite) {
         setup(function() {
@@ -76,6 +87,7 @@
             suite.sha224 = CryptoApi.hasher('sha224', {});
             suite.sha256 = CryptoApi.hasher('sha256', {});
             suite.sha512 = CryptoApi.hasher('sha512', {});
+            suite.whirlpool = CryptoApi.hasher('whirlpool', {});
         });
 
         bench('md2', function() {
@@ -116,6 +128,9 @@
         });
         bench('sha512', function() {
             !! suite.sha512.update('xxx');
+        });
+        bench('whirlpool', function() {
+            !! suite.whirlpool.update('xxx');
         });
     });
 </script>
