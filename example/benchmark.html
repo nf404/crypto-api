@@ -20,6 +20,7 @@
 <script src="../lib/hasher.ripemd160.js"></script>
 <script src="../lib/hasher.has160.js"></script>
 <script src="../lib/hasher.whirlpool.js"></script>
+<script src="../lib/hasher.snefru.js"></script>
 <script>
     suite('Hash from simple string with HEX result', function(suite) {
         bench('md2', function() {
@@ -70,7 +71,12 @@
         bench('whirlpool', function() {
             !! CryptoApi.hash('whirlpool', 'xxx', {}).stringify('hex');
         });
-
+        bench('snefru-2-128', function() {
+            !! CryptoApi.hash('snefru-2-128', 'xxx', {}).stringify('hex');
+        });
+        bench('snefru-8-128', function() {
+            !! CryptoApi.hash('snefru-8-128', 'xxx', {}).stringify('hex');
+        });
     });
     suite('Update', function(suite) {
         setup(function() {
@@ -87,7 +93,11 @@
             suite.sha224 = CryptoApi.hasher('sha224', {});
             suite.sha256 = CryptoApi.hasher('sha256', {});
             suite.sha512 = CryptoApi.hasher('sha512', {});
+            suite.whirlpool0 = CryptoApi.hasher('whirlpool-0', {});
+            suite.whirlpoolt = CryptoApi.hasher('whirlpool-t', {});
             suite.whirlpool = CryptoApi.hasher('whirlpool', {});
+            suite.snefru2_128 = CryptoApi.hasher('snefru-2-128', {});
+            suite.snefru8_128 = CryptoApi.hasher('snefru-8-128', {});
         });
 
         bench('md2', function() {
@@ -129,8 +139,20 @@
         bench('sha512', function() {
             !! suite.sha512.update('xxx');
         });
+        bench('whirlpool-0', function() {
+            !! suite.whirlpool0.update('xxx');
+        });
+        bench('whirlpool-t', function() {
+            !! suite.whirlpoolt.update('xxx');
+        });
         bench('whirlpool', function() {
             !! suite.whirlpool.update('xxx');
+        });
+        bench('snefru-2-128', function() {
+            !! suite.snefru2_128.update('xxx');
+        });
+        bench('snefru-8-128', function() {
+            !! suite.snefru8_128.update('xxx');
         });
     });
 </script>

@@ -1,3 +1,5 @@
+* 0.7.5
+  - Add Snefru v2.0, Snefru v2.5  
 * 0.7.4
   - Add HAS-160
   - Add WHIRLPOOL, WHIRLPOOL-0, WHIRLPOOL-T
