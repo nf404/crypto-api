@@ -111,5 +111,5 @@
     CryptoApi.Hashers.add('md2', Md2);
     return Md2;
 })(
-    this.CryptoApi || require('./crypto-api')
+    this.CryptoApi || require('../../lib/crypto-api')
 );

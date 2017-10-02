@@ -479,5 +479,5 @@
   CryptoApi.Hashers.add('ripemd320', Ripemd160);
   return Ripemd160;
 })(
-    this.CryptoApi || require('./crypto-api')
+    this.CryptoApi || require('../../lib/crypto-api')
 );

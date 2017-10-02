@@ -123,5 +123,5 @@
   CryptoApi.Hashers.add('sha1', Sha1);
   return Sha1;
 })(
-    this.CryptoApi || require('./crypto-api')
+    this.CryptoApi || require('../../lib/crypto-api')
 );

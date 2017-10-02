@@ -222,5 +222,5 @@
   CryptoApi.Hashers.add('md5', Md5);
   return Md5;
 })(
-  this.CryptoApi || require('./crypto-api')
+  this.CryptoApi || require('../../lib/crypto-api')
 );

@@ -109,5 +109,5 @@ function (CryptoApi) {
   CryptoApi.Macs.add('hmac', Hmac);
   return Hmac
 })(
-  this.CryptoApi || require('./crypto-api')
+  this.CryptoApi || require('../../lib/crypto-api')
 );

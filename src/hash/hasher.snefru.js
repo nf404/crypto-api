@@ -1151,5 +1151,5 @@ function (CryptoApi) {
   CryptoApi.Hashers.add('snefru-8-256', Snefru);
   return Snefru;
 })(
-  this.CryptoApi || require('./crypto-api')
+  this.CryptoApi || require('../../lib/crypto-api')
 );

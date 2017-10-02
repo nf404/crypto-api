@@ -146,5 +146,5 @@
   CryptoApi.Hashers.add('has160', Has160);
   return Has160;
 })(
-    this.CryptoApi || require('./crypto-api')
+    this.CryptoApi || require('../../lib/crypto-api')
 );

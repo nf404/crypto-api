@@ -151,5 +151,5 @@
   CryptoApi.Hashers.add('sha224', Sha256);
   return Sha256;
 })(
-    this.CryptoApi || require('./crypto-api')
+    this.CryptoApi || require('../../lib/crypto-api')
 );

@@ -33,5 +33,5 @@
     CryptoApi.Encodes.add('hex', Hex);
     return Hex;
 })(
-    this.CryptoApi || require('./crypto-api')
+    this.CryptoApi || require('../../lib/crypto-api')
 );

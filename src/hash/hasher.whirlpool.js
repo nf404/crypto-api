@@ -249,5 +249,5 @@ function (CryptoApi) {
   CryptoApi.Hashers.add('whirlpool', Whirlpool);
   return Whirlpool;
 })(
-  this.CryptoApi || require('./crypto-api')
+  this.CryptoApi || require('../../lib/crypto-api')
 );
