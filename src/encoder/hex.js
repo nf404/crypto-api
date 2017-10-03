@@ -1,37 +1,19 @@
-/*global require */
-(/**
- * @param {CryptoApi} CryptoApi
- * @returns {Hex}
- */
-    function (CryptoApi) {
-    'use strict';
+'use strict';
 
-    /**
-     * @class Hex
-     * @extends BaseEncode
-     * @implements EncodeInterface
-     * @classdesc Hex encode
-     * @param {HashArray} hash
-     */
-    var Hex = function hex(hash) {
-        this.constructor(hash);
-    };
-    Hex.prototype = Object.create(CryptoApi.BaseEncode.prototype);
-    /**
-     * @memberOf Hex
-     * @method stringify
-     * @returns {string}
-     */
-    Hex.prototype.stringify = function stringify() {
-        for (var str = '', i = 0, l = this.hash.length; i < l; i++) {
-            var hex = this.hash[i].toString(16);
-            str += (this.hash[i] < 16 ? '0' : '') + hex;
-        }
-        return str;
-    };
+import Encoder from "../encoder";
 
-    CryptoApi.Encodes.add('hex', Hex);
-    return Hex;
-})(
-    this.CryptoApi || require('../../lib/crypto-api')
-);
+class EncoderHex extends Encoder {
+  constructor() {
+    super();
+  }
+
+  encode(raw) {
+    for (let str = '', i = 0, l = raw.length; i < l; i++) {
+      let hex = raw.charCodeAt(i).toString(16);
+      str += (raw.charCodeAt(i) < 16 ? '0' : '') + hex;
+    }
+    return str;
+  }
+}
+
+export default EncoderHex
