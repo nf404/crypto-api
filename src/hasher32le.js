@@ -29,6 +29,18 @@ class Hasher32le extends Hasher {
       this.processBlock(this.blockUnits);
     }
   }
+
+
+  getStateHash() {
+    let hash = '';
+    for (i = 0; i < this.state.hash.length; i++) {
+      hash += String.fromCharCode(this.state.hash[i]) +
+        String.fromCharCode(this.state.hash[i] >> 8) +
+        String.fromCharCode(this.state.hash[i] >> 16) +
+        String.fromCharCode(this.state.hash[i] >> 24);
+    }
+    return hash;
+  }
 }
 
 export default Hasher32le

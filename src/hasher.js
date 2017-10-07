@@ -142,6 +142,20 @@ class Hasher {
    */
   process() {
   }
+
+  /**
+   * @returns {string}
+   */
+  finalize() {
+    return '';
+  }
+
+  /**
+   * @returns {string}
+   */
+  getStateHash() {
+    return '';
+  }
 }
 
 export default Hasher
