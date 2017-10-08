@@ -7,12 +7,11 @@ import Hasher from "./hasher";
  */
 class Hasher32le extends Hasher {
   /**
-   * @param {string} name
    * @param {Object} options
    * @constructor
    */
-  constructor(name, options) {
-    super(name, options);
+  constructor(options) {
+    super(options);
   }
 
   /**
@@ -29,7 +28,6 @@ class Hasher32le extends Hasher {
       this.processBlock(this.blockUnits);
     }
   }
-
 
   getStateHash() {
     let hash = '';

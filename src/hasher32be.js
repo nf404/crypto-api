@@ -7,12 +7,11 @@ import Hasher from "./hasher";
  */
 class Hasher32be extends Hasher {
   /**
-   * @param {string} name
    * @param {Object} options
    * @constructor
    */
-  constructor(name, options) {
-    super(name, options);
+  constructor(options) {
+    super(options);
 
     this.unitOrder = 1; // Reverse order of bytes
   }
@@ -30,6 +29,17 @@ class Hasher32be extends Hasher {
       this.state.message = this.state.message.substr(this.blockSizeInBytes);
       this.processBlock(this.blockUnits);
     }
+  }
+
+  getStateHash() {
+    let hash = '';
+    for (let i = 0; i < this.state.hash.length; i++) {
+      hash += String.fromCharCode(this.state.hash[i] >> 24) +
+        String.fromCharCode(this.state.hash[i] >> 16) +
+        String.fromCharCode(this.state.hash[i] >> 8) +
+        String.fromCharCode(this.state.hash[i]);
+    }
+    return hash;
   }
 }
 

@@ -18,8 +18,8 @@ const IND = [
 ];
 
 class Has160 extends Hasher32le {
-  constructor(name, options) {
-    super(name, options);
+  constructor(options) {
+    super(options);
 
     this.state.hash = [
       0x67452301,

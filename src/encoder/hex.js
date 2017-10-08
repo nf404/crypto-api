@@ -8,7 +8,8 @@ class EncoderHex extends Encoder {
   }
 
   encode(raw) {
-    for (let str = '', i = 0, l = raw.length; i < l; i++) {
+    let str = '';
+    for (let i = 0, l = raw.length; i < l; i++) {
       let hex = raw.charCodeAt(i).toString(16);
       str += (raw.charCodeAt(i) < 16 ? '0' : '') + hex;
     }

@@ -2,16 +2,10 @@
 
 class Hasher {
   /**
-   * @param {string} name
    * @param {Object} options
    * @constructor
    */
-  constructor(name, options) {
-    /**
-     * @desc Hasher name
-     * @type {string}
-     */
-    this.name = name;
+  constructor(options) {
     /**
      * @desc Size of unit in bytes (4 = 32 bits)
      * @type {number}
@@ -44,24 +38,18 @@ class Hasher {
     this.state = {};
     /**
      * @desc Unprocessed Message
-     * @memberOf! Hasher#
-     * @alias state.message
      * @type {string}
      */
     this.state.message = '';
     /**
      * @desc Length of message
-     * @memberOf! Hasher#
-     * @alias state.length
      * @type {number}
      */
     this.state.length = 0;
     /**
-     * @memberOf! Hasher#
-     * @alias state.options
      * @type {Object}
      */
-    this.state.options = options;
+    this.options = options | {};
     this.blockUnits = [];
   }
 
@@ -76,11 +64,9 @@ class Hasher {
   /**
    * Set state
    * @param {Object} state
-   * @return {Hasher}
    */
   setState(state) {
     this.state = state;
-    return this;
   };
 
   /**
@@ -144,9 +130,11 @@ class Hasher {
   }
 
   /**
+   *
+   * @param {Encoder} encoder
    * @returns {string}
    */
-  finalize() {
+  finalize(encoder) {
     return '';
   }
 
