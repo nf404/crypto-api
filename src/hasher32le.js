@@ -31,11 +31,11 @@ class Hasher32le extends Hasher {
 
   getStateHash() {
     let hash = '';
-    for (i = 0; i < this.state.hash.length; i++) {
-      hash += String.fromCharCode(this.state.hash[i]) +
-        String.fromCharCode(this.state.hash[i] >> 8) +
-        String.fromCharCode(this.state.hash[i] >> 16) +
-        String.fromCharCode(this.state.hash[i] >> 24);
+    for (let i = 0; i < this.state.hash.length; i++) {
+      hash += String.fromCharCode(this.state.hash[i] & 0xff) +
+        String.fromCharCode(this.state.hash[i] >> 8 & 0xff) +
+        String.fromCharCode(this.state.hash[i] >> 16 & 0xff) +
+        String.fromCharCode(this.state.hash[i] >> 24 & 0xff);
     }
     return hash;
   }

@@ -107,7 +107,7 @@ class Hasher {
         l += 4;
       }
     }
-    this.state.length++;
+    this.state.length += l;
     this.process();
   }
 

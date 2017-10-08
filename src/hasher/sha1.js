@@ -17,7 +17,7 @@ class Sha1 extends Hasher32be {
       0x10325476,
       0xc3d2e1f0
     ];
-    this.W = [];
+    this.W = new Array(80);
   }
 
   /**

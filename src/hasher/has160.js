@@ -63,7 +63,7 @@ class Has160 extends Hasher32le {
     this.W[30] = (this.W[0] ^ this.W[5] ^ this.W[10] ^ this.W[15]) | 0;
     this.W[31] = (this.W[1] ^ this.W[6] ^ this.W[11] ^ this.W[12]) | 0;
     // Calculate hash
-    for (i = 0; i < 80; i++) {
+    for (let i = 0; i < 80; i++) {
       let t = (rotateLeft(a, ROT[i % 20]) + e + this.W[IND[i]] + K[(i / 20) >> 0]) | 0;
       if (i < 20) {
         t = (t + ((b & c) | (~b & d))) | 0;
@@ -88,7 +88,7 @@ class Has160 extends Hasher32le {
     this.state.hash[4] = (this.state.hash[4] + e) | 0;
   }
 
-  finalize() {
+  finalize(encoder) {
     // Add padding
     let padLen = this.state.message.length < 56 ? 56 - this.state.message.length : 120 - this.state.message.length;
     this.state.message += "\x80";
@@ -103,7 +103,7 @@ class Has160 extends Hasher32le {
     this.state.message += "\x00\x00\x00\x00";
     this.process();
 
-    return this.getStateHash();
+    return encoder.encode(this.getStateHash());
   }
 }
 
