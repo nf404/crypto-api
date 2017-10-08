@@ -24,8 +24,9 @@
   },
   "scripts": {
     "docs": "jsdoc2md lib/*.js",
-    "test": "istanbul cover node_modules/mocha/bin/_mocha -- && karma start karma.conf.js",
-    "test2": "karma start",
+    "test": "npm run test-istanbul && npm run test-karma",
+    "test-istanbul": "istanbul cover node_modules/mocha/bin/_mocha -- --compilers js:babel-core/register --reporter spec test/test.js",
+    "test-karma": "karma start",
     "combine": "istanbul-combine -r lcovonly coverage/*/*.json",
     "coveralls": "coveralls < coverage/lcov.info",
     "codacy": "codacy-coverage < coverage/lcov.info",

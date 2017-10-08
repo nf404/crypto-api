@@ -2,7 +2,7 @@ module.exports = function (config) {
   config.set({
 //    basePath: '',
 //    autoWatch: true,
-//    singleRun: true,
+    singleRun: true,
     frameworks: ['mocha'],
     files: [
       'test/test.js'
