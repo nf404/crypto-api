@@ -25,7 +25,7 @@
   "scripts": {
     "docs": "jsdoc2md lib/*.js",
     "test": "npm run test-istanbul && npm run test-karma",
-    "test-istanbul": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly --dir coverage/istanbul -- --require babel-core/register --reporter spec test/test.js",
+    "test-istanbul": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly --dir coverage/istanbul -- --require babel-core/register --reporter spec --recursive test/test.js",
     "test-karma": "karma start",
     "combine": "istanbul-combine -r lcovonly coverage/*/*.json",
     "coveralls": "coveralls < coverage/lcov.info",

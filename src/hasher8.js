@@ -7,12 +7,11 @@ import Hasher from "./hasher";
  */
 class Hasher8 extends Hasher {
   /**
-   * @param {string} name
    * @param {Object} options
    * @constructor
    */
-  constructor(name, options) {
-    super(name, options);
+  constructor(options) {
+    super(options);
 
     /**
      * @desc Size of unit = 1 byte
@@ -39,6 +38,15 @@ class Hasher8 extends Hasher {
       this.state.message = this.state.message.substr(this.blockSizeInBytes);
       this.processBlock(this.blockUnits);
     }
+  }
+
+  getStateHash(size) {
+    size = size || this.state.hash.length;
+    let hash = '';
+    for (let i = 0; i < size; i++) {
+      hash += String.fromCharCode(this.state.hash[i] & 0xff);
+    }
+    return hash;
   }
 }
 

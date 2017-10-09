@@ -16,7 +16,7 @@ class TestHasher {
     let t = this;
     Object.keys(tests).forEach(function (msg) {
       it(msg, function () {
-        let hash = t.getInstance(tests[msg].options | {});
+        let hash = t.getInstance(tests[msg].options || {});
         hash.update(tests[msg].message);
         assert.equal(hash.finalize(hex), tests[msg].hash)
       })

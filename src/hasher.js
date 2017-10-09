@@ -49,7 +49,7 @@ class Hasher {
     /**
      * @type {Object}
      */
-    this.options = options | {};
+    this.options = options || {};
     this.blockUnits = [];
   }
 
@@ -139,9 +139,10 @@ class Hasher {
   }
 
   /**
+   * @param {number} size
    * @returns {string}
    */
-  getStateHash() {
+  getStateHash(size) {
     return '';
   }
 }

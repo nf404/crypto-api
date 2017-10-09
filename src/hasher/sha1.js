@@ -21,7 +21,6 @@ class Sha1 extends Hasher32be {
   }
 
   /**
-   *
    * @param {number[]} M
    */
   processBlock(M) {
@@ -65,7 +64,7 @@ class Sha1 extends Hasher32be {
   }
 
   finalize(encoder) {
-    /// Add padding
+    // Add padding
     let padLen = this.state.message.length < 56 ? 56 - this.state.message.length : 120 - this.state.message.length;
     this.state.message += "\x80";
     this.state.message += new Array(padLen).join("\x00");

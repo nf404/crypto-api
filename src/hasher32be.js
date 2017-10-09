@@ -31,9 +31,10 @@ class Hasher32be extends Hasher {
     }
   }
 
-  getStateHash() {
+  getStateHash(size) {
+    size = size || this.state.hash.length;
     let hash = '';
-    for (let i = 0; i < this.state.hash.length; i++) {
+    for (let i = 0; i < size; i++) {
       hash += String.fromCharCode(this.state.hash[i] >> 24 & 0xff) +
         String.fromCharCode(this.state.hash[i] >> 16 & 0xff) +
         String.fromCharCode(this.state.hash[i] >> 8 & 0xff) +
