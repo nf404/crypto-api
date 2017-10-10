@@ -11,11 +11,11 @@ class Sha1 extends Hasher32be {
     super(options);
 
     this.state.hash = [
-      0x67452301,
-      0xefcdab89,
-      0x98badcfe,
-      0x10325476,
-      0xc3d2e1f0
+      0x67452301 | 0,
+      0xefcdab89 | 0,
+      0x98badcfe | 0,
+      0x10325476 | 0,
+      0xc3d2e1f0 | 0
     ];
     this.W = new Array(80);
   }

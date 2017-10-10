@@ -2,6 +2,12 @@
 
 import TestSha0 from "./hasher/sha0";
 import TestSha1 from "./hasher/sha1";
+import TestSha224 from "./hasher/sha224";
+import TestSha256 from "./hasher/sha256";
+import TestSha384 from "./hasher/sha384";
+import TestSha512 from "./hasher/sha512";
+import TestSha512_224 from "./hasher/sha512_224";
+import TestSha512_256 from "./hasher/sha512_256";
 import TestHas160 from "./hasher/has160";
 import TestMd2 from "./hasher/md2";
 import TestMd4 from "./hasher/md4";
@@ -14,6 +20,12 @@ import TestRipemd320 from "./hasher/ripemd320";
 const hashes = {
   'sha0': new TestSha0(),
   'sha1': new TestSha1(),
+  'sha224': new TestSha224(),
+  'sha256': new TestSha256(),
+  'sha384': new TestSha384(),
+  'sha512': new TestSha512(),
+  'sha512/224': new TestSha512_224(),
+  'sha512/256': new TestSha512_256(),
   'has160': new TestHas160(),
   'md2': new TestMd2(),
   'md4': new TestMd4(),
