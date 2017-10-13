@@ -65,8 +65,7 @@ class Md2 extends Hasher8 {
   }
 
   finalize(encoder) {
-    let padLen = 16 - (this.state.message.length & 0xf);
-    this.state.message += new Array(padLen + 1).join(String.fromCharCode(padLen));
+    this.addPaddingPKCS7(16 - (this.state.message.length & 0xf) | 0);
     this.process();
 
     // Process checksum

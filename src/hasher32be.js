@@ -42,6 +42,15 @@ class Hasher32be extends Hasher {
     }
     return hash;
   }
+
+  addLengthBits() {
+    // @todo fix length to 64 bit
+    this.state.message += "\x00\x00\x00\x00";
+    let lengthBits = this.state.length << 3;
+    for (let i = 3; i >= 0; i--) {
+      this.state.message += String.fromCharCode(lengthBits >> (i << 3));
+    }
+  }
 }
 
 export default Hasher32be

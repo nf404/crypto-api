@@ -185,20 +185,14 @@ class Sha512 extends Hasher32be {
   }
 
   finalize(encoder) {
-    // Add padding
-    let padLen = this.state.message.length < 112 ? 112 - this.state.message.length : 240 - this.state.message.length;
-    this.state.message += "\x80";
-    this.state.message += new Array(padLen).join("\x00");
-
-    // Add length
-    // @todo fix length to 64 bit
-    this.state.message += "\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00";
-    let lengthBits = this.state.length * 8;
-    for (let i = 3; i >= 0; i--) {
-      this.state.message += String.fromCharCode(lengthBits >> (8 * i));
-    }
+    this.addPaddingISO7816(
+      this.state.message.length < 112 ?
+        112 - this.state.message.length | 0 :
+        240 - this.state.message.length | 0);
+    // Real length for SHA512 is 128 bit instead of 64 bit
+    this.state.message += "\x00\x00\x00\x00\x00\x00\x00\x00";
+    this.addLengthBits();
     this.process();
-
     return encoder.encode(this.getStateHash((this.options.length / 32) | 0));
   }
 }

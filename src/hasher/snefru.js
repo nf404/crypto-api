@@ -1081,18 +1081,11 @@ class Snefru extends Hasher32be {
   finalize(encoder) {
     /// Add padding
     if (this.state.message.length > 0) {
-      this.state.message += new Array(this.blockSizeInBytes - this.state.message.length + 1).join("\x00");
+      this.addPaddingZero(this.blockSizeInBytes - this.state.message.length | 0);
     }
-    this.state.message += new Array(this.blockSizeInBytes - 3).join("\x00");
-
-    // Add length
-    // @todo fix length to 64 bit
-    let lengthBits = this.state.length << 3;
-    for (let i = 3; i >= 0; i--) {
-      this.state.message += String.fromCharCode(lengthBits >> (i << 3));
-    }
+    this.addPaddingZero(this.blockSizeInBytes - 8 | 0);
+    this.addLengthBits();
     this.process();
-
     return encoder.encode(this.getStateHash());
   }
 }
