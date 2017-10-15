@@ -21,6 +21,7 @@ class Has160 extends Hasher32le {
   constructor(options) {
     super(options);
 
+    this.options.rounds = this.options.rounds || 80;
     this.state.hash = [
       0x67452301,
       0xefcdab89,
@@ -63,7 +64,7 @@ class Has160 extends Hasher32le {
     this.W[30] = (this.W[0] ^ this.W[5] ^ this.W[10] ^ this.W[15]) | 0;
     this.W[31] = (this.W[1] ^ this.W[6] ^ this.W[11] ^ this.W[12]) | 0;
     // Calculate hash
-    for (let i = 0; i < 80; i++) {
+    for (let i = 0; i < this.options.rounds; i++) {
       let t = (rotateLeft(a, ROT[i % 20]) + e + this.W[IND[i]] + K[(i / 20) >> 0]) | 0;
       if (i < 20) {
         t = (t + ((b & c) | (~b & d))) | 0;

@@ -37,6 +37,7 @@ class Md2 extends Hasher8 {
   constructor(options) {
     super(options);
 
+    this.options.rounds = this.options.rounds || 18;
     this.state.hash = new Array(48);
     this.state.checksum = new Array(16);
   }
@@ -48,9 +49,9 @@ class Md2 extends Hasher8 {
       this.state.hash[32 + i] = block[i] ^ this.state.hash[i];
     }
 
-    // 18 Rounds
+    // Rounds
     let t = 0;
-    for (let i = 0; i < 18; i++) {
+    for (let i = 0; i < this.options.rounds; i++) {
       for (let j = 0; j < 48; j++) {
         t = this.state.hash[j] ^= SBOX[t];
       }

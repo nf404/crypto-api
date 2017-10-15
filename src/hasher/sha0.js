@@ -10,6 +10,7 @@ class Sha0 extends Hasher32be {
   constructor(options) {
     super(options);
 
+    this.options.rounds = this.options.rounds || 80;
     this.state.hash = [
       0x67452301 | 0,
       0xefcdab89 | 0,
@@ -32,7 +33,7 @@ class Sha0 extends Hasher32be {
     let e = this.state.hash[4] | 0;
 
     // Calculate hash
-    for (let i = 0; i < 80; i++) {
+    for (let i = 0; i < this.options.rounds; i++) {
       if (i < 16) {
         this.W[i] = M[i] | 0;
       } else {

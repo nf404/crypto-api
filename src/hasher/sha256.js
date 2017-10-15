@@ -23,6 +23,7 @@ class Sha256 extends Hasher32be {
     super(options);
 
     this.options.length = this.options.length || 256;
+    this.options.rounds = this.options.rounds || 64;
 
     switch (this.options.length) {
       case 224:
@@ -52,7 +53,7 @@ class Sha256 extends Hasher32be {
     let h = this.state.hash[7] | 0;
 
     // Calculate hash
-    for (let i = 0; i < 64; i++) {
+    for (let i = 0; i < this.options.rounds; i++) {
       if (i < 16) {
         this.W[i] = M[i] | 0;
       } else {

@@ -39,6 +39,7 @@ class Sha512 extends Hasher32be {
     super(options);
 
     this.options.length = this.options.length || 512;
+    this.options.rounds = this.options.rounds || 160;
     this.blockSize = 32;
     this.blockSizeInBytes = this.blockSize * this.unitSize;
 
@@ -99,7 +100,7 @@ class Sha512 extends Hasher32be {
     let s0h, s0l, s1h, s1l;
 
     // Calculate hash
-    for (let i = 0; i < 160; i += 2) {
+    for (let i = 0; i < this.options.rounds; i += 2) {
       if (i < 32) {
         this.W[i] = M[i];
         this.W[i + 1] = M[i + 1];
