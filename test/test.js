@@ -20,6 +20,9 @@ import TestSnefru128_2 from "./hasher/snefru128_2";
 import TestSnefru128_8 from "./hasher/snefru128_8";
 import TestSnefru256_4 from "./hasher/snefru256_4";
 import TestSnefru256_8 from "./hasher/snefru256_8";
+import TestWhirlpool0 from "./hasher/whirlpool-0";
+import TestWhirlpoolT from "./hasher/whirlpool-t";
+import TestWhirlpool from "./hasher/whirlpool";
 
 const hashes = {
   'sha0': new TestSha0(),
@@ -41,7 +44,10 @@ const hashes = {
   'snerfu128_2': new TestSnefru128_2(),
   'snerfu128_8': new TestSnefru128_8(),
   'snerfu256_4': new TestSnefru256_4(),
-  'snerfu256_8': new TestSnefru256_8()
+  'snerfu256_8': new TestSnefru256_8(),
+  'whirlpool-0': new TestWhirlpool0(),
+  'whirlpool-t': new TestWhirlpoolT(),
+  'whirlpool': new TestWhirlpool()
 };
 
 Object.keys(hashes).forEach(function (hash) {
