@@ -1,7 +1,8 @@
 'use strict';
 
 import Hasher from "../src/hasher";
-import {hex} from "../src/encoder/hex";
+import {toHex} from "../src/encoder/hex";
+import {fromUtf} from "../src/encoder/utf";
 import {assert} from "chai";
 
 class TestHasher {
@@ -15,8 +16,8 @@ class TestHasher {
     Object.keys(tests).forEach(function (msg) {
       it(msg, function () {
         let hash = t.getInstance(tests[msg].options || {});
-        hash.update(tests[msg].message);
-        assert.equal(hex(hash.finalize()), tests[msg].hash)
+        hash.update(fromUtf(tests[msg].message));
+        assert.equal(toHex(hash.finalize()), tests[msg].hash)
       })
     })
   }

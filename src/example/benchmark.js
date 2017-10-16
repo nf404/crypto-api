@@ -1,6 +1,5 @@
 'use strict';
 
-import {hex} from "../encoder/hex";
 import Md2 from "../hasher/md2";
 import Md4 from "../hasher/md4";
 import Md5 from "../hasher/md5";
@@ -12,82 +11,84 @@ import Sha256 from "../hasher/sha256";
 import Sha512 from "../hasher/sha512";
 import Snefru from "../hasher/snefru";
 import Whirlpool from "../hasher/whirlpool";
+import {fromUtf} from "../encoder/utf";
+import {toHex} from "../encoder/hex";
 
 suite('Hash from simple string with HEX result', function (suite) {
   bench('md2', function () {
     suite.md2 = new Md2();
-    suite.md2.update('xxx');
-    hex(suite.md2.finalize());
+    suite.md2.update(fromUtf('xxx'));
+    toHex(suite.md2.finalize());
   });
   bench('md4', function () {
     suite.md4 = new Md4();
-    suite.md4.update('xxx');
-    hex(suite.md4.finalize());
+    suite.md4.update(fromUtf('xxx'));
+    toHex(suite.md4.finalize());
   });
   bench('md5', function () {
     suite.md5 = new Md5();
-    suite.md5.update('xxx');
-    hex(suite.md5.finalize());
+    suite.md5.update(fromUtf('xxx'));
+    toHex(suite.md5.finalize());
   });
   bench('ripemd128', function () {
     suite.ripemd128 = new Ripemd({length: 128});
-    suite.ripemd128.update('xxx');
-    hex(suite.ripemd128.finalize());
+    suite.ripemd128.update(fromUtf('xxx'));
+    toHex(suite.ripemd128.finalize());
   });
   bench('ripemd160', function () {
     suite.ripemd160 = new Ripemd({length: 160});
-    suite.ripemd160.update('xxx');
-    hex(suite.ripemd160.finalize());
+    suite.ripemd160.update(fromUtf('xxx'));
+    toHex(suite.ripemd160.finalize());
   });
   bench('ripemd256', function () {
     suite.ripemd256 = new Ripemd({length: 256});
-    suite.ripemd256.update('xxx');
-    hex(suite.ripemd256.finalize());
+    suite.ripemd256.update(fromUtf('xxx'));
+    toHex(suite.ripemd256.finalize());
   });
   bench('ripemd320', function () {
     suite.ripemd320 = new Ripemd({length: 320});
-    suite.ripemd320.update('xxx');
-    hex(suite.ripemd320.finalize());
+    suite.ripemd320.update(fromUtf('xxx'));
+    toHex(suite.ripemd320.finalize());
   });
   bench('has160', function () {
     suite.has160 = new Has160();
-    suite.has160.update('xxx');
-    hex(suite.has160.finalize());
+    suite.has160.update(fromUtf('xxx'));
+    toHex(suite.has160.finalize());
   });
   bench('sha0', function () {
     suite.sha0 = new Sha0();
-    suite.sha0.update('xxx');
-    hex(suite.sha0.finalize());
+    suite.sha0.update(fromUtf('xxx'));
+    toHex(suite.sha0.finalize());
   });
   bench('sha1', function () {
     suite.sha1 = new Sha1();
-    suite.sha1.update('xxx');
-    hex(suite.sha1.finalize());
+    suite.sha1.update(fromUtf('xxx'));
+    toHex(suite.sha1.finalize());
   });
   bench('sha224', function () {
     suite.sha224 = new Sha256({length: 224});
-    suite.sha224.update('xxx');
-    hex(suite.sha224.finalize());
+    suite.sha224.update(fromUtf('xxx'));
+    toHex(suite.sha224.finalize());
   });
   bench('sha256', function () {
     suite.sha256 = new Sha256();
-    suite.sha256.update('xxx');
-    hex(suite.sha256.finalize());
+    suite.sha256.update(fromUtf('xxx'));
+    toHex(suite.sha256.finalize());
   });
   bench('sha512', function () {
     suite.sha512 = new Sha512();
-    suite.sha512.update('xxx');
-    hex(suite.sha512.finalize());
+    suite.sha512.update(fromUtf('xxx'));
+    toHex(suite.sha512.finalize());
   });
   bench('snefru', function () {
     suite.snefru = new Snefru();
-    suite.snefru.update('xxx');
-    hex(suite.snefru.finalize());
+    suite.snefru.update(fromUtf('xxx'));
+    toHex(suite.snefru.finalize());
   });
   bench('whirlpool', function () {
     suite.whirlpool = new Whirlpool();
-    suite.whirlpool.update('xxx');
-    hex(suite.whirlpool.finalize());
+    suite.whirlpool.update(fromUtf('xxx'));
+    toHex(suite.whirlpool.finalize());
   });
 });
 suite('Update', function (suite) {
@@ -109,48 +110,48 @@ suite('Update', function (suite) {
     suite.whirlpool = new Whirlpool();
   });
   bench('md2', function () {
-    !!suite.md2.update('xxx');
+    !!suite.md2.update(fromUtf('xxx'));
   });
   bench('md4', function () {
-    !!suite.md4.update('xxx');
+    !!suite.md4.update(fromUtf('xxx'));
   });
   bench('md5', function () {
-    !!suite.md5.update('xxx');
+    !!suite.md5.update(fromUtf('xxx'));
   });
   bench('ripemd128', function () {
-    !!suite.ripemd128.update('xxx');
+    !!suite.ripemd128.update(fromUtf('xxx'));
   });
   bench('ripemd160', function () {
-    !!suite.ripemd160.update('xxx');
+    !!suite.ripemd160.update(fromUtf('xxx'));
   });
   bench('ripemd256', function () {
-    !!suite.ripemd256.update('xxx');
+    !!suite.ripemd256.update(fromUtf('xxx'));
   });
   bench('ripemd320', function () {
-    !!suite.ripemd320.update('xxx');
+    !!suite.ripemd320.update(fromUtf('xxx'));
   });
   bench('has160', function () {
-    !!suite.has160.update('xxx');
+    !!suite.has160.update(fromUtf('xxx'));
   });
   bench('sha0', function () {
-    !!suite.sha0.update('xxx');
+    !!suite.sha0.update(fromUtf('xxx'));
   });
   bench('sha1', function () {
-    !!suite.sha1.update('xxx');
+    !!suite.sha1.update(fromUtf('xxx'));
   });
   bench('sha224', function () {
-    !!suite.sha224.update('xxx');
+    !!suite.sha224.update(fromUtf('xxx'));
   });
   bench('sha256', function () {
-    !!suite.sha256.update('xxx');
+    !!suite.sha256.update(fromUtf('xxx'));
   });
   bench('sha512', function () {
-    !!suite.sha512.update('xxx');
+    !!suite.sha512.update(fromUtf('xxx'));
   });
   bench('snefru', function () {
-    !!suite.snefru.update('xxx');
+    !!suite.snefru.update(fromUtf('xxx'));
   });
   bench('whirlpool', function () {
-    !!suite.whirlpool.update('xxx');
+    !!suite.whirlpool.update(fromUtf('xxx'));
   });
 });

@@ -1,11 +1,11 @@
 'use strict';
 
 /**
- *
+ * Convert binary result of hash to hex
  * @param {string} raw
  * @returns {string}
  */
-function hex(raw) {
+function toHex(raw) {
   let str = '';
   for (let i = 0, l = raw.length; i < l; i++) {
     str += (raw.charCodeAt(i) < 16 ? '0' : '') + raw.charCodeAt(i).toString(16);
@@ -13,4 +13,4 @@ function hex(raw) {
   return str;
 }
 
-export {hex}
+export {toHex}

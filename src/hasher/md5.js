@@ -163,7 +163,7 @@ class Md5 extends Hasher32le {
     this.state.hash[3] = (this.state.hash[3] + d) | 0;
   }
 
-  finalize(encoder) {
+  finalize() {
     this.addPaddingISO7816(
       this.state.message.length < 56 ?
         56 - this.state.message.length | 0 :

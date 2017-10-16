@@ -1,6 +1,5 @@
 'use strict';
 
-import {hex} from "./encoder/hex";
 import Has160 from "./hasher/has160";
 import Md2 from "./hasher/md2";
 import Md4 from "./hasher/md4";
@@ -12,6 +11,8 @@ import Sha256 from "./hasher/sha256";
 import Sha512 from "./hasher/sha512";
 import Snefru from "./hasher/snefru";
 import Whirlpool from "./hasher/whirlpool";
+import {fromUtf} from "./encoder/utf";
+import {toHex} from "./encoder/hex";
 
 class CryptoApi {
   constructor() {
@@ -29,7 +30,8 @@ class CryptoApi {
       'Whirlpool': Whirlpool
     };
     this.enc = {
-      'hex': hex
+      'fromUtf': fromUtf,
+      'toHex': toHex
     }
   }
 
@@ -109,8 +111,8 @@ class CryptoApi {
   static hash(name, message, options) {
     options = options || {};
     let hasher = CryptoApi.getHasher(name, options);
-    hasher.update(message);
-    return hex(hasher.finalize());
+    hasher.update(fromUtf(message));
+    return toHex(hasher.finalize());
   }
 }
 
