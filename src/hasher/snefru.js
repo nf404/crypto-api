@@ -1078,7 +1078,7 @@ class Snefru extends Hasher32be {
     }
   }
 
-  finalize(encoder) {
+  finalize() {
     /// Add padding
     if (this.state.message.length > 0) {
       this.addPaddingZero(this.blockSizeInBytes - this.state.message.length | 0);
@@ -1086,7 +1086,7 @@ class Snefru extends Hasher32be {
     this.addPaddingZero(this.blockSizeInBytes - 8 | 0);
     this.addLengthBits();
     this.process();
-    return encoder.encode(this.getStateHash());
+    return this.getStateHash();
   }
 }
 

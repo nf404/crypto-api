@@ -93,14 +93,14 @@ class Sha256 extends Hasher32be {
     this.state.hash[7] = (this.state.hash[7] + h) | 0;
   }
 
-  finalize(encoder) {
+  finalize() {
     this.addPaddingISO7816(
       this.state.message.length < 56 ?
         56 - this.state.message.length | 0 :
         120 - this.state.message.length | 0);
     this.addLengthBits();
     this.process();
-    return encoder.encode(this.getStateHash((this.options.length / 32) | 0));
+    return this.getStateHash((this.options.length / 32) | 0);
   }
 }
 

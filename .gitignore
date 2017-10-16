@@ -3,3 +3,5 @@
 /coverage
 /dist/*.js
 /dist/*/*.js
+/dist/*.map
+/dist/*/*.map

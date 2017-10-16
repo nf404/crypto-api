@@ -131,10 +131,9 @@ class Hasher {
 
   /**
    *
-   * @param {Encoder} encoder
    * @returns {string}
    */
-  finalize(encoder) {
+  finalize() {
     return '';
   }
 

@@ -185,7 +185,7 @@ class Sha512 extends Hasher32be {
     this.state.hash[14] = (this.state.hash[14] + hh + ((this.state.hash[15] >>> 0) < (hl >>> 0) ? 1 : 0)) | 0;
   }
 
-  finalize(encoder) {
+  finalize() {
     this.addPaddingISO7816(
       this.state.message.length < 112 ?
         112 - this.state.message.length | 0 :
@@ -194,7 +194,7 @@ class Sha512 extends Hasher32be {
     this.state.message += "\x00\x00\x00\x00\x00\x00\x00\x00";
     this.addLengthBits();
     this.process();
-    return encoder.encode(this.getStateHash((this.options.length / 32) | 0));
+    return this.getStateHash((this.options.length / 32) | 0);
   }
 }
 

@@ -395,14 +395,14 @@ class Ripemd extends Hasher32le {
     this.state.hash[9] = (this.state.hash[9] + er) | 0;
   }
 
-  finalize(encoder) {
+  finalize() {
     this.addPaddingISO7816(
       this.state.message.length < 56 ?
         56 - this.state.message.length | 0 :
         120 - this.state.message.length | 0);
     this.addLengthBits();
     this.process();
-    return encoder.encode(this.getStateHash());
+    return this.getStateHash();
   }
 }
 

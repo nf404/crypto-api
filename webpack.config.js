@@ -5,11 +5,12 @@ const UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
 module.exports = {
   devtool: 'source-map',
   entry: {
-    'benchmark': './src/example/benchmark.js',
-    'benchmark-other': './src/example/benchmark-other.js'
+    'crypto-api': './src/crypto-api.js',
+    'example/benchmark': './src/example/benchmark.js',
+    'example/benchmark-other': './src/example/benchmark-other.js'
   },
   output: {
-    path: path.resolve(__dirname, 'dist/example'),
+    path: path.resolve(__dirname, 'dist'),
     filename: '[name].min.js'
   },
   module: {

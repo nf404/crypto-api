@@ -1,19 +1,16 @@
 'use strict';
 
-import Encoder from "../encoder";
-
-class EncoderHex extends Encoder {
-  constructor() {
-    super();
+/**
+ *
+ * @param {string} raw
+ * @returns {string}
+ */
+function hex(raw) {
+  let str = '';
+  for (let i = 0, l = raw.length; i < l; i++) {
+    str += (raw.charCodeAt(i) < 16 ? '0' : '') + raw.charCodeAt(i).toString(16);
   }
-
-  encode(raw) {
-    let str = '';
-    for (let i = 0, l = raw.length; i < l; i++) {
-      str += (raw.charCodeAt(i) < 16 ? '0' : '') + raw.charCodeAt(i).toString(16);
-    }
-    return str;
-  }
+  return str;
 }
 
-export default EncoderHex
+export {hex}

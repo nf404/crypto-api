@@ -1,10 +1,8 @@
 'use strict';
 
 import Hasher from "../src/hasher";
-import EncoderHex from "../src/encoder/hex";
+import {hex} from "../src/encoder/hex";
 import {assert} from "chai";
-
-let hex = new EncoderHex();
 
 class TestHasher {
   constructor() {
@@ -18,7 +16,7 @@ class TestHasher {
       it(msg, function () {
         let hash = t.getInstance(tests[msg].options || {});
         hash.update(tests[msg].message);
-        assert.equal(hash.finalize(hex), tests[msg].hash)
+        assert.equal(hex(hash.finalize()), tests[msg].hash)
       })
     })
   }

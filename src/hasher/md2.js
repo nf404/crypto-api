@@ -65,7 +65,7 @@ class Md2 extends Hasher8 {
     }
   }
 
-  finalize(encoder) {
+  finalize() {
     this.addPaddingPKCS7(16 - (this.state.message.length & 0xf) | 0);
     this.process();
 
@@ -76,7 +76,7 @@ class Md2 extends Hasher8 {
     this.process();
 
     // Return hash
-    return encoder.encode(this.getStateHash(16));
+    return this.getStateHash(16);
   }
 }
 
