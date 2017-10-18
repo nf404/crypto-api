@@ -1,5 +1,11 @@
 'use strict';
 
+/**
+ * Convert UTF8/UTF16 string to binary input for hasher
+ *
+ * @param {string} message
+ * @returns {string}
+ */
 function fromUtf(message) {
   let raw = '';
   let l = 0;

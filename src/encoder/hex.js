@@ -2,6 +2,7 @@
 
 /**
  * Convert binary result of hash to hex
+ *
  * @param {string} raw
  * @returns {string}
  */
