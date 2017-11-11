@@ -53,6 +53,11 @@ class Hasher {
     this.blockUnits = [];
   }
 
+  reset() {
+    this.state = {};
+    this.constructor(this.options)
+  }
+
   /**
    * Return current state
    * @returns {Object}

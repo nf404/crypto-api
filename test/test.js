@@ -23,6 +23,7 @@ import TestSnefru256_8 from "./hasher/snefru256_8";
 import TestWhirlpool0 from "./hasher/whirlpool-0";
 import TestWhirlpoolT from "./hasher/whirlpool-t";
 import TestWhirlpool from "./hasher/whirlpool";
+import TestHmacMd5 from "./mac/hmac_md5";
 
 const hashes = {
   'sha0': new TestSha0(),
@@ -50,8 +51,20 @@ const hashes = {
   'whirlpool': new TestWhirlpool()
 };
 
+const hmacs = {
+  'md5': new TestHmacMd5()
+};
+
+// Hash tests
 Object.keys(hashes).forEach(function (hash) {
   describe('Tests for hash ' + hash, function () {
     hashes[hash].test();
+  });
+});
+
+// HMAC tests
+Object.keys(hmacs).forEach(function (hmac) {
+  describe('Tests for hmac-' + hmac, function () {
+    hmacs[hmac].test();
   });
 });

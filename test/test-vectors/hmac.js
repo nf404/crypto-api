@@ -3,51 +3,7 @@
   'use strict';
 
   var TestVectorsHmac = {
-    // The HMAC-MD5 test suite
-    // https://tools.ietf.org/html/rfc2202
-    'md5': {
-      "hmac-md5('Hi There', 0x0b x 16)": {
-        message: 'Hi There',
-        key: Array.apply(0, new Array(16)).map(Number.prototype.valueOf, 0x0b),
-        hash: '9294727a3638bb1c13f48ef8158bfc9d'
-      },
-      "hmac-md5('what do ya want for nothing?', 'Jefe')": {
-        message: 'what do ya want for nothing?',
-        key: 'Jefe',
-        hash: '750c783e6ab0b503eaa86e310a5db738'
-      },
-      'hmac-md5(0xdd x 50, 0xaa x 16)': {
-        message: Array.apply(0, new Array(50))
-          .map(Number.prototype.valueOf, 0xdd),
-        key: Array.apply(0, new Array(16)).map(Number.prototype.valueOf, 0xaa),
-        hash: '56be34521d144c88dbb8c733f0e8b3f6'
-      },
-      'hmac-md5(0xcd x 50, 0x0102030405060708090a0b0c0d0e0f10111213141516171819)': {
-        message: Array.apply(0, new Array(50))
-          .map(Number.prototype.valueOf, 0xcd),
-        key: [
-          0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08,
-          0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f, 0x10,
-          0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19
-        ],
-        hash: '697eaf0aca3a3aea3a75164746ffaa79'
-      },
-      "hmac-md5('Test With Truncation', 0x0c x 16)": {
-        message: 'Test With Truncation',
-        key: Array.apply(0, new Array(16)).map(Number.prototype.valueOf, 0x0c),
-        hash: '56461ef2342edc00f9bab995690efd4c'
-      },
-      "hmac-md5('Test Using Larger Than Block-Size Key - Hash Key First', 0xaa x 80)": {
-        message: 'Test Using Larger Than Block-Size Key - Hash Key First',
-        key: Array.apply(0, new Array(80)).map(Number.prototype.valueOf, 0xaa),
-        hash: '6b1ab7fe4bd7bf8f0b62e6ce61b9d0cd'
-      },
-      "hmac-md5('Test Using Larger Than Block-Size Key and Larger Than One Block-Size Data', 0xaa x 80)": {
-        message: 'Test Using Larger Than Block-Size Key and Larger Than One Block-Size Data',
-        key: Array.apply(0, new Array(80)).map(Number.prototype.valueOf, 0xaa),
-        hash: '6f630fad67cda0ee1fb1f562db3aa53e'
-      }
-    },
+
     // The HMAC-HAS160 test suite
     // https://files.randombit.net/misc/has160.pdf
     'has160': {

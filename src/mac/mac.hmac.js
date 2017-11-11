@@ -7,29 +7,32 @@ class Hmac {
    * @param {Hasher} hasher
    */
   constructor(key, hasher) {
-    this.hasher = hasher;
-    this.key = key;
-    this.oPad = '';
-
     if (key.length > hasher.blockSizeInBytes) {
-      this.hasher.update(key);
-      this.key = hasher.finalize();
+      hasher.update(key);
+      key =  hasher.finalize();
+      hasher.reset();
     }
-    for (let i = this.key.length; i < hasher.blockSizeInBytes; i++) {
-      this.key += "\x00";
+    for (let i = key.length; i < hasher.blockSizeInBytes; i++) {
+      key += "\x00";
     }
-    let iPad = '';
-    for (let i = 0; i < this.key.length; i++) {
-      iPad += String.fromCharCode(0x36 ^ this.key.charCodeAt(i));
-      this.oPad += String.fromCharCode(0x56 ^ this.key.charCodeAt(i));
+    this.oPad = '';
+    for (let i = 0; i < key.length; i++) {
+      hasher.update(String.fromCharCode(0x36 ^ key.charCodeAt(i)));
+      this.oPad += String.fromCharCode(0x5c ^ key.charCodeAt(i));
     }
-    this.hasher = new hasher(hasher.options);
-    this.hasher.update(iPad);
+    this.hasher = hasher;
+  }
+
+  /**
+   * @param {string} message
+   */
+  update(message) {
+    this.hasher.update(message)
   }
 
   finalize() {
     let hash = this.hasher.finalize();
-    this.hasher = new this.hasher(this.hasher.options);
+    this.hasher.reset();
     this.hasher.update(this.oPad);
     this.hasher.update(hash);
     return this.hasher.finalize();
