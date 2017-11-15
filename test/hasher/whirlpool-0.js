@@ -49,7 +49,7 @@ class TestWhirlpool0 extends TestHasher {
   }
 
   getInstance(options) {
-    return new Whirlpool(options);
+    return new Whirlpool(options || {type: '0'});
   }
 }
 

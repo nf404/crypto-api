@@ -90,7 +90,7 @@ class TestSnefru256_4 extends TestHasher {
   }
 
   getInstance(options) {
-    return new Snefru(options);
+    return new Snefru(options || {length: 256, rounds: 4});
   }
 }
 

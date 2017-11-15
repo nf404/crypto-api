@@ -13,6 +13,7 @@ import Snefru from "./hasher/snefru";
 import Whirlpool from "./hasher/whirlpool";
 import {fromUtf} from "./encoder/utf";
 import {toHex} from "./encoder/hex";
+import Hmac from "./mac/hmac";
 
 class CryptoApi {
   constructor() {
@@ -113,6 +114,10 @@ class CryptoApi {
     let hasher = CryptoApi.getHasher(name, options);
     hasher.update(fromUtf(message));
     return toHex(hasher.finalize());
+  }
+
+  static getHmac(key, hasher) {
+    return new Hmac(key, hasher);
   }
 }
 

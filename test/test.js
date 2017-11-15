@@ -24,7 +24,15 @@ import TestWhirlpool0 from "./hasher/whirlpool-0";
 import TestWhirlpoolT from "./hasher/whirlpool-t";
 import TestWhirlpool from "./hasher/whirlpool";
 import TestHmacMd5 from "./mac/hmac_md5";
+import TestHmacSha1 from "./mac/hmac_sha1";
+import TestHmacSha224 from "./mac/hmac_sha224";
+import TestHmacSha256 from "./mac/hmac_sha256";
+import TestHmacSha384 from "./mac/hmac_sha384";
+import TestHmacSha512 from "./mac/hmac_sha512";
+import TestHmacHas160 from "./mac/hmac_has160";
+import TestUtf from "./TestUtf";
 
+/** @var {TestHasher[]} */
 const hashes = {
   'sha0': new TestSha0(),
   'sha1': new TestSha1(),
@@ -51,8 +59,15 @@ const hashes = {
   'whirlpool': new TestWhirlpool()
 };
 
+/** @var {TestHmac[]} */
 const hmacs = {
-  'md5': new TestHmacMd5()
+  'md5': new TestHmacMd5(),
+  'sha1': new TestHmacSha1(),
+  'sha224': new TestHmacSha224(),
+  'sha256': new TestHmacSha256(),
+  'sha384': new TestHmacSha384(),
+  'sha512': new TestHmacSha512(),
+  'has160': new TestHmacHas160()
 };
 
 // Hash tests
@@ -67,4 +82,9 @@ Object.keys(hmacs).forEach(function (hmac) {
   describe('Tests for hmac-' + hmac, function () {
     hmacs[hmac].test();
   });
+});
+
+// UTF tests
+describe('UTF tests', function () {
+  (new TestUtf()).test();
 });

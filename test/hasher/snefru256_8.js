@@ -90,7 +90,7 @@ class TestSnefru256_8 extends TestHasher {
   }
 
   getInstance(options) {
-    return new Snefru(options);
+    return new Snefru(options || {length: 256});
   }
 }
 

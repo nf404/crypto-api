@@ -39,7 +39,7 @@ class TestSha224 extends TestHasher {
   }
 
   getInstance(options) {
-    return new Sha256(options);
+    return new Sha256(options || {length: 224});
   }
 }
 

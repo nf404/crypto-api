@@ -1,6 +1,6 @@
 'use strict';
 
-import Hmac from "../src/mac/mac.hmac";
+import Hmac from "../src/mac/hmac";
 import Hasher from "../src/hasher";
 import {toHex} from "../src/encoder/hex";
 import {assert} from "chai";

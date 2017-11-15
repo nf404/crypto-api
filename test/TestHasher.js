@@ -19,6 +19,21 @@ class TestHasher {
         hash.update(fromUtf(tests[msg].message));
         assert.equal(toHex(hash.finalize()), tests[msg].hash)
       })
+    });
+    it('hash setState() getState()', function () {
+      let hasher = t.getInstance();
+      hasher.update('1');
+      let hash1 = toHex(hasher.finalize());
+      hasher.reset();
+      hasher.update('12');
+      let hash2 = toHex(hasher.finalize());
+      hasher.reset();
+      hasher.update('1');
+      let state = hasher.getState();
+      assert.equal(toHex(hasher.finalize()), hash1);
+      hasher.setState(state);
+      hasher.update('2');
+      assert.equal(toHex(hasher.finalize()), hash2);
     })
   }
 

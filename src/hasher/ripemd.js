@@ -37,7 +37,7 @@ class Ripemd extends Hasher32le {
     super(options);
 
     this.options.length = this.options.length || 160;
-    switch (options.length) {
+    switch (this.options.length) {
       case 128:
         this.state.hash = [0x67452301, 0xefcdab89, 0x98badcfe, 0x10325476];
         this.processBlock = this.processBlock128;

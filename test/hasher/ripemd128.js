@@ -54,7 +54,7 @@ class TestRipemd128 extends TestHasher {
   }
 
   getInstance(options) {
-    return new Ripemd(options);
+    return new Ripemd(options || {length: 128});
   }
 }
 
