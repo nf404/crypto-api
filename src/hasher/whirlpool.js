@@ -1,8 +1,10 @@
 'use strict';
-import {rotateRight64hi, rotateRight64lo} from "../tools";
-import Hasher32be from "../hasher32be";
+import {rotateRight64hi, rotateRight64lo} from "../tools/tools";
+import Hasher32be from "./hasher32be";
 
+/** @type {number[]} */
 const SBOX = new Array(256);
+/** @type {number[]} */
 const SBOX0 = [
   0x68, 0xd0, 0xeb, 0x2b, 0x48, 0x9d, 0x6a, 0xe4, 0xe3, 0xa3, 0x56, 0x81,
   0x7d, 0xf1, 0x85, 0x9e, 0x2c, 0x8e, 0x78, 0xca, 0x17, 0xa9, 0x61, 0xd5,
@@ -27,24 +29,40 @@ const SBOX0 = [
   0x13, 0xbb, 0xf7, 0x6f, 0xb9, 0x47, 0x2f, 0xee, 0xb8, 0x7b, 0x89, 0x30,
   0xd3, 0x7f, 0x76, 0x82
 ];
+/** @type {number[]} */
 const eBOX = [
   0x1, 0xb, 0x9, 0xc, 0xd, 0x6, 0xf, 0x3,
   0xe, 0x8, 0x7, 0x4, 0xa, 0x2, 0x5, 0x0
 ];
+/** @type {number[]} */
 const rBOX = [
   0x7, 0xc, 0xb, 0xd, 0xe, 0x4, 0x9, 0xf,
   0x6, 0x3, 0x8, 0xa, 0x2, 0x5, 0x1, 0x0
 ];
+/** @type {number[]} */
 const iBOX = new Array(16);
+/** @type {number[]} */
 const theta = [1, 1, 4, 1, 8, 5, 2, 9];
+/** @type {number[]} */
 const theta0 = [1, 1, 3, 1, 5, 8, 9, 5];
+/** @type {Array[]} */
 let C = new Array(512);
+/** @type {number[]} */
 let RC = new Array(22);
+/** @type {Array[]} */
 let C0 = new Array(512);
+/** @type {number[]} */
 let RC0 = new Array(22);
+/** @type {Array[]} */
 let CT = new Array(512);
+/** @type {number[]} */
 let RCT = new Array(22);
 
+/**
+ * Calculates SBOX from eBOX & rBOX
+ *
+ * @private
+ */
 function calculateSBOX() {
   for (let i = 0; i < 16; i++) {
     iBOX[eBOX[i]] = i | 0;
@@ -57,9 +75,20 @@ function calculateSBOX() {
   }
 }
 
+/**
+ * Calculates C* & RC* transform tables
+ *
+ * @private
+ * @param {number[]} SBOX
+ * @param {number[]} theta
+ * @returns {[Array[], number[]]}
+ */
 function calculateRC(SBOX, theta) {
+  /** @type {Array[]} */
   const C = new Array(512);
+  /** @type {number[]} */
   const RC = new Array(22);
+
   for (let t = 0; t < 8; t++) {
     C[t] = [];
   }
@@ -127,7 +156,52 @@ function calculateRC(SBOX, theta) {
   RC = x[1];
 })();
 
+/**
+ * Calculates [WHIRLPOOL (WHIRLPOOL-0, WHIRLPOOL-T)](http://www.larc.usp.br/~pbarreto/WhirlpoolPage.html) hash
+ *
+ * @example <caption>Calculates WHIRLPOOL hash from string "message" - ES6 style</caption>
+ * import Whirlpool from "crypto-api/hasher/whirlpool";
+ * import {toHex} from "crypto-api/encoder/hex";
+ *
+ * let hasher = new Whirlpool();
+ * hasher.update('message');
+ * console.log(toHex(hasher.finalize()));
+ *
+ * @example <caption>Calculates WHIRLPOOL hash from UTF string "message" - ES6 style</caption>
+ * import Whirlpool from "crypto-api/hasher/whirlpool";
+ * import {toHex} from "crypto-api/encoder/hex";
+ * import {fromUtf} from "crypto-api/encoder/utf";
+ *
+ * let hasher = new Whirlpool();
+ * hasher.update(fromUtf('message'));
+ * console.log(toHex(hasher.finalize()));
+ *
+ * @example <caption>Calculates WHIRLPOOL hash from string "message" - ES5 style</caption>
+ * <script src="https://nf404.github.io/crypto-api/crypto-api.min.js"></script>
+ * <script>
+ *   var hasher = CryptoApi.getHasher('whirlpool');
+ *   hasher.update('message');
+ *   console.log(CryptoApi.encoder.toHex(hasher.finalize()));
+ * </script>
+ *
+ * @example <caption>Calculates WHIRLPOOL hash from UTF string "message" - ES5 style</caption>
+ * <script src="https://nf404.github.io/crypto-api/crypto-api.min.js"></script>
+ * <script>
+ *   console.log(CryptoApi.hash('whirlpool', 'message'));
+ * </script>
+ */
 class Whirlpool extends Hasher32be {
+  /**
+   * @param {Object} [options]
+   * @param {number} [options.rounds=10] - Number of rounds (Can be from 1 to 10)
+   * @param {string} [options.type] - Algorithm type
+   *
+   * | Hash type   | Type      |
+   * |-------------|-----------|
+   * | whirlpool-0 | '0'       |
+   * | whirlpool-t | 't'       |
+   * | whirlpool   | undefined |
+   */
   constructor(options) {
     super(options);
 
@@ -142,7 +216,15 @@ class Whirlpool extends Hasher32be {
     switch (this.options.type) {
       case '0':
       case 0:
+        /**
+         *  @type {{number[]}[]}
+         *  @ignore
+         *  */
         this.C = C0;
+        /**
+         *  @type {number[]}
+         *  @ignore
+         *  */
         this.RC = RC0;
         break;
       case 't':
@@ -155,12 +237,19 @@ class Whirlpool extends Hasher32be {
     }
   }
 
-  processBlock(M) {
+  /**
+   * Process ready blocks
+   *
+   * @protected
+   * @ignore
+   * @param {number[]} block - Block
+   */
+  processBlock(block) {
     // compute and apply K^0 to the cipher state
     let K = new Array(16);
     let state = [];
     for (let i = 0; i < 16; i++) {
-      state[i] = M[i] ^ (K[i] = this.state.hash[i]) | 0;
+      state[i] = block[i] ^ (K[i] = this.state.hash[i]) | 0;
     }
 
     // iterate over all rounds
@@ -196,10 +285,15 @@ class Whirlpool extends Hasher32be {
     }
     // apply the Miyaguchi-Preneel compression function
     for (let i = 0; i < 16; i++) {
-      this.state.hash[i] ^= state[i] ^ M[i];
+      this.state.hash[i] ^= state[i] ^ block[i];
     }
   }
 
+  /**
+   * Finalize hash and return result
+   *
+   * @returns {string}
+   */
   finalize() {
     this.addPaddingISO7816(
       this.state.message.length < 56 ?

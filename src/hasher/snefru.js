@@ -1,11 +1,15 @@
 'use strict';
 
-import Hasher32be from "../hasher32be";
-import {rotateRight} from "../tools";
+import Hasher32be from "./hasher32be";
+import {rotateRight} from "../tools/tools";
 
-// The random table is the first part of the random digits from the book:
-// "A Million Random Digits with 100,000 Normal Deviates",
-// by the RAND Corporation, published by the Free Press, 1955
+/**
+ * The random table is the first part of the random digits from the book:
+ * "A Million Random Digits with 100,000 Normal Deviates",
+ * by the RAND Corporation, published by the Free Press, 1955
+ *
+ * @type {number[]}
+ */
 const randTable = [
   10097, 32533, 76520, 13586, 34673, 54876, 80959, 9117, 39292, 74945,
   37542, 4805, 64894, 74296, 24805, 24037, 20636, 10402, 822, 91665,
@@ -969,11 +973,16 @@ const randTable = [
   94727, 25234, 40546, 53417, 36492, 25723, 76227, 58456, 15979, 34876,
   9574, 34392, 3751, 36933, 83921, 65108, 63135, 67572, 40184, 21098
 ];
+/** @type {Array[]} */
 const SBOX = new Array(16);
+/** @type {number[]} */
 const shiftTable = [16, 8, 16, 24];
+/** @type {number} */
 const sboxSize = 16;
 
+/** @type {number} */
 let count5 = 4;
+/** @type {number} */
 let randomIndex = 0; // 9591
 
 /**
@@ -1036,7 +1045,55 @@ function generateSbox(size) {
 
 generateSbox(sboxSize);
 
+/**
+ * Calculates Snefru v2.0 (2 rounds 128, 4 rounds 256), Snefru v2.5 (8 rounds) hash
+ *
+ * @example <caption>Calculates Snefru128/8 hash from string "message" - ES6 style</caption>
+ * import Snefru from "crypto-api/hasher/snefru";
+ * import {toHex} from "crypto-api/encoder/hex";
+ *
+ * let hasher = new Snefru();
+ * hasher.update('message');
+ * console.log(toHex(hasher.finalize()));
+ *
+ * @example <caption>Calculates Snefru128/8 hash from UTF string "message" - ES6 style</caption>
+ * import Snefru from "crypto-api/hasher/snefru";
+ * import {toHex} from "crypto-api/encoder/hex";
+ * import {fromUtf} from "crypto-api/encoder/utf";
+ *
+ * let hasher = new Snefru();
+ * hasher.update(fromUtf('message'));
+ * console.log(toHex(hasher.finalize()));
+ *
+ * @example <caption>Calculates Snefru128/8 hash from string "message" - ES5 style</caption>
+ * <script src="https://nf404.github.io/crypto-api/crypto-api.min.js"></script>
+ * <script>
+ *   var hasher = CryptoApi.getHasher('snefru');
+ *   hasher.update('message');
+ *   console.log(CryptoApi.encoder.toHex(hasher.finalize()));
+ * </script>
+ *
+ * @example <caption>Calculates Snefru128/8 hash from UTF string "message" - ES5 style</caption>
+ * <script src="https://nf404.github.io/crypto-api/crypto-api.min.js"></script>
+ * <script>
+ *   console.log(CryptoApi.hash('snefru', 'message'));
+ * </script>
+ */
 class Snefru extends Hasher32be {
+  /**
+   * @param {Object} [options]
+
+   * | Hash type   | Length | Rounds |
+   * |-------------|--------|--------|
+   * | snefru128/2 | 128    | 2      |
+   * | snefru256/4 | 256    | 4      |
+   * | snefru128/8 | 128    | 8      |
+   * | snefru256/8 | 256    | 8      |
+   *
+   * @param {number} [options.rounds=8] - Number of rounds (Can be from 2 to 8)
+   * @param {number} [options.length=128] - Length of hash result (Can be from 32 to 480 with step 32).
+   * Be careful, increasing of length will cause a reduction of the block size
+   */
   constructor(options) {
     super(options);
 
@@ -1044,21 +1101,44 @@ class Snefru extends Hasher32be {
     this.options.rounds = this.options.rounds || 8;
 
     this.state.hash = new Array(this.options.length / 32 | 0);
-
-    this.blockSize = 16 - this.state.hash.length;
-    this.blockSizeInBytes = this.blockSize * this.unitSize;
     for (let i = 0; i < this.state.hash.length; i++) {
       this.state.hash[i] = 0 | 0;
     }
+
+    /**
+     * Size of block in units
+     * @ignore
+     * @type {number}
+     */
+    this.blockSize = 16 - this.state.hash.length;
+    /**
+     * Size of block in bytes
+     * @ignore
+     * @type {number}
+     */
+    this.blockSizeInBytes = this.blockSize * this.unitSize;
+    /**
+     * Working variable (only for speed optimization)
+     * @private
+     * @ignore
+     * @type {number[]}
+     */
     this.W = new Array(16);
   }
 
-  processBlock(M) {
+  /**
+   * Process ready blocks
+   *
+   * @protected
+   * @ignore
+   * @param {number[]} block - Block
+   */
+  processBlock(block) {
     for (let i = 0; i < this.state.hash.length; i++) {
       this.W[i] = this.state.hash[i] | 0;
     }
     for (let i = this.state.hash.length; i < 16; i++) {
-      this.W[i] = M[i - this.state.hash.length] | 0;
+      this.W[i] = block[i - this.state.hash.length] | 0;
     }
     //  Rounds
     for (let i = 0; i < this.options.rounds << 1; i += 2) {
@@ -1078,8 +1158,12 @@ class Snefru extends Hasher32be {
     }
   }
 
+  /**
+   * Finalize hash and return result
+   *
+   * @returns {string}
+   */
   finalize() {
-    /// Add padding
     if (this.state.message.length > 0) {
       this.addPaddingZero(this.blockSizeInBytes - this.state.message.length | 0);
     }

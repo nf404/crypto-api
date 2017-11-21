@@ -1,8 +1,9 @@
 'use strict';
 
-import Hasher32le from "../hasher32le";
-import {rotateLeft} from "../tools";
+import Hasher32le from "./hasher32le";
+import {rotateLeft} from "../tools/tools";
 
+/** @type {number[]} */
 const ZL = [
   0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
   7, 4, 13, 1, 10, 6, 15, 3, 12, 0, 9, 5, 2, 14, 11, 8,
@@ -10,6 +11,7 @@ const ZL = [
   1, 9, 11, 10, 0, 8, 12, 4, 13, 3, 7, 15, 14, 5, 6, 2,
   4, 0, 5, 9, 7, 12, 2, 10, 14, 1, 3, 8, 11, 6, 15, 13
 ];
+/** @type {number[]} */
 const ZR = [
   5, 14, 7, 0, 9, 2, 11, 4, 13, 6, 15, 8, 1, 10, 3, 12,
   6, 11, 3, 7, 0, 13, 5, 10, 14, 15, 8, 12, 4, 9, 1, 2,
@@ -17,6 +19,7 @@ const ZR = [
   8, 6, 4, 1, 3, 11, 15, 0, 5, 12, 2, 13, 9, 7, 10, 14,
   12, 15, 10, 4, 1, 5, 8, 7, 6, 2, 13, 14, 0, 3, 9, 11
 ];
+/** @type {number[]} */
 const SL = [
   11, 14, 15, 12, 5, 8, 7, 9, 11, 13, 14, 15, 6, 7, 9, 8,
   7, 6, 8, 13, 11, 9, 7, 15, 7, 12, 15, 9, 11, 7, 13, 12,
@@ -24,6 +27,7 @@ const SL = [
   11, 12, 14, 15, 14, 15, 9, 8, 9, 14, 5, 6, 8, 6, 5, 12,
   9, 15, 5, 11, 6, 8, 13, 12, 5, 12, 13, 14, 11, 8, 5, 6
 ];
+/** @type {number[]} */
 const SR = [
   8, 9, 9, 11, 13, 15, 15, 5, 7, 7, 8, 11, 14, 14, 12, 6,
   9, 13, 15, 7, 12, 8, 9, 11, 7, 7, 12, 7, 6, 15, 13, 11,
@@ -32,7 +36,52 @@ const SR = [
   8, 5, 12, 9, 12, 5, 14, 6, 8, 13, 6, 5, 15, 13, 11, 11
 ];
 
+/**
+ * Calculates [RIPEMD-160 (RIPEMD-128, RIPEMD-256, RIPEMD-320)](http://homes.esat.kuleuven.be/~bosselae/ripemd160.html) hash
+ *
+ * @example <caption>Calculates RIPEMD-160 hash from string "message" - ES6 style</caption>
+ * import Ripemd from "crypto-api/hasher/ripemd";
+ * import {toHex} from "crypto-api/encoder/hex";
+ *
+ * let hasher = new Ripemd();
+ * hasher.update('message');
+ * console.log(toHex(hasher.finalize()));
+ *
+ * @example <caption>Calculates RIPEMD-160 hash from UTF string "message" - ES6 style</caption>
+ * import Ripemd from "crypto-api/hasher/ripemd";
+ * import {toHex} from "crypto-api/encoder/hex";
+ * import {fromUtf} from "crypto-api/encoder/utf";
+ *
+ * let hasher = new Ripemd();
+ * hasher.update(fromUtf('message'));
+ * console.log(toHex(hasher.finalize()));
+ *
+ * @example <caption>Calculates RIPEMD-160 hash from string "message" - ES5 style</caption>
+ * <script src="https://nf404.github.io/crypto-api/crypto-api.min.js"></script>
+ * <script>
+ *   var hasher = CryptoApi.getHasher('ripemd160');
+ *   hasher.update('message');
+ *   console.log(CryptoApi.encoder.toHex(hasher.finalize()));
+ * </script>
+ *
+ * @example <caption>Calculates RIPEMD-160 hash from UTF string "message" - ES5 style</caption>
+ * <script src="https://nf404.github.io/crypto-api/crypto-api.min.js"></script>
+ * <script>
+ *   console.log(CryptoApi.hash('ripemd160', 'message'));
+ * </script>
+ */
 class Ripemd extends Hasher32le {
+  /**
+   * @param {Object} [options]
+   * @param {number} [options.length=160] - Length of hash result
+   *
+   * | Hash type | Length |
+   * |-----------|--------|
+   * | ripemd128 | 128    |
+   * | ripemd160 | 160    |
+   * | ripemd256 | 256    |
+   * | ripemd320 | 320    |
+   */
   constructor(options) {
     super(options);
 
@@ -40,6 +89,14 @@ class Ripemd extends Hasher32le {
     switch (this.options.length) {
       case 128:
         this.state.hash = [0x67452301, 0xefcdab89, 0x98badcfe, 0x10325476];
+        /**
+         * Process ready blocks
+         *
+         * @protected
+         * @ignore
+         * @method processBlock
+         * @param {number[]} block - Block
+         */
         this.processBlock = this.processBlock128;
         break;
       case 256:
@@ -69,6 +126,8 @@ class Ripemd extends Hasher32le {
   }
 
   /**
+   * @private
+   * @ignore
    * @param {number} x
    * @param {number} y
    * @param {number} z
@@ -79,6 +138,8 @@ class Ripemd extends Hasher32le {
   }
 
   /**
+   * @private
+   * @ignore
    * @param {number} x
    * @param {number} y
    * @param {number} z
@@ -89,6 +150,8 @@ class Ripemd extends Hasher32le {
   }
 
   /**
+   * @private
+   * @ignore
    * @param {number} x
    * @param {number} y
    * @param {number} z
@@ -99,6 +162,8 @@ class Ripemd extends Hasher32le {
   }
 
   /**
+   * @private
+   * @ignore
    * @param {number} x
    * @param {number} y
    * @param {number} z
@@ -109,6 +174,8 @@ class Ripemd extends Hasher32le {
   }
 
   /**
+   * @private
+   * @ignore
    * @param {number} x
    * @param {number} y
    * @param {number} z
@@ -119,7 +186,8 @@ class Ripemd extends Hasher32le {
   }
 
   /**
-   *
+   * @private
+   * @ignore
    * @param {number} i
    * @param {number} bl
    * @param {number} cl
@@ -143,6 +211,8 @@ class Ripemd extends Hasher32le {
   }
 
   /**
+   * @private
+   * @ignore
    * @param {number} i
    * @param {number} br
    * @param {number} cr
@@ -163,6 +233,8 @@ class Ripemd extends Hasher32le {
   }
 
   /**
+   * @private
+   * @ignore
    * @param {number} i
    * @param {number} br
    * @param {number} cr
@@ -185,6 +257,13 @@ class Ripemd extends Hasher32le {
     return this.F(br, cr, dr);
   }
 
+  /**
+   * Process ready blocks
+   *
+   * @protected
+   * @ignore
+   * @param {number[]} block - Block
+   */
   processBlock128(block) {
     // Working variables
     let al = this.state.hash[0] | 0;
@@ -220,6 +299,13 @@ class Ripemd extends Hasher32le {
     this.state.hash[0] = t;
   }
 
+  /**
+   * Process ready blocks
+   *
+   * @protected
+   * @ignore
+   * @param {number[]} block - Block
+   */
   processBlock160(block) {
     // Working variables
     let al = this.state.hash[0] | 0;
@@ -262,6 +348,13 @@ class Ripemd extends Hasher32le {
     this.state.hash[0] = t;
   }
 
+  /**
+   * Process ready blocks
+   *
+   * @protected
+   * @ignore
+   * @param {number[]} block - Block
+   */
   processBlock256(block) {
     // Working variables
     let al = this.state.hash[0] | 0;
@@ -322,6 +415,13 @@ class Ripemd extends Hasher32le {
     this.state.hash[7] = (this.state.hash[7] + dr) | 0;
   }
 
+  /**
+   * Process ready blocks
+   *
+   * @protected
+   * @ignore
+   * @param {number[]} block - Block
+   */
   processBlock320(block) {
     // Working variables
     let al = this.state.hash[0] | 0;
@@ -395,6 +495,11 @@ class Ripemd extends Hasher32le {
     this.state.hash[9] = (this.state.hash[9] + er) | 0;
   }
 
+  /**
+   * Finalize hash and return result
+   *
+   * @returns {string}
+   */
   finalize() {
     this.addPaddingISO7816(
       this.state.message.length < 56 ?

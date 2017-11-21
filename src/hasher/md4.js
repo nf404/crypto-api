@@ -1,19 +1,60 @@
 'use strict';
 
-import Hasher32le from "../hasher32le";
-import {rotateLeft} from "../tools";
+import Hasher32le from "./hasher32le";
+import {rotateLeft} from "../tools/tools";
 
 // Transform constants
+/** @type {number[]} */
 const S = [
   [3, 7, 11, 19],
   [3, 5, 9, 13],
   [3, 9, 11, 15]
 ];
+/** @type {number} */
 const F = 0x00000000;
+/** @type {number} */
 const G = 0x5a827999;
+/** @type {number} */
 const H = 0x6ed9eba1;
 
+/**
+ * Calculates [MD4](https://tools.ietf.org/html/rfc1320) hash
+ *
+ * @example <caption>Calculates MD4 hash from string "message" - ES6 style</caption>
+ * import Md4 from "crypto-api/hasher/md4";
+ * import {toHex} from "crypto-api/encoder/hex";
+ *
+ * let hasher = new Md4();
+ * hasher.update('message');
+ * console.log(toHex(hasher.finalize()));
+ *
+ * @example <caption>Calculates MD4 hash from UTF string "message" - ES6 style</caption>
+ * import Md4 from "crypto-api/hasher/md4";
+ * import {toHex} from "crypto-api/encoder/hex";
+ * import {fromUtf} from "crypto-api/encoder/utf";
+ *
+ * let hasher = new Md4();
+ * hasher.update(fromUtf('message'));
+ * console.log(toHex(hasher.finalize()));
+ *
+ * @example <caption>Calculates MD4 hash from string "message" - ES5 style</caption>
+ * <script src="https://nf404.github.io/crypto-api/crypto-api.min.js"></script>
+ * <script>
+ *   var hasher = CryptoApi.getHasher('md4');
+ *   hasher.update('message');
+ *   console.log(CryptoApi.encoder.toHex(hasher.finalize()));
+ * </script>
+ *
+ * @example <caption>Calculates MD4 hash from UTF string "message" - ES5 style</caption>
+ * <script src="https://nf404.github.io/crypto-api/crypto-api.min.js"></script>
+ * <script>
+ *   console.log(CryptoApi.hash('md4', 'message'));
+ * </script>
+ */
 class Md4 extends Hasher32le {
+  /**
+   * @param {Object} [options]
+   */
   constructor(options) {
     super(options);
 
@@ -21,6 +62,8 @@ class Md4 extends Hasher32le {
   }
 
   /**
+   * @private
+   * @ignore
    * @param {number} x
    * @param {number} y
    * @param {number} z
@@ -31,6 +74,8 @@ class Md4 extends Hasher32le {
   }
 
   /**
+   * @private
+   * @ignore
    * @param {number} x
    * @param {number} y
    * @param {number} z
@@ -41,6 +86,8 @@ class Md4 extends Hasher32le {
   }
 
   /**
+   * @private
+   * @ignore
    * @param {number} x
    * @param {number} y
    * @param {number} z
@@ -51,7 +98,8 @@ class Md4 extends Hasher32le {
   }
 
   /**
-   *
+   * @private
+   * @ignore
    * @param {function} f
    * @param {number} k
    * @param {number} a
@@ -67,6 +115,13 @@ class Md4 extends Hasher32le {
     return rotateLeft((a + f(x, y, z) + m + k), s) | 0;
   }
 
+  /**
+   * Process ready blocks
+   *
+   * @protected
+   * @ignore
+   * @param {number[]} block - Block
+   */
   processBlock(block) {
     // Working variables
     let a = this.state.hash[0] | 0;
@@ -136,6 +191,11 @@ class Md4 extends Hasher32le {
     ];
   }
 
+  /**
+   * Finalize hash and return result
+   *
+   * @returns {string}
+   */
   finalize() {
     this.addPaddingISO7816(
       this.state.message.length < 56 ?

@@ -1,21 +1,60 @@
 'use strict';
 
-import Hasher32le from "../hasher32le";
-import {rotateLeft} from "../tools";
+import Hasher32le from "./hasher32le";
+import {rotateLeft} from "../tools/tools";
 
 // Transform constants
+/** @type {number[]} */
 const S = [
   [7, 12, 17, 22],
   [5, 9, 14, 20],
   [4, 11, 16, 23],
   [6, 10, 15, 21]
 ];
+/** @type {number[]} */
 const T = new Array(64);
 for (let i = 0; i < 64; i++) {
   T[i] = (Math.abs(Math.sin(i + 1)) * 0x100000000) | 0;
 }
 
+/**
+ * Calculates [MD5](https://tools.ietf.org/html/rfc1321) hash
+ *
+ * @example <caption>Calculates MD5 hash from string "message" - ES6 style</caption>
+ * import Md5 from "crypto-api/hasher/md5";
+ * import {toHex} from "crypto-api/encoder/hex";
+ *
+ * let hasher = new Md5();
+ * hasher.update('message');
+ * console.log(toHex(hasher.finalize()));
+ *
+ * @example <caption>Calculates MD5 hash from UTF string "message" - ES6 style</caption>
+ * import Md5 from "crypto-api/hasher/md5";
+ * import {toHex} from "crypto-api/encoder/hex";
+ * import {fromUtf} from "crypto-api/encoder/utf";
+ *
+ * let hasher = new Md5();
+ * hasher.update(fromUtf('message'));
+ * console.log(toHex(hasher.finalize()));
+ *
+ * @example <caption>Calculates MD5 hash from string "message" - ES5 style</caption>
+ * <script src="https://nf404.github.io/crypto-api/crypto-api.min.js"></script>
+ * <script>
+ *   var hasher = CryptoApi.getHasher('md5');
+ *   hasher.update('message');
+ *   console.log(CryptoApi.encoder.toHex(hasher.finalize()));
+ * </script>
+ *
+ * @example <caption>Calculates MD5 hash from UTF string "message" - ES5 style</caption>
+ * <script src="https://nf404.github.io/crypto-api/crypto-api.min.js"></script>
+ * <script>
+ *   console.log(CryptoApi.hash('md5', 'message'));
+ * </script>
+ */
 class Md5 extends Hasher32le {
+  /**
+   * @param {Object} [options]
+   */
   constructor(options) {
     super(options);
 
@@ -23,6 +62,8 @@ class Md5 extends Hasher32le {
   }
 
   /**
+   * @protected
+   * @ignore
    * @param {number} x
    * @param {number} y
    * @param {number} z
@@ -33,6 +74,8 @@ class Md5 extends Hasher32le {
   }
 
   /**
+   * @protected
+   * @ignore
    * @param {number} x
    * @param {number} y
    * @param {number} z
@@ -43,6 +86,8 @@ class Md5 extends Hasher32le {
   }
 
   /**
+   * @protected
+   * @ignore
    * @param {number} x
    * @param {number} y
    * @param {number} z
@@ -53,6 +98,8 @@ class Md5 extends Hasher32le {
   }
 
   /**
+   * @protected
+   * @ignore
    * @param {number} x
    * @param {number} y
    * @param {number} z
@@ -63,7 +110,8 @@ class Md5 extends Hasher32le {
   }
 
   /**
-   *
+   * @protected
+   * @ignore
    * @param {function} f
    * @param {number} k
    * @param {number} a
@@ -78,6 +126,13 @@ class Md5 extends Hasher32le {
     return (rotateLeft((a + f(x, y, z) + m + k), s) + x) | 0;
   }
 
+  /**
+   * Process ready blocks
+   *
+   * @protected
+   * @ignore
+   * @param {number[]} block - Block
+   */
   processBlock(block) {
     // Working variables
     let a = this.state.hash[0] | 0;
@@ -163,6 +218,11 @@ class Md5 extends Hasher32le {
     this.state.hash[3] = (this.state.hash[3] + d) | 0;
   }
 
+  /**
+   * Finalize hash and return result
+   *
+   * @returns {string}
+   */
   finalize() {
     this.addPaddingISO7816(
       this.state.message.length < 56 ?

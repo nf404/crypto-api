@@ -8,8 +8,8 @@ import TestSha384 from "./hasher/sha384";
 import TestSha512 from "./hasher/sha512";
 import TestSha512_224 from "./hasher/sha512_224";
 import TestSha512_256 from "./hasher/sha512_256";
-import TestHas160 from "./hasher/has160";
-import TestMd2 from "./hasher/md2";
+import Has160Test from "./hasher/has160Test";
+import Md2Test from "./hasher/md2Test";
 import TestMd4 from "./hasher/md4";
 import TestMd5 from "./hasher/md5";
 import TestRipemd128 from "./hasher/ripemd128";
@@ -30,7 +30,7 @@ import TestHmacSha256 from "./mac/hmac_sha256";
 import TestHmacSha384 from "./mac/hmac_sha384";
 import TestHmacSha512 from "./mac/hmac_sha512";
 import TestHmacHas160 from "./mac/hmac_has160";
-import TestUtf from "./TestUtf";
+import UtfTest from "./encoder/UtfTest";
 
 /** @var {TestHasher[]} */
 const hashes = {
@@ -42,8 +42,6 @@ const hashes = {
   'sha512': new TestSha512(),
   'sha512/224': new TestSha512_224(),
   'sha512/256': new TestSha512_256(),
-  'has160': new TestHas160(),
-  'md2': new TestMd2(),
   'md4': new TestMd4(),
   'md5': new TestMd5(),
   'ripemd128': new TestRipemd128(),
@@ -71,11 +69,11 @@ const hmacs = {
 };
 
 // Hash tests
-Object.keys(hashes).forEach(function (hash) {
-  describe('Tests for hash ' + hash, function () {
-    hashes[hash].test();
-  });
-});
+(new Has160Test()).test();
+(new Md2Test()).test();
+//Object.keys(hashes).forEach(function (hash) {
+//  hashes[hash].test();
+//});
 
 // HMAC tests
 Object.keys(hmacs).forEach(function (hmac) {
@@ -85,6 +83,4 @@ Object.keys(hmacs).forEach(function (hmac) {
 });
 
 // UTF tests
-describe('UTF tests', function () {
-  (new TestUtf()).test();
-});
+(new UtfTest()).test();

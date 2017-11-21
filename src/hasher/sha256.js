@@ -1,9 +1,10 @@
 'use strict';
 
-import Hasher32be from "../hasher32be";
-import {rotateRight} from "../tools";
+import Hasher32be from "./hasher32be";
+import {rotateRight} from "../tools/tools";
 
 // Transform constants
+/** @type {number[]} */
 const K = [
   0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1,
   0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3,
@@ -18,7 +19,51 @@ const K = [
   0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2
 ];
 
+/**
+ * Calculates [SHA256 (SHA224)](https://tools.ietf.org/html/rfc4634) hash
+ *
+ * @example <caption>Calculates SHA256 hash from string "message" - ES6 style</caption>
+ * import Sha256 from "crypto-api/hasher/sha256";
+ * import {toHex} from "crypto-api/encoder/hex";
+ *
+ * let hasher = new Sha256();
+ * hasher.update('message');
+ * console.log(toHex(hasher.finalize()));
+ *
+ * @example <caption>Calculates SHA256 hash from UTF string "message" - ES6 style</caption>
+ * import Sha256 from "crypto-api/hasher/sha256";
+ * import {toHex} from "crypto-api/encoder/hex";
+ * import {fromUtf} from "crypto-api/encoder/utf";
+ *
+ * let hasher = new Sha256();
+ * hasher.update(fromUtf('message'));
+ * console.log(toHex(hasher.finalize()));
+ *
+ * @example <caption>Calculates SHA256 hash from string "message" - ES5 style</caption>
+ * <script src="https://nf404.github.io/crypto-api/crypto-api.min.js"></script>
+ * <script>
+ *   var hasher = CryptoApi.getHasher('sha256');
+ *   hasher.update('message');
+ *   console.log(CryptoApi.encoder.toHex(hasher.finalize()));
+ * </script>
+ *
+ * @example <caption>Calculates SHA256 hash from UTF string "message" - ES5 style</caption>
+ * <script src="https://nf404.github.io/crypto-api/crypto-api.min.js"></script>
+ * <script>
+ *   console.log(CryptoApi.hash('sha256', 'message'));
+ * </script>
+ */
 class Sha256 extends Hasher32be {
+  /**
+   * @param {Object} [options]
+   * @param {number} [options.rounds=64] - Number of rounds (Must be greater than 16)
+   * @param {number} [options.length=256] - Length of hash result
+   *
+   * | Hash type | Length |
+   * |-----------|--------|
+   * | sha224    | 224    |
+   * | sha256    | 256    |
+   */
   constructor(options) {
     super(options);
 
@@ -38,10 +83,23 @@ class Sha256 extends Hasher32be {
           0x510e527f | 0, 0x9b05688c | 0, 0x1f83d9ab | 0, 0x5be0cd19 | 0
         ];
     }
+    /**
+     * Working variable (only for speed optimization)
+     * @private
+     * @ignore
+     * @type {number[]}
+     */
     this.W = new Array(64);
   }
 
-  processBlock(M) {
+  /**
+   * Process ready blocks
+   *
+   * @protected
+   * @ignore
+   * @param {number[]} block - Block
+   */
+  processBlock(block) {
     // Working variables
     let a = this.state.hash[0] | 0;
     let b = this.state.hash[1] | 0;
@@ -55,7 +113,7 @@ class Sha256 extends Hasher32be {
     // Calculate hash
     for (let i = 0; i < this.options.rounds; i++) {
       if (i < 16) {
-        this.W[i] = M[i] | 0;
+        this.W[i] = block[i] | 0;
       } else {
         this.W[i] = (this.W[i - 16] + (
             rotateRight(this.W[i - 15], 7) ^
@@ -93,6 +151,11 @@ class Sha256 extends Hasher32be {
     this.state.hash[7] = (this.state.hash[7] + h) | 0;
   }
 
+  /**
+   * Finalize hash and return result
+   *
+   * @returns {string}
+   */
   finalize() {
     this.addPaddingISO7816(
       this.state.message.length < 56 ?

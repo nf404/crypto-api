@@ -1,9 +1,10 @@
 'use strict';
 
-import Hasher32be from "../hasher32be";
-import {rotateRight64hi, rotateRight64lo} from "../tools";
+import Hasher32be from "./hasher32be";
+import {rotateRight64hi, rotateRight64lo} from "../tools/tools";
 
 // Transform constants
+/** @type {number[]} */
 const K = [
   0x428a2f98, 0xd728ae22, 0x71374491, 0x23ef65cd, 0xb5c0fbcf, 0xec4d3b2f,
   0xe9b5dba5, 0x8189dbbc, 0x3956c25b, 0xf348b538, 0x59f111f1, 0xb605d019,
@@ -34,13 +35,70 @@ const K = [
   0x5fcb6fab, 0x3ad6faec, 0x6c44198c, 0x4a475817
 ];
 
+/**
+ * Calculates [SHA512 (SHA384)](https://tools.ietf.org/html/rfc4634) hash
+ * [SHA512/256 (SHA512/224)](http://csrc.nist.gov/publications/fips/fips180-4/fips-180-4.pdf)
+ *
+ * @example <caption>Calculates SHA512 hash from string "message" - ES6 style</caption>
+ * import Sha512 from "crypto-api/hasher/sha512";
+ * import {toHex} from "crypto-api/encoder/hex";
+ *
+ * let hasher = new Sha512();
+ * hasher.update('message');
+ * console.log(toHex(hasher.finalize()));
+ *
+ * @example <caption>Calculates SHA512 hash from UTF string "message" - ES6 style</caption>
+ * import Sha512 from "crypto-api/hasher/sha512";
+ * import {toHex} from "crypto-api/encoder/hex";
+ * import {fromUtf} from "crypto-api/encoder/utf";
+ *
+ * let hasher = new Sha512();
+ * hasher.update(fromUtf('message'));
+ * console.log(toHex(hasher.finalize()));
+ *
+ * @example <caption>Calculates SHA512 hash from string "message" - ES5 style</caption>
+ * <script src="https://nf404.github.io/crypto-api/crypto-api.min.js"></script>
+ * <script>
+ *   var hasher = CryptoApi.getHasher('sha512');
+ *   hasher.update('message');
+ *   console.log(CryptoApi.encoder.toHex(hasher.finalize()));
+ * </script>
+ *
+ * @example <caption>Calculates SHA512 hash from UTF string "message" - ES5 style</caption>
+ * <script src="https://nf404.github.io/crypto-api/crypto-api.min.js"></script>
+ * <script>
+ *   console.log(CryptoApi.hash('sha512', 'message'));
+ * </script>
+ */
 class Sha512 extends Hasher32be {
+  /**
+   * @param {Object} [options]
+   * @param {number} [options.rounds=160] - Number of rounds (Must be greater than 32)
+   * @param {number} [options.length=512] - Length of hash result
+   *
+   * | Hash type  | Length |
+   * |------------|--------|
+   * | sha384     | 384    |
+   * | sha512     | 512    |
+   * | sha512/224 | 224    |
+   * | sha512/256 | 256    |
+   */
   constructor(options) {
     super(options);
 
     this.options.length = this.options.length || 512;
     this.options.rounds = this.options.rounds || 160;
+    /**
+     * Size of block in units
+     * @ignore
+     * @type {number}
+     */
     this.blockSize = 32;
+    /**
+     * Size of block in bytes
+     * @ignore
+     * @type {number}
+     */
     this.blockSizeInBytes = this.blockSize * this.unitSize;
 
     switch (this.options.length) {
@@ -76,10 +134,23 @@ class Sha512 extends Hasher32be {
           0x1f83d9ab | 0, 0xfb41bd6b | 0, 0x5be0cd19 | 0, 0x137e2179 | 0
         ];
     }
+    /**
+     * Working variable (only for speed optimization)
+     * @private
+     * @ignore
+     * @type {number[]}
+     */
     this.W = new Array(160);
   }
 
-  processBlock(M) {
+  /**
+   * Process ready blocks
+   *
+   * @protected
+   * @ignore
+   * @param {number[]} block - Block
+   */
+  processBlock(block) {
     // Working variables
     let ah = this.state.hash[0];
     let al = this.state.hash[1];
@@ -102,8 +173,8 @@ class Sha512 extends Hasher32be {
     // Calculate hash
     for (let i = 0; i < this.options.rounds; i += 2) {
       if (i < 32) {
-        this.W[i] = M[i];
-        this.W[i + 1] = M[i + 1];
+        this.W[i] = block[i];
+        this.W[i + 1] = block[i + 1];
       } else {
         s0h = rotateRight64hi(this.W[i - 30], this.W[i - 29], 1) ^
           rotateRight64hi(this.W[i - 30], this.W[i - 29], 8) ^
@@ -185,6 +256,11 @@ class Sha512 extends Hasher32be {
     this.state.hash[14] = (this.state.hash[14] + hh + ((this.state.hash[15] >>> 0) < (hl >>> 0) ? 1 : 0)) | 0;
   }
 
+  /**
+   * Finalize hash and return result
+   *
+   * @returns {string}
+   */
   finalize() {
     this.addPaddingISO7816(
       this.state.message.length < 112 ?

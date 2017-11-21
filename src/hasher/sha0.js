@@ -1,12 +1,51 @@
 'use strict';
 
-import Hasher32be from "../hasher32be";
-import {rotateLeft} from "../tools";
+import Hasher32be from "./hasher32be";
+import {rotateLeft} from "../tools/tools";
 
 // Transform constants
+/** @type {number[]} */
 const K = [0x5a827999, 0x6ed9eba1, 0x8f1bbcdc, 0xca62c1d6];
 
+/**
+ * Calculates [SHA0](http://pages.saclay.inria.fr/pierre.karpman/fips180.pdf) hash
+ *
+ * @example <caption>Calculates SHA0 hash from string "message" - ES6 style</caption>
+ * import Sha0 from "crypto-api/hasher/sha0";
+ * import {toHex} from "crypto-api/encoder/hex";
+ *
+ * let hasher = new Sha0();
+ * hasher.update('message');
+ * console.log(toHex(hasher.finalize()));
+ *
+ * @example <caption>Calculates SHA0 hash from UTF string "message" - ES6 style</caption>
+ * import Sha0 from "crypto-api/hasher/sha0";
+ * import {toHex} from "crypto-api/encoder/hex";
+ * import {fromUtf} from "crypto-api/encoder/utf";
+ *
+ * let hasher = new Sha0();
+ * hasher.update(fromUtf('message'));
+ * console.log(toHex(hasher.finalize()));
+ *
+ * @example <caption>Calculates SHA0 hash from string "message" - ES5 style</caption>
+ * <script src="https://nf404.github.io/crypto-api/crypto-api.min.js"></script>
+ * <script>
+ *   var hasher = CryptoApi.getHasher('sha0');
+ *   hasher.update('message');
+ *   console.log(CryptoApi.encoder.toHex(hasher.finalize()));
+ * </script>
+ *
+ * @example <caption>Calculates SHA0 hash from UTF string "message" - ES5 style</caption>
+ * <script src="https://nf404.github.io/crypto-api/crypto-api.min.js"></script>
+ * <script>
+ *   console.log(CryptoApi.hash('sha0', 'message'));
+ * </script>
+ */
 class Sha0 extends Hasher32be {
+  /**
+   * @param {Object} [options]
+   * @param {number} [options.rounds=80] - Number of rounds (Must be greater than 16)
+   */
   constructor(options) {
     super(options);
 
@@ -18,13 +57,23 @@ class Sha0 extends Hasher32be {
       0x10325476 | 0,
       0xc3d2e1f0 | 0
     ];
+    /**
+     * Working variable (only for speed optimization)
+     * @private
+     * @ignore
+     * @type {number[]}
+     */
     this.W = new Array(80);
   }
 
   /**
-   * @param {number[]} M
+   * Process ready blocks
+   *
+   * @protected
+   * @ignore
+   * @param {number[]} block - Block
    */
-  processBlock(M) {
+  processBlock(block) {
     // Working variables
     let a = this.state.hash[0] | 0;
     let b = this.state.hash[1] | 0;
@@ -35,7 +84,7 @@ class Sha0 extends Hasher32be {
     // Calculate hash
     for (let i = 0; i < this.options.rounds; i++) {
       if (i < 16) {
-        this.W[i] = M[i] | 0;
+        this.W[i] = block[i] | 0;
       } else {
         this.W[i] = (this.W[i - 3] ^ this.W[i - 8] ^ this.W[i - 14] ^ this.W[i - 16]) | 0;
       }
@@ -64,6 +113,11 @@ class Sha0 extends Hasher32be {
     this.state.hash[4] = (this.state.hash[4] + e) | 0;
   }
 
+  /**
+   * Finalize hash and return result
+   *
+   * @returns {string}
+   */
   finalize() {
     this.addPaddingISO7816(
       this.state.message.length < 56 ?

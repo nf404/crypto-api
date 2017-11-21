@@ -1,13 +1,12 @@
 'use strict';
 
-import Hasher8 from "../hasher8";
+import Hasher8 from "./hasher8";
 
 /**
- * @desc Constants from Pi
+ * Constants from Pi
  * @link https://github.com/e-sushi/MD2-S-box-creator
- * @type {number[]} piSubst
+ * @type {number[]}
  */
-
 const SBOX = [
   0x29, 0x2e, 0x43, 0xc9, 0xa2, 0xd8, 0x7c, 0x01, 0x3d, 0x36, 0x54, 0xa1,
   0xec, 0xf0, 0x06, 0x13, 0x62, 0xa7, 0x05, 0xf3, 0xc0, 0xc7, 0x73, 0x8c,
@@ -33,7 +32,45 @@ const SBOX = [
   0x9f, 0x11, 0x83, 0x14
 ];
 
+/**
+ * Calculates [MD2](https://tools.ietf.org/html/rfc1319) hash
+ *
+ * @example <caption>Calculates MD2 hash from string "message" - ES6 style</caption>
+ * import Md2 from "crypto-api/hasher/md2";
+ * import {toHex} from "crypto-api/encoder/hex";
+ *
+ * let hasher = new Md2();
+ * hasher.update('message');
+ * console.log(toHex(hasher.finalize()));
+ *
+ * @example <caption>Calculates MD2 hash from UTF string "message" - ES6 style</caption>
+ * import Md2 from "crypto-api/hasher/md2";
+ * import {toHex} from "crypto-api/encoder/hex";
+ * import {fromUtf} from "crypto-api/encoder/utf";
+ *
+ * let hasher = new Md2();
+ * hasher.update(fromUtf('message'));
+ * console.log(toHex(hasher.finalize()));
+ *
+ * @example <caption>Calculates MD2 hash from string "message" - ES5 style</caption>
+ * <script src="https://nf404.github.io/crypto-api/crypto-api.min.js"></script>
+ * <script>
+ *   var hasher = CryptoApi.getHasher('md2');
+ *   hasher.update('message');
+ *   console.log(CryptoApi.encoder.toHex(hasher.finalize()));
+ * </script>
+ *
+ * @example <caption>Calculates MD2 hash from UTF string "message" - ES5 style</caption>
+ * <script src="https://nf404.github.io/crypto-api/crypto-api.min.js"></script>
+ * <script>
+ *   console.log(CryptoApi.hash('md2', 'message'));
+ * </script>
+ */
 class Md2 extends Hasher8 {
+  /**
+   * @param {Object} [options]
+   * @param {number} [options.rounds=18] - Number of rounds (Must be greater than 0)
+   */
   constructor(options) {
     super(options);
 
@@ -42,6 +79,13 @@ class Md2 extends Hasher8 {
     this.state.checksum = new Array(16);
   }
 
+  /**
+   * Process ready blocks
+   *
+   * @protected
+   * @ignore
+   * @param {number[]} block - Block
+   */
   processBlock(block) {
     // Append hash
     for (let i = 0; i < 16; i++) {
@@ -65,6 +109,11 @@ class Md2 extends Hasher8 {
     }
   }
 
+  /**
+   * Finalize hash and return result
+   *
+   * @returns {string}
+   */
   finalize() {
     this.addPaddingPKCS7(16 - (this.state.message.length & 0xf) | 0);
     this.process();

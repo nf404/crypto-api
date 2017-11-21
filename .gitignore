@@ -5,3 +5,4 @@
 /dist/*/*.js
 /dist/*.map
 /dist/*/*.map
+/dist/docs

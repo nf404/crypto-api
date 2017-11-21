@@ -15,8 +15,16 @@ import {fromUtf} from "./encoder/utf";
 import {toHex} from "./encoder/hex";
 import Hmac from "./mac/hmac";
 
+/**
+ * Main class for ES5 compatibility.
+ * Please use subclasses of {@link Hasher} for ES6
+ */
 class CryptoApi {
+  /**
+   * @ignore
+   */
   constructor() {
+    /** @type {Hasher[]} */
     this.hasher = {
       'Has160': Has160,
       'Md2': Md2,
@@ -30,6 +38,7 @@ class CryptoApi {
       'Snefru': Snefru,
       'Whirlpool': Whirlpool
     };
+    /** @type {function[]} */
     this.enc = {
       'fromUtf': fromUtf,
       'toHex': toHex
@@ -83,12 +92,26 @@ class CryptoApi {
       case 'sha512':
         options = Object.assign({}, {length: 512}, options);
         return new Sha512(options);
+      case 'sha512/224':
+        options = Object.assign({}, {length: 224}, options);
+        return new Sha512(options);
+      case 'sha512/256':
+        options = Object.assign({}, {length: 256}, options);
+        return new Sha512(options);
       case 'snefru':
       case 'snefru128':
+      case 'snefru128/8':
         options = Object.assign({}, {length: 128}, options);
         return new Snefru(options);
       case 'snefru256':
+      case 'snefru256/8':
         options = Object.assign({}, {length: 256}, options);
+        return new Snefru(options);
+      case 'snefru128/2':
+        options = Object.assign({}, {length: 128, rounds: 2}, options);
+        return new Snefru(options);
+      case 'snefru256/4':
+        options = Object.assign({}, {length: 256, rounds: 4}, options);
         return new Snefru(options);
       case 'whirlpool':
         return new Whirlpool(options);
@@ -102,7 +125,7 @@ class CryptoApi {
   }
 
   /**
-   * Hash message and return result in hex
+   * Hash UTF message and return result in hex
    *
    * @param {string} name
    * @param {string} message
@@ -116,9 +139,31 @@ class CryptoApi {
     return toHex(hasher.finalize());
   }
 
+  /**
+   * Get HMAC instance
+   *
+   * @param {string} key
+   * @param {Hasher} hasher
+   * @returns {Hmac}
+   */
   static getHmac(key, hasher) {
     return new Hmac(key, hasher);
   }
+
+  /**
+   * HMAC with UTF key from UTF message and return result in hex
+   *
+   * @param {string} key
+   * @param {string} message
+   * @param {Hasher} hasher
+   * @returns {string}
+   */
+  static hmac(key, message, hasher) {
+    let mac = this.getHmac(fromUtf(key), hasher);
+    mac.update(fromUtf(message));
+    return toHex(mac.finalize());
+  }
 }
 
-export default new CryptoApi()
+CryptoApi = new CryptoApi();
+export default CryptoApi

@@ -4,20 +4,32 @@ import Hasher from "./hasher";
 
 /**
  * Hasher for 32 bit big endian blocks
+ * @interface
  */
 class Hasher32be extends Hasher {
   /**
-   * @param {Object} options
-   * @constructor
+   * @param {Object} [options]
    */
   constructor(options) {
     super(options);
 
-    this.unitOrder = 1; // Reverse order of bytes
+    /**
+     * Reverse order of bytes
+     * @type {number}
+     */
+    this.unitOrder = 1;
+    /**
+     * Current block (only for speed optimization)
+     * @private
+     * @type {number[]}
+     */
+    this.blockUnits = [];
   }
 
   /**
    * Process ready blocks
+   *
+   * @protected
    */
   process() {
     while (this.state.message.length >= this.blockSizeInBytes) {
@@ -31,6 +43,22 @@ class Hasher32be extends Hasher {
     }
   }
 
+  /**
+   * Process ready blocks
+   *
+   * @protected
+   * @param {number[]} M
+   */
+  processBlock(M) {
+  }
+
+  /**
+   * Get hash from state
+   *
+   * @protected
+   * @param {number} [size=this.state.hash.length] - Limit hash size (in chunks)
+   * @returns {string}
+   */
   getStateHash(size) {
     size = size || this.state.hash.length;
     let hash = '';
@@ -43,6 +71,11 @@ class Hasher32be extends Hasher {
     return hash;
   }
 
+  /**
+   * Add to message cumulative size of message in bits
+   *
+   * @protected
+   */
   addLengthBits() {
     // @todo fix length to 64 bit
     this.state.message += "\x00\x00\x00\x00";
