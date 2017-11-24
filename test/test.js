@@ -1,28 +1,29 @@
 'use strict';
 
-import TestSha0 from "./hasher/sha0";
-import TestSha1 from "./hasher/sha1";
-import TestSha224 from "./hasher/sha224";
-import TestSha256 from "./hasher/sha256";
-import TestSha384 from "./hasher/sha384";
-import TestSha512 from "./hasher/sha512";
-import TestSha512_224 from "./hasher/sha512_224";
-import TestSha512_256 from "./hasher/sha512_256";
 import Has160Test from "./hasher/has160Test";
 import Md2Test from "./hasher/md2Test";
-import TestMd4 from "./hasher/md4";
-import TestMd5 from "./hasher/md5";
-import TestRipemd128 from "./hasher/ripemd128";
-import TestRipemd160 from "./hasher/ripemd160";
-import TestRipemd256 from "./hasher/ripemd256";
-import TestRipemd320 from "./hasher/ripemd320";
-import TestSnefru128_2 from "./hasher/snefru128_2";
-import TestSnefru128_8 from "./hasher/snefru128_8";
-import TestSnefru256_4 from "./hasher/snefru256_4";
-import TestSnefru256_8 from "./hasher/snefru256_8";
-import TestWhirlpool0 from "./hasher/whirlpool-0";
-import TestWhirlpoolT from "./hasher/whirlpool-t";
-import TestWhirlpool from "./hasher/whirlpool";
+import Md4Test from "./hasher/md4Test";
+import Md5Test from "./hasher/md5Test";
+import Ripemd128Test from "./hasher/ripemd128Test";
+import Ripemd160Test from "./hasher/ripemd160Test";
+import Ripemd256Test from "./hasher/ripemd256Test";
+import Ripemd320Test from "./hasher/ripemd320Test";
+import Sha0Test from "./hasher/sha0Test";
+import Sha1Test from "./hasher/sha1Test";
+import Sha224Test from "./hasher/sha224Test";
+import Sha256Test from "./hasher/sha256Test";
+import Sha384Test from "./hasher/sha384Test";
+import Sha512_224Test from "./hasher/sha512_224Test";
+import Sha512_256Test from "./hasher/sha512_256Test";
+import Sha512Test from "./hasher/sha512Test";
+import Snefru128_2Test from "./hasher/snefru128_2Test";
+import Snefru128_8Test from "./hasher/snefru128_8Test";
+import Snefru256_4Test from "./hasher/snefru256_4Test";
+import Snefru256_8Test from "./hasher/snefru256_8Test";
+import Whirlpool0Test from "./hasher/whirlpool-0Test";
+import WhirlpoolTTest from "./hasher/whirlpool-tTest";
+import WhirlpoolTest from "./hasher/whirlpoolTest";
+
 import TestHmacMd5 from "./mac/hmac_md5";
 import TestHmacSha1 from "./mac/hmac_sha1";
 import TestHmacSha224 from "./mac/hmac_sha224";
@@ -31,31 +32,6 @@ import TestHmacSha384 from "./mac/hmac_sha384";
 import TestHmacSha512 from "./mac/hmac_sha512";
 import TestHmacHas160 from "./mac/hmac_has160";
 import UtfTest from "./encoder/UtfTest";
-
-/** @var {TestHasher[]} */
-const hashes = {
-  'sha0': new TestSha0(),
-  'sha1': new TestSha1(),
-  'sha224': new TestSha224(),
-  'sha256': new TestSha256(),
-  'sha384': new TestSha384(),
-  'sha512': new TestSha512(),
-  'sha512/224': new TestSha512_224(),
-  'sha512/256': new TestSha512_256(),
-  'md4': new TestMd4(),
-  'md5': new TestMd5(),
-  'ripemd128': new TestRipemd128(),
-  'ripemd160': new TestRipemd160(),
-  'ripemd256': new TestRipemd256(),
-  'ripemd320': new TestRipemd320(),
-  'snerfu128_2': new TestSnefru128_2(),
-  'snerfu128_8': new TestSnefru128_8(),
-  'snerfu256_4': new TestSnefru256_4(),
-  'snerfu256_8': new TestSnefru256_8(),
-  'whirlpool-0': new TestWhirlpool0(),
-  'whirlpool-t': new TestWhirlpoolT(),
-  'whirlpool': new TestWhirlpool()
-};
 
 /** @var {TestHmac[]} */
 const hmacs = {
@@ -71,9 +47,27 @@ const hmacs = {
 // Hash tests
 (new Has160Test()).test();
 (new Md2Test()).test();
-//Object.keys(hashes).forEach(function (hash) {
-//  hashes[hash].test();
-//});
+(new Md4Test()).test();
+(new Md5Test()).test();
+(new Ripemd128Test()).test();
+(new Ripemd160Test()).test();
+(new Ripemd256Test()).test();
+(new Ripemd320Test()).test();
+(new Sha0Test()).test();
+(new Sha1Test()).test();
+(new Sha224Test()).test();
+(new Sha256Test()).test();
+(new Sha384Test()).test();
+(new Sha512_224Test()).test();
+(new Sha512_256Test()).test();
+(new Sha512Test()).test();
+(new Snefru128_2Test()).test();
+(new Snefru128_8Test()).test();
+(new Snefru256_4Test()).test();
+(new Snefru256_8Test()).test();
+(new Whirlpool0Test()).test();
+(new WhirlpoolTTest()).test();
+(new WhirlpoolTest()).test();
 
 // HMAC tests
 Object.keys(hmacs).forEach(function (hmac) {

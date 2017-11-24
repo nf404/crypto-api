@@ -12,7 +12,7 @@ class TestHasher {
    * @param {Object} test
    */
   testHash(test) {
-    let hash = this.getInstance(test.options || {});
+    let hash = this.getInstance(test.options);
     hash.update(fromUtf(test.message));
     assert.equal(toHex(hash.finalize()), test.hash)
   }
@@ -23,7 +23,7 @@ class TestHasher {
    * @param {Object} [options] - Hash options
    */
   testSetGetState(options) {
-    let hasher = this.getInstance(options || {});
+    let hasher = this.getInstance(options);
     hasher.update('1');
     let hash1 = toHex(hasher.finalize());
     hasher.reset();
@@ -43,7 +43,7 @@ class TestHasher {
    * @returns {Hasher}
    */
   getInstance(options) {
-    return new Hasher(options || {});
+    return new Hasher(options);
   }
 }
 
