@@ -24,25 +24,16 @@ import Whirlpool0Test from "./hasher/whirlpool-0Test";
 import WhirlpoolTTest from "./hasher/whirlpool-tTest";
 import WhirlpoolTest from "./hasher/whirlpoolTest";
 
-import TestHmacMd5 from "./mac/hmac_md5";
-import TestHmacSha1 from "./mac/hmac_sha1";
-import TestHmacSha224 from "./mac/hmac_sha224";
-import TestHmacSha256 from "./mac/hmac_sha256";
-import TestHmacSha384 from "./mac/hmac_sha384";
-import TestHmacSha512 from "./mac/hmac_sha512";
-import TestHmacHas160 from "./mac/hmac_has160";
+import HmacHas160Test from "./mac/hmac-has160Test";
+import HmacMd5Test from "./mac/hmac-md5Test";
+import HmacSha1Test from "./mac/hmac-sha1Test";
+import HmacSha224Test from "./mac/hmac-sha224Test";
+import HmacSha256Test from "./mac/hmac-sha256Test";
+import HmacSha384Test from "./mac/hmac-sha384Test";
+import HmacSha512Test from "./mac/hmac-sha512Test";
+
 import UtfTest from "./encoder/UtfTest";
 
-/** @var {TestHmac[]} */
-const hmacs = {
-  'md5': new TestHmacMd5(),
-  'sha1': new TestHmacSha1(),
-  'sha224': new TestHmacSha224(),
-  'sha256': new TestHmacSha256(),
-  'sha384': new TestHmacSha384(),
-  'sha512': new TestHmacSha512(),
-  'has160': new TestHmacHas160()
-};
 
 // Hash tests
 (new Has160Test()).test();
@@ -70,11 +61,13 @@ const hmacs = {
 (new WhirlpoolTest()).test();
 
 // HMAC tests
-Object.keys(hmacs).forEach(function (hmac) {
-  describe('Tests for hmac-' + hmac, function () {
-    hmacs[hmac].test();
-  });
-});
+(new HmacHas160Test()).test();
+(new HmacMd5Test()).test();
+(new HmacSha1Test()).test();
+(new HmacSha224Test()).test();
+(new HmacSha256Test()).test();
+(new HmacSha384Test()).test();
+(new HmacSha512Test()).test();
 
 // UTF tests
 (new UtfTest()).test();

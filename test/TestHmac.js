@@ -6,21 +6,16 @@ import {toHex} from "../src/encoder/hex";
 import {assert} from "chai";
 
 class TestHmac {
-  constructor() {
-    this.data = {};
-  }
-
-  test() {
-    let tests = this.data;
-    let t = this;
-    Object.keys(tests).forEach(function (msg) {
-      it(msg, function () {
-        let hash = t.getInstance(tests[msg].options || {});
-        let hmac = new Hmac(tests[msg].key, hash);
-        hmac.update(tests[msg].message);
-        assert.equal(toHex(hmac.finalize()), tests[msg].hash)
-      })
-    })
+  /**
+   * Test hmac
+   *
+   * @param {Object} test
+   */
+  testHmac(test) {
+    let hash = this.getInstance(test.options || {});
+    let hmac = new Hmac(test.key, hash);
+    hmac.update(test.message);
+    assert.equal(toHex(hmac.finalize()), test.hash)
   }
 
   /**
