@@ -8,7 +8,6 @@
  */
 function fromUtf(message) {
   let raw = '';
-  let l = 0;
   for (let i = 0, msgLen = message.length; i < msgLen; i++) {
     let charCode = message.charCodeAt(i);
     if (charCode < 0x80) {

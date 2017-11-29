@@ -1,6 +1,5 @@
-'use strict';
-
 /* global asmCrypto */
+'use strict';
 
 import Md5 from "../src/hasher/md5";
 import Sha1 from "../src/hasher/sha1";
@@ -18,13 +17,13 @@ suite('MD5 with HEX result', function (suite) {
   bench('CryptoApi', function () {
     suite.tmp = new Md5();
     suite.tmp.update(fromUtf(suite.hash));
-    !!(suite.result = toHex(suite.tmp.finalize()));
+    suite.result = toHex(suite.tmp.finalize());
   });
   bench('CryptoJS', function () {
-    !!(suite.result = CryptoJS.enc.Hex.stringify(CryptoJS.MD5(suite.hash)));
+    suite.result = CryptoJS.enc.Hex.stringify(CryptoJS.MD5(suite.hash));
   });
   bench('jsHashes', function () {
-    !!(suite.result = (new Hashes.MD5).hex(suite.hash));
+    suite.result = (new Hashes.MD5).hex(suite.hash);
   });
 });
 suite('MD5 update', function (suite) {
@@ -36,10 +35,10 @@ suite('MD5 update', function (suite) {
     suite.cryptoJS = CryptoJS.algo.MD5.create();
   });
   bench('CryptoApi', function () {
-    !!(suite.cryptoApi.update(fromUtf(suite.hash)));
+    suite.cryptoApi.update(fromUtf(suite.hash));
   });
   bench('CryptoJS', function () {
-    !!(suite.cryptoJS.update(suite.hash));
+    suite.cryptoJS.update(suite.hash);
   });
 });
 suite('SHA1 with HEX result', function (suite) {
@@ -51,21 +50,21 @@ suite('SHA1 with HEX result', function (suite) {
   bench('CryptoApi', function () {
     suite.tmp = new Sha1();
     suite.tmp.update(fromUtf(suite.hash));
-    !!(toHex(suite.tmp.finalize()));
+    toHex(suite.tmp.finalize());
   });
   bench('CryptoJS', function () {
-    !!CryptoJS.enc.Hex.stringify(CryptoJS.SHA1(suite.hash));
+    CryptoJS.enc.Hex.stringify(CryptoJS.SHA1(suite.hash));
   });
   bench('jsHashes', function () {
-    !!(new Hashes.SHA1).hex(suite.hash);
+    (new Hashes.SHA1).hex(suite.hash);
   });
   bench('jsSHA', function () {
     suite.tmp = new jsSHA('SHA-1', 'TEXT');
     suite.tmp.update(suite.hash);
-    !!(suite.tmp.getHash('HEX'));
+    suite.tmp.getHash('HEX');
   });
   bench('asmCrypto', function () {
-    !!(asmCrypto.SHA1.hex(suite.hash));
+    asmCrypto.SHA1.hex(suite.hash);
   });
 });
 suite('SHA1 update', function (suite) {
@@ -78,13 +77,13 @@ suite('SHA1 update', function (suite) {
     suite.jsSHA = new jsSHA('SHA-1', 'TEXT');
   });
   bench('CryptoApi', function () {
-    !!(suite.cryptoApi.update(fromUtf(suite.hash)));
+    suite.cryptoApi.update(fromUtf(suite.hash));
   });
   bench('CryptoJS', function () {
-    !!(suite.cryptoJS.update(suite.hash));
+    suite.cryptoJS.update(suite.hash);
   });
   bench('jsSHA', function () {
-    !!(suite.jsSHA.update(suite.hash));
+    suite.jsSHA.update(suite.hash);
   });
 });
 suite('SHA256 with HEX result', function (suite) {
@@ -96,21 +95,21 @@ suite('SHA256 with HEX result', function (suite) {
   bench('CryptoApi', function () {
     suite.tmp = new Sha256();
     suite.tmp.update(fromUtf(suite.hash));
-    !!(toHex(suite.tmp.finalize()));
+    toHex(suite.tmp.finalize());
   });
   bench('CryptoJS', function () {
-    !!CryptoJS.enc.Hex.stringify(CryptoJS.SHA256(suite.hash));
+    CryptoJS.enc.Hex.stringify(CryptoJS.SHA256(suite.hash));
   });
   bench('jsHashes', function () {
-    !!((new Hashes.SHA256).hex(suite.hash));
+    (new Hashes.SHA256).hex(suite.hash);
   });
   bench('jsSHA', function () {
     suite.tmp = new jsSHA('SHA-256', 'TEXT');
     suite.tmp.update(suite.hash);
-    !!(suite.tmp.getHash('HEX'));
+    suite.tmp.getHash('HEX');
   });
   bench('asmCrypto', function () {
-    !!(asmCrypto.SHA256.hex(suite.hash));
+    asmCrypto.SHA256.hex(suite.hash);
   });
 });
 suite('SHA256 update', function (suite) {
@@ -123,13 +122,13 @@ suite('SHA256 update', function (suite) {
     suite.jsSHA = new jsSHA('SHA-256', 'TEXT');
   });
   bench('CryptoApi', function () {
-    !!(suite.cryptoApi.update(fromUtf(suite.hash)));
+    suite.cryptoApi.update(fromUtf(suite.hash));
   });
   bench('CryptoJS', function () {
-    !!(suite.cryptoJS.update(suite.hash));
+    suite.cryptoJS.update(suite.hash);
   });
   bench('jsSHA', function () {
-    !!(suite.jsSHA.update(suite.hash));
+    suite.jsSHA.update(suite.hash);
   });
 });
 suite('SHA512 with HEX result', function (suite) {
@@ -141,18 +140,18 @@ suite('SHA512 with HEX result', function (suite) {
   bench('CryptoApi', function () {
     suite.tmp = new Sha512();
     suite.tmp.update(fromUtf(suite.hash));
-    !!(toHex(suite.tmp.finalize()));
+    toHex(suite.tmp.finalize());
   });
   bench('CryptoJS', function () {
-    !!CryptoJS.enc.Hex.stringify(CryptoJS.SHA512(suite.hash));
+    CryptoJS.enc.Hex.stringify(CryptoJS.SHA512(suite.hash));
   });
   bench('jsHashes', function () {
-    !!(new Hashes.SHA512).hex(suite.hash);
+    (new Hashes.SHA512).hex(suite.hash);
   });
   bench('jsSHA', function () {
     suite.tmp = new jsSHA('SHA-512', 'TEXT');
     suite.tmp.update(suite.hash);
-    !!(suite.tmp.getHash('HEX'));
+    suite.tmp.getHash('HEX');
   });
 });
 
@@ -166,12 +165,12 @@ suite('SHA512 update', function (suite) {
     suite.jsSHA = new jsSHA('SHA-512', 'TEXT');
   });
   bench('CryptoApi', function () {
-    !!(suite.cryptoApi.update(fromUtf(suite.hash)));
+    suite.cryptoApi.update(fromUtf(suite.hash));
   });
   bench('CryptoJS', function () {
-    !!(suite.cryptoJS.update(suite.hash));
+    suite.cryptoJS.update(suite.hash);
   });
   bench('jsSHA', function () {
-    !!(suite.jsSHA.update(suite.hash));
+    suite.jsSHA.update(suite.hash);
   });
 });

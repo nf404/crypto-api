@@ -110,48 +110,48 @@ suite('Update', function (suite) {
     suite.whirlpool = new Whirlpool();
   });
   bench('md2', function () {
-    !!suite.md2.update(fromUtf('xxx'));
+    suite.md2.update(fromUtf('xxx'));
   });
   bench('md4', function () {
-    !!suite.md4.update(fromUtf('xxx'));
+    suite.md4.update(fromUtf('xxx'));
   });
   bench('md5', function () {
-    !!suite.md5.update(fromUtf('xxx'));
+    suite.md5.update(fromUtf('xxx'));
   });
   bench('ripemd128', function () {
-    !!suite.ripemd128.update(fromUtf('xxx'));
+    suite.ripemd128.update(fromUtf('xxx'));
   });
   bench('ripemd160', function () {
-    !!suite.ripemd160.update(fromUtf('xxx'));
+    suite.ripemd160.update(fromUtf('xxx'));
   });
   bench('ripemd256', function () {
-    !!suite.ripemd256.update(fromUtf('xxx'));
+    suite.ripemd256.update(fromUtf('xxx'));
   });
   bench('ripemd320', function () {
-    !!suite.ripemd320.update(fromUtf('xxx'));
+    suite.ripemd320.update(fromUtf('xxx'));
   });
   bench('has160', function () {
-    !!suite.has160.update(fromUtf('xxx'));
+    suite.has160.update(fromUtf('xxx'));
   });
   bench('sha0', function () {
-    !!suite.sha0.update(fromUtf('xxx'));
+    suite.sha0.update(fromUtf('xxx'));
   });
   bench('sha1', function () {
-    !!suite.sha1.update(fromUtf('xxx'));
+    suite.sha1.update(fromUtf('xxx'));
   });
   bench('sha224', function () {
-    !!suite.sha224.update(fromUtf('xxx'));
+    suite.sha224.update(fromUtf('xxx'));
   });
   bench('sha256', function () {
-    !!suite.sha256.update(fromUtf('xxx'));
+    suite.sha256.update(fromUtf('xxx'));
   });
   bench('sha512', function () {
-    !!suite.sha512.update(fromUtf('xxx'));
+    suite.sha512.update(fromUtf('xxx'));
   });
   bench('snefru', function () {
-    !!suite.snefru.update(fromUtf('xxx'));
+    suite.snefru.update(fromUtf('xxx'));
   });
   bench('whirlpool', function () {
-    !!suite.whirlpool.update(fromUtf('xxx'));
+    suite.whirlpool.update(fromUtf('xxx'));
   });
 });
