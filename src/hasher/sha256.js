@@ -167,4 +167,4 @@ class Sha256 extends Hasher32be {
   }
 }
 
-export default Sha256
+export default Sha256;

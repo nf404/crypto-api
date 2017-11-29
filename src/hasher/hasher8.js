@@ -73,4 +73,4 @@ class Hasher8 extends Hasher {
   }
 }
 
-export default Hasher8
+export default Hasher8;

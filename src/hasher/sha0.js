@@ -129,4 +129,4 @@ class Sha0 extends Hasher32be {
   }
 }
 
-export default Sha0
+export default Sha0;

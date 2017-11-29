@@ -14,4 +14,4 @@ function toHex(raw) {
   return str;
 }
 
-export {toHex}
+export {toHex};

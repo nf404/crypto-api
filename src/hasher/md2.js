@@ -129,4 +129,4 @@ class Md2 extends Hasher8 {
   }
 }
 
-export default Md2
+export default Md2;

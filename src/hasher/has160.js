@@ -158,4 +158,4 @@ class Has160 extends Hasher32le {
   }
 }
 
-export default Has160
+export default Has160;

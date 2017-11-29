@@ -207,4 +207,4 @@ class Md4 extends Hasher32le {
   }
 }
 
-export default Md4
+export default Md4;

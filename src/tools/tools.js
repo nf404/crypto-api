@@ -58,4 +58,4 @@ function rotateRight64lo(hi, lo, n) {
   return ((lo >>> n) | (hi << (32 - n))) & (0xFFFFFFFF);
 }
 
-export {rotateLeft, rotateRight, rotateRight64lo, rotateRight64hi}
+export {rotateLeft, rotateRight, rotateRight64lo, rotateRight64hi};

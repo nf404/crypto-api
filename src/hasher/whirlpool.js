@@ -305,4 +305,4 @@ class Whirlpool extends Hasher32be {
   }
 }
 
-export default Whirlpool
+export default Whirlpool;

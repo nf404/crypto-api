@@ -40,4 +40,4 @@ function fromUtf(message) {
   return raw;
 }
 
-export {fromUtf}
+export {fromUtf};

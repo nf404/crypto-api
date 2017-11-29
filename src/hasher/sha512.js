@@ -274,4 +274,4 @@ class Sha512 extends Hasher32be {
   }
 }
 
-export default Sha512
+export default Sha512;

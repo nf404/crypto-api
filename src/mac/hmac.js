@@ -94,4 +94,4 @@ class Hmac {
   }
 }
 
-export default Hmac
+export default Hmac;

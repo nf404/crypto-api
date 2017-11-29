@@ -129,4 +129,4 @@ class Sha1 extends Hasher32be {
   }
 }
 
-export default Sha1
+export default Sha1;

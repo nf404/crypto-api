@@ -511,4 +511,4 @@ class Ripemd extends Hasher32le {
   }
 }
 
-export default Ripemd
+export default Ripemd;

@@ -234,4 +234,4 @@ class Md5 extends Hasher32le {
   }
 }
 
-export default Md5
+export default Md5;

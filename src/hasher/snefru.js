@@ -1174,4 +1174,4 @@ class Snefru extends Hasher32be {
   }
 }
 
-export default Snefru
+export default Snefru;

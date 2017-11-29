@@ -167,4 +167,4 @@ class CryptoApi {
 }
 
 CryptoApi = new CryptoApi();
-export default CryptoApi
+export default CryptoApi;

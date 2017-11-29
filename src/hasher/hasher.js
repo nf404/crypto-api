@@ -146,4 +146,4 @@ class Hasher {
   }
 }
 
-export default Hasher
+export default Hasher;

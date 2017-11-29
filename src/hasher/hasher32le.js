@@ -84,4 +84,4 @@ class Hasher32le extends Hasher {
   }
 }
 
-export default Hasher32le
+export default Hasher32le;
