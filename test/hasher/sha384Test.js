@@ -1,3 +1,4 @@
+/*global describe, it */
 'use strict';
 import TestHasher from "../TestHasher";
 import Sha512 from "../../src/hasher/sha512";

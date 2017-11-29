@@ -1,3 +1,4 @@
+/*global describe, it */
 'use strict';
 
 import TestHmac from "../TestHmac";

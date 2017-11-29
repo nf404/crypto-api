@@ -1,3 +1,4 @@
+/*global describe, it */
 'use strict';
 import TestHasher from "../TestHasher";
 import Md5 from "../../src/hasher/md5";

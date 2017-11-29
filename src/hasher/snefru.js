@@ -996,7 +996,7 @@ function getRandomDigit() {
     count5 = 4;
     randomIndex++;
   }
-  return (randTable[randomIndex] % Math.pow(10, count5 + 1)) / Math.pow(10, count5--) | 0
+  return (randTable[randomIndex] % Math.pow(10, count5 + 1)) / Math.pow(10, count5--) | 0;
 }
 
 /**
