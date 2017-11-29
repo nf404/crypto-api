@@ -78,4 +78,4 @@ class HmacMd5Test extends TestHmac {
   }
 }
 
-export default HmacMd5Test
+export default HmacMd5Test;

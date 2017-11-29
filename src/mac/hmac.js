@@ -77,7 +77,7 @@ class Hmac {
    * @param {string} message
    */
   update(message) {
-    this.hasher.update(message)
+    this.hasher.update(message);
   }
 
   /**

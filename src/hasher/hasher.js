@@ -55,7 +55,7 @@ class Hasher {
    */
   reset() {
     this.state = {};
-    this.constructor(this.options)
+    this.constructor(this.options);
   }
 
   /**

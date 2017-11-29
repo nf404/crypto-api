@@ -78,4 +78,4 @@ class HmacSha384Test extends TestHmac {
   }
 }
 
-export default HmacSha384Test
+export default HmacSha384Test;

@@ -78,4 +78,4 @@ class HmacHas160Test extends TestHmac {
   }
 }
 
-export default HmacHas160Test
+export default HmacHas160Test;
