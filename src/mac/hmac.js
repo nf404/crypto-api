@@ -28,7 +28,7 @@
  * <script src="https://nf404.github.io/crypto-api/crypto-api.min.js"></script>
  * <script>
  *   var hasher = CryptoApi.getHasher('md5');
- *   var hmac = CryptoApi.getHmac('key', hasher)
+ *   var hmac = CryptoApi.getHmac('key', hasher);
  *   hmac.update('message');
  *   console.log(CryptoApi.encoder.toHex(hmac.finalize()));
  * </script>

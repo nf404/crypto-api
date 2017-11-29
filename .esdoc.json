@@ -1,16 +1,28 @@
 {
   "source": "./src",
-  "destination": "./dist/docs",
+  "destination": "./dist",
   "plugins": [
     {
       "name": "esdoc-standard-plugin",
       "option": {
-        "lint": {"enable": true},
+        "lint": {
+          "enable": true
+        },
         "test": {
           "source": "./test/",
-          "interfaces": ["describe", "it", "context", "suite", "test"],
-          "includes": ["(test|Test)\\.js$"],
-          "excludes": ["\\.config\\.js$"]
+          "interfaces": [
+            "describe",
+            "it",
+            "context",
+            "suite",
+            "test"
+          ],
+          "includes": [
+            "(test|Test)\\.js$"
+          ],
+          "excludes": [
+            "\\.config\\.js$"
+          ]
         }
       }
     }

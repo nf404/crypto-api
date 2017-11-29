@@ -38,11 +38,12 @@ class CryptoApi {
       'Snefru': Snefru,
       'Whirlpool': Whirlpool
     };
-    /** @type {function[]} */
-    this.enc = {
-      'fromUtf': fromUtf,
-      'toHex': toHex
-    }
+    /** @type {{}} */
+    this.encoder = {};
+    /** @type {function} */
+    this.encoder.fromUtf = fromUtf;
+    /** @type {function} */
+    this.encoder.toHex = toHex;
   }
 
   /**

@@ -1,18 +1,18 @@
 'use strict';
 
-import Md2 from "../hasher/md2";
-import Md4 from "../hasher/md4";
-import Md5 from "../hasher/md5";
-import Ripemd from "../hasher/ripemd";
-import Has160 from "../hasher/has160";
-import Sha0 from "../hasher/sha0";
-import Sha1 from "../hasher/sha1";
-import Sha256 from "../hasher/sha256";
-import Sha512 from "../hasher/sha512";
-import Snefru from "../hasher/snefru";
-import Whirlpool from "../hasher/whirlpool";
-import {fromUtf} from "../encoder/utf";
-import {toHex} from "../encoder/hex";
+import Md2 from "../src/hasher/md2";
+import Md4 from "../src/hasher/md4";
+import Md5 from "../src/hasher/md5";
+import Ripemd from "../src/hasher/ripemd";
+import Has160 from "../src/hasher/has160";
+import Sha0 from "../src/hasher/sha0";
+import Sha1 from "../src/hasher/sha1";
+import Sha256 from "../src/hasher/sha256";
+import Sha512 from "../src/hasher/sha512";
+import Snefru from "../src/hasher/snefru";
+import Whirlpool from "../src/hasher/whirlpool";
+import {fromUtf} from "../src/encoder/utf";
+import {toHex} from "../src/encoder/hex";
 
 suite('Hash from simple string with HEX result', function (suite) {
   bench('md2', function () {

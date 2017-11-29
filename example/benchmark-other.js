@@ -2,12 +2,12 @@
 
 /* global asmCrypto */
 
-import Md5 from "../hasher/md5";
-import Sha1 from "../hasher/sha1";
-import Sha256 from "../hasher/sha256";
-import Sha512 from "../hasher/sha512";
-import {fromUtf} from "../encoder/utf";
-import {toHex} from "../encoder/hex";
+import Md5 from "../src/hasher/md5";
+import Sha1 from "../src/hasher/sha1";
+import Sha256 from "../src/hasher/sha256";
+import Sha512 from "../src/hasher/sha512";
+import {fromUtf} from "../src/encoder/utf";
+import {toHex} from "../src/encoder/hex";
 
 suite('MD5 with HEX result', function (suite) {
   setup(function () {

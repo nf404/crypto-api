@@ -6,109 +6,108 @@
 [![Code Climate](https://codeclimate.com/github/nf404/crypto-api/badges/gpa.svg)](https://codeclimate.com/github/nf404/crypto-api)
 [![bitHound Overalll Score](https://www.bithound.io/github/nf404/crypto-api/badges/score.svg)](https://www.bithound.io/github/nf404/crypto-api)
 [![NPM version](https://img.shields.io/npm/v/crypto-api.svg)](https://www.npmjs.com/package/crypto-api)
-[![Inline docs](https://inch-ci.org/github/nf404/crypto-api.svg?branch=master&style=shields)](https://inch-ci.org/github/nf404/crypto-api)
 [![License Type](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
 
 ## Demo
-* [Basic hasher usage](https://rawgit.com/nf404/crypto-api/master/example/hasher-basic.html)
-* [File hashing on client side](https://rawgit.com/nf404/crypto-api/master/example/hasher-file.html)
-* [QUnit tests](https://rawgit.com/nf404/crypto-api/master/example/unit-tests.html)
-* [Benchmark](https://rawgit.com/nf404/crypto-api/master/example/benchmark.html)
+* [Basic hasher usage](https://nf404.github.io/crypto-api/example/hasher-basic.html)
+([html](https://github.com/nf404/crypto-api/tree/master/example/hasher-basic.html), 
+[js](https://github.com/nf404/crypto-api/tree/master/example/hasher-basic.js))
+* [File hashing on client side](https://nf404.github.io/crypto-api/example/hasher-file.html)
+([html](https://github.com/nf404/crypto-api/tree/master/example/hasher-file.html), 
+[js](https://github.com/nf404/crypto-api/tree/master/example/hasher-file.js))
+* [Benchmark](https://nf404.github.io/crypto-api/example/benchmark.html)
+([html](https://github.com/nf404/crypto-api/tree/master/example/benchmark.html), 
+[js](https://github.com/nf404/crypto-api/tree/master/example/benchmark.js))
+* [Unit tests](https://nf404.github.io/crypto-api/example/unit-tests.html)
+([html](https://github.com/nf404/crypto-api/tree/master/example/unit-tests.html), 
+[js](https://github.com/nf404/crypto-api/tree/master/example/unit-tests.js))
 
 ## Features
 
 ### Hashing algorithms
-* [MD2](https://tools.ietf.org/html/rfc1319)
-* [MD4](https://tools.ietf.org/html/rfc1320)
-* [MD5](https://tools.ietf.org/html/rfc1321)
-* [RIPEMD-160 (RIPEMD-128, RIPEMD-256, RIPEMD-320)](http://homes.esat.kuleuven.be/~bosselae/ripemd160.html)
-* [SHA0](http://pages.saclay.inria.fr/pierre.karpman/fips180.pdf)
-* [SHA1](https://tools.ietf.org/html/rfc3174)
-* [SHA256 (SHA224)](https://tools.ietf.org/html/rfc4634)
-* [SHA512 (SHA384)](https://tools.ietf.org/html/rfc4634)
-* [SHA512/256 (SHA512/224)](http://csrc.nist.gov/publications/fips/fips180-4/fips-180-4.pdf)
-* [HAS-160](https://www.randombit.net/has160.html)
-* [WHIRLPOOL (WHIRLPOOL-0, WHIRLPOOL-T)](http://www.larc.usp.br/~pbarreto/WhirlpoolPage.html)
-* Snefru v2.0 (2 rounds 128, 4 rounds 256), Snefru v2.5 (8 rounds)
+* [HAS-160](https://nf404.github.io/crypto-api/class/src/hasher/has160.js~Has160.html)
+* [MD2](https://nf404.github.io/crypto-api/class/src/hasher/md2.js~Md2.html)
+* [MD4](https://nf404.github.io/crypto-api/class/src/hasher/md4.js~Md4.html)
+* [MD5](https://nf404.github.io/crypto-api/class/src/hasher/md5.js~Md5.html)
+* [RIPEMD-160 (RIPEMD-128, RIPEMD-256, RIPEMD-320)](https://nf404.github.io/crypto-api/class/src/hasher/ripemd.js~Ripemd.html)
+* [SHA0](https://nf404.github.io/crypto-api/class/src/hasher/sha0.js~Sha0.html)
+* [SHA1](https://nf404.github.io/crypto-api/class/src/hasher/sha1.js~Sha1.html)
+* [SHA256 (SHA224)](https://nf404.github.io/crypto-api/class/src/hasher/sha256.js~Sha256.html)
+* [SHA512 (SHA384)](https://nf404.github.io/crypto-api/class/src/hasher/sha512.js~Sha512.html)
+* [SHA512/256 (SHA512/224)](https://nf404.github.io/crypto-api/class/src/hasher/sha512.js~Sha512.html)
+* [Snefru v2.0 (2 rounds 128, 4 rounds 256), Snefru v2.5 (8 rounds)](https://nf404.github.io/crypto-api/class/src/hasher/snefru.js~Snefru.html)
+* [WHIRLPOOL (WHIRLPOOL-0, WHIRLPOOL-T)](https://nf404.github.io/crypto-api/class/src/hasher/whirlpool.js~Whirlpool.html)
 
 ### MAC
-* [HMAC](https://tools.ietf.org/html/rfc2104)
+* [HMAC](https://nf404.github.io/crypto-api/class/src/mac/hmac.js~Hmac.html)
 
 ### Encodings
-* HEX
+* [fromUtf](https://nf404.github.io/crypto-api/function/index.html#static-function-fromUtf)
+* [toHex](https://nf404.github.io/crypto-api/function/index.html#static-function-toHex)
 
-## Using in browser
+## Examples
 
+### ES6 (recomended)
+
+Calculates SHA256 hash from UTF string "message"
 ```javascript
-var hash = CryptoApi.hash('md2', 'test message', {}).stringify('hex');
+import Sha256 from "crypto-api/hasher/sha256";
+import {toHex} from "crypto-api/encoder/hex";
+import {fromUtf} from "crypto-api/encoder/utf";
 
-var hash = CryptoApi.hash('md4', 'test message', {}).stringify('hex');
-
-var hash = CryptoApi.hash('md5', 'test message', {}).stringify('hex');
-
-var hash = CryptoApi.hash('ripemd128', 'test message', {}).stringify('hex');
-
-var hash = CryptoApi.hash('ripemd160', 'test message', {}).stringify('hex');
-
-var hash = CryptoApi.hash('ripemd256', 'test message', {}).stringify('hex');
-
-var hash = CryptoApi.hash('ripemd320', 'test message', {}).stringify('hex');
-
-var hash = CryptoApi.hash('sha0', 'test message', {}).stringify('hex');
-
-var hash = CryptoApi.hash('sha1', 'test message', {}).stringify('hex');
-
-var hash = CryptoApi.hash('sha224', 'test message', {}).stringify('hex');
-
-var hash = CryptoApi.hash('sha256', 'test message', {}).stringify('hex');
-
-var hash = CryptoApi.hash('sha384', 'test message', {}).stringify('hex');
-
-var hash = CryptoApi.hash('sha512', 'test message', {}).stringify('hex');
-
-var hash = CryptoApi.hash('sha512/224', 'test message', {}).stringify('hex');
-
-var hash = CryptoApi.hash('sha512/256', 'test message', {}).stringify('hex');
-
-var hash = CryptoApi.hash('has160', 'test message', {}).stringify('hex');
-
-var hash = CryptoApi.hash('whirlpool', 'test message', {}).stringify('hex');
-
-var hash = CryptoApi.hash('whirlpool-0', 'test message', {}).stringify('hex');
-
-var hash = CryptoApi.hash('whirlpool-t', 'test message', {}).stringify('hex');
-
-var hash = CryptoApi.hash('snefru-2-128', 'test message', {}).stringify('hex');
-
-var hash = CryptoApi.hash('snefru-4-128', 'test message', {}).stringify('hex');
-
-var hash = CryptoApi.hash('snefru-8-128', 'test message', {}).stringify('hex');
-
-var hash = CryptoApi.hash('snefru-2-256', 'test message', {}).stringify('hex');
-
-var hash = CryptoApi.hash('snefru-4-256', 'test message', {}).stringify('hex');
-
-var hash = CryptoApi.hash('snefru-8-256', 'test message', {}).stringify('hex');
-
-var hash_hmac = CryptoApi.mac('hmac', 'sha256', '', {}).update('test message')
-    .finalize().stringify('hex');
+let hasher = new Sha256();
+hasher.update(fromUtf('message'));
+console.log(toHex(hasher.finalize()));
 ```
 
-## Using with node.js
-
+Calculates HMAC-MD5 from UTF string "message" with UTF key "key" 
 ```javascript
-var CryptoApi = require('crypto-api');
-CryptoApi.hash('sha256', '', {}).stringify('hex');
+import Md5 from "crypto-api/hasher/md5";
+import Hmac from "crypto-api/mac/hmac";
+import {toHex} from "crypto-api/encoder/hex";
+import {fromUtf} from "crypto-api/encoder/utf";
+
+let hasher = new Md5();
+let hmac = new Hmac(fromUtf('key'), hasher);
+hmac.update(fromUtf('message'));
+console.log(toHex(hmac.finalize()));
 ```
 
-## Saving state example
+### Using in browser (ES5)
 
-```javascript
-var CryptoApi = require('crypto-api');
-var hasher = CryptoApi.hasher('sha256', {});
-hasher.update('1');
-var state = hasher.getState();
-console.log(hasher.finalize().stringify('hex')); // print sha256('1')
-hasher.setState(state).update('2');
-console.log(hasher.finalize().stringify('hex')); // print sha256('12')
+Calculates SHA256 hash from string "message"
+```html
+<script src="https://nf404.github.io/crypto-api/crypto-api.min.js"></script>
+<script>
+  var hasher = CryptoApi.getHasher('sha256');
+  hasher.update('message');
+  console.log(CryptoApi.encoder.toHex(hasher.finalize()));
+</script>
+```
+
+Calculates SHA256 hash from UTF string "message"
+```html
+<script src="https://nf404.github.io/crypto-api/crypto-api.min.js"></script>
+<script>
+  console.log(CryptoApi.hash('sha256', 'message'));
+</script>
+```
+
+Calculates HMAC-MD5 from string "message" with key "key"
+```html
+<script src="https://nf404.github.io/crypto-api/crypto-api.min.js"></script>
+<script>
+  var hasher = CryptoApi.getHasher('md5');
+  var hmac = CryptoApi.getHmac('key', hasher);
+  hmac.update('message');
+  console.log(CryptoApi.encoder.toHex(hmac.finalize()));
+</script>
+```
+Calculates HMAC-MD5 from UTF string "message" with UTF key "key"
+```html
+<script src="https://nf404.github.io/crypto-api/crypto-api.min.js"></script>
+<script>
+  var hasher = CryptoApi.getHasher('md5');
+  console.log(CryptoApi.hmac('key', 'message', hasher));
+</script>
 ```

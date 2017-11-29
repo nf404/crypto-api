@@ -46,6 +46,8 @@
     "coveralls": "^2.13.3",
     "esdoc": "^1.0.4",
     "esdoc-standard-plugin": "^1.0.0",
+    "html-webpack-externals-plugin": "^3.6.0",
+    "html-webpack-plugin": "^2.30.1",
     "inchjs": "^0.4.1",
     "istanbul": "^1.1.0-alpha.1",
     "istanbul-combine": "^0.3.0",
