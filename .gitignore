@@ -1,8 +1,4 @@
 /.idea
 /node_modules
 /coverage
-/dist/*.js
-/dist/*/*.js
-/dist/*.map
-/dist/*/*.map
-/dist/docs
+/dist
