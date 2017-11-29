@@ -61,4 +61,4 @@ class Sha512_224Test extends TestHasher {
   }
 }
 
-export default Sha512_224Test
+export default Sha512_224Test;

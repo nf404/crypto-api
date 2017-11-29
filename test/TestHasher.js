@@ -14,7 +14,7 @@ class TestHasher {
   testHash(test) {
     let hash = this.getInstance(test.options);
     hash.update(fromUtf(test.message));
-    assert.equal(toHex(hash.finalize()), test.hash)
+    assert.equal(toHex(hash.finalize()), test.hash);
   }
 
   /**
@@ -47,4 +47,4 @@ class TestHasher {
   }
 }
 
-export default TestHasher
+export default TestHasher;

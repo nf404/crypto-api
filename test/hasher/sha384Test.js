@@ -61,4 +61,4 @@ class Sha384Test extends TestHasher {
   }
 }
 
-export default Sha384Test
+export default Sha384Test;

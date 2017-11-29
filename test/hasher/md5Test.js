@@ -76,4 +76,4 @@ class Md5Test extends TestHasher {
   }
 }
 
-export default Md5Test
+export default Md5Test;

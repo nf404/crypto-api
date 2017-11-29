@@ -77,4 +77,4 @@ class Md2Test extends TestHasher {
   }
 }
 
-export default Md2Test
+export default Md2Test;

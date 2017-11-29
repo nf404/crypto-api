@@ -81,4 +81,4 @@ class Has160Test extends TestHasher {
   }
 }
 
-export default Has160Test
+export default Has160Test;

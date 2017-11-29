@@ -76,4 +76,4 @@ class Md4Test extends TestHasher {
   }
 }
 
-export default Md4Test
+export default Md4Test;

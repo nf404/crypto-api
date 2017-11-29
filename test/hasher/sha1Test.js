@@ -91,4 +91,4 @@ class Sha1Test extends TestHasher {
   }
 }
 
-export default Sha1Test
+export default Sha1Test;

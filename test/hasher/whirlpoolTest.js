@@ -75,4 +75,4 @@ class WhirlpoolTest extends TestHasher {
   }
 }
 
-export default WhirlpoolTest
+export default WhirlpoolTest;

@@ -15,7 +15,7 @@ class TestHmac {
     let hash = this.getInstance(test.options || {});
     let hmac = new Hmac(test.key, hash);
     hmac.update(test.message);
-    assert.equal(toHex(hmac.finalize()), test.hash)
+    assert.equal(toHex(hmac.finalize()), test.hash);
   }
 
   /**
@@ -27,4 +27,4 @@ class TestHmac {
   }
 }
 
-export default TestHmac
+export default TestHmac;

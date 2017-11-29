@@ -82,4 +82,4 @@ class Sha0Test extends TestHasher {
   }
 }
 
-export default Sha0Test
+export default Sha0Test;

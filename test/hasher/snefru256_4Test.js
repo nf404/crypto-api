@@ -126,4 +126,4 @@ class Snefru256_4Test extends TestHasher {
   }
 }
 
-export default Snefru256_4Test
+export default Snefru256_4Test;

@@ -82,4 +82,4 @@ class Ripemd128Test extends TestHasher {
   }
 }
 
-export default Ripemd128Test
+export default Ripemd128Test;
