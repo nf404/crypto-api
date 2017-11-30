@@ -62,6 +62,7 @@ let RCT = new Array(22);
  * Calculates SBOX from eBOX & rBOX
  *
  * @private
+ * @returns {void}
  */
 function calculateSBOX() {
   for (let i = 0; i < 16; i++) {

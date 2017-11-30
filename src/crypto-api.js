@@ -24,25 +24,11 @@ class CryptoApi {
    * @ignore
    */
   constructor() {
-    /** @type {Hasher[]} */
-    this.hasher = {
-      'Has160': Has160,
-      'Md2': Md2,
-      'Md4': Md4,
-      'Md5': Md5,
-      'Ripemd': Ripemd,
-      'Sha0': Sha0,
-      'Sha1': Sha1,
-      'Sha256': Sha256,
-      'Sha512': Sha512,
-      'Snefru': Snefru,
-      'Whirlpool': Whirlpool
-    };
     /** @type {{}} */
     this.encoder = {};
-    /** @type {function} */
+    /** @type {fromUtf} */
     this.encoder.fromUtf = fromUtf;
-    /** @type {function} */
+    /** @type {toHex} */
     this.encoder.toHex = toHex;
   }
 
@@ -53,7 +39,7 @@ class CryptoApi {
    * @param {Object} options
    * @returns {Hasher}
    */
-  static getHasher(name, options) {
+  getHasher(name, options) {
     options = options || {};
     switch (name) {
       case 'has160':
@@ -133,9 +119,9 @@ class CryptoApi {
    * @param {Object} options
    * @returns {string}
    */
-  static hash(name, message, options) {
+  hash(name, message, options) {
     options = options || {};
-    let hasher = CryptoApi.getHasher(name, options);
+    let hasher = this.getHasher(name, options);
     hasher.update(fromUtf(message));
     return toHex(hasher.finalize());
   }
@@ -147,7 +133,7 @@ class CryptoApi {
    * @param {Hasher} hasher
    * @returns {Hmac}
    */
-  static getHmac(key, hasher) {
+  getHmac(key, hasher) {
     return new Hmac(key, hasher);
   }
 
@@ -159,7 +145,7 @@ class CryptoApi {
    * @param {Hasher} hasher
    * @returns {string}
    */
-  static hmac(key, message, hasher) {
+  hmac(key, message, hasher) {
     let mac = this.getHmac(fromUtf(key), hasher);
     mac.update(fromUtf(message));
     return toHex(mac.finalize());

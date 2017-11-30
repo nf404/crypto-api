@@ -18,7 +18,9 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].min.js'
+    filename: '[name].min.js',
+    library: 'CryptoApi',
+    libraryExport: "default"
   },
   module: {
     rules: [
