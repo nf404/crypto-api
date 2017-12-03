@@ -22,6 +22,8 @@
 ([html](https://github.com/nf404/crypto-api/tree/master/example/unit-tests.html), 
 [js](https://github.com/nf404/crypto-api/tree/master/example/unit-tests.js))
 
+## [Documentation](https://nf404.github.io/crypto-api/)
+
 ## Features
 
 ### Hashing algorithms
