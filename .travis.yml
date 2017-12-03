@@ -16,7 +16,6 @@ deploy:
     secure: $GITHUB_TOKEN
   on:
     branch: master
-
   - provider: releases
   api_key:
     secure: $GITHUB_TOKEN
@@ -27,7 +26,6 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
-
   - provider: npm
   email: "nf404.name@gmail.com"
   api_key:
