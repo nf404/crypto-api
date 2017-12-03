@@ -15,12 +15,12 @@ deploy:
     skip_cleanup: true
     local_dir: dist
     github_token:
-      secure: $GITHUB_TOKEN
+      secure: GofVTeRDOxX0u31Xy8YxGMrqbifZkmXwLVrBFD3kpqJqxpRuml32YGcc1yJ7I2Ib6JlVpPE66EtMtvoZazT2Fx+PxPQDahbUfvT4Eekx1ljtw13hT6azAVPGsWGBvupHq9dKdQ+k6GLSFm5dAosAC6tdH2QQwbb/EvuVRBchDXZV1aRIlAFaovCZrZ2g2XDv1U9l/XMoHPw6qPChs8RVigrCxZhnIga0nRlO8TPGNb46UvmpfU3KIVHYyNp2newoAEMpVCbdbi4u3GBLS2fqQiN3ozvXupk05/VHBG4QvqTttk26WFw+FH4jkYLeefWXg79YsGXNJmeS9rDv3UyA0JHzpYk+6TM4RLr1qtYkrnogBAj5lobE0XzAmkeo2YMB/nLWR89lGIU4HsHSzhUrl7ZTTF1Fqa5BgWzkYmJ+6fVboTVpL2xFcHWeQjzzdKcVZ6p2X7aOM64b+vQ5R25vBJcZQqX6a9cUCE6cc/aDB5CbYuLFMJwTkvvdenEEc/kNR1QuOKrICBVeiqi7PCEPSBbztJhq0xY0oBrvBzbxcEVoUgQHU5512jqWEHsCECSDwPhKuYhV5pZ/ZR+841tjmvA4ZTTTGbVQndtHrxx0Jy6taJDvhM8ohPBMqKiAEoUMGJ2d2ZBhMjgH57lNR/h5pS0tZaNSSTKJNadEo0L27SA=
     on:
       branch: master
   - provider: releases
     api_key:
-      secure: $GITHUB_TOKEN
+      secure: GofVTeRDOxX0u31Xy8YxGMrqbifZkmXwLVrBFD3kpqJqxpRuml32YGcc1yJ7I2Ib6JlVpPE66EtMtvoZazT2Fx+PxPQDahbUfvT4Eekx1ljtw13hT6azAVPGsWGBvupHq9dKdQ+k6GLSFm5dAosAC6tdH2QQwbb/EvuVRBchDXZV1aRIlAFaovCZrZ2g2XDv1U9l/XMoHPw6qPChs8RVigrCxZhnIga0nRlO8TPGNb46UvmpfU3KIVHYyNp2newoAEMpVCbdbi4u3GBLS2fqQiN3ozvXupk05/VHBG4QvqTttk26WFw+FH4jkYLeefWXg79YsGXNJmeS9rDv3UyA0JHzpYk+6TM4RLr1qtYkrnogBAj5lobE0XzAmkeo2YMB/nLWR89lGIU4HsHSzhUrl7ZTTF1Fqa5BgWzkYmJ+6fVboTVpL2xFcHWeQjzzdKcVZ6p2X7aOM64b+vQ5R25vBJcZQqX6a9cUCE6cc/aDB5CbYuLFMJwTkvvdenEEc/kNR1QuOKrICBVeiqi7PCEPSBbztJhq0xY0oBrvBzbxcEVoUgQHU5512jqWEHsCECSDwPhKuYhV5pZ/ZR+841tjmvA4ZTTTGbVQndtHrxx0Jy6taJDvhM8ohPBMqKiAEoUMGJ2d2ZBhMjgH57lNR/h5pS0tZaNSSTKJNadEo0L27SA=
     file:
       - "dist/crypto-api.js"
       - "dist/crypto-api.min.js"
@@ -31,6 +31,6 @@ deploy:
   - provider: npm
     email: "nf404.name@gmail.com"
     api_key:
-      secure: $NPM_TOKEN
+      secure: HzoPLDW6L2gBtxnRblLtyaJMAMvBGlVVr+ZrEuJ0oRROQyXPPV7vRlKQ0LNDp89Tlxz4tYom4/ngm4N1jSL+cs7C3yth0T/0uimwhYz/EatkKrIK97Qx766NVAOJvgXC6AIYHeMsHngOkQGQNFgXbVhv5IS6vDY7cFptyZ3pKTPFg5mmriHSc5giUFJeRQ1YT5faqVXauKbIBPNHwA/DrMIOBQYhlszOD5daasurW1Op5SUhfetRj96QqOecw96Yxe8jRbswjv3twXvKu4BIJUAIaek83z9sp9LeVCv5HafS3a7nDF3g6W5fhvm0QNSUu5qRnuhShVAB8sZ3ZqtGjVz7CfIPxbbCGckFfYVXJcobbOSqqKmoqZEm8XKXt3fF+sgpGQlS81OGsJhECCq81QtzkYjWvY1hpvBycNFfv2Qig7qoGkCTg10NFXeLtTuROjOvk8fXWKVDW5Nww4hsi2V4bPzlmU8SUGuDEbbpIDeHzoHCRPUmwqa24RMXcvlgaikUO3gN9usPTde16nmPTHbMdud+fPzllDD3eSwVdFmkeSv/MWZDrQ6CMNQ2DfSr8cOI9c9TMFBulhwL/2G2wNrDSrctQxOdOoB+Ql1TowJaEUxf6nGA6qbV/Wnn4FD+pplzH82/jSRwkgkRIFcbEbOsxZAd1WgB8SI6ECfxtmQ=
     on:
       tags: true
