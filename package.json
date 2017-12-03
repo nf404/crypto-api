@@ -1,7 +1,7 @@
 {
   "name": "crypto-api",
   "description": "Hashing and encrypting library with no depedencies",
-  "version": "0.7.5",
+  "version": "0.8.0",
   "homepage": "https://github.com/nf404/crypto-api/",
   "author": {
     "name": "Aleksandr Mogilnikov",
@@ -16,39 +16,40 @@
   "bugs": {
     "url": "http://github.com/nf404/crypto-api/issues"
   },
-  "main": "lib/crypto-api.js",
+  "main": "src/crypto-api.js",
   "directories": {
     "test": "test",
-    "lib": "lib",
+    "lib": "src",
     "example": "example"
   },
   "scripts": {
-    "docs": "jsdoc2md lib/*.js",
-    "test": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly --dir coverage/cli -- --check-leaks -R spec && karma start karma.conf.js",
-    "combine": "istanbul-combine -r lcovonly coverage/*/*.json",
+    "test": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly --dir coverage -- --require babel-core/register --reporter spec --recursive test/test.js",
+    "test-dev": "istanbul cover node_modules/mocha/bin/_mocha --dir coverage -- --require babel-core/register  --reporter spec --recursive test/test.js",
+    "build": "webpack --progress --hide-modules && esdoc",
     "coveralls": "coveralls < coverage/lcov.info",
     "codacy": "codacy-coverage < coverage/lcov.info",
     "codeclimate": "codeclimate-test-reporter < coverage/lcov.info"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-    "jsdoc": ">=3.4.3",
-    "jsdoc-to-markdown": ">=1.3.9",
-    "inchjs": ">=0.4.1",
-    "mocha": ">=3.2.0",
-    "chai": ">=3.5.0",
-    "istanbul": ">=0.4.5",
-    "istanbul-combine": ">=0.3.0",
-    "karma": ">=1.3.0",
-    "karma-coverage": ">=1.1.1",
-    "karma-mocha": ">=1.3.0",
-    "karma-mocha-reporter": ">=2.2.1",
-    "karma-phantomjs-launcher": ">=1.0.2",
-    "phantomjs-prebuilt": ">=2.1.14",
-    "coveralls": ">=2.11.15",
-    "codacy-coverage": ">=2.0.0",
-    "codeclimate-test-reporter": ">=0.4.0"
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "chai": "^4.1.2",
+    "codacy-coverage": "^2.0.3",
+    "codeclimate-test-reporter": "^0.5.0",
+    "coveralls": "^3.0.0",
+    "esdoc": "^1.0.4",
+    "esdoc-standard-plugin": "^1.0.0",
+    "html-webpack-externals-plugin": "^3.6.0",
+    "html-webpack-plugin": "^2.30.1",
+    "istanbul": "^1.1.0-alpha.1",
+    "istanbul-instrumenter-loader": "^3.0.0",
+    "mocha": "^4.0.1",
+    "uglifyjs-webpack-plugin": "^1.0.0-beta.3",
+    "unminified-webpack-plugin": "^1.4.1",
+    "webpack": "^3.6.0"
   },
   "keywords": [
     "hash",

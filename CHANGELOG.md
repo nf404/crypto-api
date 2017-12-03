@@ -1,3 +1,10 @@
+* 0.8.0 **Breakable changes**
+  - Rewrite to ES6
+  - Refactor all code & invert dependencies
+  - Add length option to Ripemd, Sha256, Sha512, Snefru
+  - Add rounds option to Has160, Md2, Sha0, Sha1, Sha256, Sha512, Snefru, Whirlpool
+  - WHIRLPOOL, WHIRLPOOL-0, WHIRLPOOL-T now selected by option type
+  - Rewrite documentation to esdoc
 * 0.7.5
   - Add Snefru v2.0, Snefru v2.5  
 * 0.7.4

@@ -2,22 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hasher method basic usage</title>
+    <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
     Result of MD2('test message'):
     <div id="result"></div>
 </body>
-<script src="../lib/crypto-api.js"></script>
-<script src="../lib/enc.hex.js"></script>
-<script src="../lib/hasher.md2.js"></script>
-<script>
-    (function() {
-        try {
-            document.getElementById('result').innerHTML = CryptoApi.hash('md2', 'test message', {}).stringify('hex');
-        } catch (e) {
-            document.getElementById('result').innerHTML = 'Error: ' + e.message;
-        }
-    })();
-</script>
 </html>

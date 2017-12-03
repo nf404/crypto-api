@@ -1,0 +1,10 @@
+{
+  "ignore": [
+    "example/**",
+    "dist/**",
+    "vendor/**"
+  ],
+  "tests": [
+    "test/**"
+  ]
+}

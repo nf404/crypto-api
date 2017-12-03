@@ -2,12 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hashing files</title>
+    <title><%= htmlWebpackPlugin.options.title %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
 <body>
-
 <div class="container">
     <h2>Hashing file SHA256</h2>
 
@@ -20,55 +18,10 @@
             <div class="progress-bar progress-bar-striped" role="progressbar"
                  aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0"
                  id="hash-progress">
-
             </div>
         </div>
         <div class="well" id="hash"></div>
     </form>
 </div>
 </body>
-<script src="../lib/crypto-api.js"></script>
-<script src="../lib/enc.hex.js"></script>
-<script src="../lib/hasher.sha256.js"></script>
-<script>
-    (function (CryptoApi) {
-        var sliceSize = 4096;
-        var fileElement = document.getElementById('file');
-        fileElement.addEventListener("change", function (e) {
-            var file = e.target.files[0];
-            var hasher = CryptoApi.hasher('sha256', {});
-            var fReader = new FileReader();
-            var i = 0;
-            var progress = document.getElementById('hash-progress');
-            fReader.onloadend = function (evt) {
-                if (evt.target.readyState === FileReader.DONE) {
-                    hasher.update(evt.target.result);
-                    var state = hasher.getState();
-                    document.getElementById('hash').innerHTML = hasher.finalize().stringify('hex');
-                    progress.setAttribute('aria-valuenow', (Math.round(1000 * Math.min(i + sliceSize, file.size) / file.size) / 10).toString());
-                    progress.style.width = (Math.round(1000 * Math.min(i + sliceSize, file.size) / file.size) / 10).toString() + '%';
-                    progress.innerHTML = (Math.round(1000 * Math.min(i + sliceSize, file.size) / file.size) / 10).toString() + '%';
-                    hasher.setState(state);
-                    if (i < file.size) {
-                        readSlice(fReader, file, i += sliceSize);
-                    } else {
-                        progress.setAttribute('class', progress.getAttribute('class').replace(/ active/,''));
-                    }
-                }
-            };
-            progress.setAttribute('class', progress.getAttribute('class') + ' active');
-            readSlice(fReader, file, i);
-        });
-        function readSlice(fReader, file, i) {
-            if (file.webkitSlice) {
-                var blob = file.webkitSlice(i, Math.min(i + sliceSize, file.size));
-            } else if (file.mozSlice) {
-                blob = file.mozSlice(i, Math.min(i + sliceSize, file.size));
-            } else {
-                blob = file.slice(i, Math.min(i + sliceSize, file.size));
-            }
-            fReader.readAsBinaryString(blob);
-        }
-    })(CryptoApi);
-</script>
 </html>
