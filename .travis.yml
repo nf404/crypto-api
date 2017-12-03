@@ -8,6 +8,8 @@ after_success:
   - npm run coveralls
   - npm run codacy
   - npm run codeclimate
+before_deploy:
+  - rm -rf dist/ast
 deploy:
   - provider: pages
     skip_cleanup: true
