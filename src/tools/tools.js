@@ -2,6 +2,7 @@
 
 /**
  * Rotate x to n bits left
+ *
  * @param {number} x
  * @param {number} n
  * @returns {number}
@@ -22,8 +23,7 @@ function rotateRight(x, n) {
 
 /**
  * Rotate 64bit to n bits right and return hi
- * @memberOf Tools
- * @method rotateLeft
+ *
  * @param {number} hi
  * @param {number} lo
  * @param {number} n
@@ -41,8 +41,7 @@ function rotateRight64hi(hi, lo, n) {
 
 /**
  * Rotate 64bit to n bits right and return lo
- * @memberOf Tools
- * @method rotateLeft
+ *
  * @param {number} hi
  * @param {number} lo
  * @param {number} n
