@@ -1,3 +1,7 @@
+* 0.8.1
+  - Add support for nodejs
+  - Refactor reset function and fix bug with constructor calling in it
+  - Fix es6 usage in documentation
 * 0.8.0 **Breakable changes**
   - Rewrite to ES6
   - Refactor all code & invert dependencies

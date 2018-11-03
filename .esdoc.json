@@ -1,6 +1,7 @@
 {
   "source": "./src",
   "destination": "./dist",
+  "includes": ["\\.mjs$"],
   "plugins": [
     {
       "name": "esdoc-standard-plugin",
@@ -18,7 +19,7 @@
             "test"
           ],
           "includes": [
-            "(test|Test)\\.js$"
+            "(test|Test)\\.mjs$"
           ],
           "excludes": [
             "\\.config\\.js$"

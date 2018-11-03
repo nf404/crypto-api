@@ -7,14 +7,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin');
 
 module.exports = {
+  mode: 'production',
   devtool: 'source-map',
   entry: {
-    'crypto-api': './src/crypto-api.js',
-    'example/hasher-basic': './example/hasher-basic.js',
-    'example/hasher-file': './example/hasher-file.js',
-    'example/benchmark': './example/benchmark.js',
-    'example/benchmark-other': './example/benchmark-other.js',
-    'example/unit-tests': './example/unit-tests.js',
+    'crypto-api': './src/crypto-api.mjs',
+    'example/hasher-basic': './example/hasher-basic.mjs',
+    'example/hasher-file': './example/hasher-file.mjs',
+    'example/benchmark': './example/benchmark.mjs',
+    'example/benchmark-other': './example/benchmark-other.mjs',
+    'example/unit-tests': './example/unit-tests.mjs',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -25,12 +26,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.mjs$/,
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['env']
+            presets: ['@babel/preset-env']
           }
         }
       }
@@ -117,8 +118,8 @@ module.exports = {
         {
           module: 'mocha',
           entry: [
-            'https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.js',
-            'https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.css'
+            'https://cdn.rawgit.com/mochajs/mocha/5.2.0/mocha.js',
+            'https://cdn.rawgit.com/mochajs/mocha/5.2.0/mocha.css'
           ],
         },
       ],
