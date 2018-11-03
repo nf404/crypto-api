@@ -32,6 +32,16 @@ class Hasher {
      * @type {number}
      */
     this.blockSizeInBytes = this.blockSize * this.unitSize;
+
+    this.options = options || {};
+
+    this.reset();
+  }
+
+  /**
+   * Reset hasher to initial state
+   */
+  reset() {
     /**
      * All algorithm variables that changed during process
      * @protected
@@ -47,15 +57,6 @@ class Hasher {
      * @protected
      * @type {Object}
      */
-    this.options = options || {};
-  }
-
-  /**
-   * Reset hasher to initial state
-   */
-  reset() {
-    this.state = {};
-    this.constructor(this.options);
   }
 
   /**

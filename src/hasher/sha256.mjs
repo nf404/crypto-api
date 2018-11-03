@@ -65,24 +65,11 @@ class Sha256 extends Hasher32be {
    * | sha256    | 256    |
    */
   constructor(options) {
+    options = options || {};
+    options.length = options.length || 256;
+    options.rounds = options.rounds || 64;
     super(options);
 
-    this.options.length = this.options.length || 256;
-    this.options.rounds = this.options.rounds || 64;
-
-    switch (this.options.length) {
-      case 224:
-        this.state.hash = [
-          0xc1059ed8 | 0, 0x367cd507 | 0, 0x3070dd17 | 0, 0xf70e5939 | 0,
-          0xffc00b31 | 0, 0x68581511 | 0, 0x64f98fa7 | 0, 0xbefa4fa4 | 0
-        ];
-        break;
-      default:
-        this.state.hash = [
-          0x6a09e667 | 0, 0xbb67ae85 | 0, 0x3c6ef372 | 0, 0xa54ff53a | 0,
-          0x510e527f | 0, 0x9b05688c | 0, 0x1f83d9ab | 0, 0x5be0cd19 | 0
-        ];
-    }
     /**
      * Working variable (only for speed optimization)
      * @private
@@ -90,6 +77,26 @@ class Sha256 extends Hasher32be {
      * @type {number[]}
      */
     this.W = new Array(64);
+  }
+
+  /**
+   * Reset hasher to initial state
+   */
+  reset() {
+    super.reset();
+    switch (this.options.length) {
+    case 224:
+      this.state.hash = [
+        0xc1059ed8 | 0, 0x367cd507 | 0, 0x3070dd17 | 0, 0xf70e5939 | 0,
+        0xffc00b31 | 0, 0x68581511 | 0, 0x64f98fa7 | 0, 0xbefa4fa4 | 0
+      ];
+      break;
+    default:
+      this.state.hash = [
+        0x6a09e667 | 0, 0xbb67ae85 | 0, 0x3c6ef372 | 0, 0xa54ff53a | 0,
+        0x510e527f | 0, 0x9b05688c | 0, 0x1f83d9ab | 0, 0x5be0cd19 | 0
+      ];
+    }
   }
 
   /**

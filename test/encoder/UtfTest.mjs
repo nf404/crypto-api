@@ -3,7 +3,7 @@
 
 import {fromUtf} from "../../src/encoder/utf";
 import {toHex} from "../../src/encoder/hex";
-import {assert} from "chai";
+import 'chai/register-assert';
 
 class UtfTest {
   test() {

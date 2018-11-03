@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 
-require('../test/test');
+import '../test/test';
 
 mocha.checkLeaks();
 mocha.run();

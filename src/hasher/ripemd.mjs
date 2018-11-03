@@ -83,45 +83,52 @@ class Ripemd extends Hasher32le {
    * | ripemd320 | 320    |
    */
   constructor(options) {
+    options = options || {};
+    options.length = options.length || 160;
     super(options);
+  }
 
-    this.options.length = this.options.length || 160;
+  /**
+   * Reset hasher to initial state
+   */
+  reset() {
+    super.reset();
     switch (this.options.length) {
-      case 128:
-        this.state.hash = [0x67452301, 0xefcdab89, 0x98badcfe, 0x10325476];
-        /**
-         * Process ready blocks
-         *
-         * @protected
-         * @ignore
-         * @method processBlock
-         * @param {number[]} block - Block
-         */
-        this.processBlock = this.processBlock128;
-        break;
-      case 256:
-        this.state.hash = [
-          0x67452301, 0xefcdab89, 0x98badcfe, 0x10325476,
-          0x76543210, 0xfedcba98, 0x89abcdef, 0x01234567
-        ];
-        this.processBlock = this.processBlock256;
-        break;
-      case 320:
-        this.state.hash = [
-          0x67452301, 0xefcdab89, 0x98badcfe, 0x10325476, 0xc3d2e1f0,
-          0x76543210, 0xfedcba98, 0x89abcdef, 0x01234567, 0x3c2d1e0f
-        ];
-        this.processBlock = this.processBlock320;
-        break;
-      default: // 160
-        this.state.hash = [
-          0x67452301,
-          0xefcdab89,
-          0x98badcfe,
-          0x10325476,
-          0xc3d2e1f0
-        ];
-        this.processBlock = this.processBlock160;
+    case 128:
+      this.state.hash = [0x67452301, 0xefcdab89, 0x98badcfe, 0x10325476];
+      /**
+       * Process ready blocks
+       *
+       * @protected
+       * @ignore
+       * @method processBlock
+       * @param {number[]} block - Block
+       */
+      this.processBlock = this.processBlock128;
+      break;
+    case 256:
+      this.state.hash = [
+        0x67452301, 0xefcdab89, 0x98badcfe, 0x10325476,
+        0x76543210, 0xfedcba98, 0x89abcdef, 0x01234567
+      ];
+      this.processBlock = this.processBlock256;
+      break;
+    case 320:
+      this.state.hash = [
+        0x67452301, 0xefcdab89, 0x98badcfe, 0x10325476, 0xc3d2e1f0,
+        0x76543210, 0xfedcba98, 0x89abcdef, 0x01234567, 0x3c2d1e0f
+      ];
+      this.processBlock = this.processBlock320;
+      break;
+    default: // 160
+      this.state.hash = [
+        0x67452301,
+        0xefcdab89,
+        0x98badcfe,
+        0x10325476,
+        0xc3d2e1f0
+      ];
+      this.processBlock = this.processBlock160;
     }
   }
 

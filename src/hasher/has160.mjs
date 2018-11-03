@@ -62,11 +62,21 @@ class Has160 extends Hasher32le {
    */
   constructor(options) {
     super(options);
-
-    /**
-     * @property {string} options.rounds - Number of rounds
-     */
     this.options.rounds = this.options.rounds || 80;
+    
+    /**
+     *  @private
+     *  @ignore
+     *  @type {number[]}
+     */
+    this.W = new Array(32);
+  }
+
+  /**
+   * Reset hasher to initial state
+   */
+  reset() {
+    super.reset();
     this.state.hash = [
       0x67452301,
       0xefcdab89,
@@ -74,12 +84,6 @@ class Has160 extends Hasher32le {
       0x10325476,
       0xc3d2e1f0
     ];
-    /**
-     *  @private
-     *  @ignore
-     *  @type {number[]}
-     */
-    this.W = new Array(32);
   }
 
   /**

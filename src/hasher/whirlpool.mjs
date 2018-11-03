@@ -204,15 +204,10 @@ class Whirlpool extends Hasher32be {
    * | whirlpool   | undefined |
    */
   constructor(options) {
+    options = options || {};
+    options.type = options.type || '';
+    options.rounds = options.rounds || 10;
     super(options);
-
-    this.options.type = this.options.type || '';
-    this.options.rounds = this.options.rounds || 10;
-
-    this.state.hash = new Array(16);
-    for (let i = 0; i < 16; i++) {
-      this.state.hash[i] = 0;
-    }
 
     switch (this.options.type) {
       case '0':
@@ -235,6 +230,17 @@ class Whirlpool extends Hasher32be {
       default:
         this.C = C;
         this.RC = RC;
+    }
+  }
+
+  /**
+   * Reset hasher to initial state
+   */
+  reset() {
+    super.reset();
+    this.state.hash = new Array(16);
+    for (let i = 0; i < 16; i++) {
+      this.state.hash[i] = 0 | 0;
     }
   }
 

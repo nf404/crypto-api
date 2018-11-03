@@ -6,7 +6,7 @@
  * @param {string} message
  * @returns {string}
  */
-function fromUtf(message) {
+export function fromUtf(message) {
   let raw = '';
   for (let i = 0, msgLen = message.length; i < msgLen; i++) {
     let charCode = message.charCodeAt(i);
@@ -38,5 +38,3 @@ function fromUtf(message) {
   }
   return raw;
 }
-
-export {fromUtf};

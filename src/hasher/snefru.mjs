@@ -1095,15 +1095,10 @@ class Snefru extends Hasher32be {
    * Be careful, increasing of length will cause a reduction of the block size
    */
   constructor(options) {
+    options = options || {};
+    options.length = options.length || 128;
+    options.rounds = options.rounds || 8;
     super(options);
-
-    this.options.length = this.options.length || 128;
-    this.options.rounds = this.options.rounds || 8;
-
-    this.state.hash = new Array(this.options.length / 32 | 0);
-    for (let i = 0; i < this.state.hash.length; i++) {
-      this.state.hash[i] = 0 | 0;
-    }
 
     /**
      * Size of block in units
@@ -1124,6 +1119,17 @@ class Snefru extends Hasher32be {
      * @type {number[]}
      */
     this.W = new Array(16);
+  }
+
+  /**
+   * Reset hasher to initial state
+   */
+  reset() {
+    super.reset();
+    this.state.hash = new Array(this.options.length / 32 | 0);
+    for (let i = 0; i < this.state.hash.length; i++) {
+      this.state.hash[i] = 0 | 0;
+    }
   }
 
   /**

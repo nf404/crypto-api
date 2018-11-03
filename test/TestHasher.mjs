@@ -3,7 +3,7 @@
 import Hasher from "../src/hasher/hasher";
 import {toHex} from "../src/encoder/hex";
 import {fromUtf} from "../src/encoder/utf";
-import {assert} from "chai";
+import 'chai/register-assert';
 
 class TestHasher {
   /**

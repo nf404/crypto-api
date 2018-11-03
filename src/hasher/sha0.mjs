@@ -50,13 +50,7 @@ class Sha0 extends Hasher32be {
     super(options);
 
     this.options.rounds = this.options.rounds || 80;
-    this.state.hash = [
-      0x67452301 | 0,
-      0xefcdab89 | 0,
-      0x98badcfe | 0,
-      0x10325476 | 0,
-      0xc3d2e1f0 | 0
-    ];
+
     /**
      * Working variable (only for speed optimization)
      * @private
@@ -64,6 +58,20 @@ class Sha0 extends Hasher32be {
      * @type {number[]}
      */
     this.W = new Array(80);
+  }
+
+  /**
+   * Reset hasher to initial state
+   */
+  reset() {
+    super.reset();
+    this.state.hash = [
+      0x67452301 | 0,
+      0xefcdab89 | 0,
+      0x98badcfe | 0,
+      0x10325476 | 0,
+      0xc3d2e1f0 | 0
+    ];
   }
 
   /**

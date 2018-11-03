@@ -53,12 +53,16 @@ for (let i = 0; i < 64; i++) {
  */
 class Md5 extends Hasher32le {
   /**
-   * @param {Object} [options]
+   * Reset hasher to initial state
    */
-  constructor(options) {
-    super(options);
-
-    this.state.hash = [0x67452301, 0xefcdab89, 0x98badcfe, 0x10325476];
+  reset() {
+    super.reset();
+    this.state.hash = [
+      0x67452301 | 0,
+      0xefcdab89 | 0,
+      0x98badcfe | 0,
+      0x10325476 | 0
+    ];
   }
 
   /**

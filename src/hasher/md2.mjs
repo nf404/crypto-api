@@ -73,8 +73,14 @@ class Md2 extends Hasher8 {
    */
   constructor(options) {
     super(options);
-
     this.options.rounds = this.options.rounds || 18;
+  }
+
+  /**
+   * Reset hasher to initial state
+   */
+  reset() {
+    super.reset();
     this.state.hash = new Array(48);
     this.state.checksum = new Array(16);
   }
