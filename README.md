@@ -53,9 +53,9 @@
 
 Calculates SHA256 hash from UTF string "message"
 ```javascript
-import Sha256 from "crypto-api/hasher/sha256";
-import {toHex} from "crypto-api/encoder/hex";
-import {fromUtf} from "crypto-api/encoder/utf";
+import Sha256 from "crypto-api/src/hasher/sha256";
+import {toHex} from "crypto-api/src/encoder/hex";
+import {fromUtf} from "crypto-api/src/encoder/utf";
 
 let hasher = new Sha256();
 hasher.update(fromUtf('message'));
@@ -64,10 +64,10 @@ console.log(toHex(hasher.finalize()));
 
 Calculates HMAC-MD5 from UTF string "message" with UTF key "key" 
 ```javascript
-import Md5 from "crypto-api/hasher/md5";
-import Hmac from "crypto-api/mac/hmac";
-import {toHex} from "crypto-api/encoder/hex";
-import {fromUtf} from "crypto-api/encoder/utf";
+import Md5 from "crypto-api/src/hasher/md5";
+import Hmac from "crypto-api/src/mac/hmac";
+import {toHex} from "crypto-api/src/encoder/hex";
+import {fromUtf} from "crypto-api/src/encoder/utf";
 
 let hasher = new Md5();
 let hmac = new Hmac(fromUtf('key'), hasher);
