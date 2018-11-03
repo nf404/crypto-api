@@ -1,4 +1,7 @@
 /.idea
+/.settings
 /node_modules
 /coverage
 /dist
+/.project
+/package-lock.json

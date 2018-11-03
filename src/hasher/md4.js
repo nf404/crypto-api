@@ -21,17 +21,17 @@ const H = 0x6ed9eba1;
  * Calculates [MD4](https://tools.ietf.org/html/rfc1320) hash
  *
  * @example <caption>Calculates MD4 hash from string "message" - ES6 style</caption>
- * import Md4 from "crypto-api/hasher/md4";
- * import {toHex} from "crypto-api/encoder/hex";
+ * import Md4 from "crypto-api/src/hasher/md4";
+ * import {toHex} from "crypto-api/src/encoder/hex";
  *
  * let hasher = new Md4();
  * hasher.update('message');
  * console.log(toHex(hasher.finalize()));
  *
  * @example <caption>Calculates MD4 hash from UTF string "message" - ES6 style</caption>
- * import Md4 from "crypto-api/hasher/md4";
- * import {toHex} from "crypto-api/encoder/hex";
- * import {fromUtf} from "crypto-api/encoder/utf";
+ * import Md4 from "crypto-api/src/hasher/md4";
+ * import {toHex} from "crypto-api/src/encoder/hex";
+ * import {fromUtf} from "crypto-api/src/encoder/utf";
  *
  * let hasher = new Md4();
  * hasher.update(fromUtf('message'));

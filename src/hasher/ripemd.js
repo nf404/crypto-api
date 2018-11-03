@@ -40,17 +40,17 @@ const SR = [
  * Calculates [RIPEMD-160 (RIPEMD-128, RIPEMD-256, RIPEMD-320)](http://homes.esat.kuleuven.be/~bosselae/ripemd160.html) hash
  *
  * @example <caption>Calculates RIPEMD-160 hash from string "message" - ES6 style</caption>
- * import Ripemd from "crypto-api/hasher/ripemd";
- * import {toHex} from "crypto-api/encoder/hex";
+ * import Ripemd from "crypto-api/src/hasher/ripemd";
+ * import {toHex} from "crypto-api/src/encoder/hex";
  *
  * let hasher = new Ripemd();
  * hasher.update('message');
  * console.log(toHex(hasher.finalize()));
  *
  * @example <caption>Calculates RIPEMD-160 hash from UTF string "message" - ES6 style</caption>
- * import Ripemd from "crypto-api/hasher/ripemd";
- * import {toHex} from "crypto-api/encoder/hex";
- * import {fromUtf} from "crypto-api/encoder/utf";
+ * import Ripemd from "crypto-api/src/hasher/ripemd";
+ * import {toHex} from "crypto-api/src/encoder/hex";
+ * import {fromUtf} from "crypto-api/src/encoder/utf";
  *
  * let hasher = new Ripemd();
  * hasher.update(fromUtf('message'));

@@ -4,9 +4,9 @@
  * Calculates [HMAC](https://tools.ietf.org/html/rfc2104)
  *
  * @example <caption>Calculates HMAC-MD5 from string "message" with key "key" - ES6 style</caption>
- * import Md5 from "crypto-api/hasher/md5";
- * import Hmac from "crypto-api/mac/hmac";
- * import {toHex} from "crypto-api/encoder/hex";
+ * import Md5 from "crypto-api/src/hasher/md5";
+ * import Hmac from "crypto-api/src/mac/hmac";
+ * import {toHex} from "crypto-api/src/encoder/hex";
  *
  * let hasher = new Md5();
  * let hmac = new Hmac('key', hasher);
@@ -14,10 +14,10 @@
  * console.log(toHex(hmac.finalize()));
  *
  * @example <caption>Calculates HMAC-MD5 from UTF string "message" with UTF key "key" - ES6 style</caption>
- * import Md5 from "crypto-api/hasher/md5";
- * import Hmac from "crypto-api/mac/hmac";
- * import {toHex} from "crypto-api/encoder/hex";
- * import {fromUtf} from "crypto-api/encoder/utf";
+ * import Md5 from "crypto-api/src/hasher/md5";
+ * import Hmac from "crypto-api/src/mac/hmac";
+ * import {toHex} from "crypto-api/src/encoder/hex";
+ * import {fromUtf} from "crypto-api/src/encoder/utf";
  *
  * let hasher = new Md5();
  * let hmac = new Hmac(fromUtf('key'), hasher);

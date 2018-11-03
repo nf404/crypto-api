@@ -161,17 +161,17 @@ function calculateRC(SBOX, theta) {
  * Calculates [WHIRLPOOL (WHIRLPOOL-0, WHIRLPOOL-T)](http://www.larc.usp.br/~pbarreto/WhirlpoolPage.html) hash
  *
  * @example <caption>Calculates WHIRLPOOL hash from string "message" - ES6 style</caption>
- * import Whirlpool from "crypto-api/hasher/whirlpool";
- * import {toHex} from "crypto-api/encoder/hex";
+ * import Whirlpool from "crypto-api/src/hasher/whirlpool";
+ * import {toHex} from "crypto-api/src/encoder/hex";
  *
  * let hasher = new Whirlpool();
  * hasher.update('message');
  * console.log(toHex(hasher.finalize()));
  *
  * @example <caption>Calculates WHIRLPOOL hash from UTF string "message" - ES6 style</caption>
- * import Whirlpool from "crypto-api/hasher/whirlpool";
- * import {toHex} from "crypto-api/encoder/hex";
- * import {fromUtf} from "crypto-api/encoder/utf";
+ * import Whirlpool from "crypto-api/src/hasher/whirlpool";
+ * import {toHex} from "crypto-api/src/encoder/hex";
+ * import {fromUtf} from "crypto-api/src/encoder/utf";
  *
  * let hasher = new Whirlpool();
  * hasher.update(fromUtf('message'));

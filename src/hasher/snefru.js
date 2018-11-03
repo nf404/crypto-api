@@ -1049,17 +1049,17 @@ generateSbox(sboxSize);
  * Calculates Snefru v2.0 (2 rounds 128, 4 rounds 256), Snefru v2.5 (8 rounds) hash
  *
  * @example <caption>Calculates Snefru128/8 hash from string "message" - ES6 style</caption>
- * import Snefru from "crypto-api/hasher/snefru";
- * import {toHex} from "crypto-api/encoder/hex";
+ * import Snefru from "crypto-api/src/hasher/snefru";
+ * import {toHex} from "crypto-api/src/encoder/hex";
  *
  * let hasher = new Snefru();
  * hasher.update('message');
  * console.log(toHex(hasher.finalize()));
  *
  * @example <caption>Calculates Snefru128/8 hash from UTF string "message" - ES6 style</caption>
- * import Snefru from "crypto-api/hasher/snefru";
- * import {toHex} from "crypto-api/encoder/hex";
- * import {fromUtf} from "crypto-api/encoder/utf";
+ * import Snefru from "crypto-api/src/hasher/snefru";
+ * import {toHex} from "crypto-api/src/encoder/hex";
+ * import {fromUtf} from "crypto-api/src/encoder/utf";
  *
  * let hasher = new Snefru();
  * hasher.update(fromUtf('message'));

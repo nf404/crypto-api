@@ -25,17 +25,17 @@ const IND = [
  * Calculates [HAS-160](https://www.randombit.net/has160.html) hash
  *
  * @example <caption>Calculates HAS-160 hash from string "message" - ES6 style</caption>
- * import Has160 from "crypto-api/hasher/has160";
- * import {toHex} from "crypto-api/encoder/hex";
+ * import Has160 from "crypto-api/src/hasher/has160";
+ * import {toHex} from "crypto-api/src/encoder/hex";
  *
  * let hasher = new Has160();
  * hasher.update('message');
  * console.log(toHex(hasher.finalize()));
  *
  * @example <caption>Calculates HAS-160 hash from UTF string "message" - ES6 style</caption>
- * import Has160 from "crypto-api/hasher/has160";
- * import {toHex} from "crypto-api/encoder/hex";
- * import {fromUtf} from "crypto-api/encoder/utf";
+ * import Has160 from "crypto-api/src/hasher/has160";
+ * import {toHex} from "crypto-api/src/encoder/hex";
+ * import {fromUtf} from "crypto-api/src/encoder/utf";
  *
  * let hasher = new Has160();
  * hasher.update(fromUtf('message'));

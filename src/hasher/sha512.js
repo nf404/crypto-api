@@ -40,17 +40,17 @@ const K = [
  * [SHA512/256 (SHA512/224)](http://csrc.nist.gov/publications/fips/fips180-4/fips-180-4.pdf)
  *
  * @example <caption>Calculates SHA512 hash from string "message" - ES6 style</caption>
- * import Sha512 from "crypto-api/hasher/sha512";
- * import {toHex} from "crypto-api/encoder/hex";
+ * import Sha512 from "crypto-api/src/hasher/sha512";
+ * import {toHex} from "crypto-api/src/encoder/hex";
  *
  * let hasher = new Sha512();
  * hasher.update('message');
  * console.log(toHex(hasher.finalize()));
  *
  * @example <caption>Calculates SHA512 hash from UTF string "message" - ES6 style</caption>
- * import Sha512 from "crypto-api/hasher/sha512";
- * import {toHex} from "crypto-api/encoder/hex";
- * import {fromUtf} from "crypto-api/encoder/utf";
+ * import Sha512 from "crypto-api/src/hasher/sha512";
+ * import {toHex} from "crypto-api/src/encoder/hex";
+ * import {fromUtf} from "crypto-api/src/encoder/utf";
  *
  * let hasher = new Sha512();
  * hasher.update(fromUtf('message'));

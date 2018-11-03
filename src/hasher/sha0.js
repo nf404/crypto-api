@@ -11,17 +11,17 @@ const K = [0x5a827999, 0x6ed9eba1, 0x8f1bbcdc, 0xca62c1d6];
  * Calculates [SHA0](http://pages.saclay.inria.fr/pierre.karpman/fips180.pdf) hash
  *
  * @example <caption>Calculates SHA0 hash from string "message" - ES6 style</caption>
- * import Sha0 from "crypto-api/hasher/sha0";
- * import {toHex} from "crypto-api/encoder/hex";
+ * import Sha0 from "crypto-api/src/hasher/sha0";
+ * import {toHex} from "crypto-api/src/encoder/hex";
  *
  * let hasher = new Sha0();
  * hasher.update('message');
  * console.log(toHex(hasher.finalize()));
  *
  * @example <caption>Calculates SHA0 hash from UTF string "message" - ES6 style</caption>
- * import Sha0 from "crypto-api/hasher/sha0";
- * import {toHex} from "crypto-api/encoder/hex";
- * import {fromUtf} from "crypto-api/encoder/utf";
+ * import Sha0 from "crypto-api/src/hasher/sha0";
+ * import {toHex} from "crypto-api/src/encoder/hex";
+ * import {fromUtf} from "crypto-api/src/encoder/utf";
  *
  * let hasher = new Sha0();
  * hasher.update(fromUtf('message'));

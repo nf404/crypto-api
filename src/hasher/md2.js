@@ -36,17 +36,17 @@ const SBOX = [
  * Calculates [MD2](https://tools.ietf.org/html/rfc1319) hash
  *
  * @example <caption>Calculates MD2 hash from string "message" - ES6 style</caption>
- * import Md2 from "crypto-api/hasher/md2";
- * import {toHex} from "crypto-api/encoder/hex";
+ * import Md2 from "crypto-api/src/hasher/md2";
+ * import {toHex} from "crypto-api/src/encoder/hex";
  *
  * let hasher = new Md2();
  * hasher.update('message');
  * console.log(toHex(hasher.finalize()));
  *
  * @example <caption>Calculates MD2 hash from UTF string "message" - ES6 style</caption>
- * import Md2 from "crypto-api/hasher/md2";
- * import {toHex} from "crypto-api/encoder/hex";
- * import {fromUtf} from "crypto-api/encoder/utf";
+ * import Md2 from "crypto-api/src/hasher/md2";
+ * import {toHex} from "crypto-api/src/encoder/hex";
+ * import {fromUtf} from "crypto-api/src/encoder/utf";
  *
  * let hasher = new Md2();
  * hasher.update(fromUtf('message'));

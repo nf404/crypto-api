@@ -21,17 +21,17 @@ for (let i = 0; i < 64; i++) {
  * Calculates [MD5](https://tools.ietf.org/html/rfc1321) hash
  *
  * @example <caption>Calculates MD5 hash from string "message" - ES6 style</caption>
- * import Md5 from "crypto-api/hasher/md5";
- * import {toHex} from "crypto-api/encoder/hex";
+ * import Md5 from "crypto-api/src/hasher/md5";
+ * import {toHex} from "crypto-api/src/encoder/hex";
  *
  * let hasher = new Md5();
  * hasher.update('message');
  * console.log(toHex(hasher.finalize()));
  *
  * @example <caption>Calculates MD5 hash from UTF string "message" - ES6 style</caption>
- * import Md5 from "crypto-api/hasher/md5";
- * import {toHex} from "crypto-api/encoder/hex";
- * import {fromUtf} from "crypto-api/encoder/utf";
+ * import Md5 from "crypto-api/src/hasher/md5";
+ * import {toHex} from "crypto-api/src/encoder/hex";
+ * import {fromUtf} from "crypto-api/src/encoder/utf";
  *
  * let hasher = new Md5();
  * hasher.update(fromUtf('message'));

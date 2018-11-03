@@ -11,17 +11,17 @@ const K = [0x5a827999, 0x6ed9eba1, 0x8f1bbcdc, 0xca62c1d6];
  * Calculates [SHA1](https://tools.ietf.org/html/rfc3174) hash
  *
  * @example <caption>Calculates SHA1 hash from string "message" - ES6 style</caption>
- * import Sha1 from "crypto-api/hasher/sha1";
- * import {toHex} from "crypto-api/encoder/hex";
+ * import Sha1 from "crypto-api/src/hasher/sha1";
+ * import {toHex} from "crypto-api/src/encoder/hex";
  *
  * let hasher = new Sha1();
  * hasher.update('message');
  * console.log(toHex(hasher.finalize()));
  *
  * @example <caption>Calculates SHA1 hash from UTF string "message" - ES6 style</caption>
- * import Sha1 from "crypto-api/hasher/sha1";
- * import {toHex} from "crypto-api/encoder/hex";
- * import {fromUtf} from "crypto-api/encoder/utf";
+ * import Sha1 from "crypto-api/src/hasher/sha1";
+ * import {toHex} from "crypto-api/src/encoder/hex";
+ * import {fromUtf} from "crypto-api/src/encoder/utf";
  *
  * let hasher = new Sha1();
  * hasher.update(fromUtf('message'));
