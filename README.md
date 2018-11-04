@@ -26,21 +26,21 @@
 ## Features
 
 ### Hashing algorithms
-* [HAS-160](https://nf404.github.io/crypto-api/class/src/hasher/has160.js~Has160.html)
-* [MD2](https://nf404.github.io/crypto-api/class/src/hasher/md2.js~Md2.html)
-* [MD4](https://nf404.github.io/crypto-api/class/src/hasher/md4.js~Md4.html)
-* [MD5](https://nf404.github.io/crypto-api/class/src/hasher/md5.js~Md5.html)
-* [RIPEMD-160 (RIPEMD-128, RIPEMD-256, RIPEMD-320)](https://nf404.github.io/crypto-api/class/src/hasher/ripemd.js~Ripemd.html)
-* [SHA0](https://nf404.github.io/crypto-api/class/src/hasher/sha0.js~Sha0.html)
-* [SHA1](https://nf404.github.io/crypto-api/class/src/hasher/sha1.js~Sha1.html)
-* [SHA256 (SHA224)](https://nf404.github.io/crypto-api/class/src/hasher/sha256.js~Sha256.html)
-* [SHA512 (SHA384)](https://nf404.github.io/crypto-api/class/src/hasher/sha512.js~Sha512.html)
-* [SHA512/256 (SHA512/224)](https://nf404.github.io/crypto-api/class/src/hasher/sha512.js~Sha512.html)
-* [Snefru v2.0 (2 rounds 128, 4 rounds 256), Snefru v2.5 (8 rounds)](https://nf404.github.io/crypto-api/class/src/hasher/snefru.js~Snefru.html)
-* [WHIRLPOOL (WHIRLPOOL-0, WHIRLPOOL-T)](https://nf404.github.io/crypto-api/class/src/hasher/whirlpool.js~Whirlpool.html)
+* [HAS-160](https://nf404.github.io/crypto-api/class/src/hasher/has160.mjs~Has160.html)
+* [MD2](https://nf404.github.io/crypto-api/class/src/hasher/md2.mjs~Md2.html)
+* [MD4](https://nf404.github.io/crypto-api/class/src/hasher/md4.mjs~Md4.html)
+* [MD5](https://nf404.github.io/crypto-api/class/src/hasher/md5.mjs~Md5.html)
+* [RIPEMD-160 (RIPEMD-128, RIPEMD-256, RIPEMD-320)](https://nf404.github.io/crypto-api/class/src/hasher/ripemd.mjs~Ripemd.html)
+* [SHA0](https://nf404.github.io/crypto-api/class/src/hasher/sha0.mjs~Sha0.html)
+* [SHA1](https://nf404.github.io/crypto-api/class/src/hasher/sha1.mjs~Sha1.html)
+* [SHA256 (SHA224)](https://nf404.github.io/crypto-api/class/src/hasher/sha256.mjs~Sha256.html)
+* [SHA512 (SHA384)](https://nf404.github.io/crypto-api/class/src/hasher/sha512.mjs~Sha512.html)
+* [SHA512/256 (SHA512/224)](https://nf404.github.io/crypto-api/class/src/hasher/sha512.mjs~Sha512.html)
+* [Snefru v2.0 (2 rounds 128, 4 rounds 256), Snefru v2.5 (8 rounds)](https://nf404.github.io/crypto-api/class/src/hasher/snefru.mjs~Snefru.html)
+* [WHIRLPOOL (WHIRLPOOL-0, WHIRLPOOL-T)](https://nf404.github.io/crypto-api/class/src/hasher/whirlpool.mjs~Whirlpool.html)
 
 ### MAC
-* [HMAC](https://nf404.github.io/crypto-api/class/src/mac/hmac.js~Hmac.html)
+* [HMAC](https://nf404.github.io/crypto-api/class/src/mac/hmac.mjs~Hmac.html)
 
 ### Encodings
 * [fromUtf](https://nf404.github.io/crypto-api/function/index.html#static-function-fromUtf)
