@@ -1,3 +1,5 @@
+* 0.8.2
+  - technical version (fix npm key)
 * 0.8.1
   - Add support for nodejs
   - Refactor reset function and fix bug with constructor calling in it
