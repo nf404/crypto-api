@@ -1,10 +1,10 @@
 engines:
   eslint:
     enabled: true
-  config:
-    extensions:
-    - .js
-    - .mjs
+    config:
+      extensions:
+      - .js
+      - .mjs
   fixme:
     enabled: true
 ratings:
