@@ -1,3 +1,6 @@
+* 0.8.3
+  - Fix Whirlpool bug
+  - Add compiled es5 version for nodejs
 * 0.8.2
   - technical version (fix npm key)
 * 0.8.1
