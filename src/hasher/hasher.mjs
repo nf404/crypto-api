@@ -127,7 +127,7 @@ class Hasher {
   }
 
   /**
-   * Add ISO7816 padding to message
+   * Add ISO7816-4 padding to message
    *
    * @protected
    * @param {number} length

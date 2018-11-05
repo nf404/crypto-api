@@ -35,8 +35,11 @@ class Hasher32be extends Hasher {
     while (this.state.message.length >= this.blockSizeInBytes) {
       this.blockUnits = [];
       for (let b = 0; b < this.blockSizeInBytes; b += 4) {
-        this.blockUnits.push(this.state.message.charCodeAt(b) << 24 | this.state.message.charCodeAt(b + 1) << 16 |
-          this.state.message.charCodeAt(b + 2) << 8 | this.state.message.charCodeAt(b + 3));
+        this.blockUnits.push(
+          this.state.message.charCodeAt(b) << 24 |
+          this.state.message.charCodeAt(b + 1) << 16 |
+          this.state.message.charCodeAt(b + 2) << 8 |
+          this.state.message.charCodeAt(b + 3));
       }
       this.state.message = this.state.message.substr(this.blockSizeInBytes);
       this.processBlock(this.blockUnits);

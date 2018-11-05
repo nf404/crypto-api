@@ -60,6 +60,13 @@ class Whirlpool0Test extends TestHasher {
         });
       });
 
+      it("whirlpool-0('The quick brown fox jumps over the lazy dog')", function () {
+        t.testHash({
+          message: 'The quick brown fox jumps over the lazy dog',
+          hash: '4f8f5cb531e3d49a61cf417cd133792ccfa501fd8da53ee368fed20e5fe0248c3a0b64f98a6533cee1da614c3a8ddec791ff05fee6d971d57c1348320f4eb42d'
+        });
+      });
+
       /**
        * @test {Whirlpool#setState}
        * @test {Whirlpool#getState}

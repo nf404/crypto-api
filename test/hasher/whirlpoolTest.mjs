@@ -60,6 +60,41 @@ class WhirlpoolTest extends TestHasher {
         });
       });
 
+      it("whirlpool('The quick brown fox jumps over the lazy dog')", function () {
+        t.testHash({
+          message: 'The quick brown fox jumps over the lazy dog',
+          hash: 'b97de512e91e3828b40d2b0fdce9ceb3c4a71f9bea8d88e75c4fa854df36725fd2b52eb6544edcacd6f8beddfea403cb55ae31f03ad62a5ef54e42ee82c3fb35'
+        });
+      });
+
+      it("whirlpool('abcdbcdecdefdefgefghfghighijhijk')", function () {
+        t.testHash({
+          message: 'abcdbcdecdefdefgefghfghighijhijk',
+          hash: '2a987ea40f917061f5d6f0a0e4644f488a7a5a52deee656207c562f988e95c6916bdc8031bc5be1b7b947639fe050b56939baaa0adff9ae6745b7b181c3be3fd'
+        });
+      });
+
+      it("whirlpool(0x00 x 31)", function () {
+        t.testHash({
+          message: new Array(32).join("\x00"),
+          hash: '3e3f188f8febbeb17a933feaf7fe53a4858d80c915ad6a1418f0318e68d49b4e459223cd414e0fbc8a57578fd755d86e827abef4070fc1503e25d99e382f72ba'
+        });
+      });
+
+      it("whirlpool(0x00 x 32)", function () {
+        t.testHash({
+          message: new Array(33).join("\x00"),
+          hash: '961b5f299f750f880fca004bdf2882e2fe1b491b0c0ee7e2b514c5dfdd53292dbdbee17e6d3bb5824cdec1867cc7090963be8fff0c1d8ed5864e07cacb50d68a'
+        });
+      });
+
+      it("whirlpool(0x00 x 33)", function () {
+        t.testHash({
+          message: new Array(34).join("\x00"),
+          hash: '54a9c8784dbf6c2618ca32057b76b9d6733c19f4a377cb7e892d057bf73e83fbaf6ac147a65fef0991dc296955440ad0b793f81c5cf71e29669ce3f19195aaf7'
+        });
+      });
+
       /**
        * @test {Whirlpool#setState}
        * @test {Whirlpool#getState}
