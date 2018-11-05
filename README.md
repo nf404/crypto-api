@@ -10,16 +10,16 @@
 ## Demo
 * [Basic hasher usage](https://nf404.github.io/crypto-api/example/hasher-basic.html)
 ([html](https://github.com/nf404/crypto-api/tree/master/example/hasher-basic.html), 
-[js](https://github.com/nf404/crypto-api/tree/master/example/hasher-basic.js))
+[js](https://github.com/nf404/crypto-api/tree/master/example/hasher-basic.mjs))
 * [File hashing on client side](https://nf404.github.io/crypto-api/example/hasher-file.html)
 ([html](https://github.com/nf404/crypto-api/tree/master/example/hasher-file.html), 
-[js](https://github.com/nf404/crypto-api/tree/master/example/hasher-file.js))
+[js](https://github.com/nf404/crypto-api/tree/master/example/hasher-file.mjs))
 * [Benchmark](https://nf404.github.io/crypto-api/example/benchmark.html)
 ([html](https://github.com/nf404/crypto-api/tree/master/example/benchmark.html), 
-[js](https://github.com/nf404/crypto-api/tree/master/example/benchmark.js))
+[js](https://github.com/nf404/crypto-api/tree/master/example/benchmark.mjs))
 * [Unit tests](https://nf404.github.io/crypto-api/example/unit-tests.html)
 ([html](https://github.com/nf404/crypto-api/tree/master/example/unit-tests.html), 
-[js](https://github.com/nf404/crypto-api/tree/master/example/unit-tests.js))
+[js](https://github.com/nf404/crypto-api/tree/master/example/unit-tests.mjs))
 
 ## [Documentation](https://nf404.github.io/crypto-api/)
 
