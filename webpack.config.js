@@ -11,6 +11,7 @@ module.exports = {
   devtool: 'source-map',
   entry: {
     'crypto-api': './src/crypto-api.mjs',
+    'index': './src/index.mjs',
     'example/hasher-basic': './example/hasher-basic.mjs',
     'example/hasher-file': './example/hasher-file.mjs',
     'example/benchmark': './example/benchmark.mjs',

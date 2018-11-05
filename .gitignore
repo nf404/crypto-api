@@ -1,8 +1,11 @@
 /.idea
 /.settings
+/.project
+/.nyc_output
 /node_modules
 /coverage
 /dist
-/.project
 /package-lock.json
-/.nyc_output
+/index.js
+/index.min.js
+/index.min.js.map

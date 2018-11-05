@@ -16,7 +16,7 @@
   "bugs": {
     "url": "http://github.com/nf404/crypto-api/issues"
   },
-  "main": "src/crypto-api",
+  "main": "index",
   "directories": {
     "test": "test",
     "lib": "src",
@@ -28,12 +28,15 @@
     "test",
     "CHANGELOG.md",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "index.js",
+    "index.min.js",
+    "index.min.js.map"
   ],
   "scripts": {
     "test": "nyc mocha --recursive test/test.mjs",
     "test-dev": "istanbul cover node_modules/mocha/bin/_mocha --dir coverage -- --require babel-core/register  --reporter spec --recursive test/test.mjs",
-    "build": "webpack --progress --hide-modules && esdoc",
+    "build": "webpack --progress --hide-modules && mv dist/index.js . && mv dist/index.min.js . && mv dist/index.min.js.map . && esdoc",
     "coveralls": "coveralls < coverage/lcov.info",
     "codacy": "codacy-coverage < coverage/lcov.info",
     "codeclimate": "codeclimate-test-reporter < coverage/lcov.info"
