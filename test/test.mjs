@@ -33,6 +33,7 @@ import HmacSha384Test from "./mac/hmac-sha384Test";
 import HmacSha512Test from "./mac/hmac-sha512Test";
 
 import UtfTest from "./encoder/UtfTest";
+import Base64Test from "./encoder/Base64Test";
 
 
 // Hash tests
@@ -69,5 +70,6 @@ import UtfTest from "./encoder/UtfTest";
 (new HmacSha384Test()).test();
 (new HmacSha512Test()).test();
 
-// UTF tests
+// Encoder tests
 (new UtfTest()).test();
+(new Base64Test()).test();

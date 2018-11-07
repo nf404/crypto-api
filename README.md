@@ -45,6 +45,7 @@
 ### Encodings
 * [fromUtf](https://nf404.github.io/crypto-api/function/index.html#static-function-fromUtf)
 * [toHex](https://nf404.github.io/crypto-api/function/index.html#static-function-toHex)
+* [toBase64](https://nf404.github.io/crypto-api/function/index.html#static-function-toBase64)
 
 ## Examples
 
