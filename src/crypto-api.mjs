@@ -12,7 +12,9 @@ import Sha512 from "./hasher/sha512";
 import Snefru from "./hasher/snefru";
 import Whirlpool from "./hasher/whirlpool";
 import {fromUtf} from "./encoder/utf";
+import {fromArrayBuffer} from "./encoder/array-buffer";
 import {toHex} from "./encoder/hex";
+import {toBase64} from "./encoder/base64";
 import Hmac from "./mac/hmac";
 
 /**
@@ -28,8 +30,12 @@ class CryptoApi {
     this.encoder = {};
     /** @type {fromUtf} */
     this.encoder.fromUtf = fromUtf;
+    /** @type {fromArrayBuffer} */
+    this.encoder.fromArrayBuffer = fromArrayBuffer;
     /** @type {toHex} */
     this.encoder.toHex = toHex;
+    /** @type {toBase64} */
+    this.encoder.toBase64 = toBase64;
   }
 
   /**
