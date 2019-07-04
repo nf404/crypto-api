@@ -35,7 +35,7 @@
 * [SHA1](https://nf404.github.io/crypto-api/class/src/hasher/sha1.mjs~Sha1.html)
 * [SHA256 (SHA224)](https://nf404.github.io/crypto-api/class/src/hasher/sha256.mjs~Sha256.html)
 * [SHA512 (SHA384)](https://nf404.github.io/crypto-api/class/src/hasher/sha512.mjs~Sha512.html)
-* [SHA512/256 (SHA512/224)](https://nf404.github.io/crypto-api/class/src/hasher/sha512.mjs~Sha512.html)
+* [SHA512/t (SHA512/256 SHA512/224)](https://nf404.github.io/crypto-api/class/src/hasher/sha512.mjs~Sha512.html)
 * [Snefru v2.0 (2 rounds 128, 4 rounds 256), Snefru v2.5 (8 rounds)](https://nf404.github.io/crypto-api/class/src/hasher/snefru.mjs~Snefru.html)
 * [WHIRLPOOL (WHIRLPOOL-0, WHIRLPOOL-T)](https://nf404.github.io/crypto-api/class/src/hasher/whirlpool.mjs~Whirlpool.html)
 
@@ -44,6 +44,7 @@
 
 ### Encodings
 * [fromUtf](https://nf404.github.io/crypto-api/function/index.html#static-function-fromUtf)
+* [fromArrayBuffer](https://nf404.github.io/crypto-api/function/index.html#static-function-fromArrayBuffer)
 * [toHex](https://nf404.github.io/crypto-api/function/index.html#static-function-toHex)
 * [toBase64](https://nf404.github.io/crypto-api/function/index.html#static-function-toBase64)
 

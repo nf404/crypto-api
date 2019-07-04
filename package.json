@@ -98,6 +98,7 @@
     "sha256",
     "sha384",
     "sha512",
+    "sha512/t",
     "sha512/224",
     "sha512/256",
     "whirlpool",

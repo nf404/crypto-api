@@ -1,5 +1,7 @@
 * 0.8.4
   - Add toBase64
+  - Add fromArrayBuffer
+  - Add support of SHA512/t hash
 * 0.8.3
   - Fix Whirlpool bug
   - Add compiled es5 version for nodejs

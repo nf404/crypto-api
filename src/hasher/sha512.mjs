@@ -37,7 +37,7 @@ const K = [
 
 /**
  * Calculates [SHA512 (SHA384)](https://tools.ietf.org/html/rfc4634) hash
- * [SHA512/256 (SHA512/224)](http://csrc.nist.gov/publications/fips/fips180-4/fips-180-4.pdf)
+ * [SHA512/t (SHA512/256 SHA512/224)](http://csrc.nist.gov/publications/fips/fips180-4/fips-180-4.pdf)
  *
  * @example <caption>Calculates SHA512 hash from string "message" - ES6 style</caption>
  * import Sha512 from "crypto-api/src/hasher/sha512";
@@ -74,7 +74,7 @@ class Sha512 extends Hasher32be {
   /**
    * @param {Object} [options]
    * @param {number} [options.rounds=160] - Number of rounds (Must be greater than 32)
-   * @param {number} [options.length=512] - Length of hash result
+   * @param {number} [options.length=512] - Length of hash result (Can be from 32 to 480 with step 32)
    *
    * | Hash type  | Length |
    * |------------|--------|
@@ -114,40 +114,40 @@ class Sha512 extends Hasher32be {
   /**
    * Reset hasher to initial state
    */
-  reset() {
-    super.reset();
+  reset () {
+    super.reset()
     switch (this.options.length) {
-    case 224:
-      this.state.hash = [
-        0x8c3d37c8 | 0, 0x19544da2 | 0, 0x73e19966 | 0, 0x89dcd4d6 | 0,
-        0x1dfab7ae | 0, 0x32ff9c82 | 0, 0x679dd514 | 0, 0x582f9fcf | 0,
-        0x0f6d2b69 | 0, 0x7bd44da8 | 0, 0x77e36f73 | 0, 0x04c48942 | 0,
-        0x3f9d85a8 | 0, 0x6a1d36c8 | 0, 0x1112e6ad | 0, 0x91d692a1 | 0
-      ];
-      break;
-    case 256:
-      this.state.hash = [
-        0x22312194 | 0, 0xfc2bf72c | 0, 0x9f555fa3 | 0, 0xc84c64c2 | 0,
-        0x2393b86b | 0, 0x6f53b151 | 0, 0x96387719 | 0, 0x5940eabd | 0,
-        0x96283ee2 | 0, 0xa88effe3 | 0, 0xbe5e1e25 | 0, 0x53863992 | 0,
-        0x2b0199fc | 0, 0x2c85b8aa | 0, 0x0eb72ddc | 0, 0x81c52ca2 | 0
-      ];
-      break;
-    case 384:
-      this.state.hash = [
-        0xcbbb9d5d | 0, 0xc1059ed8 | 0, 0x629a292a | 0, 0x367cd507 | 0,
-        0x9159015a | 0, 0x3070dd17 | 0, 0x152fecd8 | 0, 0xf70e5939 | 0,
-        0x67332667 | 0, 0xffc00b31 | 0, 0x8eb44a87 | 0, 0x68581511 | 0,
-        0xdb0c2e0d | 0, 0x64f98fa7 | 0, 0x47b5481d | 0, 0xbefa4fa4 | 0
-      ];
-      break;
-    default:
-      this.state.hash = [
-        0x6a09e667 | 0, 0xf3bcc908 | 0, 0xbb67ae85 | 0, 0x84caa73b | 0,
-        0x3c6ef372 | 0, 0xfe94f82b | 0, 0xa54ff53a | 0, 0x5f1d36f1 | 0,
-        0x510e527f | 0, 0xade682d1 | 0, 0x9b05688c | 0, 0x2b3e6c1f | 0,
-        0x1f83d9ab | 0, 0xfb41bd6b | 0, 0x5be0cd19 | 0, 0x137e2179 | 0
-      ];
+      case 384:
+        this.state.hash = [
+          0xcbbb9d5d | 0, 0xc1059ed8 | 0, 0x629a292a | 0, 0x367cd507 | 0,
+          0x9159015a | 0, 0x3070dd17 | 0, 0x152fecd8 | 0, 0xf70e5939 | 0,
+          0x67332667 | 0, 0xffc00b31 | 0, 0x8eb44a87 | 0, 0x68581511 | 0,
+          0xdb0c2e0d | 0, 0x64f98fa7 | 0, 0x47b5481d | 0, 0xbefa4fa4 | 0
+        ]
+        break
+      case 512:
+        this.state.hash = [
+          0x6a09e667 | 0, 0xf3bcc908 | 0, 0xbb67ae85 | 0, 0x84caa73b | 0,
+          0x3c6ef372 | 0, 0xfe94f82b | 0, 0xa54ff53a | 0, 0x5f1d36f1 | 0,
+          0x510e527f | 0, 0xade682d1 | 0, 0x9b05688c | 0, 0x2b3e6c1f | 0,
+          0x1f83d9ab | 0, 0xfb41bd6b | 0, 0x5be0cd19 | 0, 0x137e2179 | 0
+        ]
+        break
+      default:
+        const hasher = new Sha512()
+        for (let i = 0; i < 16; i++) {
+          hasher.state.hash[i] = hasher.state.hash[i] ^ 0xa5a5a5a5
+        }
+        hasher.update('SHA-512/' + this.options.length)
+        const hash = hasher.finalize()
+        this.state.hash = []
+        for (let b = 0; b < 64; b += 4) {
+          this.state.hash.push(
+            hash.charCodeAt(b) << 24 |
+            hash.charCodeAt(b + 1) << 16 |
+            hash.charCodeAt(b + 2) << 8 |
+            hash.charCodeAt(b + 3))
+        }
     }
   }
 
