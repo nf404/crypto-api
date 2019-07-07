@@ -118,6 +118,7 @@ class Hasher {
 
   /**
    * Add PKCS7 padding to message
+   * Pad with bytes all of the same value as the number of padding bytes
    *
    * @protected
    * @param {number} length
@@ -128,6 +129,7 @@ class Hasher {
 
   /**
    * Add ISO7816-4 padding to message
+   * Pad with 0x80 followed by zero bytes
    *
    * @protected
    * @param {number} length
@@ -138,6 +140,7 @@ class Hasher {
 
   /**
    * Add zero padding to message
+   * Pad with 0x00 characters
    *
    * @protected
    * @param {number} length

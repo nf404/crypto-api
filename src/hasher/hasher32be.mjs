@@ -81,11 +81,12 @@ class Hasher32be extends Hasher {
    */
   addLengthBits() {
     // @todo fix length to 64 bit
-    this.state.message += "\x00\x00\x00\x00";
-    let lengthBits = this.state.length << 3;
-    for (let i = 3; i >= 0; i--) {
-      this.state.message += String.fromCharCode(lengthBits >> (i << 3));
-    }
+    this.state.message += "\x00\x00\x00" +
+      String.fromCharCode(this.state.length >> 29 & 0xff) +
+      String.fromCharCode(this.state.length >> 21 & 0xff) +
+      String.fromCharCode(this.state.length >> 13 & 0xff) +
+      String.fromCharCode(this.state.length >> 5 & 0xff) +
+      String.fromCharCode(this.state.length << 3 & 0xff);
   }
 }
 
