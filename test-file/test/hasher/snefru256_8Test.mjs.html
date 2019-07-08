@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">test/hasher/snefru256_8Test.mjs | crypto-api</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="Hashing and encrypting library with no depedencies"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="crypto-api"><meta property="twitter:description" content="Hashing and encrypting library with no depedencies"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/nf404/crypto-api.git"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/crypto-api.mjs~CryptoApi.html">CryptoApi</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#encoder">encoder</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fromArrayBuffer">fromArrayBuffer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-toBase64">toBase64</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-toHex">toHex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fromUtf">fromUtf</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#hasher">hasher</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/has160.mjs~Has160.html">Has160</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/md2.mjs~Md2.html">Md2</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/md4.mjs~Md4.html">Md4</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/md5.mjs~Md5.html">Md5</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/ripemd.mjs~Ripemd.html">Ripemd</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/sha0.mjs~Sha0.html">Sha0</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/sha1.mjs~Sha1.html">Sha1</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/sha256.mjs~Sha256.html">Sha256</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/sha512.mjs~Sha512.html">Sha512</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/sm3.mjs~Sm3.html">Sm3</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/snefru.mjs~Snefru.html">Snefru</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/whirlpool.mjs~Whirlpool.html">Whirlpool</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-interface">I</span><span data-ice="name"><span><a href="class/src/hasher/hasher.mjs~Hasher.html">Hasher</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-interface">I</span><span data-ice="name"><span><a href="class/src/hasher/hasher32be.mjs~Hasher32be.html">Hasher32be</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-interface">I</span><span data-ice="name"><span><a href="class/src/hasher/hasher32le.mjs~Hasher32le.html">Hasher32le</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-interface">I</span><span data-ice="name"><span><a href="class/src/hasher/hasher8.mjs~Hasher8.html">Hasher8</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#mac">mac</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/mac/hmac.mjs~Hmac.html">Hmac</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#tools">tools</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rotateLeft">rotateLeft</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rotateRight">rotateRight</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rotateRight64hi">rotateRight64hi</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rotateRight64lo">rotateRight64lo</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">test/hasher/snefru256_8Test.mjs</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/*global describe, it */
+&apos;use strict&apos;;
+
+import Snefru from &quot;../../src/hasher/snefru&quot;;
+import TestHasher from &quot;../TestHasher&quot;;
+
+// The Snefru-256 test suite
+// From Snefru version 2.5a package
+
+class Snefru256_8Test extends TestHasher {
+  test() {
+    let t = this;
+    /** @test {Snefru} */
+    describe(&apos;Hash snefru256/8 tests&apos;, function () {
+      it(&quot;snefru256/8(&apos;&apos;)&quot;, function () {
+        t.testHash({
+          message: &apos;&apos;,
+          hash: &apos;8617f366566a011837f4fb4ba5bedea2b892f3ed8b894023d16ae344b2be5881&apos;
+        });
+      });
+
+      it(&quot;snefru256/8(0x0a)&quot;, function () {
+        t.testHash({
+          message: &quot;\n&quot;,
+          hash: &apos;2e02687f0d45d5b9b50cb68c3f33e6843d618a1aca2d06893d3eb4e3026b5732&apos;
+        });
+      });
+
+      it(&quot;snefru256/8(&apos;1&apos; + 0x0a)&quot;, function () {
+        t.testHash({
+          message: &quot;1\n&quot;,
+          hash: &apos;bfea4a05a2a2ef15c736d114598a20b9d9bd4d66b661e6b05ecf6a7737bdc58c&apos;
+        });
+      });
+
+      it(&quot;snefru256/8(&apos;12&apos; + 0x0a)&quot;, function () {
+        t.testHash({
+          message: &quot;12\n&quot;,
+          hash: &apos;ac677d69761ade3f189c7aef106d5fe7392d324e19cc76d5db4a2c05f2cc2cc5&apos;
+        });
+      });
+
+      it(&quot;snefru256/8(&apos;123&apos; + 0x0a)&quot;, function () {
+        t.testHash({
+          message: &quot;123\n&quot;,
+          hash: &apos;061c76aa1db4a22c0e42945e26c48499b5400162e08c640be05d3c007c44793d&apos;
+        });
+      });
+
+      it(&quot;snefru256/8(&apos;1234&apos; + 0x0a)&quot;, function () {
+        t.testHash({
+          message: &quot;1234\n&quot;,
+          hash: &apos;1e87fe1d9c927e9e24be85e3cc73359873541640a6261793ce5a974953113f5e&apos;
+        });
+      });
+
+      it(&quot;snefru256/8(&apos;12345&apos; + 0x0a)&quot;, function () {
+        t.testHash({
+          message: &quot;12345\n&quot;,
+          hash: &apos;1b59927d85a9349a87796620fe2ff401a06a7ba48794498ebab978efc3a68912&apos;
+        });
+      });
+
+      it(&quot;snefru256/8(&apos;123456&apos; + 0x0a)&quot;, function () {
+        t.testHash({
+          message: &quot;123456\n&quot;,
+          hash: &apos;28e9d9bc35032b68faeda88101ecb2524317e9da111b0e3e7094107212d9cf72&apos;
+        });
+      });
+
+      it(&quot;snefru256/8(&apos;1234567&apos; + 0x0a)&quot;, function () {
+        t.testHash({
+          message: &quot;1234567\n&quot;,
+          hash: &apos;f7fff4ee74fd1b8d6b3267f84e47e007f029d13b8af7e37e34d13b469b8f248f&apos;
+        });
+      });
+
+      it(&quot;snefru256/8(&apos;12345678&apos; + 0x0a)&quot;, function () {
+        t.testHash({
+          message: &quot;12345678\n&quot;,
+          hash: &apos;ee7d64b0102b2205e98926613b200185559d08be6ad787da717c968744e11af3&apos;
+        });
+      });
+
+      it(&quot;snefru256/8(&apos;123456789&apos; + 0x0a)&quot;, function () {
+        t.testHash({
+          message: &quot;123456789\n&quot;,
+          hash: &apos;4ca72639e40e9ab9c0c3f523c4449b3911632d374c124d7702192ec2e4e0b7a3&apos;
+        });
+      });
+
+      it(&quot;snefru256/8(&apos;The theory of quantum electrodynamics has now lasted for ....&apos;)&quot;, function () {
+        t.testHash({
+          message: &quot;The theory of quantum electrodynamics has now lasted for\n&quot; +
+          &quot;more than fifty years, and has been tested more and more\n&quot; +
+          &quot;accurately over a wider and wider range of conditions.\n&quot; +
+          &quot;At the present time I can proudly say that there is no\n&quot; +
+          &quot;significant difference between experiment and theory!\n\n&quot; +
+          &quot;Just to give you an idea of how the theory has been put\n&quot; +
+          &quot;through the wringer, I&apos;ll give you some recent numbers:\n&quot; +
+          &quot;experiments have Dirac&apos;s number at 1.00115965221 (with\n&quot; +
+          &quot;an uncertainty of about five times as much). To give you\n&quot; +
+          &quot;a feeling for the accuracy of these numbers, it comes\n&quot; +
+          &quot;out something like this:  If you were to measure the\n&quot; +
+          &quot;distance from Los Angeles to New York to this accuracy,\n&quot; +
+          &quot;it would be exact to the thickness of a human hair.\n&quot; +
+          &quot;That&apos;s how delicately quantum electrodynamics has, in the\n&quot; +
+          &quot;past fifty years, been checked -- both theoretically and\n&quot; +
+          &quot;experimentally.\n&quot;,
+          hash: &apos;5e8a32ed1998b611f5f096960c65e820da93a9a424d2715130c1e45483f1839c&apos;
+        });
+      });
+
+      /**
+       * @test {Snefru#setState}
+       * @test {Snefru#getState}
+       */
+      it(&apos;hash setState() getState()&apos;, function () {
+        t.testSetGetState();
+      });
+    });
+  }
+
+  getInstance(options) {
+    return new Snefru(options || {length: 256});
+  }
+}
+
+export default Snefru256_8Test;</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

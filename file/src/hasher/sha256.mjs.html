@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/hasher/sha256.mjs | crypto-api</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="Hashing and encrypting library with no depedencies"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="crypto-api"><meta property="twitter:description" content="Hashing and encrypting library with no depedencies"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/nf404/crypto-api.git"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/crypto-api.mjs~CryptoApi.html">CryptoApi</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#encoder">encoder</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fromArrayBuffer">fromArrayBuffer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-toBase64">toBase64</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-toHex">toHex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fromUtf">fromUtf</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#hasher">hasher</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/has160.mjs~Has160.html">Has160</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/md2.mjs~Md2.html">Md2</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/md4.mjs~Md4.html">Md4</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/md5.mjs~Md5.html">Md5</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/ripemd.mjs~Ripemd.html">Ripemd</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/sha0.mjs~Sha0.html">Sha0</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/sha1.mjs~Sha1.html">Sha1</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/sha256.mjs~Sha256.html">Sha256</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/sha512.mjs~Sha512.html">Sha512</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/sm3.mjs~Sm3.html">Sm3</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/snefru.mjs~Snefru.html">Snefru</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/whirlpool.mjs~Whirlpool.html">Whirlpool</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-interface">I</span><span data-ice="name"><span><a href="class/src/hasher/hasher.mjs~Hasher.html">Hasher</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-interface">I</span><span data-ice="name"><span><a href="class/src/hasher/hasher32be.mjs~Hasher32be.html">Hasher32be</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-interface">I</span><span data-ice="name"><span><a href="class/src/hasher/hasher32le.mjs~Hasher32le.html">Hasher32le</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-interface">I</span><span data-ice="name"><span><a href="class/src/hasher/hasher8.mjs~Hasher8.html">Hasher8</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#mac">mac</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/mac/hmac.mjs~Hmac.html">Hmac</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#tools">tools</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rotateLeft">rotateLeft</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rotateRight">rotateRight</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rotateRight64hi">rotateRight64hi</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rotateRight64lo">rotateRight64lo</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/hasher/sha256.mjs</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+
+import Hasher32be from &quot;./hasher32be&quot;;
+import {rotateRight} from &quot;../tools/tools&quot;;
+
+// Transform constants
+/** @type {number[]} */
+const K = [
+  0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1,
+  0x923f82a4, 0xab1c5ed5, 0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3,
+  0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174, 0xe49b69c1, 0xefbe4786,
+  0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da,
+  0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xd5a79147,
+  0x06ca6351, 0x14292967, 0x27b70a85, 0x2e1b2138, 0x4d2c6dfc, 0x53380d13,
+  0x650a7354, 0x766a0abb, 0x81c2c92e, 0x92722c85, 0xa2bfe8a1, 0xa81a664b,
+  0xc24b8b70, 0xc76c51a3, 0xd192e819, 0xd6990624, 0xf40e3585, 0x106aa070,
+  0x19a4c116, 0x1e376c08, 0x2748774c, 0x34b0bcb5, 0x391c0cb3, 0x4ed8aa4a,
+  0x5b9cca4f, 0x682e6ff3, 0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208,
+  0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2
+];
+
+/**
+ * Calculates [SHA256 (SHA224)](https://tools.ietf.org/html/rfc4634) hash
+ *
+ * @example &lt;caption&gt;Calculates SHA256 hash from string &quot;message&quot; - ES6 style&lt;/caption&gt;
+ * import Sha256 from &quot;crypto-api/src/hasher/sha256&quot;;
+ * import {toHex} from &quot;crypto-api/src/encoder/hex&quot;;
+ *
+ * let hasher = new Sha256();
+ * hasher.update(&apos;message&apos;);
+ * console.log(toHex(hasher.finalize()));
+ *
+ * @example &lt;caption&gt;Calculates SHA256 hash from UTF string &quot;message&quot; - ES6 style&lt;/caption&gt;
+ * import Sha256 from &quot;crypto-api/src/hasher/sha256&quot;;
+ * import {toHex} from &quot;crypto-api/src/encoder/hex&quot;;
+ * import {fromUtf} from &quot;crypto-api/src/encoder/utf&quot;;
+ *
+ * let hasher = new Sha256();
+ * hasher.update(fromUtf(&apos;message&apos;));
+ * console.log(toHex(hasher.finalize()));
+ *
+ * @example &lt;caption&gt;Calculates SHA256 hash from string &quot;message&quot; - ES5 style&lt;/caption&gt;
+ * &lt;script src=&quot;https://nf404.github.io/crypto-api/crypto-api.min.js&quot;&gt;&lt;/script&gt;
+ * &lt;script&gt;
+ *   var hasher = CryptoApi.getHasher(&apos;sha256&apos;);
+ *   hasher.update(&apos;message&apos;);
+ *   console.log(CryptoApi.encoder.toHex(hasher.finalize()));
+ * &lt;/script&gt;
+ *
+ * @example &lt;caption&gt;Calculates SHA256 hash from UTF string &quot;message&quot; - ES5 style&lt;/caption&gt;
+ * &lt;script src=&quot;https://nf404.github.io/crypto-api/crypto-api.min.js&quot;&gt;&lt;/script&gt;
+ * &lt;script&gt;
+ *   console.log(CryptoApi.hash(&apos;sha256&apos;, &apos;message&apos;));
+ * &lt;/script&gt;
+ */
+class Sha256 extends Hasher32be {
+  /**
+   * @param {Object} [options]
+   * @param {number} [options.rounds=64] - Number of rounds (Must be greater than 16)
+   * @param {number} [options.length=256] - Length of hash result
+   *
+   * | Hash type | Length |
+   * |-----------|--------|
+   * | sha224    | 224    |
+   * | sha256    | 256    |
+   */
+  constructor(options) {
+    options = options || {};
+    options.length = options.length || 256;
+    options.rounds = options.rounds || 64;
+    super(options);
+
+    /**
+     * Working variable (only for speed optimization)
+     * @private
+     * @ignore
+     * @type {number[]}
+     */
+    this.W = new Array(64);
+  }
+
+  /**
+   * Reset hasher to initial state
+   */
+  reset() {
+    super.reset();
+    switch (this.options.length) {
+    case 224:
+      this.state.hash = [
+        0xc1059ed8 | 0, 0x367cd507 | 0, 0x3070dd17 | 0, 0xf70e5939 | 0,
+        0xffc00b31 | 0, 0x68581511 | 0, 0x64f98fa7 | 0, 0xbefa4fa4 | 0
+      ];
+      break;
+    default:
+      this.state.hash = [
+        0x6a09e667 | 0, 0xbb67ae85 | 0, 0x3c6ef372 | 0, 0xa54ff53a | 0,
+        0x510e527f | 0, 0x9b05688c | 0, 0x1f83d9ab | 0, 0x5be0cd19 | 0
+      ];
+    }
+  }
+
+  /**
+   * Process ready blocks
+   *
+   * @protected
+   * @ignore
+   * @param {number[]} block - Block
+   */
+  processBlock(block) {
+    // Working variables
+    let a = this.state.hash[0] | 0;
+    let b = this.state.hash[1] | 0;
+    let c = this.state.hash[2] | 0;
+    let d = this.state.hash[3] | 0;
+    let e = this.state.hash[4] | 0;
+    let f = this.state.hash[5] | 0;
+    let g = this.state.hash[6] | 0;
+    let h = this.state.hash[7] | 0;
+
+    // Calculate hash
+    for (let i = 0; i &lt; this.options.rounds; i++) {
+      if (i &lt; 16) {
+        this.W[i] = block[i] | 0;
+      } else {
+        this.W[i] = (this.W[i - 16] + (
+            rotateRight(this.W[i - 15], 7) ^
+            rotateRight(this.W[i - 15], 18) ^
+            (this.W[i - 15] &gt;&gt;&gt; 3)
+          ) +
+          this.W[i - 7] + (
+            rotateRight(this.W[i - 2], 17) ^
+            rotateRight(this.W[i - 2], 19) ^
+            (this.W[i - 2] &gt;&gt;&gt; 10)
+          )) | 0;
+      }
+
+      let t1 = (h + (rotateRight(e, 6) ^ rotateRight(e, 11) ^
+        rotateRight(e, 25)) + ((e &amp; f) ^ (~e &amp; g)) + K[i] + this.W[i]) | 0;
+      let t2 = ((rotateRight(a, 2) ^ rotateRight(a, 13) ^
+        rotateRight(a, 22)) + ((a &amp; b) ^ (a &amp; c) ^ (b &amp; c))) | 0;
+      h = g;
+      g = f;
+      f = e;
+      e = (d + t1) | 0;
+      d = c;
+      c = b;
+      b = a;
+      a = (t1 + t2) | 0;
+    }
+
+    this.state.hash[0] = (this.state.hash[0] + a) | 0;
+    this.state.hash[1] = (this.state.hash[1] + b) | 0;
+    this.state.hash[2] = (this.state.hash[2] + c) | 0;
+    this.state.hash[3] = (this.state.hash[3] + d) | 0;
+    this.state.hash[4] = (this.state.hash[4] + e) | 0;
+    this.state.hash[5] = (this.state.hash[5] + f) | 0;
+    this.state.hash[6] = (this.state.hash[6] + g) | 0;
+    this.state.hash[7] = (this.state.hash[7] + h) | 0;
+  }
+
+  /**
+   * Finalize hash and return result
+   *
+   * @returns {string}
+   */
+  finalize() {
+    this.addPaddingISO7816(
+      this.state.message.length &lt; 56 ?
+        56 - this.state.message.length | 0 :
+        120 - this.state.message.length | 0);
+    this.addLengthBits();
+    this.process();
+    return this.getStateHash((this.options.length / 32) | 0);
+  }
+}
+
+export default Sha256;</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

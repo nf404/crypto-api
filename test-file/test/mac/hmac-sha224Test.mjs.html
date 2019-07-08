@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">test/mac/hmac-sha224Test.mjs | crypto-api</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="Hashing and encrypting library with no depedencies"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="crypto-api"><meta property="twitter:description" content="Hashing and encrypting library with no depedencies"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/nf404/crypto-api.git"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/crypto-api.mjs~CryptoApi.html">CryptoApi</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#encoder">encoder</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fromArrayBuffer">fromArrayBuffer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-toBase64">toBase64</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-toHex">toHex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fromUtf">fromUtf</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#hasher">hasher</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/has160.mjs~Has160.html">Has160</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/md2.mjs~Md2.html">Md2</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/md4.mjs~Md4.html">Md4</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/md5.mjs~Md5.html">Md5</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/ripemd.mjs~Ripemd.html">Ripemd</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/sha0.mjs~Sha0.html">Sha0</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/sha1.mjs~Sha1.html">Sha1</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/sha256.mjs~Sha256.html">Sha256</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/sha512.mjs~Sha512.html">Sha512</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/sm3.mjs~Sm3.html">Sm3</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/snefru.mjs~Snefru.html">Snefru</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/whirlpool.mjs~Whirlpool.html">Whirlpool</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-interface">I</span><span data-ice="name"><span><a href="class/src/hasher/hasher.mjs~Hasher.html">Hasher</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-interface">I</span><span data-ice="name"><span><a href="class/src/hasher/hasher32be.mjs~Hasher32be.html">Hasher32be</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-interface">I</span><span data-ice="name"><span><a href="class/src/hasher/hasher32le.mjs~Hasher32le.html">Hasher32le</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-interface">I</span><span data-ice="name"><span><a href="class/src/hasher/hasher8.mjs~Hasher8.html">Hasher8</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#mac">mac</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/mac/hmac.mjs~Hmac.html">Hmac</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#tools">tools</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rotateLeft">rotateLeft</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rotateRight">rotateRight</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rotateRight64hi">rotateRight64hi</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rotateRight64lo">rotateRight64lo</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">test/mac/hmac-sha224Test.mjs</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/*global describe, it */
+&apos;use strict&apos;;
+
+import TestHmac from &quot;../TestHmac&quot;;
+import Sha256 from &quot;../../src/hasher/sha256&quot;;
+
+// The HMAC-SHA224 test suite
+// https://tools.ietf.org/html/rfc4231
+
+class HmacSha224Test extends TestHmac {
+  test() {
+    let t = this;
+    /**
+     * @test {Hmac}
+     * @test {Sha256}
+     */
+    describe(&apos;Hmac sha224 tests&apos;, function () {
+      it(&quot;hmac-sha224(&apos;Hi There&apos;, 0x0b x 20)&quot;, function () {
+        t.testHmac({
+          message: &apos;Hi There&apos;,
+          key: new Array(21).join(&quot;\x0b&quot;),
+          hash: &apos;896fb1128abbdf196832107cd49df33f47b4b1169912ba4f53684b22&apos;
+        });
+      });
+
+      it(&quot;hmac-sha224(&apos;what do ya want for nothing?&apos;, &apos;Jefe&apos;)&quot;, function () {
+        t.testHmac({
+          message: &apos;what do ya want for nothing?&apos;,
+          key: &apos;Jefe&apos;,
+          hash: &apos;a30e01098bc6dbbf45690f3a7e9e6d0f8bbea2a39e6148008fd05e44&apos;
+        });
+      });
+
+      it(&quot;hmac-sha224(0xdd x 50, 0xaa x 20)&quot;, function () {
+        t.testHmac({
+          message: new Array(51).join(&quot;\xdd&quot;),
+          key: new Array(21).join(&quot;\xaa&quot;),
+          hash: &apos;7fb3cb3588c6c1f6ffa9694d7d6ad2649365b0c1f65d69d1ec8333ea&apos;
+        });
+      });
+
+      it(&quot;hmac-sha224(0xcd x 50, 0x0102030405060708090a0b0c0d0e0f10111213141516171819)&quot;, function () {
+        t.testHmac({
+          message: new Array(51).join(&quot;\xcd&quot;),
+          key: &quot;\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19&quot;,
+          hash: &apos;6c11506874013cac6a2abc1bb382627cec6a90d86efc012de7afec5a&apos;
+        });
+      });
+
+      it(&quot;hmac-sha224(&apos;Test With Truncation&apos;, 0x0c x 20)&quot;, function () {
+        t.testHmac({
+          message: &apos;Test With Truncation&apos;,
+          key: new Array(21).join(&quot;\x0c&quot;),
+          hash: &apos;0e2aea68a90c8d37c988bcdb9fca6fa8099cd857c7ec4a1815cac54c&apos;
+        });
+      });
+
+      it(&quot;hmac-sha224(&apos;Test Using Larger Than Block-Size Key - Hash Key First&apos;, 0xaa x 131)&quot;, function () {
+        t.testHmac({
+          message: &apos;Test Using Larger Than Block-Size Key - Hash Key First&apos;,
+          key: new Array(132).join(&quot;\xaa&quot;),
+          hash: &apos;95e9a0db962095adaebe9b2d6f0dbce2d499f112f2d2b7273fa6870e&apos;
+        });
+      });
+
+      it(&quot;hmac-sha224(&apos;This is a test using a larger than block-size key and a larger than block-size data. The key needs to be hashed before being used by the HMAC algorithm.&apos;, 0xaa x 131)&quot;, function () {
+        t.testHmac({
+          message: &apos;This is a test using a larger than block-size key and a larger than block-size data. The key needs to be hashed before being used by the HMAC algorithm.&apos;,
+          key: new Array(132).join(&quot;\xaa&quot;),
+          hash: &apos;3a854166ac5d9f023f54d517d0b39dbd946770db9c2b95c9f6f565d1&apos;
+        });
+      });
+    });
+  }
+
+  getInstance(options) {
+    return new Sha256({length: 224});
+  }
+}
+
+export default HmacSha224Test;</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">test/hasher/sha1Test.mjs | crypto-api</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="Hashing and encrypting library with no depedencies"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="crypto-api"><meta property="twitter:description" content="Hashing and encrypting library with no depedencies"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/nf404/crypto-api.git"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/crypto-api.mjs~CryptoApi.html">CryptoApi</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#encoder">encoder</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fromArrayBuffer">fromArrayBuffer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-toBase64">toBase64</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-toHex">toHex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fromUtf">fromUtf</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#hasher">hasher</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/has160.mjs~Has160.html">Has160</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/md2.mjs~Md2.html">Md2</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/md4.mjs~Md4.html">Md4</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/md5.mjs~Md5.html">Md5</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/ripemd.mjs~Ripemd.html">Ripemd</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/sha0.mjs~Sha0.html">Sha0</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/sha1.mjs~Sha1.html">Sha1</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/sha256.mjs~Sha256.html">Sha256</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/sha512.mjs~Sha512.html">Sha512</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/sm3.mjs~Sm3.html">Sm3</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/snefru.mjs~Snefru.html">Snefru</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/whirlpool.mjs~Whirlpool.html">Whirlpool</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-interface">I</span><span data-ice="name"><span><a href="class/src/hasher/hasher.mjs~Hasher.html">Hasher</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-interface">I</span><span data-ice="name"><span><a href="class/src/hasher/hasher32be.mjs~Hasher32be.html">Hasher32be</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-interface">I</span><span data-ice="name"><span><a href="class/src/hasher/hasher32le.mjs~Hasher32le.html">Hasher32le</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-interface">I</span><span data-ice="name"><span><a href="class/src/hasher/hasher8.mjs~Hasher8.html">Hasher8</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#mac">mac</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/mac/hmac.mjs~Hmac.html">Hmac</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#tools">tools</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rotateLeft">rotateLeft</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rotateRight">rotateRight</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rotateRight64hi">rotateRight64hi</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rotateRight64lo">rotateRight64lo</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">test/hasher/sha1Test.mjs</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/*global describe, it */
+&apos;use strict&apos;;
+import Sha1 from &quot;../../src/hasher/sha1&quot;;
+import TestHasher from &quot;../TestHasher&quot;;
+
+// The SHA1 test suite
+// http://tools.ietf.org/html/rfc3174
+// http://csrc.nist.gov/publications/fips/fips180-2/fips180-2.pdf
+// https://www.cosic.esat.kuleuven.be/nessie/testvectors/hash/sha/Sha-1-160.test-vectors
+
+class Sha1Test extends TestHasher {
+  test() {
+    let t = this;
+    /** @test {Sha1} */
+    describe(&apos;Hash sha1 tests&apos;, function () {
+      it(&quot;sha1(&apos;&apos;)&quot;, function () {
+        t.testHash({
+          message: &apos;&apos;,
+          hash: &apos;da39a3ee5e6b4b0d3255bfef95601890afd80709&apos;
+        });
+      });
+
+      it(&quot;sha1(&apos;a&apos;)&quot;, function () {
+        t.testHash({
+          message: &apos;a&apos;,
+          hash: &apos;86f7e437faa5a7fce15d1ddcb9eaeaea377667b8&apos;
+        });
+      });
+
+      it(&quot;sha1(&apos;abc&apos;)&quot;, function () {
+        t.testHash({
+          message: &apos;abc&apos;,
+          hash: &apos;a9993e364706816aba3e25717850c26c9cd0d89d&apos;
+        });
+      });
+
+      it(&quot;sha1(&apos;message digest&apos;)&quot;, function () {
+        t.testHash({
+          message: &apos;message digest&apos;,
+          hash: &apos;c12252ceda8be8994d5fa0290a47231c1d16aae3&apos;
+        });
+      });
+
+      it(&quot;sha1(&apos;a..z&apos;)&quot;, function () {
+        t.testHash({
+          message: &apos;abcdefghijklmnopqrstuvwxyz&apos;,
+          hash: &apos;32d10c7b8cf96570ca04ce37f2a19d84240d3a89&apos;
+        });
+      });
+
+      it(&quot;sha1(&apos;abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq&apos;)&quot;, function () {
+        t.testHash({
+          message: &apos;abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq&apos;,
+          hash: &apos;84983e441c3bd26ebaae4aa1f95129e5e54670f1&apos;
+        });
+      });
+
+      it(&quot;sha1(&apos;A..Za..z0..9&apos;)&quot;, function () {
+        t.testHash({
+          message: &apos;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789&apos;,
+          hash: &apos;761c457bf73b14d27e9e9265c46f4b4dda11f940&apos;
+        });
+      });
+
+      it(&quot;sha1(&apos;1234567890&apos; x 8)&quot;, function () {
+        t.testHash({
+          message: new Array(9).join(&apos;1234567890&apos;),
+          hash: &apos;50abf5706a150990a08b2c5ea40fa0e585554732&apos;
+        });
+      });
+
+      it(&quot;sha1(&apos;01234567&apos; x 80)&quot;, function () {
+        t.testHash({
+          message: new Array(81).join(&apos;01234567&apos;),
+          hash: &apos;dea356a2cddd90c7a7ecedc5ebb563934f460452&apos;
+        });
+      });
+
+      /**
+       * @test {Sha1#setState}
+       * @test {Sha1#getState}
+       */
+      it(&apos;hash setState() getState()&apos;, function () {
+        t.testSetGetState();
+      });
+    });
+  }
+
+  getInstance(options) {
+    return new Sha1();
+  }
+}
+
+export default Sha1Test;</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

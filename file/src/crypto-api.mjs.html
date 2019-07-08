@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">src/crypto-api.mjs | crypto-api</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="Hashing and encrypting library with no depedencies"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="crypto-api"><meta property="twitter:description" content="Hashing and encrypting library with no depedencies"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/nf404/crypto-api.git"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/crypto-api.mjs~CryptoApi.html">CryptoApi</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#encoder">encoder</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fromArrayBuffer">fromArrayBuffer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-toBase64">toBase64</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-toHex">toHex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fromUtf">fromUtf</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#hasher">hasher</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/has160.mjs~Has160.html">Has160</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/md2.mjs~Md2.html">Md2</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/md4.mjs~Md4.html">Md4</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/md5.mjs~Md5.html">Md5</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/ripemd.mjs~Ripemd.html">Ripemd</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/sha0.mjs~Sha0.html">Sha0</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/sha1.mjs~Sha1.html">Sha1</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/sha256.mjs~Sha256.html">Sha256</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/sha512.mjs~Sha512.html">Sha512</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/sm3.mjs~Sm3.html">Sm3</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/snefru.mjs~Snefru.html">Snefru</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/whirlpool.mjs~Whirlpool.html">Whirlpool</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-interface">I</span><span data-ice="name"><span><a href="class/src/hasher/hasher.mjs~Hasher.html">Hasher</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-interface">I</span><span data-ice="name"><span><a href="class/src/hasher/hasher32be.mjs~Hasher32be.html">Hasher32be</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-interface">I</span><span data-ice="name"><span><a href="class/src/hasher/hasher32le.mjs~Hasher32le.html">Hasher32le</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-interface">I</span><span data-ice="name"><span><a href="class/src/hasher/hasher8.mjs~Hasher8.html">Hasher8</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#mac">mac</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/mac/hmac.mjs~Hmac.html">Hmac</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#tools">tools</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rotateLeft">rotateLeft</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rotateRight">rotateRight</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rotateRight64hi">rotateRight64hi</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rotateRight64lo">rotateRight64lo</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/crypto-api.mjs</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+
+import Has160 from &quot;./hasher/has160&quot;;
+import Md2 from &quot;./hasher/md2&quot;;
+import Md4 from &quot;./hasher/md4&quot;;
+import Md5 from &quot;./hasher/md5&quot;;
+import Ripemd from &quot;./hasher/ripemd&quot;;
+import Sha0 from &quot;./hasher/sha0&quot;;
+import Sha1 from &quot;./hasher/sha1&quot;;
+import Sha256 from &quot;./hasher/sha256&quot;;
+import Sha512 from &quot;./hasher/sha512&quot;;
+import Snefru from &quot;./hasher/snefru&quot;;
+import Whirlpool from &quot;./hasher/whirlpool&quot;;
+import {fromUtf} from &quot;./encoder/utf&quot;;
+import {fromArrayBuffer} from &quot;./encoder/array-buffer&quot;;
+import {toHex} from &quot;./encoder/hex&quot;;
+import {toBase64} from &quot;./encoder/base64&quot;;
+import Hmac from &quot;./mac/hmac&quot;;
+
+/**
+ * Main class for ES5 compatibility.
+ * Please use subclasses of {@link Hasher} for ES6
+ */
+class CryptoApi {
+  /**
+   * @ignore
+   */
+  constructor() {
+    /** @type {{}} */
+    this.encoder = {};
+    /** @type {fromUtf} */
+    this.encoder.fromUtf = fromUtf;
+    /** @type {fromArrayBuffer} */
+    this.encoder.fromArrayBuffer = fromArrayBuffer;
+    /** @type {toHex} */
+    this.encoder.toHex = toHex;
+    /** @type {toBase64} */
+    this.encoder.toBase64 = toBase64;
+  }
+
+  /**
+   * Get hasher by alias
+   *
+   * @param {string} name
+   * @param {Object} options
+   * @returns {Hasher}
+   */
+  getHasher(name, options) {
+    options = options || {};
+    switch (name) {
+      case &apos;has160&apos;:
+        return new Has160(options);
+      case &apos;md2&apos;:
+        return new Md2(options);
+      case &apos;md4&apos;:
+        return new Md4(options);
+      case &apos;md5&apos;:
+        return new Md5(options);
+      case &apos;ripemd128&apos;:
+        options = Object.assign({}, {length: 128}, options);
+        return new Ripemd(options);
+      case &apos;ripemd&apos;:
+      case &apos;ripemd160&apos;:
+        options = Object.assign({}, {length: 160}, options);
+        return new Ripemd(options);
+      case &apos;ripemd256&apos;:
+        options = Object.assign({}, {length: 256}, options);
+        return new Ripemd(options);
+      case &apos;ripemd320&apos;:
+        options = Object.assign({}, {length: 320}, options);
+        return new Ripemd(options);
+      case &apos;sha0&apos;:
+        return new Sha0(options);
+      case &apos;sha1&apos;:
+        return new Sha1(options);
+      case &apos;sha224&apos;:
+        options = Object.assign({}, {length: 224}, options);
+        return new Sha256(options);
+      case &apos;sha256&apos;:
+        options = Object.assign({}, {length: 256}, options);
+        return new Sha256(options);
+      case &apos;sha384&apos;:
+        options = Object.assign({}, {length: 384}, options);
+        return new Sha512(options);
+      case &apos;sha512&apos;:
+        options = Object.assign({}, {length: 512}, options);
+        return new Sha512(options);
+      case &apos;sha512/224&apos;:
+        options = Object.assign({}, {length: 224}, options);
+        return new Sha512(options);
+      case &apos;sha512/256&apos;:
+        options = Object.assign({}, {length: 256}, options);
+        return new Sha512(options);
+      case &apos;snefru&apos;:
+      case &apos;snefru128&apos;:
+      case &apos;snefru128/8&apos;:
+        options = Object.assign({}, {length: 128}, options);
+        return new Snefru(options);
+      case &apos;snefru256&apos;:
+      case &apos;snefru256/8&apos;:
+        options = Object.assign({}, {length: 256}, options);
+        return new Snefru(options);
+      case &apos;snefru128/2&apos;:
+        options = Object.assign({}, {length: 128, rounds: 2}, options);
+        return new Snefru(options);
+      case &apos;snefru256/4&apos;:
+        options = Object.assign({}, {length: 256, rounds: 4}, options);
+        return new Snefru(options);
+      case &apos;whirlpool&apos;:
+        return new Whirlpool(options);
+      case &apos;whirlpool-0&apos;:
+        options = Object.assign({}, {type: &apos;0&apos;}, options);
+        return new Whirlpool(options);
+      case &apos;whirlpool-t&apos;:
+        options = Object.assign({}, {type: &apos;t&apos;}, options);
+        return new Whirlpool(options);
+    }
+  }
+
+  /**
+   * Hash UTF message and return result in hex
+   *
+   * @param {string} name
+   * @param {string} message
+   * @param {Object} options
+   * @returns {string}
+   */
+  hash(name, message, options) {
+    options = options || {};
+    let hasher = this.getHasher(name, options);
+    hasher.update(fromUtf(message));
+    return toHex(hasher.finalize());
+  }
+
+  /**
+   * Get HMAC instance
+   *
+   * @param {string} key
+   * @param {Hasher} hasher
+   * @returns {Hmac}
+   */
+  getHmac(key, hasher) {
+    return new Hmac(key, hasher);
+  }
+
+  /**
+   * HMAC with UTF key from UTF message and return result in hex
+   *
+   * @param {string} key
+   * @param {string} message
+   * @param {Hasher} hasher
+   * @returns {string}
+   */
+  hmac(key, message, hasher) {
+    let mac = this.getHmac(fromUtf(key), hasher);
+    mac.update(fromUtf(message));
+    return toHex(mac.finalize());
+  }
+}
+
+CryptoApi = new CryptoApi();
+export default CryptoApi;</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

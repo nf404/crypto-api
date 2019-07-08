@@ -1,0 +1,126 @@
+{
+  "coverage": "99.01%",
+  "expectCount": 203,
+  "actualCount": 201,
+  "files": {
+    "src/crypto-api.mjs": {
+      "expectCount": 7,
+      "actualCount": 7,
+      "undocumentLines": []
+    },
+    "src/encoder/array-buffer.mjs": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/encoder/base64.mjs": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        3
+      ]
+    },
+    "src/encoder/hex.mjs": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/encoder/utf.mjs": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/hasher/has160.mjs": {
+      "expectCount": 10,
+      "actualCount": 10,
+      "undocumentLines": []
+    },
+    "src/hasher/hasher.mjs": {
+      "expectCount": 18,
+      "actualCount": 17,
+      "undocumentLines": [
+        36
+      ]
+    },
+    "src/hasher/hasher32be.mjs": {
+      "expectCount": 8,
+      "actualCount": 8,
+      "undocumentLines": []
+    },
+    "src/hasher/hasher32le.mjs": {
+      "expectCount": 7,
+      "actualCount": 7,
+      "undocumentLines": []
+    },
+    "src/hasher/hasher8.mjs": {
+      "expectCount": 8,
+      "actualCount": 8,
+      "undocumentLines": []
+    },
+    "src/hasher/md2.mjs": {
+      "expectCount": 6,
+      "actualCount": 6,
+      "undocumentLines": []
+    },
+    "src/hasher/md4.mjs": {
+      "expectCount": 12,
+      "actualCount": 12,
+      "undocumentLines": []
+    },
+    "src/hasher/md5.mjs": {
+      "expectCount": 11,
+      "actualCount": 11,
+      "undocumentLines": []
+    },
+    "src/hasher/ripemd.mjs": {
+      "expectCount": 21,
+      "actualCount": 21,
+      "undocumentLines": []
+    },
+    "src/hasher/sha0.mjs": {
+      "expectCount": 7,
+      "actualCount": 7,
+      "undocumentLines": []
+    },
+    "src/hasher/sha1.mjs": {
+      "expectCount": 7,
+      "actualCount": 7,
+      "undocumentLines": []
+    },
+    "src/hasher/sha256.mjs": {
+      "expectCount": 7,
+      "actualCount": 7,
+      "undocumentLines": []
+    },
+    "src/hasher/sha512.mjs": {
+      "expectCount": 9,
+      "actualCount": 9,
+      "undocumentLines": []
+    },
+    "src/hasher/sm3.mjs": {
+      "expectCount": 11,
+      "actualCount": 11,
+      "undocumentLines": []
+    },
+    "src/hasher/snefru.mjs": {
+      "expectCount": 17,
+      "actualCount": 17,
+      "undocumentLines": []
+    },
+    "src/hasher/whirlpool.mjs": {
+      "expectCount": 22,
+      "actualCount": 22,
+      "undocumentLines": []
+    },
+    "src/mac/hmac.mjs": {
+      "expectCount": 6,
+      "actualCount": 6,
+      "undocumentLines": []
+    },
+    "src/tools/tools.mjs": {
+      "expectCount": 4,
+      "actualCount": 4,
+      "undocumentLines": []
+    }
+  }
+}

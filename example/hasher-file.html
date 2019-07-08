@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hashing files</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"></head>
+<body>
+<div class="container">
+    <h2>Hashing file SHA256</h2>
+
+    <form>
+        <div class="form-group">
+            <label for="file">File:</label>
+            <input type="file" class="form-control" id="file">
+        </div>
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped" role="progressbar"
+                 aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0"
+                 id="hash-progress">
+            </div>
+        </div>
+        <div class="well" id="hash"></div>
+    </form>
+</div>
+<script type="text/javascript" src="../example/hasher-file.min.js"></script></body>
+</html>

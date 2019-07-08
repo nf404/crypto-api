@@ -1,0 +1,2037 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href>
+  <title data-ice="title">Test | crypto-api</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="Hashing and encrypting library with no depedencies"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="crypto-api"><meta property="twitter:description" content="Hashing and encrypting library with no depedencies"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/nf404/crypto-api.git"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/crypto-api.mjs~CryptoApi.html">CryptoApi</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#encoder">encoder</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fromArrayBuffer">fromArrayBuffer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-toBase64">toBase64</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-toHex">toHex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fromUtf">fromUtf</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#hasher">hasher</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/has160.mjs~Has160.html">Has160</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/md2.mjs~Md2.html">Md2</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/md4.mjs~Md4.html">Md4</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/md5.mjs~Md5.html">Md5</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/ripemd.mjs~Ripemd.html">Ripemd</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/sha0.mjs~Sha0.html">Sha0</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/sha1.mjs~Sha1.html">Sha1</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/sha256.mjs~Sha256.html">Sha256</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/sha512.mjs~Sha512.html">Sha512</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/sm3.mjs~Sm3.html">Sm3</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/snefru.mjs~Snefru.html">Snefru</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/hasher/whirlpool.mjs~Whirlpool.html">Whirlpool</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-interface">I</span><span data-ice="name"><span><a href="class/src/hasher/hasher.mjs~Hasher.html">Hasher</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-interface">I</span><span data-ice="name"><span><a href="class/src/hasher/hasher32be.mjs~Hasher32be.html">Hasher32be</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-interface">I</span><span data-ice="name"><span><a href="class/src/hasher/hasher32le.mjs~Hasher32le.html">Hasher32le</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-interface">I</span><span data-ice="name"><span><a href="class/src/hasher/hasher8.mjs~Hasher8.html">Hasher8</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#mac">mac</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/mac/hmac.mjs~Hmac.html">Hmac</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#tools">tools</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rotateLeft">rotateLeft</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rotateRight">rotateRight</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rotateRight64hi">rotateRight64hi</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rotateRight64lo">rotateRight64lo</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1>Test</h1>
+<table class="test-summary">
+  <thead>
+    <tr>
+      <td class="test-description">Description</td>
+      <td class="test-target">Identifier</td>
+    </tr>
+  </thead>
+
+  <tbody data-ice="tests"><tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span data-ice="testInterfaceToggle" class="toggle closed"></span><span><a href="test-file/test/encoder/ArrayBufferTest.mjs.html#lineNumber11"><p>Encoder ArrayBuffer tests</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>*</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/encoder/ArrayBufferTest.mjs.html#lineNumber13"><p>fromArrayBuffer([0x00])</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>*</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/encoder/ArrayBufferTest.mjs.html#lineNumber18"><p>fromArrayBuffer([0x5c])</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>*</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/encoder/ArrayBufferTest.mjs.html#lineNumber23"><p>fromArrayBuffer([0x7f])</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>*</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/encoder/ArrayBufferTest.mjs.html#lineNumber28"><p>fromArrayBuffer([0x80])</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>*</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/encoder/ArrayBufferTest.mjs.html#lineNumber33"><p>fromArrayBuffer([0xff, 0xff])</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>*</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span data-ice="testInterfaceToggle" class="toggle closed"></span><span><a href="test-file/test/encoder/Base64Test.mjs.html#lineNumber11"><p>Encoder Base64 tests</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>*</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/encoder/Base64Test.mjs.html#lineNumber13"><p>toBase64(&apos;&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>*</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/encoder/Base64Test.mjs.html#lineNumber18"><p>toBase64(&apos;f&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>*</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/encoder/Base64Test.mjs.html#lineNumber23"><p>toBase64(&apos;fo&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>*</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/encoder/Base64Test.mjs.html#lineNumber28"><p>toBase64(&apos;foo&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>*</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/encoder/Base64Test.mjs.html#lineNumber33"><p>toBase64(&apos;foob&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>*</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/encoder/Base64Test.mjs.html#lineNumber38"><p>toBase64(&apos;fooba&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>*</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/encoder/Base64Test.mjs.html#lineNumber43"><p>toBase64(&apos;foobar&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>*</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span data-ice="testInterfaceToggle" class="toggle closed"></span><span><a href="test-file/test/encoder/UtfTest.mjs.html#lineNumber11"><p>Encoder UTF tests</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>*</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/encoder/UtfTest.mjs.html#lineNumber13"><p>fromUtf(&apos;\0&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>*</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/encoder/UtfTest.mjs.html#lineNumber18"><p>fromUtf(&apos;\x5c&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>*</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/encoder/UtfTest.mjs.html#lineNumber23"><p>fromUtf(&apos;\x7f&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>*</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/encoder/UtfTest.mjs.html#lineNumber28"><p>fromUtf(&apos;\x80&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>*</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/encoder/UtfTest.mjs.html#lineNumber33"><p>fromUtf(&apos;\u05ca&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>*</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/encoder/UtfTest.mjs.html#lineNumber38"><p>fromUtf(&apos;\u07ff&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>*</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/encoder/UtfTest.mjs.html#lineNumber43"><p>fromUtf(&apos;\u0800&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>*</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/encoder/UtfTest.mjs.html#lineNumber48"><p>fromUtf(&apos;\u2c3c&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>*</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/encoder/UtfTest.mjs.html#lineNumber53"><p>fromUtf(&apos;\uffff&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>*</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/encoder/UtfTest.mjs.html#lineNumber58"><p>fromUtf(&apos;\ud800\udc00&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>*</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/encoder/UtfTest.mjs.html#lineNumber63"><p>fromUtf(&apos;\ud834\udf06&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>*</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/encoder/UtfTest.mjs.html#lineNumber68"><p>fromUtf(&apos;\udbff\udfff&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>*</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span data-ice="testInterfaceToggle" class="toggle closed"></span><span><a href="test-file/test/hasher/has160Test.mjs.html#lineNumber15"><p>Hash has160 tests</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="class/src/hasher/has160.mjs~Has160.html">Has160</a></span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/has160Test.mjs.html#lineNumber16"><p>has160(&apos;&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/has160Test.mjs.html#lineNumber23"><p>has160(&apos;a&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/has160Test.mjs.html#lineNumber30"><p>has160(&apos;abc&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/has160Test.mjs.html#lineNumber37"><p>has160(&apos;message digest&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/has160Test.mjs.html#lineNumber44"><p>has160(&apos;a..z&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/has160Test.mjs.html#lineNumber51"><p>has160(&apos;A..Za..z0..9&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/has160Test.mjs.html#lineNumber58"><p>has160(&apos;1234567890&apos; x 8)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/has160Test.mjs.html#lineNumber69"><p>hash setState() getState()</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>Has160#setState</span>
+<span>Has160#getState</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span data-ice="testInterfaceToggle" class="toggle closed"></span><span><a href="test-file/test/hasher/md2Test.mjs.html#lineNumber15"><p>Hash md2 tests</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="class/src/hasher/md2.mjs~Md2.html">Md2</a></span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/md2Test.mjs.html#lineNumber16"><p>md2(&apos;&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/md2Test.mjs.html#lineNumber23"><p>md2(&apos;a&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/md2Test.mjs.html#lineNumber30"><p>md2(&apos;abc&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/md2Test.mjs.html#lineNumber37"><p>md2(&apos;message digest&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/md2Test.mjs.html#lineNumber44"><p>md2(&apos;a..z&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/md2Test.mjs.html#lineNumber51"><p>md2(&apos;A..Za..z0..9&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/md2Test.mjs.html#lineNumber58"><p>md2(&apos;1234567890&apos; x 8)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/md2Test.mjs.html#lineNumber69"><p>hash setState() getState()</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>Md2#setState</span>
+<span>Md2#getState</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span data-ice="testInterfaceToggle" class="toggle closed"></span><span><a href="test-file/test/hasher/md4Test.mjs.html#lineNumber14"><p>Hash md4 tests</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="class/src/hasher/md4.mjs~Md4.html">Md4</a></span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/md4Test.mjs.html#lineNumber15"><p>md4(&apos;&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/md4Test.mjs.html#lineNumber22"><p>md4(&apos;a&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/md4Test.mjs.html#lineNumber29"><p>md4(&apos;abc&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/md4Test.mjs.html#lineNumber36"><p>md4(&apos;message digest&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/md4Test.mjs.html#lineNumber43"><p>md4(&apos;a..z&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/md4Test.mjs.html#lineNumber50"><p>md4(&apos;A..Za..z0..9&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/md4Test.mjs.html#lineNumber57"><p>md4(&apos;1234567890&apos; x 8)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/md4Test.mjs.html#lineNumber68"><p>hash setState() getState()</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>Md4#setState</span>
+<span>Md4#getState</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span data-ice="testInterfaceToggle" class="toggle closed"></span><span><a href="test-file/test/hasher/md5Test.mjs.html#lineNumber14"><p>Hash md5 tests</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="class/src/hasher/md5.mjs~Md5.html">Md5</a></span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/md5Test.mjs.html#lineNumber15"><p>md5(&apos;&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/md5Test.mjs.html#lineNumber22"><p>md5(&apos;a&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/md5Test.mjs.html#lineNumber29"><p>md5(&apos;abc&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/md5Test.mjs.html#lineNumber36"><p>md5(&apos;message digest&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/md5Test.mjs.html#lineNumber43"><p>md5(&apos;a..z&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/md5Test.mjs.html#lineNumber50"><p>md5(&apos;A..Za..z0..9&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/md5Test.mjs.html#lineNumber57"><p>md5(&apos;1234567890&apos; x 8)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/md5Test.mjs.html#lineNumber68"><p>hash setState() getState()</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>Md5#setState</span>
+<span>Md5#getState</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span data-ice="testInterfaceToggle" class="toggle closed"></span><span><a href="test-file/test/hasher/ripemd128Test.mjs.html#lineNumber13"><p>Hash ripemd128 tests</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="class/src/hasher/ripemd.mjs~Ripemd.html">Ripemd</a></span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd128Test.mjs.html#lineNumber14"><p>ripemd128(&apos;&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd128Test.mjs.html#lineNumber21"><p>ripemd128(&apos;a&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd128Test.mjs.html#lineNumber28"><p>ripemd128(&apos;abc&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd128Test.mjs.html#lineNumber35"><p>ripemd128(&apos;message digest&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd128Test.mjs.html#lineNumber42"><p>ripemd128(&apos;a..z&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd128Test.mjs.html#lineNumber49"><p>ripemd128(&apos;abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd128Test.mjs.html#lineNumber56"><p>ripemd128(&apos;A..Za..z0..9&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd128Test.mjs.html#lineNumber63"><p>ripemd128(&apos;1234567890&apos; x 8)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd128Test.mjs.html#lineNumber74"><p>hash setState() getState()</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>Ripemd#setState</span>
+<span>Ripemd#getState</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span data-ice="testInterfaceToggle" class="toggle closed"></span><span><a href="test-file/test/hasher/ripemd160Test.mjs.html#lineNumber13"><p>Hash ripemd160 tests</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="class/src/hasher/ripemd.mjs~Ripemd.html">Ripemd</a></span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd160Test.mjs.html#lineNumber14"><p>ripemd160(&apos;&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd160Test.mjs.html#lineNumber21"><p>ripemd160(&apos;a&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd160Test.mjs.html#lineNumber28"><p>ripemd160(&apos;abc&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd160Test.mjs.html#lineNumber35"><p>ripemd160(&apos;message digest&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd160Test.mjs.html#lineNumber42"><p>ripemd160(&apos;a..z&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd160Test.mjs.html#lineNumber49"><p>ripemd160(&apos;abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd160Test.mjs.html#lineNumber56"><p>ripemd160(&apos;A..Za..z0..9&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd160Test.mjs.html#lineNumber63"><p>ripemd160(&apos;1234567890&apos; x 8)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd160Test.mjs.html#lineNumber74"><p>hash setState() getState()</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>Ripemd#setState</span>
+<span>Ripemd#getState</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span data-ice="testInterfaceToggle" class="toggle closed"></span><span><a href="test-file/test/hasher/ripemd256Test.mjs.html#lineNumber13"><p>Hash ripemd256 tests</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="class/src/hasher/ripemd.mjs~Ripemd.html">Ripemd</a></span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd256Test.mjs.html#lineNumber14"><p>ripemd256(&apos;&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd256Test.mjs.html#lineNumber21"><p>ripemd256(&apos;a&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd256Test.mjs.html#lineNumber28"><p>ripemd256(&apos;abc&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd256Test.mjs.html#lineNumber35"><p>ripemd256(&apos;message digest&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd256Test.mjs.html#lineNumber42"><p>ripemd256(&apos;a..z&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd256Test.mjs.html#lineNumber49"><p>ripemd256(&apos;abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd256Test.mjs.html#lineNumber56"><p>ripemd256(&apos;A..Za..z0..9&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd256Test.mjs.html#lineNumber63"><p>ripemd256(&apos;1234567890&apos; x 8)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd256Test.mjs.html#lineNumber74"><p>hash setState() getState()</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>Ripemd#setState</span>
+<span>Ripemd#getState</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span data-ice="testInterfaceToggle" class="toggle closed"></span><span><a href="test-file/test/hasher/ripemd320Test.mjs.html#lineNumber13"><p>Hash ripemd320 tests</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="class/src/hasher/ripemd.mjs~Ripemd.html">Ripemd</a></span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd320Test.mjs.html#lineNumber14"><p>ripemd320(&apos;&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd320Test.mjs.html#lineNumber21"><p>ripemd320(&apos;a&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd320Test.mjs.html#lineNumber28"><p>ripemd320(&apos;abc&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd320Test.mjs.html#lineNumber35"><p>ripemd320(&apos;message digest&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd320Test.mjs.html#lineNumber42"><p>ripemd320(&apos;a..z&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd320Test.mjs.html#lineNumber49"><p>ripemd320(&apos;abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd320Test.mjs.html#lineNumber56"><p>ripemd320(&apos;A..Za..z0..9&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd320Test.mjs.html#lineNumber63"><p>ripemd320(&apos;1234567890&apos; x 8)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/ripemd320Test.mjs.html#lineNumber74"><p>hash setState() getState()</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>Ripemd#setState</span>
+<span>Ripemd#getState</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span data-ice="testInterfaceToggle" class="toggle closed"></span><span><a href="test-file/test/hasher/sha0Test.mjs.html#lineNumber13"><p>Hash sha0 tests</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="class/src/hasher/sha0.mjs~Sha0.html">Sha0</a></span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha0Test.mjs.html#lineNumber14"><p>sha0(&apos;&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha0Test.mjs.html#lineNumber21"><p>sha0(&apos;a&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha0Test.mjs.html#lineNumber28"><p>sha0(&apos;abc&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha0Test.mjs.html#lineNumber35"><p>sha0(&apos;message digest&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha0Test.mjs.html#lineNumber42"><p>sha0(&apos;a..z&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha0Test.mjs.html#lineNumber49"><p>sha0(&apos;abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha0Test.mjs.html#lineNumber56"><p>sha0(&apos;A..Za..z0..9&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha0Test.mjs.html#lineNumber63"><p>sha0(&apos;1234567890&apos; x 8)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha0Test.mjs.html#lineNumber74"><p>hash setState() getState()</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>Sha0#setState</span>
+<span>Sha0#getState</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span data-ice="testInterfaceToggle" class="toggle closed"></span><span><a href="test-file/test/hasher/sha1Test.mjs.html#lineNumber15"><p>Hash sha1 tests</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="class/src/hasher/sha1.mjs~Sha1.html">Sha1</a></span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha1Test.mjs.html#lineNumber16"><p>sha1(&apos;&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha1Test.mjs.html#lineNumber23"><p>sha1(&apos;a&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha1Test.mjs.html#lineNumber30"><p>sha1(&apos;abc&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha1Test.mjs.html#lineNumber37"><p>sha1(&apos;message digest&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha1Test.mjs.html#lineNumber44"><p>sha1(&apos;a..z&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha1Test.mjs.html#lineNumber51"><p>sha1(&apos;abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha1Test.mjs.html#lineNumber58"><p>sha1(&apos;A..Za..z0..9&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha1Test.mjs.html#lineNumber65"><p>sha1(&apos;1234567890&apos; x 8)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha1Test.mjs.html#lineNumber72"><p>sha1(&apos;01234567&apos; x 80)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha1Test.mjs.html#lineNumber83"><p>hash setState() getState()</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>Sha1#setState</span>
+<span>Sha1#getState</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span data-ice="testInterfaceToggle" class="toggle closed"></span><span><a href="test-file/test/hasher/sha224Test.mjs.html#lineNumber13"><p>Hash sha224 tests</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="class/src/hasher/sha256.mjs~Sha256.html">Sha256</a></span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha224Test.mjs.html#lineNumber14"><p>sha224(&apos;&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha224Test.mjs.html#lineNumber21"><p>sha224(&apos;abc&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha224Test.mjs.html#lineNumber28"><p>sha224(&apos;abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha224Test.mjs.html#lineNumber35"><p>sha224(&apos;abcdefghbcdefghicdefghijdefghijkefghijklfghijklmghijklmnhijklmnoijklmnopjklmnopqklmnopqrlmnopqrsmnopqrstnopqrstu&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha224Test.mjs.html#lineNumber42"><p>sha224(&apos;01234567&apos; x 80)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha224Test.mjs.html#lineNumber53"><p>hash setState() getState()</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>Sha256#setState</span>
+<span>Sha256#getState</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span data-ice="testInterfaceToggle" class="toggle closed"></span><span><a href="test-file/test/hasher/sha256Test.mjs.html#lineNumber13"><p>Hash sha256 tests</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="class/src/hasher/sha256.mjs~Sha256.html">Sha256</a></span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha256Test.mjs.html#lineNumber14"><p>sha256(&apos;&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha256Test.mjs.html#lineNumber21"><p>sha256(&apos;abc&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha256Test.mjs.html#lineNumber28"><p>sha256(&apos;abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha256Test.mjs.html#lineNumber35"><p>sha256(&apos;abcdefghbcdefghicdefghijdefghijkefghijklfghijklmghijklmnhijklmnoijklmnopjklmnopqklmnopqrlmnopqrsmnopqrstnopqrstu&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha256Test.mjs.html#lineNumber42"><p>sha256(&apos;01234567&apos; x 80)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha256Test.mjs.html#lineNumber53"><p>hash setState() getState()</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>Sha256#setState</span>
+<span>Sha256#getState</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span data-ice="testInterfaceToggle" class="toggle closed"></span><span><a href="test-file/test/hasher/sha384Test.mjs.html#lineNumber13"><p>Hash sha384 tests</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="class/src/hasher/sha512.mjs~Sha512.html">Sha512</a></span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha384Test.mjs.html#lineNumber14"><p>sha384(&apos;&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha384Test.mjs.html#lineNumber21"><p>sha384(&apos;abc&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha384Test.mjs.html#lineNumber28"><p>sha384(&apos;abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha384Test.mjs.html#lineNumber35"><p>sha384(&apos;abcdefghbcdefghicdefghijdefghijkefghijklfghijklmghijklmnhijklmnoijklmnopjklmnopqklmnopqrlmnopqrsmnopqrstnopqrstu&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha384Test.mjs.html#lineNumber42"><p>sha384(&apos;01234567&apos; x 80)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha384Test.mjs.html#lineNumber53"><p>hash setState() getState()</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>Sha512#setState</span>
+<span>Sha512#getState</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span data-ice="testInterfaceToggle" class="toggle closed"></span><span><a href="test-file/test/hasher/sha512Test.mjs.html#lineNumber13"><p>Hash sha512 tests</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="class/src/hasher/sha512.mjs~Sha512.html">Sha512</a></span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha512Test.mjs.html#lineNumber14"><p>sha512(&apos;&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha512Test.mjs.html#lineNumber21"><p>sha512(&apos;abc&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha512Test.mjs.html#lineNumber28"><p>sha512(&apos;abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha512Test.mjs.html#lineNumber35"><p>sha512(&apos;abcdefghbcdefghicdefghijdefghijkefghijklfghijklmghijklmnhijklmnoijklmnopjklmnopqklmnopqrlmnopqrsmnopqrstnopqrstu&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha512Test.mjs.html#lineNumber42"><p>sha512(&apos;01234567&apos; x 80)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha512Test.mjs.html#lineNumber53"><p>hash setState() getState()</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>Sha512#setState</span>
+<span>Sha512#getState</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span data-ice="testInterfaceToggle" class="toggle closed"></span><span><a href="test-file/test/hasher/sha512_224Test.mjs.html#lineNumber13"><p>Hash sha512/224 tests</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="class/src/hasher/sha512.mjs~Sha512.html">Sha512</a></span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha512_224Test.mjs.html#lineNumber14"><p>sha512/224(&apos;&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha512_224Test.mjs.html#lineNumber21"><p>sha512/224(&apos;abc&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha512_224Test.mjs.html#lineNumber28"><p>sha512/224(&apos;abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha512_224Test.mjs.html#lineNumber35"><p>sha512/224(&apos;abcdefghbcdefghicdefghijdefghijkefghijklfghijklmghijklmnhijklmnoijklmnopjklmnopqklmnopqrlmnopqrsmnopqrstnopqrstu&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha512_224Test.mjs.html#lineNumber42"><p>sha512/224(&apos;01234567&apos; x 80)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha512_224Test.mjs.html#lineNumber53"><p>hash setState() getState()</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>Sha512#setState</span>
+<span>Sha512#getState</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span data-ice="testInterfaceToggle" class="toggle closed"></span><span><a href="test-file/test/hasher/sha512_256Test.mjs.html#lineNumber13"><p>Hash sha512/256 tests</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="class/src/hasher/sha512.mjs~Sha512.html">Sha512</a></span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha512_256Test.mjs.html#lineNumber14"><p>sha512/256(&apos;&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha512_256Test.mjs.html#lineNumber21"><p>sha512/256(&apos;abc&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha512_256Test.mjs.html#lineNumber28"><p>sha512/256(&apos;abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha512_256Test.mjs.html#lineNumber35"><p>sha512/256(&apos;abcdefghbcdefghicdefghijdefghijkefghijklfghijklmghijklmnhijklmnoijklmnopjklmnopqklmnopqrlmnopqrsmnopqrstnopqrstu&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha512_256Test.mjs.html#lineNumber42"><p>sha512/256(&apos;01234567&apos; x 80)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sha512_256Test.mjs.html#lineNumber53"><p>hash setState() getState()</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>Sha512#setState</span>
+<span>Sha512#getState</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span data-ice="testInterfaceToggle" class="toggle closed"></span><span><a href="test-file/test/hasher/sm3Test.mjs.html#lineNumber15"><p>Hash sm3 tests</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="class/src/hasher/sm3.mjs~Sm3.html">Sm3</a></span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sm3Test.mjs.html#lineNumber16"><p>sm3(&apos;&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sm3Test.mjs.html#lineNumber23"><p>sm3(&apos;a&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sm3Test.mjs.html#lineNumber30"><p>sm3(&apos;abc&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sm3Test.mjs.html#lineNumber37"><p>sm3(&apos;abcd&apos; x 16)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sm3Test.mjs.html#lineNumber44"><p>sm3(&apos;a..z&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sm3Test.mjs.html#lineNumber51"><p>sm3(&apos;abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/sm3Test.mjs.html#lineNumber62"><p>hash setState() getState()</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>Sm3#setState</span>
+<span>Sm3#getState</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span data-ice="testInterfaceToggle" class="toggle closed"></span><span><a href="test-file/test/hasher/snefru128_2Test.mjs.html#lineNumber14"><p>Hash snefru128/2 tests</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="class/src/hasher/snefru.mjs~Snefru.html">Snefru</a></span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru128_2Test.mjs.html#lineNumber15"><p>snefru128/2(&apos;&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru128_2Test.mjs.html#lineNumber22"><p>snefru128/2(0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru128_2Test.mjs.html#lineNumber29"><p>snefru128/2(&apos;1&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru128_2Test.mjs.html#lineNumber36"><p>snefru128/2(&apos;12&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru128_2Test.mjs.html#lineNumber43"><p>snefru128/2(&apos;123&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru128_2Test.mjs.html#lineNumber50"><p>snefru128/2(&apos;1234&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru128_2Test.mjs.html#lineNumber57"><p>snefru128/2(&apos;12345&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru128_2Test.mjs.html#lineNumber64"><p>snefru128/2(&apos;123456&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru128_2Test.mjs.html#lineNumber71"><p>snefru128/2(&apos;1234567&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru128_2Test.mjs.html#lineNumber78"><p>snefru128/2(&apos;12345678&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru128_2Test.mjs.html#lineNumber85"><p>snefru128/2(&apos;123456789&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru128_2Test.mjs.html#lineNumber92"><p>snefru128/2(&apos;The theory of quantum electrodynamics has now lasted for ....&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru128_2Test.mjs.html#lineNumber118"><p>hash setState() getState()</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>Snefru#setState</span>
+<span>Snefru#getState</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span data-ice="testInterfaceToggle" class="toggle closed"></span><span><a href="test-file/test/hasher/snefru128_8Test.mjs.html#lineNumber14"><p>Hash snefru128/8 tests</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="class/src/hasher/snefru.mjs~Snefru.html">Snefru</a></span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru128_8Test.mjs.html#lineNumber15"><p>snefru128/8(&apos;&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru128_8Test.mjs.html#lineNumber22"><p>snefru128/8(0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru128_8Test.mjs.html#lineNumber29"><p>snefru128/8(&apos;1&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru128_8Test.mjs.html#lineNumber36"><p>snefru128/8(&apos;12&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru128_8Test.mjs.html#lineNumber43"><p>snefru128/8(&apos;123&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru128_8Test.mjs.html#lineNumber50"><p>snefru128/8(&apos;1234&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru128_8Test.mjs.html#lineNumber57"><p>snefru128/8(&apos;12345&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru128_8Test.mjs.html#lineNumber64"><p>snefru128/8(&apos;123456&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru128_8Test.mjs.html#lineNumber71"><p>snefru128/8(&apos;1234567&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru128_8Test.mjs.html#lineNumber78"><p>snefru128/8(&apos;12345678&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru128_8Test.mjs.html#lineNumber85"><p>snefru128/8(&apos;123456789&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru128_8Test.mjs.html#lineNumber92"><p>snefru128/8(&apos;The theory of quantum electrodynamics has now lasted for ....&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru128_8Test.mjs.html#lineNumber118"><p>hash setState() getState()</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>Snefru#setState</span>
+<span>Snefru#getState</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span data-ice="testInterfaceToggle" class="toggle closed"></span><span><a href="test-file/test/hasher/snefru256_4Test.mjs.html#lineNumber14"><p>Hash snefru256/4 tests</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="class/src/hasher/snefru.mjs~Snefru.html">Snefru</a></span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru256_4Test.mjs.html#lineNumber15"><p>snefru256/4(&apos;&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru256_4Test.mjs.html#lineNumber22"><p>snefru256/4(0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru256_4Test.mjs.html#lineNumber29"><p>snefru256/4(&apos;1&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru256_4Test.mjs.html#lineNumber36"><p>snefru256/4(&apos;12&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru256_4Test.mjs.html#lineNumber43"><p>snefru256/4(&apos;123&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru256_4Test.mjs.html#lineNumber50"><p>snefru256/4(&apos;1234&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru256_4Test.mjs.html#lineNumber57"><p>snefru256/4(&apos;12345&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru256_4Test.mjs.html#lineNumber64"><p>snefru256/4(&apos;123456&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru256_4Test.mjs.html#lineNumber71"><p>snefru256/4(&apos;1234567&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru256_4Test.mjs.html#lineNumber78"><p>snefru256/4(&apos;12345678&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru256_4Test.mjs.html#lineNumber85"><p>snefru256/4(&apos;123456789&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru256_4Test.mjs.html#lineNumber92"><p>snefru256/4(&apos;The theory of quantum electrodynamics has now lasted for ....&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru256_4Test.mjs.html#lineNumber118"><p>hash setState() getState()</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>Snefru#setState</span>
+<span>Snefru#getState</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span data-ice="testInterfaceToggle" class="toggle closed"></span><span><a href="test-file/test/hasher/snefru256_8Test.mjs.html#lineNumber14"><p>Hash snefru256/8 tests</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="class/src/hasher/snefru.mjs~Snefru.html">Snefru</a></span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru256_8Test.mjs.html#lineNumber15"><p>snefru256/8(&apos;&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru256_8Test.mjs.html#lineNumber22"><p>snefru256/8(0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru256_8Test.mjs.html#lineNumber29"><p>snefru256/8(&apos;1&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru256_8Test.mjs.html#lineNumber36"><p>snefru256/8(&apos;12&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru256_8Test.mjs.html#lineNumber43"><p>snefru256/8(&apos;123&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru256_8Test.mjs.html#lineNumber50"><p>snefru256/8(&apos;1234&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru256_8Test.mjs.html#lineNumber57"><p>snefru256/8(&apos;12345&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru256_8Test.mjs.html#lineNumber64"><p>snefru256/8(&apos;123456&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru256_8Test.mjs.html#lineNumber71"><p>snefru256/8(&apos;1234567&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru256_8Test.mjs.html#lineNumber78"><p>snefru256/8(&apos;12345678&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru256_8Test.mjs.html#lineNumber85"><p>snefru256/8(&apos;123456789&apos; + 0x0a)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru256_8Test.mjs.html#lineNumber92"><p>snefru256/8(&apos;The theory of quantum electrodynamics has now lasted for ....&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/snefru256_8Test.mjs.html#lineNumber118"><p>hash setState() getState()</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>Snefru#setState</span>
+<span>Snefru#getState</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span data-ice="testInterfaceToggle" class="toggle closed"></span><span><a href="test-file/test/hasher/whirlpool-0Test.mjs.html#lineNumber13"><p>Hash whirlpool-0 tests</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="class/src/hasher/whirlpool.mjs~Whirlpool.html">Whirlpool</a></span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/whirlpool-0Test.mjs.html#lineNumber14"><p>whirlpool-0(&apos;&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/whirlpool-0Test.mjs.html#lineNumber21"><p>whirlpool-0(&apos;a&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/whirlpool-0Test.mjs.html#lineNumber28"><p>whirlpool-0(&apos;abc&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/whirlpool-0Test.mjs.html#lineNumber35"><p>whirlpool-0(&apos;message digest&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/whirlpool-0Test.mjs.html#lineNumber42"><p>whirlpool-0(&apos;a..z&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/whirlpool-0Test.mjs.html#lineNumber49"><p>whirlpool-0(&apos;A..Za..z0..9&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/whirlpool-0Test.mjs.html#lineNumber56"><p>whirlpool-0(&apos;1234567890&apos; x 8)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/whirlpool-0Test.mjs.html#lineNumber63"><p>whirlpool-0(&apos;The quick brown fox jumps over the lazy dog&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/whirlpool-0Test.mjs.html#lineNumber74"><p>hash setState() getState()</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>Whirlpool#setState</span>
+<span>Whirlpool#getState</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span data-ice="testInterfaceToggle" class="toggle closed"></span><span><a href="test-file/test/hasher/whirlpool-tTest.mjs.html#lineNumber13"><p>Hash whirlpool-t tests</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="class/src/hasher/whirlpool.mjs~Whirlpool.html">Whirlpool</a></span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/whirlpool-tTest.mjs.html#lineNumber14"><p>whirlpool-t(&apos;&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/whirlpool-tTest.mjs.html#lineNumber21"><p>whirlpool-t(&apos;a&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/whirlpool-tTest.mjs.html#lineNumber28"><p>whirlpool-t(&apos;abc&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/whirlpool-tTest.mjs.html#lineNumber35"><p>whirlpool-t(&apos;message digest&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/whirlpool-tTest.mjs.html#lineNumber42"><p>whirlpool-t(&apos;a..z&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/whirlpool-tTest.mjs.html#lineNumber49"><p>whirlpool-t(&apos;A..Za..z0..9&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/whirlpool-tTest.mjs.html#lineNumber56"><p>whirlpool-t(&apos;1234567890&apos; x 8)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/whirlpool-tTest.mjs.html#lineNumber63"><p>whirlpool-t(&apos;The quick brown fox jumps over the lazy dog&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/whirlpool-tTest.mjs.html#lineNumber74"><p>hash setState() getState()</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>Whirlpool#setState</span>
+<span>Whirlpool#getState</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span data-ice="testInterfaceToggle" class="toggle closed"></span><span><a href="test-file/test/hasher/whirlpoolTest.mjs.html#lineNumber13"><p>Hash whirlpool tests</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="class/src/hasher/whirlpool.mjs~Whirlpool.html">Whirlpool</a></span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/whirlpoolTest.mjs.html#lineNumber14"><p>whirlpool(&apos;&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/whirlpoolTest.mjs.html#lineNumber21"><p>whirlpool(&apos;a&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/whirlpoolTest.mjs.html#lineNumber28"><p>whirlpool(&apos;abc&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/whirlpoolTest.mjs.html#lineNumber35"><p>whirlpool(&apos;message digest&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/whirlpoolTest.mjs.html#lineNumber42"><p>whirlpool(&apos;a..z&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/whirlpoolTest.mjs.html#lineNumber49"><p>whirlpool(&apos;A..Za..z0..9&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/whirlpoolTest.mjs.html#lineNumber56"><p>whirlpool(&apos;1234567890&apos; x 8)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/whirlpoolTest.mjs.html#lineNumber63"><p>whirlpool(&apos;The quick brown fox jumps over the lazy dog&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/whirlpoolTest.mjs.html#lineNumber70"><p>whirlpool(&apos;abcdbcdecdefdefgefghfghighijhijk&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/whirlpoolTest.mjs.html#lineNumber77"><p>whirlpool(0x00 x 31)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/whirlpoolTest.mjs.html#lineNumber84"><p>whirlpool(0x00 x 32)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/whirlpoolTest.mjs.html#lineNumber91"><p>whirlpool(0x00 x 33)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/hasher/whirlpoolTest.mjs.html#lineNumber102"><p>hash setState() getState()</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span>Whirlpool#setState</span>
+<span>Whirlpool#getState</span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span data-ice="testInterfaceToggle" class="toggle closed"></span><span><a href="test-file/test/mac/hmac-has160Test.mjs.html#lineNumber17"><p>Hmac has160 tests</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="class/src/mac/hmac.mjs~Hmac.html">Hmac</a></span>
+<span><a href="class/src/hasher/has160.mjs~Has160.html">Has160</a></span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-has160Test.mjs.html#lineNumber18"><p>hmac-has160(&apos;Hi There&apos;, 0x0b x 20)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-has160Test.mjs.html#lineNumber26"><p>hmac-has160(&apos;what do ya want for nothing?&apos;, &apos;Jefe&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-has160Test.mjs.html#lineNumber34"><p>hmac-has160(0xdd x 50, 0xaa x 20)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-has160Test.mjs.html#lineNumber42"><p>hmac-has160(0xcd x 50, 0x0102030405060708090a0b0c0d0e0f10111213141516171819)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-has160Test.mjs.html#lineNumber50"><p>hmac-has160(&apos;Test With Truncation&apos;, 0x0c x 20)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-has160Test.mjs.html#lineNumber58"><p>hmac-has160(&apos;Test Using Larger Than Block-Size Key - Hash Key First&apos;, 0xaa x 80)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-has160Test.mjs.html#lineNumber66"><p>hmac-has160(&apos;Test Using Larger Than Block-Size Key and Larger Than One Block-Size Data&apos;, 0xaa x 80)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span data-ice="testInterfaceToggle" class="toggle closed"></span><span><a href="test-file/test/mac/hmac-md5Test.mjs.html#lineNumber17"><p>Hmac md5 tests</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="class/src/mac/hmac.mjs~Hmac.html">Hmac</a></span>
+<span><a href="class/src/hasher/md5.mjs~Md5.html">Md5</a></span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-md5Test.mjs.html#lineNumber18"><p>hmac-md5(&apos;Hi There&apos;, 0x0b x 16)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-md5Test.mjs.html#lineNumber26"><p>hmac-md5(&apos;what do ya want for nothing?&apos;, &apos;Jefe&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-md5Test.mjs.html#lineNumber34"><p>hmac-md5(0xdd x 50, 0xaa x 16)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-md5Test.mjs.html#lineNumber42"><p>hmac-md5(0xcd x 50, 0x0102030405060708090a0b0c0d0e0f10111213141516171819)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-md5Test.mjs.html#lineNumber50"><p>hmac-md5(&apos;Test With Truncation&apos;, 0x0c x 16)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-md5Test.mjs.html#lineNumber58"><p>hmac-md5(&apos;Test Using Larger Than Block-Size Key - Hash Key First&apos;, 0xaa x 80)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-md5Test.mjs.html#lineNumber66"><p>hmac-md5(&apos;Test Using Larger Than Block-Size Key and Larger Than One Block-Size Data&apos;, 0xaa x 80)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span data-ice="testInterfaceToggle" class="toggle closed"></span><span><a href="test-file/test/mac/hmac-sha1Test.mjs.html#lineNumber17"><p>Hmac sha1 tests</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="class/src/mac/hmac.mjs~Hmac.html">Hmac</a></span>
+<span><a href="class/src/hasher/sha1.mjs~Sha1.html">Sha1</a></span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha1Test.mjs.html#lineNumber18"><p>hmac-sha1(&apos;Hi There&apos;, 0x0b x 20)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha1Test.mjs.html#lineNumber26"><p>hmac-sha1(&apos;what do ya want for nothing?&apos;, &apos;Jefe&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha1Test.mjs.html#lineNumber34"><p>hmac-sha1(0xdd x 50, 0xaa x 20)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha1Test.mjs.html#lineNumber42"><p>hmac-sha1(0xcd x 50, 0x0102030405060708090a0b0c0d0e0f10111213141516171819)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha1Test.mjs.html#lineNumber50"><p>hmac-sha1(&apos;Test With Truncation&apos;, 0x0c x 20)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha1Test.mjs.html#lineNumber58"><p>hmac-sha1(&apos;Test Using Larger Than Block-Size Key - Hash Key First&apos;, 0xaa x 80)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha1Test.mjs.html#lineNumber66"><p>hmac-sha1(&apos;Test Using Larger Than Block-Size Key and Larger Than One Block-Size Data&apos;, 0xaa x 80)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span data-ice="testInterfaceToggle" class="toggle closed"></span><span><a href="test-file/test/mac/hmac-sha224Test.mjs.html#lineNumber17"><p>Hmac sha224 tests</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="class/src/mac/hmac.mjs~Hmac.html">Hmac</a></span>
+<span><a href="class/src/hasher/sha256.mjs~Sha256.html">Sha256</a></span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha224Test.mjs.html#lineNumber18"><p>hmac-sha224(&apos;Hi There&apos;, 0x0b x 20)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha224Test.mjs.html#lineNumber26"><p>hmac-sha224(&apos;what do ya want for nothing?&apos;, &apos;Jefe&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha224Test.mjs.html#lineNumber34"><p>hmac-sha224(0xdd x 50, 0xaa x 20)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha224Test.mjs.html#lineNumber42"><p>hmac-sha224(0xcd x 50, 0x0102030405060708090a0b0c0d0e0f10111213141516171819)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha224Test.mjs.html#lineNumber50"><p>hmac-sha224(&apos;Test With Truncation&apos;, 0x0c x 20)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha224Test.mjs.html#lineNumber58"><p>hmac-sha224(&apos;Test Using Larger Than Block-Size Key - Hash Key First&apos;, 0xaa x 131)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha224Test.mjs.html#lineNumber66"><p>hmac-sha224(&apos;This is a test using a larger than block-size key and a larger than block-size data. The key needs to be hashed before being used by the HMAC algorithm.&apos;, 0xaa x 131)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span data-ice="testInterfaceToggle" class="toggle closed"></span><span><a href="test-file/test/mac/hmac-sha256Test.mjs.html#lineNumber17"><p>Hmac sha256 tests</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="class/src/mac/hmac.mjs~Hmac.html">Hmac</a></span>
+<span><a href="class/src/hasher/sha256.mjs~Sha256.html">Sha256</a></span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha256Test.mjs.html#lineNumber18"><p>hmac-sha256(&apos;Hi There&apos;, 0x0b x 20)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha256Test.mjs.html#lineNumber26"><p>hmac-sha256(&apos;what do ya want for nothing?&apos;, &apos;Jefe&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha256Test.mjs.html#lineNumber34"><p>hmac-sha256(0xdd x 50, 0xaa x 20)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha256Test.mjs.html#lineNumber42"><p>hmac-sha256(0xcd x 50, 0x0102030405060708090a0b0c0d0e0f10111213141516171819)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha256Test.mjs.html#lineNumber50"><p>hmac-sha256(&apos;Test With Truncation&apos;, 0x0c x 20)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha256Test.mjs.html#lineNumber58"><p>hmac-sha256(&apos;Test Using Larger Than Block-Size Key - Hash Key First&apos;, 0xaa x 131)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha256Test.mjs.html#lineNumber66"><p>hmac-sha256(&apos;This is a test using a larger than block-size key and a larger than block-size data. The key needs to be hashed before being used by the HMAC algorithm.&apos;, 0xaa x 131)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span data-ice="testInterfaceToggle" class="toggle closed"></span><span><a href="test-file/test/mac/hmac-sha384Test.mjs.html#lineNumber17"><p>Hmac sha384 tests</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="class/src/mac/hmac.mjs~Hmac.html">Hmac</a></span>
+<span><a href="class/src/hasher/sha512.mjs~Sha512.html">Sha512</a></span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha384Test.mjs.html#lineNumber18"><p>hmac-sha384(&apos;Hi There&apos;, 0x0b x 20)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha384Test.mjs.html#lineNumber26"><p>hmac-sha384(&apos;what do ya want for nothing?&apos;, &apos;Jefe&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha384Test.mjs.html#lineNumber34"><p>hmac-sha384(0xdd x 50, 0xaa x 20)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha384Test.mjs.html#lineNumber42"><p>hmac-sha384(0xcd x 50, 0x0102030405060708090a0b0c0d0e0f10111213141516171819)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha384Test.mjs.html#lineNumber50"><p>hmac-sha384(&apos;Test With Truncation&apos;, 0x0c x 20)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha384Test.mjs.html#lineNumber58"><p>hmac-sha384(&apos;Test Using Larger Than Block-Size Key - Hash Key First&apos;, 0xaa x 131)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha384Test.mjs.html#lineNumber66"><p>hmac-sha384(&apos;This is a test using a larger than block-size key and a larger than block-size data. The key needs to be hashed before being used by the HMAC algorithm.&apos;, 0xaa x 131)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
+  <td data-ice="testDescription" style="padding-left: 10px"><span data-ice="testInterfaceToggle" class="toggle closed"></span><span><a href="test-file/test/mac/hmac-sha512Test.mjs.html#lineNumber17"><p>Hmac sha512 tests</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target"><span><a href="class/src/mac/hmac.mjs~Hmac.html">Hmac</a></span>
+<span><a href="class/src/hasher/sha512.mjs~Sha512.html">Sha512</a></span></td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha512Test.mjs.html#lineNumber18"><p>hmac-sha512(&apos;Hi There&apos;, 0x0b x 20)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha512Test.mjs.html#lineNumber26"><p>hmac-sha512(&apos;what do ya want for nothing?&apos;, &apos;Jefe&apos;)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha512Test.mjs.html#lineNumber34"><p>hmac-sha512(0xdd x 50, 0xaa x 20)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha512Test.mjs.html#lineNumber42"><p>hmac-sha512(0xcd x 50, 0x0102030405060708090a0b0c0d0e0f10111213141516171819)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha512Test.mjs.html#lineNumber50"><p>hmac-sha512(&apos;Test With Truncation&apos;, 0x0c x 20)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha512Test.mjs.html#lineNumber58"><p>hmac-sha512(&apos;Test Using Larger Than Block-Size Key - Hash Key First&apos;, 0xaa x 131)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+
+<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="1">
+  <td data-ice="testDescription" style="padding-left: 20px"><span><a href="test-file/test/mac/hmac-sha512Test.mjs.html#lineNumber66"><p>hmac-sha512(&apos;This is a test using a larger than block-size key and a larger than block-size data. The key needs to be hashed before being used by the HMAC algorithm.&apos;, 0xaa x 131)</p>
+</a></span></td>
+  <td data-ice="testTarget" class="test-target">-</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
