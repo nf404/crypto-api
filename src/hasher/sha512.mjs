@@ -197,10 +197,10 @@ class Sha512 extends Hasher32be {
           rotateRight64lo(this.W[i - 4], this.W[i - 3], 61) ^
           ((this.W[i - 3] >>> 6) | (this.W[i - 4] << 26));
 
-        let c1 = (this.W[i - 13] & 0xFFFF) + (this.W[i - 31] & 0xFFFF) + (s0l & 0xFFFF) + (s1l & 0xFFFF);
-        let c2 = (this.W[i - 13] >>> 16) + (this.W[i - 31] >>> 16) + (s0l >>> 16) + (s1l >>> 16) + (c1 >>> 16);
-        let c3 = (this.W[i - 14] & 0xFFFF) + (this.W[i - 32] & 0xFFFF) + (s0h & 0xFFFF) + (s1h & 0xFFFF) + (c2 >>> 16);
-        let c4 = (this.W[i - 14] >>> 16) + (this.W[i - 32] >>> 16) + (s0h >>> 16) + (s1h >>> 16) + (c3 >>> 16);
+        let c1 = ((this.W[i - 13] & 0xFFFF) + (this.W[i - 31] & 0xFFFF) + (s0l & 0xFFFF) + (s1l & 0xFFFF)) | 0;
+        let c2 = ((this.W[i - 13] >>> 16) + (this.W[i - 31] >>> 16) + (s0l >>> 16) + (s1l >>> 16) + (c1 >>> 16)) | 0;
+        let c3 = ((this.W[i - 14] & 0xFFFF) + (this.W[i - 32] & 0xFFFF) + (s0h & 0xFFFF) + (s1h & 0xFFFF) + (c2 >>> 16)) | 0;
+        let c4 = ((this.W[i - 14] >>> 16) + (this.W[i - 32] >>> 16) + (s0h >>> 16) + (s1h >>> 16) + (c3 >>> 16)) | 0;
 
         this.W[i] = ((c4 << 16) | (c3 & 0xFFFF)) & 0xFFFFFFFF;
         this.W[i + 1] = ((c2 << 16) | (c1 & 0xFFFF)) & 0xFFFFFFFF;
@@ -216,17 +216,17 @@ class Sha512 extends Hasher32be {
       let majh = (ah & bh) ^ (ah & ch) ^ (bh & ch);
       let majl = (al & bl) ^ (al & cl) ^ (bl & cl);
 
-      let t1l = hl + s1l;
-      let t1h = hh + s1h + ((t1l >>> 0) < (hl >>> 0) ? 1 : 0);
-      t1l = t1l + chl;
-      t1h = t1h + chh + ((t1l >>> 0) < (chl >>> 0) ? 1 : 0);
-      t1l = t1l + K[i + 1];
-      t1h = t1h + K[i] + ((t1l >>> 0) < (K[i + 1] >>> 0) ? 1 : 0);
-      t1l = t1l + this.W[i + 1];
-      t1h = t1h + this.W[i] + ((t1l >>> 0) < (this.W[i + 1] >>> 0) ? 1 : 0);
+      let t1l = (hl + s1l) | 0;
+      let t1h = (hh + s1h + ((t1l >>> 0) < (hl >>> 0) ? 1 : 0)) | 0;
+      t1l = (t1l + chl) | 0;
+      t1h = (t1h + chh + ((t1l >>> 0) < (chl >>> 0) ? 1 : 0)) | 0;
+      t1l = (t1l + K[i + 1]) | 0;
+      t1h = (t1h + K[i] + ((t1l >>> 0) < (K[i + 1] >>> 0) ? 1 : 0)) | 0;
+      t1l = (t1l + this.W[i + 1]) | 0;
+      t1h = (t1h + this.W[i] + ((t1l >>> 0) < (this.W[i + 1] >>> 0) ? 1 : 0)) | 0;
 
-      let t2l = s0l + majl;
-      let t2h = s0h + majh + ((t2l >>> 0) < (s0l >>> 0) ? 1 : 0);
+      let t2l = (s0l + majl) | 0;
+      let t2h = (s0h + majh + ((t2l >>> 0) < (s0l >>> 0) ? 1 : 0)) | 0;
 
       hh = gh;
       hl = gl;
