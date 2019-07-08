@@ -2,6 +2,8 @@
   - Add toBase64
   - Add fromArrayBuffer
   - Add support of SHA512/t hash
+  - Optimize hash padding
+  - Add SM3 hash
 * 0.8.3
   - Fix Whirlpool bug
   - Add compiled es5 version for nodejs

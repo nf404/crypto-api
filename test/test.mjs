@@ -23,6 +23,7 @@ import Snefru256_8Test from "./hasher/snefru256_8Test";
 import Whirlpool0Test from "./hasher/whirlpool-0Test";
 import WhirlpoolTTest from "./hasher/whirlpool-tTest";
 import WhirlpoolTest from "./hasher/whirlpoolTest";
+import Sm3Test from './hasher/sm3Test'
 
 import HmacHas160Test from "./mac/hmac-has160Test";
 import HmacMd5Test from "./mac/hmac-md5Test";
@@ -35,7 +36,6 @@ import HmacSha512Test from "./mac/hmac-sha512Test";
 import UtfTest from "./encoder/UtfTest";
 import Base64Test from "./encoder/Base64Test";
 import ArrayBufferTest from "./encoder/ArrayBufferTest";
-
 
 // Hash tests
 (new Has160Test()).test();
@@ -61,6 +61,7 @@ import ArrayBufferTest from "./encoder/ArrayBufferTest";
 (new Whirlpool0Test()).test();
 (new WhirlpoolTTest()).test();
 (new WhirlpoolTest()).test();
+(new Sm3Test()).test();
 
 // HMAC tests
 (new HmacHas160Test()).test();

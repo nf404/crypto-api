@@ -11,6 +11,7 @@ import Sha256 from "../src/hasher/sha256";
 import Sha512 from "../src/hasher/sha512";
 import Snefru from "../src/hasher/snefru";
 import Whirlpool from "../src/hasher/whirlpool";
+import Sm3 from "../src/hasher/sm3";
 import {fromUtf} from "../src/encoder/utf";
 import {toHex} from "../src/encoder/hex";
 
@@ -90,6 +91,11 @@ suite('Hash from simple string with HEX result', function (suite) {
     suite.whirlpool.update(fromUtf('xxx'));
     toHex(suite.whirlpool.finalize());
   });
+  bench('sm3', function () {
+    suite.sm3 = new Sm3();
+    suite.sm3.update(fromUtf('xxx'));
+    toHex(suite.sm3.finalize());
+  });
 });
 suite('Update', function (suite) {
   setup(function () {
@@ -108,6 +114,7 @@ suite('Update', function (suite) {
     suite.sha512 = new Sha512();
     suite.snefru = new Snefru();
     suite.whirlpool = new Whirlpool();
+    suite.sm3 = new Sm3();
   });
   bench('md2', function () {
     suite.md2.update(fromUtf('xxx'));
@@ -153,5 +160,8 @@ suite('Update', function (suite) {
   });
   bench('whirlpool', function () {
     suite.whirlpool.update(fromUtf('xxx'));
+  });
+  bench('sm3', function () {
+    suite.sm3.update(fromUtf('xxx'));
   });
 });

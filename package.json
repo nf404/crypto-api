@@ -104,6 +104,7 @@
     "whirlpool",
     "whirlpool-0",
     "whirlpool-t",
+    "sm3",
     "snefru",
     "hmac"
   ]
