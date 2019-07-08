@@ -1,3 +1,5 @@
+* 0.8.5
+  - This version for deployment to npm
 * 0.8.4
   - Add toBase64
   - Add fromArrayBuffer
