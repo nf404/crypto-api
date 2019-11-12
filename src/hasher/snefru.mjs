@@ -1,7 +1,7 @@
 'use strict';
 
-import Hasher32be from "./hasher32be";
-import {rotateRight} from "../tools/tools";
+import Hasher32be from "./hasher32be.mjs";
+import {rotateRight} from "../tools/tools.mjs";
 
 /**
  * The random table is the first part of the random digits from the book:

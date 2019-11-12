@@ -1,6 +1,6 @@
 'use strict';
 
-import Hasher from "./hasher";
+import Hasher from "./hasher.mjs";
 
 /**
  * Hasher for 8 bit blocks

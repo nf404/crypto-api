@@ -1,6 +1,6 @@
 'use strict';
-import {rotateRight64hi, rotateRight64lo} from "../tools/tools";
-import Hasher32be from "./hasher32be";
+import {rotateRight64hi, rotateRight64lo} from "../tools/tools.mjs";
+import Hasher32be from "./hasher32be.mjs";
 
 /** @type {number[]} */
 const SBOX = new Array(256);
