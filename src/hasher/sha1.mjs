@@ -1,7 +1,7 @@
 'use strict';
 
-import Hasher32be from "./hasher32be";
-import {rotateLeft} from "../tools/tools";
+import Hasher32be from "./hasher32be.mjs";
+import {rotateLeft} from "../tools/tools.mjs";
 
 // Transform constants
 /** @type {number[]} */

@@ -1,21 +1,21 @@
 'use strict';
 
-import Has160 from "./hasher/has160";
-import Md2 from "./hasher/md2";
-import Md4 from "./hasher/md4";
-import Md5 from "./hasher/md5";
-import Ripemd from "./hasher/ripemd";
-import Sha0 from "./hasher/sha0";
-import Sha1 from "./hasher/sha1";
-import Sha256 from "./hasher/sha256";
-import Sha512 from "./hasher/sha512";
-import Snefru from "./hasher/snefru";
-import Whirlpool from "./hasher/whirlpool";
-import {fromUtf} from "./encoder/utf";
-import {fromArrayBuffer} from "./encoder/array-buffer";
-import {toHex} from "./encoder/hex";
-import {toBase64} from "./encoder/base64";
-import Hmac from "./mac/hmac";
+import Has160 from "./hasher/has160.mjs";
+import Md2 from "./hasher/md2.mjs";
+import Md4 from "./hasher/md4.mjs";
+import Md5 from "./hasher/md5.mjs";
+import Ripemd from "./hasher/ripemd.mjs";
+import Sha0 from "./hasher/sha0.mjs";
+import Sha1 from "./hasher/sha1.mjs";
+import Sha256 from "./hasher/sha256.mjs";
+import Sha512 from "./hasher/sha512.mjs";
+import Snefru from "./hasher/snefru.mjs";
+import Whirlpool from "./hasher/whirlpool.mjs";
+import {fromUtf} from "./encoder/utf.mjs";
+import {fromArrayBuffer} from "./encoder/array-buffer.mjs";
+import {toHex} from "./encoder/hex.mjs";
+import {toBase64} from "./encoder/base64.mjs";
+import Hmac from "./mac/hmac.mjs";
 
 /**
  * Main class for ES5 compatibility.

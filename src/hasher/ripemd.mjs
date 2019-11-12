@@ -1,7 +1,7 @@
 'use strict';
 
-import Hasher32le from "./hasher32le";
-import {rotateLeft} from "../tools/tools";
+import Hasher32le from "./hasher32le.mjs";
+import {rotateLeft} from "../tools/tools.mjs";
 
 /** @type {number[]} */
 const ZL = [

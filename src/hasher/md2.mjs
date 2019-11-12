@@ -1,6 +1,6 @@
 'use strict';
 
-import Hasher8 from "./hasher8";
+import Hasher8 from "./hasher8.mjs";
 
 /**
  * Constants from Pi
